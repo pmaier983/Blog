@@ -1,0 +1,19 @@
+# dependencies
+/node_modules
+
+# testing
+/coverage
+/cypress/screenshots
+
+# production
+/build
+
+# secrets
+.env
+
+#debugging
+yarn-debug.log*
+yarn-error.log*
+
+# misc
+.DS_Store
