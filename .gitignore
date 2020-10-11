@@ -6,7 +6,7 @@
 /cypress/screenshots
 
 # production
-/build
+.next
 
 # secrets
 .env

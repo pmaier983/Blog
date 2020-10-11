@@ -1,11 +1,14 @@
 {
   "name": "blog",
+  "description": "Phillip Maier's personal blog/website",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "build": "docker build -t blog .",
+    "dev": "docker run -p 3000:3000 -v $INIT_CWD:/usr/src blog",
+    "dev:local": "next dev",
+    "build:local": "next build",
+    "start:local": "next start"
   },
   "dependencies": {
     "next": "9.5.4",
