@@ -11,9 +11,5 @@
 # secrets
 .env
 
-#debugging
-yarn-debug.log*
-yarn-error.log*
-
 # misc
 .DS_Store

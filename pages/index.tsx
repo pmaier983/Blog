@@ -1,7 +1,7 @@
-import Head from 'next/head'
-import Link from 'next/link'
+import Head from "next/head"
+import Link from "next/link"
 
-export default function Home() {
+const Home: React.FC = () => {
   return (
     <div>
       <Head>
@@ -9,7 +9,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1>Had to put a man on pause</h1>
-      <Link href="/blog"><a>Go To Blog</a></Link>
+      <Link href="/blog">
+        <a href="/blog">Go To Blog</a>
+      </Link>
     </div>
   )
 }
+
+export default Home

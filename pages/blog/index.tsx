@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react"
 
-const hello = () => {
-  return <p>"Hi"</p>
+const Hello: React.FC = () => {
+  return <p>Hi</p>
 }
 
-export default hello
+export default Hello
