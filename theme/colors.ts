@@ -1,3 +1,13 @@
-export const color = {
-  black: "0 0 0",
+// TODO: hex or rgb? with commas without commas?
+export const colors = {
+  black: "#000000",
+  white: "#FFFFFF",
+  lightBrown: "#7b705e",
+  brown: "#4C4338",
+  gitCommit0: "#EBEDF0",
+  gitCommit1: "#9AE9A8",
+  gitCommit2: "#41C364",
+  gitCommit3: "#31A14E",
+  gitCommit4: "#206E39",
+  oceanBlue: "#4C88DD",
 }
