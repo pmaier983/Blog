@@ -1,7 +1,5 @@
 // TODO: hex or rgb? with commas without commas?
 export const colors = {
-  black: "#000000",
-  white: "#FFFFFF",
   lightBrown: "#7b705e",
   brown: "#4C4338",
   gitCommit0: "#EBEDF0",
