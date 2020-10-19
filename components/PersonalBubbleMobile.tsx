@@ -42,7 +42,7 @@ export const PersonalBubbleMobile: React.FC = () => {
         popoutTransform="translate(70px, 0)"
         color={theme.colors.brown}
       >
-        <StyledWorldIcon src="RSWorld.png" />
+        <StyledWorldIcon src="Icons/RSWorld.png" />
       </LinkBubble2>
     </StyledContainer>
   )

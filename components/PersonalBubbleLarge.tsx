@@ -85,7 +85,7 @@ export const PersonalBubbleLarge: React.FC = () => {
           popoutText="Github"
           popoutTransform="translate(-55px, 0)"
         >
-          <StyledGithubIcon src="githubLogo.png" />
+          <StyledGithubIcon src="Icons/GithubLogo.png" />
         </LinkBubble>
       </a>
       <a href="https://www.linkedin.com/in/phillip-maier-3a4161102/">
@@ -96,7 +96,7 @@ export const PersonalBubbleLarge: React.FC = () => {
           popoutText="Linkedin"
           popoutTransform="translate(-55px, 0)"
         >
-          <StyledLinkedinIcon src="LinkedinLogo.png" />
+          <StyledLinkedinIcon src="Icons/LinkedinLogo.png" />
         </LinkBubble>
       </a>
       <a href="https://twitter.com/pmaier983">
@@ -107,7 +107,7 @@ export const PersonalBubbleLarge: React.FC = () => {
           popoutText="Twitter"
           popoutTransform="translate(-55px, 0)"
         >
-          <StyledTwitterIcon src="TwitterLogo.png" />
+          <StyledTwitterIcon src="Icons/TwitterLogo.png" />
         </LinkBubble>
       </a>
 
@@ -129,7 +129,7 @@ export const PersonalBubbleLarge: React.FC = () => {
         popoutTransform="translate(70px, 0)"
         color={theme.colors.brown}
       >
-        <StyledWorldIcon src="RSWorld.png" />
+        <StyledWorldIcon src="Icons/RSWorld.png" />
       </LinkBubble2>
     </StyledContainer>
   )

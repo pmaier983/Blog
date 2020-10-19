@@ -30,6 +30,10 @@ const StyledLinkedinIcon = styled.img`
   height: 20px;
 `
 
+const StyledTwitterIcon = styled.img`
+  height: 17px;
+`
+
 const StyledWorldIcon = styled.img`
   height: 38px;
 `
@@ -76,7 +80,7 @@ export const PersonalBubbleSmall: React.FC = () => {
           popoutText="Github"
           popoutTransform="translate(-45px, 0)"
         >
-          <StyledGithubIcon src="githubLogo.png" />
+          <StyledGithubIcon src="Icons/GithubLogo.png" />
         </LinkBubble>
       </a>
       <a href="https://www.linkedin.com/in/phillip-maier-3a4161102/">
@@ -87,7 +91,7 @@ export const PersonalBubbleSmall: React.FC = () => {
           popoutText="Linkedin"
           popoutTransform="translate(-45px, 0)"
         >
-          <StyledLinkedinIcon src="LinkedinLogo.png" />
+          <StyledLinkedinIcon src="Icons/LinkedinLogo.png" />
         </LinkBubble>
       </a>
       <a href="https://twitter.com/pmaier983">
@@ -98,7 +102,7 @@ export const PersonalBubbleSmall: React.FC = () => {
           popoutText="Twitter"
           popoutTransform="translate(-45px, 0)"
         >
-          <StyledLinkedinIcon src="TwitterLogo.png" />
+          <StyledTwitterIcon src="Icons/TwitterLogo.png" />
         </LinkBubble>
       </a>
       <LinkBubble
@@ -119,7 +123,7 @@ export const PersonalBubbleSmall: React.FC = () => {
         popoutTransform="translate(0, 38px)"
         color={theme.colors.brown}
       >
-        <StyledWorldIcon src="RSWorld.png" />
+        <StyledWorldIcon src="Icons/RSWorld.png" />
       </LinkBubble2>
     </StyledContainer>
   )
