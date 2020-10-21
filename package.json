@@ -14,9 +14,14 @@
   "dependencies": {
     "gray-matter": "^4.0.2",
     "lodash": "^4.17.20",
-    "next": "9.5.4",
+    "next": "^9.5.4",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-markdown": "^5.0.0",
+    "react-syntax-highlighter": "^15.2.1",
+    "react-typography": "^0.16.19",
+    "typography": "^0.16.19",
+    "typography-theme-github": "^0.16.19"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.11.5",
