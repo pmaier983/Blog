@@ -2,7 +2,7 @@ import React from "react"
 import _ from "lodash/fp"
 import styled from "styled-components"
 
-import { PostOutline } from "./pages/Blog/post-typings"
+import { PostOutline } from "./pages/Post/post-typings"
 
 const StyledContainer = styled.div`
   display: flex;

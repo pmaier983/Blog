@@ -42,6 +42,8 @@ export interface StyledIconProps {
 
 export const StyledIcon = styled.img<StyledIconProps>`
   height: ${({ size }) => size};
+  width: ${({ size }) => size};
+  max-width: ${({ size }) => size};
 `
 
 export const StyledColumnFlex = styled.div`

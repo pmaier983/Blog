@@ -32,9 +32,7 @@ const StyledNavList = styled.ul`
   margin: 0;
   padding: 10px;
   border-left: 4px solid ${({ theme }) => theme.colors.lightBrown};
-  /* border-top-left-radius: 20%;
-  border-bottom-left-radius: 20%; */
-  width: 50%;
+  width: 65%;
 `
 
 const StyledNavListItem = styled.li<StyledNavListProps>`
@@ -42,12 +40,6 @@ const StyledNavListItem = styled.li<StyledNavListProps>`
     color: ${isCurrentRoute ? theme.colors.gitCommit4 : "black"};
     cursor: ${isCurrentRoute ? "text" : "pointer"};
     text-decoration: ${isCurrentRoute ? "underline" : "none"};
-    :hover {
-      box-shadow: ${!isCurrentRoute && "0 0 0 2px black"};
-    }
-    :focus {
-      box-shadow: ${!isCurrentRoute && "0 0 0 2px black"};
-    }
   `}
   padding: 3px;
   border-radius: 5px;

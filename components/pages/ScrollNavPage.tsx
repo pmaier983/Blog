@@ -4,11 +4,7 @@ import { useMediaQuery } from "../hooks"
 
 import { NavBar, NavBarWidth } from "../NavBar"
 import { NavigationButton } from "../NavigationButton"
-
-const StyledContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-`
+import { StyledSimplePageContainer } from "../sharedStyles"
 
 const StyledScrollList = styled.div`
   width: calc(100% - ${NavBarWidth});
@@ -21,9 +17,9 @@ export const ScrollNavPage: React.FC = ({ children }) => {
   const theme = useContext(ThemeContext)
   const isMobile = useMediaQuery(theme.breakpoints.mobile)
   return (
-    <StyledContainer>
+    <StyledSimplePageContainer>
       <StyledScrollList>{children}</StyledScrollList>
       {isMobile ? <NavigationButton /> : <NavBar />}
-    </StyledContainer>
+    </StyledSimplePageContainer>
   )
 }

@@ -7,6 +7,17 @@ const StyledLink = styled.a`
   color: black;
   text-decoration: none;
   cursor: text;
+  outline: none;
+  :focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px black;
+    border-radius: 3px;
+  }
+  :hover {
+    outline: 0;
+    box-shadow: 0 0 0 2px black;
+    border-radius: 3px;
+  }
 `
 
 export interface StyledNavListProps {
