@@ -2,7 +2,6 @@ import React, { useContext } from "react"
 import Link from "next/link"
 import styled, { ThemeContext } from "styled-components"
 
-import { MaterialIcon } from "../../MaterialIcon"
 import { NavigationButton } from "../../NavigationButton"
 import { PersonalBubbleMobile } from "../../PersonalBubbleMobile"
 import { LinkBubbleBottom } from "../../LinkBubbleBottom"

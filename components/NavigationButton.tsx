@@ -81,7 +81,6 @@ const StyledNavListItem = styled.li<StyledNavListProps>`
   `}
   color: black;
   font-size: 30px;
-  margin-bottom: 25px;
   border-radius: 5px;
   padding: 10px;
   z-index: 11;
