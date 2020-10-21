@@ -106,8 +106,8 @@ export const PersonalBubbleLarge: React.FC = () => {
         top="78%"
         left="220px"
         diameter="50px"
-        popoutText="Boston"
-        popoutTransform="translate(70px, 0)"
+        popoutText="Boston (for now)"
+        popoutTransform="translate(100px, 0)"
         color={theme.colors.brown}
       >
         <StyledIcon src="/Icons/RSWorld.png" size="60px" />

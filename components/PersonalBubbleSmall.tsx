@@ -59,8 +59,8 @@ export const PersonalBubbleSmall: React.FC = () => {
       <a href="https://github.com/pmaier983" tabIndex={-1}>
         <LinkBubble
           diameter="30px"
-          top="49px"
-          left="-20px"
+          top="48px"
+          left="-18px"
           popoutText="Github"
           popoutTransform="translate(-65px, 0)"
         >
@@ -73,7 +73,7 @@ export const PersonalBubbleSmall: React.FC = () => {
       >
         <LinkBubble
           diameter="30px"
-          top="90px"
+          top="89px"
           left="-17px"
           popoutText="Linkedin"
           popoutTransform="translate(-65px, 0)"
@@ -84,8 +84,8 @@ export const PersonalBubbleSmall: React.FC = () => {
       <a href="https://twitter.com/pmaier983" tabIndex={-1}>
         <LinkBubble
           diameter="30px"
-          top="127px"
-          left="0px"
+          top="125px"
+          left="3px"
           popoutText="Twitter"
           popoutTransform="translate(-65px, 0)"
         >
@@ -94,8 +94,8 @@ export const PersonalBubbleSmall: React.FC = () => {
       </a>
       <LinkBubble
         diameter="30px"
-        top="154px"
-        left="31px"
+        top="150px"
+        left="35px"
         onClick={copyToClip}
         popoutText="Email Me"
         popoutTransform="translate(-65px, 0)"
@@ -104,10 +104,10 @@ export const PersonalBubbleSmall: React.FC = () => {
       </LinkBubble>
       <LinkBubble2
         diameter="30px"
-        top="130px"
+        top="125px"
         left="125px"
         popoutText={"Boston \n (for now)"}
-        popoutTransform="translate(-10px, 45px)"
+        popoutTransform="translate(-10px, 55px)"
         color={theme.colors.brown}
       >
         <StyledIcon src="/Icons/RSWorld.png" size="38px" />

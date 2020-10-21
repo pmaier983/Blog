@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 import styled, { ThemeContext } from "styled-components"
 
 import { LinkBubble2 } from "./LinkBubble2"
+import { StyledIcon } from "./sharedStyles"
 
 const StyledContainer = styled.div`
   position: absolute;
@@ -13,13 +14,6 @@ const StyledProfilePicture = styled.img`
   height: 200px;
   border-radius: 50%;
   border: 5px solid ${({ theme }) => theme.colors.lightBrown};
-`
-
-const StyledWorldIcon = styled.img`
-  height: 60px;
-  position: absolute;
-  left: -3px;
-  z-index: 1;
 `
 
 /* 
@@ -39,10 +33,10 @@ export const PersonalBubbleMobile: React.FC = () => {
         left="140px"
         diameter="50px"
         popoutText="Boston (for now)"
-        popoutTransform="translate(70px, 0)"
+        popoutTransform="translate(95px, 0)"
         color={theme.colors.brown}
       >
-        <StyledWorldIcon src="/Icons/RSWorld.png" />
+        <StyledIcon src="/Icons/RSWorld.png" size="60px" />
       </LinkBubble2>
     </StyledContainer>
   )
