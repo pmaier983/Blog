@@ -34,12 +34,6 @@ module.exports = {
   },
   plugins: ["react", "@typescript-eslint", "prettier"],
   settings: {
-    "import/resolver": {
-      node: {
-        extensions: [".ts", ".tsx"],
-        moduleDirectory: ["node_modules", "src/"],
-      },
-    },
     react: {
       version: "detect",
     },

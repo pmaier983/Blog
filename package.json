@@ -9,19 +9,30 @@
     "dev:local": "next dev",
     "build:local": "next build",
     "start:local": "next start",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
+    "lint": "eslint . --fix"
   },
   "dependencies": {
-    "next": "9.5.4",
+    "gray-matter": "^4.0.2",
+    "lodash": "^4.17.20",
+    "next": "^9.5.4",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-markdown": "^5.0.0",
+    "react-syntax-highlighter": "^15.2.1",
+    "react-typography": "^0.16.19",
+    "typography": "^0.16.19",
+    "typography-theme-github": "^0.16.19"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-typescript": "^7.10.4",
     "@types/node": "^14.11.8",
     "@types/react": "^16.9.52",
     "@types/react-dom": "^16.9.8",
+    "@types/styled-components": "^5.1.4",
     "@typescript-eslint/eslint-plugin": "^4.4.0",
     "@typescript-eslint/parser": "^4.4.0",
+    "babel-plugin-styled-components": "^1.11.1",
     "eslint": "^7.11.0",
     "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
@@ -31,6 +42,7 @@
     "husky": "^4.3.0",
     "lint-staged": "^10.4.0",
     "prettier": "^2.1.2",
+    "styled-components": "^5.2.0",
     "typescript": "^4.0.3"
   },
   "husky": {

@@ -1,19 +1,25 @@
+import React, { useContext } from "react"
 import Head from "next/head"
-import Link from "next/link"
+import { ThemeContext } from "styled-components"
 
-const Home: React.FC = () => {
+import { HomePageDesktop, HomePageMobile } from "../components/pages/Home"
+import { useMediaQuery } from "../components/hooks"
+
+/*
+  This File is more of a landing page "placeholder". It contains the head
+  and the logic to switch between my custom Mobile and Desktop landing page
+*/
+const HomePage: React.FC = () => {
+  const theme = useContext(ThemeContext)
+  const shouldUseMobile = useMediaQuery(theme.breakpoints.mobile)
   return (
-    <div>
+    <>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Phillip Maier&apos;s Site</title>
       </Head>
-      <h1>Had to put a man on pause</h1>
-      <Link href="/blog">
-        <a href="/blog">Go To Blog</a>
-      </Link>
-    </div>
+      {shouldUseMobile ? <HomePageMobile /> : <HomePageDesktop />}
+    </>
   )
 }
 
-export default Home
+export default HomePage
