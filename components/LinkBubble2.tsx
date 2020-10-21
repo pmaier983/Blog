@@ -11,7 +11,8 @@ interface StyledButtonContainerProps {
   onClick?: () => void
 }
 
-const StyledButtonContainer = styled.div<StyledButtonContainerProps>`
+const StyledButtonContainer = styled.button<StyledButtonContainerProps>`
+  all: unset;
   ${({ diameter, top, left, bottom, right, color, theme }) => css`
     height: ${diameter};
     width: ${diameter};
@@ -49,6 +50,14 @@ const StyledPopoutText = styled.span<StyledPopoutTextProps>`
   opacity: 0;
   color: black;
   ${StyledButtonContainer}:hover & {
+    opacity: 1;
+    /* 
+    For some baffling reason I need two identical files to get this transform to stop being overridden
+    My bet is something is wrong with how styled components assigns id's to the dom nodes
+    */
+    transform: ${({ popoutTransform }) => popoutTransform};
+  }
+  ${StyledButtonContainer}:focus & {
     opacity: 1;
     /* 
     For some baffling reason I need two identical files to get this transform to stop being overridden
