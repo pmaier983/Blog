@@ -4,7 +4,7 @@ import styled, { ThemeContext } from "styled-components"
 import { useAlertContext, ALERT_ACTIONS } from "./contexts/AlertProvider"
 import { LinkBubble } from "./LinkBubble"
 import { LinkBubble2 } from "./LinkBubble2"
-import { MaterialIcon } from "./MaterialIcon"
+import { StyledIcon } from "./sharedStyles"
 
 import { copyToClipboard } from "./utils/utils"
 
@@ -20,22 +20,6 @@ const StyledProfilePicture = styled.img`
   border-radius: 50%;
   max-width: 85%;
   border: 5px solid ${({ theme }) => theme.colors.lightBrown};
-`
-
-const StyledGithubIcon = styled.img`
-  height: 30px;
-`
-
-const StyledLinkedinIcon = styled.img`
-  height: 20px;
-`
-
-const StyledTwitterIcon = styled.img`
-  height: 17px;
-`
-
-const StyledWorldIcon = styled.img`
-  height: 38px;
 `
 
 const StyledHighlightedText = styled.a`
@@ -69,40 +53,43 @@ export const PersonalBubbleSmall: React.FC = () => {
   return (
     <StyledContainer>
       <StyledProfilePicture
-        src="PictureOfSelf.png"
+        src="/PictureOfSelf.png"
         alt="Picture of Phillip Maier standing with a background of green hills"
       />
-      <a href="https://github.com/pmaier983">
+      <a href="https://github.com/pmaier983" tabIndex={-1}>
         <LinkBubble
           diameter="30px"
           top="49px"
           left="-20px"
           popoutText="Github"
-          popoutTransform="translate(-45px, 0)"
+          popoutTransform="translate(-65px, 0)"
         >
-          <StyledGithubIcon src="Icons/GithubLogo.png" />
+          <StyledIcon src="/Icons/GithubLogo.png" size="30px" />
         </LinkBubble>
       </a>
-      <a href="https://www.linkedin.com/in/phillip-maier-3a4161102/">
+      <a
+        href="https://www.linkedin.com/in/phillip-maier-3a4161102/"
+        tabIndex={-1}
+      >
         <LinkBubble
           diameter="30px"
           top="90px"
           left="-17px"
           popoutText="Linkedin"
-          popoutTransform="translate(-45px, 0)"
+          popoutTransform="translate(-65px, 0)"
         >
-          <StyledLinkedinIcon src="Icons/LinkedinLogo.png" />
+          <StyledIcon src="/Icons/LinkedinLogo.png" size="20px" />
         </LinkBubble>
       </a>
-      <a href="https://twitter.com/pmaier983">
+      <a href="https://twitter.com/pmaier983" tabIndex={-1}>
         <LinkBubble
           diameter="30px"
           top="127px"
           left="0px"
           popoutText="Twitter"
-          popoutTransform="translate(-45px, 0)"
+          popoutTransform="translate(-65px, 0)"
         >
-          <StyledTwitterIcon src="Icons/TwitterLogo.png" />
+          <StyledIcon src="/Icons/TwitterLogo.png" size="17px" />
         </LinkBubble>
       </a>
       <LinkBubble
@@ -111,19 +98,19 @@ export const PersonalBubbleSmall: React.FC = () => {
         left="31px"
         onClick={copyToClip}
         popoutText="Email Me"
-        popoutTransform="translate(-45px, 0)"
+        popoutTransform="translate(-65px, 0)"
       >
-        <MaterialIcon name="email" />
+        <StyledIcon src="/Icons/email.png" size="24px" />
       </LinkBubble>
       <LinkBubble2
         diameter="30px"
         top="130px"
         left="125px"
-        popoutText="Boston (for now)"
-        popoutTransform="translate(0, 38px)"
+        popoutText={"Boston \n (for now)"}
+        popoutTransform="translate(-10px, 45px)"
         color={theme.colors.brown}
       >
-        <StyledWorldIcon src="Icons/RSWorld.png" />
+        <StyledIcon src="/Icons/RSWorld.png" size="38px" />
       </LinkBubble2>
     </StyledContainer>
   )

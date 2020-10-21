@@ -31,7 +31,7 @@ export const PersonalBubbleMobile: React.FC = () => {
   return (
     <StyledContainer>
       <StyledProfilePicture
-        src="PictureOfSelf.png"
+        src="/PictureOfSelf.png"
         alt="Picture of Phillip Maier standing with a background of green hills"
       />
       <LinkBubble2
@@ -42,7 +42,7 @@ export const PersonalBubbleMobile: React.FC = () => {
         popoutTransform="translate(70px, 0)"
         color={theme.colors.brown}
       >
-        <StyledWorldIcon src="Icons/RSWorld.png" />
+        <StyledWorldIcon src="/Icons/RSWorld.png" />
       </LinkBubble2>
     </StyledContainer>
   )
