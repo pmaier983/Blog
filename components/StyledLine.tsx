@@ -13,6 +13,7 @@ const StyledLineHorizontal = styled.div<StyledLine>`
   height: 0;
   margin-top: ${({ positioning }) => positioning === "top" && "10%"};
   margin-bottom: ${({ positioning }) => positioning === "bottom" && "10%"};
+  z-index: 2;
 `
 
 const StyledLineVertical = styled.div<StyledLine>`

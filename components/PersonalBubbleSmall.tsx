@@ -64,9 +64,14 @@ export const PersonalBubbleSmall: React.FC = () => {
           popoutText="Github"
           popoutTransform="translate(-65px, 0)"
         >
-          <StyledIcon src="/Icons/GithubLogo.png" size="30px" />
+          <StyledIcon
+            src="/Icons/GithubLogo.png"
+            alt="The Github Logo"
+            size="30px"
+          />
         </LinkBubble>
       </a>
+
       <a
         href="https://www.linkedin.com/in/phillip-maier-3a4161102/"
         tabIndex={-1}
@@ -78,7 +83,11 @@ export const PersonalBubbleSmall: React.FC = () => {
           popoutText="Linkedin"
           popoutTransform="translate(-65px, 0)"
         >
-          <StyledIcon src="/Icons/LinkedinLogo.png" size="20px" />
+          <StyledIcon
+            src="/Icons/LinkedinLogo.png"
+            alt="The Linkedin Logo Logo"
+            size="20px"
+          />
         </LinkBubble>
       </a>
       <a href="https://twitter.com/pmaier983" tabIndex={-1}>
@@ -89,7 +98,11 @@ export const PersonalBubbleSmall: React.FC = () => {
           popoutText="Twitter"
           popoutTransform="translate(-65px, 0)"
         >
-          <StyledIcon src="/Icons/TwitterLogo.png" size="17px" />
+          <StyledIcon
+            src="/Icons/TwitterLogo.png"
+            alt="The Twitter Logo"
+            size="17px"
+          />
         </LinkBubble>
       </a>
       <LinkBubble
@@ -100,7 +113,11 @@ export const PersonalBubbleSmall: React.FC = () => {
         popoutText="Email Me"
         popoutTransform="translate(-65px, 0)"
       >
-        <StyledIcon src="/Icons/email.png" size="24px" />
+        <StyledIcon
+          src="/Icons/email.png"
+          alt="An Icon of a letter"
+          size="24px"
+        />
       </LinkBubble>
       <LinkBubble2
         diameter="30px"
@@ -110,7 +127,11 @@ export const PersonalBubbleSmall: React.FC = () => {
         popoutTransform="translate(-10px, 55px)"
         color={theme.colors.brown}
       >
-        <StyledIcon src="/Icons/RSWorld.png" size="38px" />
+        <StyledIcon
+          src="/Icons/RSWorld.png"
+          alt="A small pixelated world Icon"
+          size="38px"
+        />
       </LinkBubble2>
     </StyledContainer>
   )

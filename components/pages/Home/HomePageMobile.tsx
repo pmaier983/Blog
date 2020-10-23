@@ -118,25 +118,41 @@ export const HomePageMobile: React.FC = () => {
       <StyledLinksContainer>
         <StyledATag href="https://www.linkedin.com/in/phillip-maier-3a4161102/">
           <LinkBubbleBottom diameter="50px" text="Github">
-            <StyledIcon src="/Icons/GithubLogo.png" size="52px" />
+            <StyledIcon
+              src="/Icons/GithubLogo.png"
+              alt="The Github Logo"
+              size="52px"
+            />
           </LinkBubbleBottom>
         </StyledATag>
         <StyledColumnPadding size="20px" />
         <StyledATag href="https://www.linkedin.com/in/phillip-maier-3a4161102/">
           <LinkBubbleBottom diameter="50px" text="Linkedin">
-            <StyledIcon size="30px" src="/Icons/LinkedinLogo.png" />
+            <StyledIcon
+              size="30px"
+              src="/Icons/LinkedinLogo.png"
+              alt="The Linkedin Logo Logo"
+            />
           </LinkBubbleBottom>
         </StyledATag>
         <StyledColumnPadding size="20px" />
         <StyledATag href="https://twitter.com/pmaier983">
           <LinkBubbleBottom diameter="50px" text="Twitter">
-            <StyledIcon size="30px" src="/Icons/TwitterLogo.png" />
+            <StyledIcon
+              size="30px"
+              src="/Icons/TwitterLogo.png"
+              alt="The Twitter Logo"
+            />
           </LinkBubbleBottom>
         </StyledATag>
         <StyledColumnPadding size="20px" />
         <StyledATag href="mailto:pmaier983@gmail.com">
           <LinkBubbleBottom diameter="50px" text="Email">
-            <StyledIcon size="37px" src="/Icons/email.png" />
+            <StyledIcon
+              size="37px"
+              src="/Icons/email.png"
+              alt="An Icon of a letter"
+            />
           </LinkBubbleBottom>
         </StyledATag>
       </StyledLinksContainer>

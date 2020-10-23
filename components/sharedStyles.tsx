@@ -1,3 +1,4 @@
+import React from "react"
 import styled from "styled-components"
 
 export const StyledSimplePageContainer = styled.div`
@@ -36,8 +37,13 @@ export const StyledColumnPadding = styled.div<StyledPaddingProps>`
   width: ${({ size }) => size};
 `
 
-export interface StyledIconProps {
+export interface StyledIconProps
+  extends React.DetailedHTMLProps<
+    React.ImgHTMLAttributes<HTMLImageElement>,
+    HTMLImageElement
+  > {
   size: string
+  alt: string
 }
 
 export const StyledIcon = styled.img<StyledIconProps>`

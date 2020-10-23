@@ -63,7 +63,11 @@ export const PersonalBubbleLarge: React.FC = () => {
           popoutText="Github"
           popoutTransform="translate(-65px, 0)"
         >
-          <StyledIcon src="/Icons/GithubLogo.png" size="52px" />
+          <StyledIcon
+            src="/Icons/GithubLogo.png"
+            alt="The Github Logo"
+            size="52px"
+          />
         </LinkBubble>
       </a>
       <a
@@ -77,7 +81,11 @@ export const PersonalBubbleLarge: React.FC = () => {
           popoutText="Linkedin"
           popoutTransform="translate(-65px, 0)"
         >
-          <StyledIcon src="/Icons/LinkedinLogo.png" size="30px" />
+          <StyledIcon
+            src="/Icons/LinkedinLogo.png"
+            alt="The Linkedin Logo Logo"
+            size="30px"
+          />
         </LinkBubble>
       </a>
       <a href="https://twitter.com/pmaier983" tabIndex={-1}>
@@ -88,7 +96,11 @@ export const PersonalBubbleLarge: React.FC = () => {
           popoutText="Twitter"
           popoutTransform="translate(-65px, 0)"
         >
-          <StyledIcon src="/Icons/TwitterLogo.png" size="25px" />
+          <StyledIcon
+            src="/Icons/TwitterLogo.png"
+            alt="The Twitter Logo"
+            size="25px"
+          />
         </LinkBubble>
       </a>
 
@@ -100,7 +112,11 @@ export const PersonalBubbleLarge: React.FC = () => {
         popoutTransform="translate(-65px, 0)"
         onClick={copyToClip}
       >
-        <StyledIcon src="/Icons/email.png" size="38px" />
+        <StyledIcon
+          src="/Icons/email.png"
+          alt="An Icon of a letter"
+          size="38px"
+        />
       </LinkBubble>
       <LinkBubble2
         top="78%"
@@ -110,7 +126,11 @@ export const PersonalBubbleLarge: React.FC = () => {
         popoutTransform="translate(100px, 0)"
         color={theme.colors.brown}
       >
-        <StyledIcon src="/Icons/RSWorld.png" size="60px" />
+        <StyledIcon
+          src="/Icons/RSWorld.png"
+          alt="A small pixelated world Icon"
+          size="60px"
+        />
       </LinkBubble2>
     </StyledContainer>
   )
