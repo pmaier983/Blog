@@ -36,16 +36,12 @@ const StyledRowPadding = styled.div<StyledPaddingProps>`
 `
 
 // TODO: Multiple Languages (and cycle through hello?)
-// TODO: Tab focus things
 // TODO: replace lodash/ make sure space is used effectively
 // TODO: go through advanced Next.js features
-// TODO: Proper HTML tags for a11y
 // TODO: switch to emotion (11 is arriving out soon!)
 // TODO: is React.FC best practice?
 // TODO: hand craft HEAD for links
 // TODO: comment all
-// TODO: merge as much as possible of te bubbles
-// TODO: multiple languages
 // TODO: Error page
 export const HomePageDesktop: React.FC = () => {
   return (
