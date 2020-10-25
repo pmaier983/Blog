@@ -10,7 +10,7 @@
     "build:local": "next build",
     "start:local": "next start",
     "export": "next export",
-    "deploy": "next export & aws s3 cp --recursive ./out s3://phillip-maier.com",
+    "deploy": "next build && next export && aws s3 cp --recursive ./out s3://phillipmaier.com",
     "lint": "eslint . --fix"
   },
   "dependencies": {
