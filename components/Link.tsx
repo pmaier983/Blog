@@ -10,7 +10,13 @@ import { LinkProps } from "next/link"
 */
 export const Link: React.FC<LinkProps> = ({ href, children, ...rest }) => (
   <NextLink
-    href={process.env.NODE_ENV === "production" ? `${href}.html` : href}
+    href={
+      process.env.NODE_ENV === "production"
+        ? href === "/"
+          ? "/"
+          : `${href}.html`
+        : href
+    }
     {...rest}
   >
     {children}
