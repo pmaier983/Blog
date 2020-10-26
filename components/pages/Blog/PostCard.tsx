@@ -1,6 +1,7 @@
 import React from "react"
-import Link from "next/link"
 import styled from "styled-components"
+import { paths } from "../../../paths"
+import { Link } from "../../Link"
 
 import { StyledLine } from "../../StyledLine"
 import { PostOutline } from "../Post/post-typings"
@@ -69,8 +70,8 @@ export const PostCard: React.FC<PostOutline> = ({
   frontMatter: { bannerDescription, bannerPath, title, description },
 }) => {
   return (
-    <Link href={`Post/${slug}`}>
-      <StyledATag href={`Post/${slug}`}>
+    <Link href={`${paths.post.path}/${slug}`}>
+      <StyledATag>
         <StyledImage src={bannerPath} alt={bannerDescription} />
         <StyledImageOverlay>
           <StyledTextContainer>

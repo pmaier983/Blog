@@ -1,7 +1,7 @@
 import React from "react"
-import Link from "next/link"
 import styled from "styled-components"
 import { useRouter } from "next/router"
+import { Link } from "./Link"
 
 const StyledLink = styled.a`
   color: black;

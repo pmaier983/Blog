@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import styled, { css } from "styled-components"
+import { paths } from "../paths"
 
 import { MaterialIcon } from "./MaterialIcon"
 import { NavListLink, StyledNavListProps } from "./NavListLink"
@@ -112,17 +113,29 @@ export const NavigationButton: React.FC = () => {
           <StyledArtisticCircleBottom />
           <StyledArtisticCircleTop />
           <StyledNavList>
-            <NavListLink href="/" NavListComponent={StyledNavListItem}>
-              Home
+            <NavListLink
+              href={paths.home.path}
+              NavListComponent={StyledNavListItem}
+            >
+              {paths.home.label}
             </NavListLink>
-            <NavListLink href="/Blog" NavListComponent={StyledNavListItem}>
-              Blog
+            <NavListLink
+              href={paths.blog.path}
+              NavListComponent={StyledNavListItem}
+            >
+              {paths.blog.label}
             </NavListLink>
-            <NavListLink href="/Projects" NavListComponent={StyledNavListItem}>
-              Projects
+            <NavListLink
+              href={paths.projects.path}
+              NavListComponent={StyledNavListItem}
+            >
+              {paths.projects.label}
             </NavListLink>
-            <NavListLink href="/About" NavListComponent={StyledNavListItem}>
-              About Me
+            <NavListLink
+              href={paths.about.path}
+              NavListComponent={StyledNavListItem}
+            >
+              {paths.about.label}
             </NavListLink>
           </StyledNavList>
         </StyledNavPopout>

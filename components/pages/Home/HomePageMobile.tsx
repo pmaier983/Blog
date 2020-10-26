@@ -1,5 +1,4 @@
 import React, { useContext } from "react"
-import Link from "next/link"
 import styled, { ThemeContext } from "styled-components"
 
 import { NavigationButton } from "../../NavigationButton"
@@ -13,6 +12,8 @@ import {
   StyledRowPadding,
   StyledIcon,
 } from "../../sharedStyles"
+import { Link } from "../../Link"
+import { paths } from "../../../paths"
 
 const StyledContainer = styled(StyledPageContainer)`
   display: flex;
@@ -90,26 +91,26 @@ export const HomePageMobile: React.FC = () => {
         engineer.
       </StyledIntroduction>
       <StyledGitBoxContainer>
-        <Link href="/Blog" passHref>
+        <Link href={paths.blog.path} passHref>
           <StyledLink>
             <LinkBox color={theme.colors.gitCommit3} size="80px">
-              Blog
+              {paths.blog.label}
             </LinkBox>
           </StyledLink>
         </Link>
         <StyledColumnPadding size="30px" />
-        <Link href="/Projects" passHref>
+        <Link href={paths.projects.path} passHref>
           <StyledLink>
             <LinkBox color={theme.colors.gitCommit2} size="80px">
-              Projects
+              {paths.projects.label}
             </LinkBox>
           </StyledLink>
         </Link>
         <StyledColumnPadding size="30px" />
-        <Link href="/About" passHref>
+        <Link href={paths.about.path} passHref>
           <StyledLink>
             <LinkBox color={theme.colors.gitCommit4} size="80px">
-              About Me
+              {paths.about.label}
             </LinkBox>
           </StyledLink>
         </Link>

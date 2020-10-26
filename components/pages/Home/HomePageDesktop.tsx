@@ -43,29 +43,27 @@ const StyledRowPadding = styled.div<StyledPaddingProps>`
 // TODO: hand craft HEAD for links
 // TODO: comment all
 // TODO: Error page
-export const HomePageDesktop: React.FC = () => {
-  return (
-    <StyledContainer>
-      <StyledProfileContainer>
-        <PersonalBubbleLarge />
-      </StyledProfileContainer>
-      <StyledRowPadding size="20px" />
-      <StyledIntroduction>
-        Hi
-        <span role="img" aria-label="hand waving">
-          &nbsp;👋&nbsp;
-        </span>
-        I&apos;m Phillip, I&apos;m a full-stack
-        <span
-          role="img"
-          aria-label="a stack of books referencing the word Fullstack"
-        >
-          &nbsp;📚&nbsp;
-        </span>
-        engineer.
-      </StyledIntroduction>
-      <GitLinkBoxes />
-      <ConfirmationPopup />
-    </StyledContainer>
-  )
-}
+export const HomePageDesktop: React.FC = () => (
+  <StyledContainer>
+    <StyledProfileContainer>
+      <PersonalBubbleLarge />
+    </StyledProfileContainer>
+    <StyledRowPadding size="20px" />
+    <StyledIntroduction>
+      Hi
+      <span role="img" aria-label="hand waving">
+        &nbsp;👋&nbsp;
+      </span>
+      I&apos;m Phillip, I&apos;m a full-stack
+      <span
+        role="img"
+        aria-label="a stack of books referencing the word Fullstack"
+      >
+        &nbsp;📚&nbsp;
+      </span>
+      engineer.
+    </StyledIntroduction>
+    <GitLinkBoxes />
+    <ConfirmationPopup />
+  </StyledContainer>
+)
