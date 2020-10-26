@@ -2,8 +2,6 @@ import React from "react"
 import _ from "lodash/fp"
 import styled from "styled-components"
 
-import { PostOutline } from "./pages/Post/post-typings"
-
 const StyledContainer = styled.div`
   display: flex;
   justify-content: space-around;
@@ -14,7 +12,10 @@ const StyledContainer = styled.div`
 
 interface CardGridWrapperProps {
   CardComponent: React.FC
-  cards: PostOutline[]
+  passPropsDirectly?: boolean
+  // TODO: fix this any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  cards: any[]
 }
 
 /*
@@ -22,10 +23,15 @@ interface CardGridWrapperProps {
 */
 export const CardGridWrapper: React.FC<CardGridWrapperProps> = ({
   CardComponent,
+  passPropsDirectly = false,
   cards,
 }) => {
-  const children = cards.map((card: PostOutline) => {
-    return <CardComponent {...card} key={_.get("slug", card)}></CardComponent>
+  const children = cards.map((card) => {
+    return passPropsDirectly ? (
+      <CardComponent key={card}>{card}</CardComponent>
+    ) : (
+      <CardComponent {...card} key={_.get("slug", card)} />
+    )
   })
   return <StyledContainer>{children}</StyledContainer>
 }

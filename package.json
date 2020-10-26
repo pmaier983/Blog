@@ -11,6 +11,7 @@
     "start:local": "next start",
     "export": "next export",
     "deploy": "next build && next export && aws s3 cp --recursive ./out s3://phillipmaier.com",
+    "clean": "rm -rf node_modules/ & rm -rf .next/ & rm -rf out/ & rm package-lock.json",
     "lint": "eslint . --fix"
   },
   "dependencies": {

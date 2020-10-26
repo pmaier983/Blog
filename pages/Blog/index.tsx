@@ -21,12 +21,12 @@ export const getStaticProps = async (): Promise<{
   }
 }> => {
   const files: string[] = fs.readdirSync(
-    `${process.cwd()}/components/pages/post/posts`
+    `${process.cwd()}/components/pages/Post/posts`
   )
 
   const posts = files.map((filename) => {
     const { data } = matter(
-      fs.readFileSync(`components/pages/post/posts/${filename}`).toString()
+      fs.readFileSync(`components/pages/Post/posts/${filename}`).toString()
     )
 
     return {

@@ -4,7 +4,8 @@ description: "At vero eos et accusamus et \n iusto odio dignissimos ducimus \n q
 date: "2020-04-16"
 author: Phillip Maier
 categories:
-  - idk
+  - Next.js
+  - React
 keywords:
   - idk
   - something

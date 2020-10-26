@@ -85,7 +85,7 @@ export const GitLinkBoxes: React.FC = () => {
         <Link href={paths.projects.path} passHref>
           <StyledLink>
             <LinkBox size={boxSize} color={theme.colors.gitCommit3}>
-              {paths.projects.path}
+              {paths.projects.label}
             </LinkBox>
           </StyledLink>
         </Link>

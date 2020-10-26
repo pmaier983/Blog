@@ -1,9 +1,12 @@
 ---
-title: Second Post
-description: "The Second post is the most \n memorable one."
+title: Third Post
+description: "Also a post"
 date: "2020-09-16"
 author: Phillip Maier
 categories:
+  - Next.js
+  - React
+  - context
   - ios
   - aws
   - DynamoDB
@@ -11,7 +14,7 @@ categories:
 keywords:
   - idk
   - something
-bannerPath: /PostPics/Cazenovia_Hay_Bales.jpeg
+bannerPath: /PostPics/Cat.jpeg
 bannerCredit: myself
 bannerDescription: asd
 ---
@@ -32,3 +35,5 @@ class Foo extends Component {
   }
 }
 ```
+
+![Cat](/PostPics/Cat.jpeg)
