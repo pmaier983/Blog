@@ -7,12 +7,12 @@ import { PostCard } from "./PostCard"
 
 import { PostOutline } from "../Post/post-typings"
 
-export const BlogPage: React.FC<{ posts: PostOutline[] }> = ({ posts }) => {
-  console.log("the posts:", posts)
-  return (
-    <ScrollNavPage>
-      <ConfirmationPopup />
-      <CardGridWrapper CardComponent={PostCard} cards={posts} />
-    </ScrollNavPage>
-  )
-}
+/*
+  A wrapper of the BlogPage that puts the confirmation Popup in place
+*/
+export const BlogPage: React.FC<{ posts: PostOutline[] }> = ({ posts }) => (
+  <ScrollNavPage>
+    <ConfirmationPopup />
+    <CardGridWrapper CardComponent={PostCard} cards={posts} />
+  </ScrollNavPage>
+)

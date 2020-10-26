@@ -46,6 +46,11 @@ const StyledColumnPadding = styled.div<StyledPaddingProps>`
 const boxPadding = "20px"
 const boxSize = "80px"
 
+/*
+  A series of boxes that either disappear on hover or contain a link to 
+  somewhere in the site
+  Built to resemble git commit history
+*/
 export const GitLinkBoxes: React.FC = () => {
   const theme = useContext(ThemeContext)
   return (

@@ -13,7 +13,7 @@ bannerCredit: myself
 bannerDescription: asd
 ---
 
-# Just a test for now
+## Just a test for now
 
 ```jsx
 class Foo extends Component {

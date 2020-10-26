@@ -1,5 +1,9 @@
 import { useState, useCallback, useEffect } from "react"
 
+/*
+  input desired max-width and this will return a boolean indicating if
+  the current page width is higher or lower
+*/
 export const useMediaQuery = (width: number): boolean => {
   const [targetReached, setTargetReached] = useState(false)
 

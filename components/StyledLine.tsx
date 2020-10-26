@@ -37,6 +37,12 @@ interface StyledLineProps {
   positioning?: "top" | "bottom"
 }
 
+/*
+  creates one of three lines:
+  1. a normal horizontal line
+  2. a horizontal line with an interruption (a vertical line) in the middle 
+  3. a horizontal line with a random number of interruptions spaced randomly
+*/
 export const StyledLine: React.FC<StyledLineProps> = ({
   interruption,
   randomInterruption,

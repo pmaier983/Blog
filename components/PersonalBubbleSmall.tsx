@@ -28,8 +28,7 @@ const StyledHighlightedText = styled.a`
 `
 
 /* 
-The personal bubble is a runescape-esque profile 
-with smaller links surrounding a profile picture
+  Nearly identical to the PersonalBubbleLarge, but scaled down in size.
 */
 export const PersonalBubbleSmall: React.FC = () => {
   const theme = useContext(ThemeContext)

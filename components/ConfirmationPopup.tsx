@@ -28,6 +28,10 @@ const StyledContainer = styled.span<StyledContainerProps>`
   border-radius: 5px;
 `
 
+/*
+  Popup at the bottom of the screen that stays visible for a couple seconds
+  currently (10/26/2020) used to alert of an email copied to clipboard
+*/
 export const ConfirmationPopup: React.FC = () => {
   const [{ text: confirmationText, visible }, dispatchAlert] = useAlertContext()
 

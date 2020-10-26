@@ -65,6 +65,10 @@ const StyledSummaryContainer = styled.p`
   margin: 0;
 `
 
+/*
+  Is a small Card Summary of a post: containing title and summary both.
+  It also has some visual flora in the form of lines and a background picture
+*/
 export const PostCard: React.FC<PostOutline> = ({
   slug,
   frontMatter: { bannerDescription, bannerPath, title, description },

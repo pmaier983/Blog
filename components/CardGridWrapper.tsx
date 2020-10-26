@@ -17,7 +17,9 @@ interface CardGridWrapperProps {
   cards: PostOutline[]
 }
 
-// input array of Components
+/*
+  Wraps a list of Cards that should respond to window size changes and wrap correspondingly 
+*/
 export const CardGridWrapper: React.FC<CardGridWrapperProps> = ({
   CardComponent,
   cards,

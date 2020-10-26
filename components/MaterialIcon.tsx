@@ -29,8 +29,8 @@ interface MaterialIconProps extends StyledIconProps {
 }
 
 /*
-MaterialIcon auto-completes the correct icon
-It may not be 100% necessary, tbd
+  MaterialIcon auto-completes the correct icon
+  It may not be 100% necessary, tbd
 */
 export const MaterialIcon: React.FC<MaterialIconProps> = ({
   name,
