@@ -51,6 +51,10 @@ const StyledBorderPadding = styled(StyledRowPadding)`
   border-bottom: 4px solid ${({ theme }) => theme.colors.lightBrown};
 `
 
+/*
+  A Simple NavBar components that resides on the right of the screen
+  when not on mobile.
+*/
 export const NavBar: React.FC = () => {
   return (
     <StyledContainer>
