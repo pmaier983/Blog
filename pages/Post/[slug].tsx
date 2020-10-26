@@ -32,7 +32,7 @@ export const getStaticPaths = async (): Promise<{
   fallback: boolean
 }> => {
   return {
-    paths: fs.readdirSync("components/pages/Post/posts").map((filename) => ({
+    paths: fs.readdirSync("components/pages/post/posts").map((filename) => ({
       params: {
         slug: filename.replace(".md", ""),
       },
@@ -47,12 +47,10 @@ export const getStaticProps = async ({
   props: PostRendererProps
 }> => {
   const markdownWithMetadata = fs
-    .readFileSync(path.join("components/pages/Post/posts", slug + ".md"))
+    .readFileSync(path.join("components/pages/post/posts", slug + ".md"))
     .toString()
 
   const { data, content } = matter(markdownWithMetadata)
-
-  console.log("what is this:?")
 
   return {
     props: {
