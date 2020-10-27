@@ -4,7 +4,7 @@ import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
 
-import { PostPage } from "../../components/pages/Blog/PostPage"
+import { MarkdownPage } from "../../components/MarkdownPage"
 import { Post } from "../../components/pages/Blog/post-typings"
 
 interface PostRendererProps {
@@ -17,7 +17,7 @@ const PostRenderer: React.FC<PostRendererProps> = (props) => (
     <Head>
       <title>Phillip Maier&apos;s Site</title>
     </Head>
-    <PostPage {...props} />
+    <MarkdownPage {...props} />
   </>
 )
 

@@ -2,10 +2,9 @@ import React from "react"
 import styled from "styled-components"
 import SyntaxHighlighter from "react-syntax-highlighter"
 import ReactMarkdown from "react-markdown/with-html"
-import style from "../../../theme/codeBlock"
+import style from "../theme/codeBlock"
 
-import { ScrollNavPage } from "../ScrollNavPage"
-import { Post } from "./post-typings"
+import { ScrollNavPage } from "./pages/ScrollNavPage"
 
 const StyledContainer = styled.div`
   padding: 40px;
@@ -27,9 +26,7 @@ const CodeBlock = ({ language, value }) => {
   )
 }
 
-export const PostPage: React.FC<{ content: string; frontMatter: Post }> = ({
-  content,
-}) => {
+export const MarkdownPage: React.FC<{ content: string }> = ({ content }) => {
   return (
     <ScrollNavPage>
       <StyledContainer>

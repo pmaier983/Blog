@@ -23,15 +23,13 @@ const StyledATag = styled.a`
   text-decoration: none;
   width: ${cardWidth};
   height: ${cardHeight};
+  border-radius: 3px;
+  outline: 0;
   :focus {
-    outline: 0;
     box-shadow: 0 0 0 4px ${({ theme }) => theme.colors.gitCommit2};
-    border-radius: 3px;
   }
   :hover {
-    outline: 0;
     box-shadow: 0 0 0 4px ${({ theme }) => theme.colors.gitCommit2};
-    border-radius: 3px;
   }
 `
 
