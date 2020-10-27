@@ -4,8 +4,8 @@ import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
 
-import { PostPage } from "../../components/pages/Post"
-import { Post } from "../../components/pages/Post/post-typings"
+import { PostPage } from "../../components/pages/Blog/PostPage"
+import { Post } from "../../components/pages/Blog/post-typings"
 
 interface PostRendererProps {
   content: string
@@ -32,7 +32,7 @@ export const getStaticPaths = async (): Promise<{
   fallback: boolean
 }> => {
   return {
-    paths: fs.readdirSync("components/pages/Post/posts").map((filename) => ({
+    paths: fs.readdirSync("components/pages/Blog/posts").map((filename) => ({
       params: {
         slug: filename.replace(".md", ""),
       },
@@ -47,7 +47,7 @@ export const getStaticProps = async ({
   props: PostRendererProps
 }> => {
   const markdownWithMetadata = fs
-    .readFileSync(path.join("components/pages/Post/posts", slug + ".md"))
+    .readFileSync(path.join("components/pages/Blog/posts", slug + ".md"))
     .toString()
 
   const { data, content } = matter(markdownWithMetadata)

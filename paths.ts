@@ -12,11 +12,7 @@ export const paths = {
     label: "About Me",
   },
   projects: {
-    path: "/projects",
+    path: "/project",
     label: "Projects",
-  },
-  post: {
-    path: "/post",
-    label: "Posts",
   },
 }

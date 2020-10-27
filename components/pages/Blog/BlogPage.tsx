@@ -5,7 +5,7 @@ import { ConfirmationPopup } from "../../ConfirmationPopup"
 import { ScrollNavPage } from "../ScrollNavPage"
 import { PostCard } from "./PostCard"
 
-import { PostOutline } from "../Post/post-typings"
+import { PostOutline } from "./post-typings"
 
 /*
   A wrapper of the BlogPage that puts the confirmation Popup in place

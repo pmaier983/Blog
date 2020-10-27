@@ -1,20 +1,28 @@
 import React from "react"
 import styled from "styled-components"
 import { paths } from "../../../paths"
+import { CardGridWrapper } from "../../CardGridWrapper"
+import { KeyCard } from "../../KeyCard"
 import { Link } from "../../Link"
 
 import { StyledLine } from "../../StyledLine"
-import { PostOutline } from "../Post/post-typings"
+import { PostOutline } from "./post-typings"
 
 const cardWidth = "285px"
 const cardHeight = "250px"
+
+const StyledContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 3%;
+  width: ${cardWidth};
+`
 
 const StyledATag = styled.a`
   color: black;
   text-decoration: none;
   width: ${cardWidth};
   height: ${cardHeight};
-  margin: 3%;
   :focus {
     outline: 0;
     box-shadow: 0 0 0 4px ${({ theme }) => theme.colors.gitCommit2};
@@ -71,25 +79,38 @@ const StyledSummaryContainer = styled.p`
 */
 export const PostCard: React.FC<PostOutline> = ({
   slug,
-  frontMatter: { bannerDescription, bannerPath, title, description },
+  frontMatter: {
+    bannerDescription,
+    bannerPath,
+    title,
+    description,
+    categories,
+  },
 }) => {
   return (
-    <Link href={`${paths.post.path}/${slug}`}>
-      <StyledATag>
-        <StyledImage src={bannerPath} alt={bannerDescription} />
-        <StyledImageOverlay>
-          <StyledTextContainer>
-            <StyledLine randomInterruption />
-            <StyledTitle>{title}</StyledTitle>
-            <StyledLine randomInterruption />
-          </StyledTextContainer>
-          <StyledTextContainer>
-            <StyledLine positioning="top" />
-            <StyledSummaryContainer>{description}</StyledSummaryContainer>
-            <StyledLine positioning="bottom" />
-          </StyledTextContainer>
-        </StyledImageOverlay>
-      </StyledATag>
-    </Link>
+    <StyledContainer>
+      <Link href={`${paths.blog.path}/${slug}`}>
+        <StyledATag tabIndex={0} href={`${paths.blog.path}/${slug}`}>
+          <StyledImage src={bannerPath} alt={bannerDescription} />
+          <StyledImageOverlay>
+            <StyledTextContainer>
+              <StyledLine randomInterruption />
+              <StyledTitle>{title}</StyledTitle>
+              <StyledLine randomInterruption />
+            </StyledTextContainer>
+            <StyledTextContainer>
+              <StyledLine positioning="top" />
+              <StyledSummaryContainer>{description}</StyledSummaryContainer>
+              <StyledLine positioning="bottom" />
+            </StyledTextContainer>
+          </StyledImageOverlay>
+        </StyledATag>
+      </Link>
+      <CardGridWrapper
+        cards={categories}
+        CardComponent={KeyCard}
+        passPropsDirectly
+      />
+    </StyledContainer>
   )
 }
