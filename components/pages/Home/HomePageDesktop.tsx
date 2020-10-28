@@ -43,6 +43,7 @@ const StyledRowPadding = styled.div<StyledPaddingProps>`
 // TODO: hand craft HEAD for links
 // TODO: comment all
 // TODO: Error page
+// TODO: Memoize and useCallback things
 export const HomePageDesktop: React.FC = () => (
   <StyledContainer>
     <StyledProfileContainer>

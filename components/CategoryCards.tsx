@@ -12,7 +12,7 @@ const StyledContainer = styled.div<StyledContainerProps>`
   padding: 3%;
   margin: 0;
   max-width: ${({ width }) => width};
-  height: 100%;
+  width: ${({ width }) => width};
 `
 
 const StyledCategory = styled.div`

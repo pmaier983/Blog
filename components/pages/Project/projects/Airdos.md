@@ -15,6 +15,7 @@ categories:
 keywords:
   - idk
   - something
+projectURL: https://airdos.net
 bannerPath: /PostPics/Airdos.png
 bannerHeight: 150
 bannerWidth: 200

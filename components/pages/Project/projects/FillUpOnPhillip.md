@@ -16,9 +16,10 @@ categories:
 keywords:
   - idk
   - something
+projectURL: https://phillip-maier.com
 bannerPath: /PostPics/FillUpOnPhillip.png
-bannerHeight: 200
-bannerWidth: 225
+bannerHeight: 160
+bannerWidth: 180
 bannerCredit: myself
 bannerDescription: asd
 ---
