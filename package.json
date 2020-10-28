@@ -17,8 +17,8 @@
   "dependencies": {
     "gray-matter": "^4.0.2",
     "lodash": "^4.17.20",
-    "next": "^9.5.4",
     "react": "16.13.1",
+    "next": "^10.0.0",
     "react-dom": "16.13.1",
     "react-markdown": "^5.0.0",
     "react-syntax-highlighter": "^15.2.1",
