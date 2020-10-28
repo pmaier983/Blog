@@ -155,7 +155,7 @@ export const ProjectCard: React.FC<ProjectOutline> = ({
   const theme = useContext(ThemeContext)
   return (
     <StyledContainer>
-      <Link href={`${paths.blog.path}/${slug}`} passHref>
+      <Link href={`${paths.project.path}/${slug}`} passHref>
         <StyledATag>
           <StyledCardContainer>
             <StyledRowPadding size="10px" />
