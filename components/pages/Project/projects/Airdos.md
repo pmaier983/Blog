@@ -1,24 +1,23 @@
 ---
-title: "Phillip-Maier.com"
-description: "My first personal website"
+title: "Airdos.net"
+description: "A social networking site for academics I half-built"
 date: "2020-04-16"
 author: Phillip Maier
 categories:
   - TypeScript
   - React
   - Apollo
-  - GraphQL
+  - REST
+  - MySQL
+  - lerna
+  - serverless
   - AWS Cloudfront
-  - react-grid-layout
-  - testing-library/react
-  - jest
-  - cypress
 keywords:
   - idk
   - something
-bannerPath: /PostPics/FillUpOnPhillip.png
-bannerHeight: 200
-bannerWidth: 225
+bannerPath: /PostPics/Airdos.png
+bannerHeight: 150
+bannerWidth: 200
 bannerCredit: myself
 bannerDescription: asd
 ---
