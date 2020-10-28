@@ -1,4 +1,5 @@
 import React, { useContext } from "react"
+import Image from "next/image"
 import styled, { ThemeContext } from "styled-components"
 
 import { NavigationButton } from "../../NavigationButton"
@@ -10,7 +11,6 @@ import {
   StyledPageContainer,
   StyledColumnPadding,
   StyledRowPadding,
-  StyledIcon,
 } from "../../sharedStyles"
 import { Link } from "../../Link"
 import { paths } from "../../../paths"
@@ -99,10 +99,10 @@ export const HomePageMobile: React.FC = () => {
           </StyledLink>
         </Link>
         <StyledColumnPadding size="30px" />
-        <Link href={paths.projects.path} passHref>
+        <Link href={paths.project.path} passHref>
           <StyledLink>
             <LinkBox color={theme.colors.gitCommit2} size="80px">
-              {paths.projects.label}
+              {paths.project.label}
             </LinkBox>
           </StyledLink>
         </Link>
@@ -119,40 +119,44 @@ export const HomePageMobile: React.FC = () => {
       <StyledLinksContainer>
         <StyledATag href="https://www.linkedin.com/in/phillip-maier-3a4161102/">
           <LinkBubbleBottom diameter="50px" text="Github">
-            <StyledIcon
+            <Image
               src="/Icons/GithubLogo.png"
               alt="The Github Logo"
-              size="52px"
+              height={52}
+              width={52}
             />
           </LinkBubbleBottom>
         </StyledATag>
         <StyledColumnPadding size="20px" />
         <StyledATag href="https://www.linkedin.com/in/phillip-maier-3a4161102/">
           <LinkBubbleBottom diameter="50px" text="Linkedin">
-            <StyledIcon
-              size="30px"
+            <Image
               src="/Icons/LinkedinLogo.png"
               alt="The Linkedin Logo Logo"
+              height={30}
+              width={30}
             />
           </LinkBubbleBottom>
         </StyledATag>
         <StyledColumnPadding size="20px" />
         <StyledATag href="https://twitter.com/pmaier983">
           <LinkBubbleBottom diameter="50px" text="Twitter">
-            <StyledIcon
-              size="30px"
+            <Image
               src="/Icons/TwitterLogo.png"
               alt="The Twitter Logo"
+              height={30}
+              width={30}
             />
           </LinkBubbleBottom>
         </StyledATag>
         <StyledColumnPadding size="20px" />
         <StyledATag href="mailto:pmaier983@gmail.com">
           <LinkBubbleBottom diameter="50px" text="Email">
-            <StyledIcon
-              size="37px"
+            <Image
               src="/Icons/email.png"
               alt="An Icon of a letter"
+              height={37}
+              width={37}
             />
           </LinkBubbleBottom>
         </StyledATag>

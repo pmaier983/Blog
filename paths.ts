@@ -11,7 +11,7 @@ export const paths = {
     path: "/about",
     label: "About Me",
   },
-  projects: {
+  project: {
     path: "/project",
     label: "Projects",
   },

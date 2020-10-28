@@ -1,28 +1,24 @@
+import Image from "next/image"
 import React from "react"
 import styled from "styled-components"
 import { paths } from "../../../paths"
-import { CardGridWrapper } from "../../CardGridWrapper"
-import { KeyCard } from "../../KeyCard"
+import { CategoryCards } from "../../CategoryCards"
 import { Link } from "../../Link"
 
 import { StyledLine } from "../../StyledLine"
 import { PostOutline } from "./post-typings"
 
-const cardWidth = "285px"
-const cardHeight = "250px"
-
 const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 3%;
-  width: ${cardWidth};
+  width: 285;
 `
 
 const StyledATag = styled.a`
   color: black;
   text-decoration: none;
-  width: ${cardWidth};
-  height: ${cardHeight};
+  width: 285;
+  height: 250;
   border-radius: 3px;
   outline: 0;
   :focus {
@@ -33,10 +29,11 @@ const StyledATag = styled.a`
   }
 `
 
-const StyledImage = styled.img`
+const StyledImageContainer = styled.div`
   position: absolute;
-  width: ${cardWidth};
-  height: ${cardHeight};
+`
+
+const StyledImage = styled(Image)`
   border-radius: 5px;
 `
 
@@ -44,8 +41,8 @@ const StyledImageOverlay = styled.div`
   position: absolute;
   display: flex;
   flex-direction: column;
-  width: ${cardWidth};
-  height: ${cardHeight};
+  width: 285;
+  height: 250;
 `
 
 const StyledTextContainer = styled.div`
@@ -89,7 +86,14 @@ export const PostCard: React.FC<PostOutline> = ({
     <StyledContainer>
       <Link href={`${paths.blog.path}/${slug}`}>
         <StyledATag tabIndex={0} href={`${paths.blog.path}/${slug}`}>
-          <StyledImage src={bannerPath} alt={bannerDescription} />
+          <StyledImageContainer>
+            <StyledImage
+              src={bannerPath}
+              alt={bannerDescription}
+              height={250}
+              width={285}
+            />
+          </StyledImageContainer>
           <StyledImageOverlay>
             <StyledTextContainer>
               <StyledLine randomInterruption />
@@ -104,11 +108,7 @@ export const PostCard: React.FC<PostOutline> = ({
           </StyledImageOverlay>
         </StyledATag>
       </Link>
-      <CardGridWrapper
-        cards={categories}
-        CardComponent={KeyCard}
-        passPropsDirectly
-      />
+      <CategoryCards cards={categories} />
     </StyledContainer>
   )
 }

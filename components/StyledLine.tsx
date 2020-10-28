@@ -31,10 +31,9 @@ const StyledLineContainer = styled.div`
   height: 100%;
 `
 
-interface StyledLineProps {
+interface StyledLineProps extends StyledLine {
   interruption?: boolean
   randomInterruption?: boolean
-  positioning?: "top" | "bottom"
 }
 
 /*

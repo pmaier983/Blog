@@ -1,4 +1,5 @@
 import React from "react"
+import Image from "next/image"
 import styled from "styled-components"
 
 export const StyledSimplePageContainer = styled.div`
@@ -45,12 +46,6 @@ export interface StyledIconProps
   size: string
   alt: string
 }
-
-export const StyledIcon = styled.img<StyledIconProps>`
-  height: ${({ size }) => size};
-  width: ${({ size }) => size};
-  max-width: ${({ size }) => size};
-`
 
 export const StyledColumnFlex = styled.div`
   display: flex;

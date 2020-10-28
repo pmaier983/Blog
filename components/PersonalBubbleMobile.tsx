@@ -1,4 +1,5 @@
 import React from "react"
+import Image from "next/image"
 import styled from "styled-components"
 
 const StyledContainer = styled.div`
@@ -7,8 +8,7 @@ const StyledContainer = styled.div`
   width: 200px;
 `
 
-const StyledProfilePicture = styled.img`
-  height: 200px;
+const StyledProfilePicture = styled(Image)`
   border-radius: 50%;
   border: 5px solid ${({ theme }) => theme.colors.lightBrown};
 `
@@ -24,11 +24,13 @@ const StyledIconBackground = styled.div`
   height: 55px;
 `
 
-const StyledRSIcon = styled.img`
+const StyledIconContainer = styled.div`
   position: absolute;
   bottom: 0;
   right: 0;
-  height: 55px;
+`
+
+const StyledIcon = styled(Image)`
   z-index: 1;
 `
 
@@ -50,11 +52,17 @@ export const PersonalBubbleMobile: React.FC = () => {
       <StyledProfilePicture
         src="/PictureOfSelf.png"
         alt="Picture of Phillip Maier standing with a background of green hills"
+        height={200}
+        width={200}
       />
-      <StyledRSIcon
-        src="/Icons/RSWorld.png"
-        alt="A small pixelated world Icon"
-      />
+      <StyledIconContainer>
+        <StyledIcon
+          src="/Icons/RSWorld.png"
+          alt="A small pixelated world Icon"
+          height={55}
+          width={55}
+        />
+      </StyledIconContainer>
       <StyledIconBackground />
       <StyledText>
         Boston <br />

@@ -76,10 +76,10 @@ export const NavBar: React.FC = () => {
           {paths.blog.label}
         </NavListLink>
         <NavListLink
-          href={paths.projects.path}
+          href={paths.project.path}
           NavListComponent={StyledNavListItem}
         >
-          {paths.projects.label}
+          {paths.project.label}
         </NavListLink>
         <NavListLink
           href={paths.about.path}
