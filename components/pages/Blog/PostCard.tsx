@@ -11,7 +11,7 @@ import { Link } from "../../Link"
 
 const borderRadius = 4
 const cardHeight = 250
-const cardWidth = 285
+const cardWidth = 280
 
 const StyledContainer = styled.div`
   display: flex;

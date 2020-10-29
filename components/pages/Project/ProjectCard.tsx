@@ -13,7 +13,7 @@ import { MaterialIcon } from "../../MaterialIcon"
 
 const borderRadius = 4
 const cardHeight = 325
-const cardWidth = 285
+const cardWidth = 280
 
 const StyledContainer = styled.div`
   display: flex;

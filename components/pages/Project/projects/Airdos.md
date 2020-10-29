@@ -1,7 +1,7 @@
 ---
 title: "Airdos.net"
 description: "A social networking site for academics I half-built"
-date: "2020-04-16"
+date: "2019-04-09"
 author: Phillip Maier
 categories:
   - TypeScript

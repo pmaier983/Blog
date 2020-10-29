@@ -1,15 +1,20 @@
 ---
-title: "The first post is the most memorable one"
-description: "At vero eos et accusamus et \n iusto odio dignissimos ducimus \n qui blanditiis praesentium \n voluptatum deleniti atque."
-date: "2018-04-16"
+title: "PhillipMaier.com"
+description: "My Second personal website"
+date: "2020-04-16"
 author: Phillip Maier
 categories:
-  - Next.js
+  - TypeScript
   - React
+  - Next.js
+  - AWS Cloudfront
 keywords:
   - idk
   - something
-bannerPath: /PostPics/Cazenovia_Hay_Bales.png
+projectURL: https://phillipmaier.com
+bannerPath: /PostPics/PhillipMaier.png
+bannerHeight: 160
+bannerWidth: 150
 bannerCredit: myself
 bannerDescription: asd
 ---
