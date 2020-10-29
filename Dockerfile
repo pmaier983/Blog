@@ -7,6 +7,6 @@ RUN npm i
 
 RUN ls
 
-RUN npm run build:local
+RUN npm run build
 EXPOSE 3000
-CMD npm run dev:local
+CMD npm run dev
