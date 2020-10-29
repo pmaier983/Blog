@@ -60,7 +60,7 @@ export const PersonalBubbleSmall: React.FC = () => {
         <LinkBubble
           diameter="30px"
           top="48px"
-          left="-18px"
+          left="-29px"
           popoutText="Github"
           popoutTransform="translate(-65px, 0)"
         >
@@ -80,7 +80,7 @@ export const PersonalBubbleSmall: React.FC = () => {
         <LinkBubble
           diameter="30px"
           top="89px"
-          left="-17px"
+          left="-27px"
           popoutText="Linkedin"
           popoutTransform="translate(-65px, 0)"
         >
@@ -96,7 +96,7 @@ export const PersonalBubbleSmall: React.FC = () => {
         <LinkBubble
           diameter="30px"
           top="125px"
-          left="3px"
+          left="-9px"
           popoutText="Twitter"
           popoutTransform="translate(-65px, 0)"
         >
@@ -111,7 +111,7 @@ export const PersonalBubbleSmall: React.FC = () => {
       <LinkBubble
         diameter="30px"
         top="150px"
-        left="35px"
+        left="22px"
         onClick={copyToClip}
         popoutText="Email Me"
         popoutTransform="translate(-65px, 0)"

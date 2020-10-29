@@ -16,12 +16,12 @@ const StyledContainer = styled.div<StyledContainerProps>`
 `
 
 const StyledCategory = styled.div`
-  padding: 0 5px;
+  padding: 0 2px;
   border: 2px solid ${({ theme }) => theme.colors.brown};
   color: ${({ theme }) => theme.colors.brown};
   border-radius: 5px;
-  margin: 3px;
-  font-size: 14px;
+  margin: 1px;
+  font-size: 12px;
 `
 
 interface CategoryCardsProps extends StyledContainerProps {

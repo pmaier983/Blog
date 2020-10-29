@@ -26,7 +26,8 @@ export const CardGridWrapper: React.FC<CardGridWrapperProps> = ({
   passPropsDirectly = false,
   cards,
 }) => {
-  const children = cards.map((card) => {
+  const sortedCards = _.sortBy("frontMatter.date", cards).reverse()
+  const children = sortedCards.map((card) => {
     return passPropsDirectly ? (
       <CardComponent key={card}>{card}</CardComponent>
     ) : (

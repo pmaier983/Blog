@@ -77,8 +77,8 @@ export const PersonalBubbleLarge: React.FC = () => {
         tabIndex={-1}
       >
         <LinkBubble
-          top="50%"
-          left="-50px"
+          top="138px"
+          left="-43px"
           diameter="50px"
           popoutText="Linkedin"
           popoutTransform="translate(-65px, 0)"
@@ -94,7 +94,7 @@ export const PersonalBubbleLarge: React.FC = () => {
       <a href="https://twitter.com/pmaier983" tabIndex={-1}>
         <LinkBubble
           top="70.5%"
-          left="-30px"
+          left="-20px"
           diameter="50px"
           popoutText="Twitter"
           popoutTransform="translate(-65px, 0)"
@@ -110,7 +110,7 @@ export const PersonalBubbleLarge: React.FC = () => {
 
       <LinkBubble
         top="87%"
-        left="10px"
+        left="20px"
         diameter="50px"
         popoutText="Email"
         popoutTransform="translate(-65px, 0)"
@@ -125,7 +125,7 @@ export const PersonalBubbleLarge: React.FC = () => {
       </LinkBubble>
       <LinkBubble2
         top="78%"
-        left="220px"
+        right="10px"
         diameter="50px"
         popoutText="Boston (for now)"
         popoutTransform="translate(100px, 0)"
