@@ -131,7 +131,7 @@ export const HomePageMobile: React.FC = () => {
         <StyledATag href="https://www.linkedin.com/in/phillip-maier-3a4161102/">
           <LinkBubbleBottom diameter="50px" text="Linkedin">
             <Image
-              src="/Icons/LinkedinLogo.png"
+              src="/Icons/LinkedinIcon.png"
               alt="The Linkedin Logo Logo"
               height={30}
               width={30}

@@ -84,7 +84,7 @@ export const PersonalBubbleLarge: React.FC = () => {
           popoutTransform="translate(-65px, 0)"
         >
           <Image
-            src="/Icons/LinkedinLogo.png"
+            src="/Icons/LinkedinIcon.png"
             alt="The Linkedin Logo Logo"
             height={30}
             width={30}
