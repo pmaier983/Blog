@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import styled, { ThemeContext } from "styled-components"
 
 import { NavigationButton } from "../../NavigationButton"
@@ -12,7 +13,6 @@ import {
   StyledColumnPadding,
   StyledRowPadding,
 } from "../../sharedStyles"
-import { Link } from "../../Link"
 import { paths } from "../../../paths"
 
 const StyledContainer = styled(StyledPageContainer)`

@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { default as NextLink } from "next/link"
 import styled, { ThemeContext } from "styled-components"
 import { paths } from "../../../paths"
@@ -8,7 +9,6 @@ import { CategoryCards } from "../../CategoryCards"
 import { ProjectOutline } from "./project-typings"
 import { Line } from "../../Line"
 import { StyledColumnPadding, StyledRowPadding } from "../../sharedStyles"
-import { Link } from "../../Link"
 import { MaterialIcon } from "../../MaterialIcon"
 
 const borderRadius = 4

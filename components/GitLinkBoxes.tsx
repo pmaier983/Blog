@@ -1,9 +1,9 @@
 import React, { useContext } from "react"
+import Link from "next/link"
 import styled, { ThemeContext } from "styled-components"
 
 import { LinkBox } from "../components/LinkBox"
 import { paths } from "../paths"
-import { Link } from "./Link"
 
 const StyledLinkBoxContainer = styled.div`
   height: 40%;

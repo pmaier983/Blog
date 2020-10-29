@@ -1,5 +1,6 @@
 import React from "react"
 import Image from "next/image"
+import Link from "next/link"
 import styled from "styled-components"
 import { paths } from "../../../paths"
 import { CategoryCards } from "../../CategoryCards"
@@ -7,7 +8,6 @@ import { CategoryCards } from "../../CategoryCards"
 import { PostOutline } from "./post-typings"
 import { Line } from "../../Line"
 import { StyledRowPadding } from "../../sharedStyles"
-import { Link } from "../../Link"
 
 const borderRadius = 4
 const cardHeight = 250
