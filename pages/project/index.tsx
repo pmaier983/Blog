@@ -6,7 +6,7 @@ import Head from "next/head"
 import { ProjectsPage } from "../../components/pages/Project/ProjectsPage"
 import { ProjectOutline } from "../../components/pages/Project/project-typings"
 
-const BlogRenderer: React.FC<{ projects: ProjectOutline[] }> = ({
+const ProjectRenderer: React.FC<{ projects: ProjectOutline[] }> = ({
   projects,
 }) => (
   <>
@@ -46,4 +46,4 @@ export const getStaticProps = async (): Promise<{
   }
 }
 
-export default BlogRenderer
+export default ProjectRenderer
