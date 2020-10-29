@@ -40,18 +40,18 @@ const StyledPopoutText = styled.span<StyledPopoutTextProps>`
   position: absolute;
   display: flex;
   text-align: center;
-  transition: 0.5s ease-in-out;
+  transition: 0.5s;
   background-color: white;
   box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.lightBrown};
   padding: 3px;
   border-radius: 5px;
   white-space: pre;
   font-size: 14px;
-  visibility: 0;
+  visibility: hidden;
   opacity: 0;
   color: black;
   ${StyledButtonContainer}:hover & {
-    visibility: 1;
+    visibility: visible;
     opacity: 1;
     /* 
     For some baffling reason I need two identical files to get this transform to stop being overridden
@@ -60,7 +60,7 @@ const StyledPopoutText = styled.span<StyledPopoutTextProps>`
     transform: ${({ popoutTransform }) => popoutTransform};
   }
   ${StyledButtonContainer}:focus & {
-    visibility: 1;
+    visibility: visible;
     opacity: 1;
     /* 
     For some baffling reason I need two identical files to get this transform to stop being overridden
