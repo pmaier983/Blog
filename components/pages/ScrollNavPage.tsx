@@ -13,6 +13,9 @@ const StyledScrollList = styled.div`
   }
 `
 
+/*
+  This is a wrapper for any page that wants an infinite scroll with a fixed navBar on the right side.
+*/
 export const ScrollNavPage: React.FC = ({ children }) => {
   const theme = useContext(ThemeContext)
   const isMobile = useMediaQuery(theme.breakpoints.mobile)

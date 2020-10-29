@@ -1,5 +1,6 @@
 import React from "react"
 import styled, { css } from "styled-components"
+import { paths } from "../paths"
 
 import { NavListLink, StyledNavListProps } from "./NavListLink"
 import { PersonalBubbleSmall } from "./PersonalBubbleSmall"
@@ -50,6 +51,10 @@ const StyledBorderPadding = styled(StyledRowPadding)`
   border-bottom: 4px solid ${({ theme }) => theme.colors.lightBrown};
 `
 
+/*
+  A Simple NavBar components that resides on the right of the screen
+  when not on mobile.
+*/
 export const NavBar: React.FC = () => {
   return (
     <StyledContainer>
@@ -58,17 +63,29 @@ export const NavBar: React.FC = () => {
       </StyledPortraitContainer>
       <StyledBorderPadding size="30px" />
       <StyledNavList>
-        <NavListLink href="/" NavListComponent={StyledNavListItem}>
-          Home
+        <NavListLink
+          href={paths.home.path}
+          NavListComponent={StyledNavListItem}
+        >
+          {paths.home.label}
         </NavListLink>
-        <NavListLink href="/Blog" NavListComponent={StyledNavListItem}>
-          Blog
+        <NavListLink
+          href={paths.blog.path}
+          NavListComponent={StyledNavListItem}
+        >
+          {paths.blog.label}
         </NavListLink>
-        <NavListLink href="/Projects" NavListComponent={StyledNavListItem}>
-          Projects
+        <NavListLink
+          href={paths.project.path}
+          NavListComponent={StyledNavListItem}
+        >
+          {paths.project.label}
         </NavListLink>
-        <NavListLink href="/About" NavListComponent={StyledNavListItem}>
-          About Me
+        <NavListLink
+          href={paths.about.path}
+          NavListComponent={StyledNavListItem}
+        >
+          {paths.about.label}
         </NavListLink>
       </StyledNavList>
       <StyledRowPadding size="20px" />

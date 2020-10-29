@@ -1,8 +1,9 @@
 import React, { useContext } from "react"
-import Link from "next/link"
 import styled, { ThemeContext } from "styled-components"
 
 import { LinkBox } from "../components/LinkBox"
+import { paths } from "../paths"
+import { Link } from "./Link"
 
 const StyledLinkBoxContainer = styled.div`
   height: 40%;
@@ -45,6 +46,11 @@ const StyledColumnPadding = styled.div<StyledPaddingProps>`
 const boxPadding = "20px"
 const boxSize = "80px"
 
+/*
+  A series of boxes that either disappear on hover or contain a link to 
+  somewhere in the site
+  Built to resemble git commit history
+*/
 export const GitLinkBoxes: React.FC = () => {
   const theme = useContext(ThemeContext)
   return (
@@ -52,20 +58,20 @@ export const GitLinkBoxes: React.FC = () => {
       <StyledLinkBoxRow>
         <LinkBox size={boxSize} color={theme.colors.gitCommit1} />
         <StyledColumnPadding size={boxPadding} />
-        <Link href="/Blog" passHref>
+        <Link href={paths.blog.path} passHref>
           <StyledLink>
             <LinkBox size={boxSize} color={theme.colors.gitCommit4}>
-              Blog
+              {paths.blog.label}
             </LinkBox>
           </StyledLink>
         </Link>
         <StyledColumnPadding size={boxPadding} />
         <LinkBox size={boxSize} color={theme.colors.gitCommit0} />
         <StyledColumnPadding size={boxPadding} />
-        <Link href="/About" passHref>
+        <Link href={paths.about.path} passHref>
           <StyledLink>
             <LinkBox size={boxSize} color={theme.colors.gitCommit2}>
-              About Me
+              {paths.about.label}
             </LinkBox>
           </StyledLink>
         </Link>
@@ -76,10 +82,10 @@ export const GitLinkBoxes: React.FC = () => {
         <StyledColumnPadding size={boxPadding} />
         <LinkBox size={boxSize} color={theme.colors.gitCommit1} />
         <StyledColumnPadding size={boxPadding} />
-        <Link href="/Projects" passHref>
+        <Link href={paths.project.path} passHref>
           <StyledLink>
             <LinkBox size={boxSize} color={theme.colors.gitCommit3}>
-              Projects
+              {paths.project.label}
             </LinkBox>
           </StyledLink>
         </Link>

@@ -1,3 +1,6 @@
+/*
+  Copy's the string passe in to computers clipboard
+*/
 export const copyToClipboard = (str: string) => {
   const el = document.createElement("textarea")
   el.value = str

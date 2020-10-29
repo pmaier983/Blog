@@ -4,24 +4,24 @@ import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
 
-import { PostPage } from "../../components/pages/Post"
-import { Post } from "../../components/pages/Post/post-typings"
+import { MarkdownPage } from "../../components/MarkdownPage"
+import { Project } from "../../components/pages/Project/project-typings"
 
-interface PostRendererProps {
+interface ProjectRendererProps {
   content: string
-  frontMatter: Post
+  frontMatter: Project
 }
 
-const PostRenderer: React.FC<PostRendererProps> = (props) => (
+const ProjectRenderer: React.FC<ProjectRendererProps> = (props) => (
   <>
     <Head>
       <title>Phillip Maier&apos;s Site</title>
     </Head>
-    <PostPage {...props} />
+    <MarkdownPage {...props} />
   </>
 )
 
-export default PostRenderer
+export default ProjectRenderer
 
 interface StaticPaths {
   params: { slug: string }
@@ -32,11 +32,13 @@ export const getStaticPaths = async (): Promise<{
   fallback: boolean
 }> => {
   return {
-    paths: fs.readdirSync("components/pages/Post/posts").map((filename) => ({
-      params: {
-        slug: filename.replace(".md", ""),
-      },
-    })),
+    paths: fs
+      .readdirSync("components/pages/Project/projects")
+      .map((filename) => ({
+        params: {
+          slug: filename.replace(".md", ""),
+        },
+      })),
     fallback: false,
   }
 }
@@ -44,15 +46,13 @@ export const getStaticPaths = async (): Promise<{
 export const getStaticProps = async ({
   params: { slug },
 }: StaticPaths): Promise<{
-  props: PostRendererProps
+  props: ProjectRendererProps
 }> => {
   const markdownWithMetadata = fs
-    .readFileSync(path.join("components/pages/Post/posts", slug + ".md"))
+    .readFileSync(path.join("components/pages/Project/projects", slug + ".md"))
     .toString()
 
   const { data, content } = matter(markdownWithMetadata)
-
-  console.log("what is this:?")
 
   return {
     props: {

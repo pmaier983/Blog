@@ -31,6 +31,10 @@ const StyledContainer = styled.div<StyledContainerProps>`
 
 type LinkBox = StyledContainerProps
 
+/*
+  Container that resembles a github commit box, but can also have a link inside
+  If no children are present it disappear on hover
+*/
 export const LinkBox: React.FC<LinkBox> = ({ children, ...rest }) => (
   <StyledContainer {...rest} transition={!children}>
     {children}

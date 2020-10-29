@@ -1,90 +1,136 @@
 import React from "react"
-import Link from "next/link"
+import Image from "next/image"
 import styled from "styled-components"
+import { paths } from "../../../paths"
+import { CategoryCards } from "../../CategoryCards"
 
-import { StyledLine } from "../../StyledLine"
-import { PostOutline } from "../Post/post-typings"
+import { PostOutline } from "./post-typings"
+import { Line } from "../../Line"
+import { StyledRowPadding } from "../../sharedStyles"
+import { Link } from "../../Link"
 
-const cardWidth = "285px"
-const cardHeight = "250px"
+const borderRadius = 4
+const cardHeight = 250
+const cardWidth = 280
 
-const StyledATag = styled.a`
-  color: black;
-  text-decoration: none;
-  width: ${cardWidth};
-  height: ${cardHeight};
-  margin: 3%;
-  :focus {
-    outline: 0;
-    box-shadow: 0 0 0 4px ${({ theme }) => theme.colors.gitCommit2};
-    border-radius: 3px;
-  }
-  :hover {
-    outline: 0;
-    box-shadow: 0 0 0 4px ${({ theme }) => theme.colors.gitCommit2};
-    border-radius: 3px;
-  }
-`
-
-const StyledImage = styled.img`
-  position: absolute;
-  width: ${cardWidth};
-  height: ${cardHeight};
-  border-radius: 5px;
-`
-
-const StyledImageOverlay = styled.div`
-  position: absolute;
+const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: ${cardWidth};
-  height: ${cardHeight};
+  padding: 10px;
+`
+
+const StyledCardContainer = styled.div`
+  height: ${cardHeight + "px"};
+  width: ${cardWidth + "px"};
+  box-shadow: 0 0 0 1px white;
+  border-radius: ${borderRadius + "px"};
+  z-index: 2;
+`
+
+const StyledATag = styled.a`
+  width: ${cardWidth + "px"};
+  color: black;
+  border-radius: ${borderRadius + "px"};
+  :hover {
+    box-shadow: 0 0 0 4px ${({ theme }) => theme.colors.gitCommit2};
+    outline: none;
+  }
+  :focus {
+    box-shadow: 0 0 0 4px ${({ theme }) => theme.colors.gitCommit2};
+    outline: none;
+  }
+`
+
+const StyledBackgroundImage = styled(Image)`
+  border-radius: ${borderRadius + "px"};
+  position: absolute;
+`
+
+const StyledCardContent = styled.div`
+  position: absolute;
+  height: ${cardHeight + "px"};
+  width: ${cardWidth + "px"};
+  z-index: 1;
 `
 
 const StyledTextContainer = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  justify-content: center;
 `
 
 const StyledTitle = styled.h3`
   background-color: white;
-  text-align: center;
-  min-width: 180px;
-  border-radius: 5px;
-  padding: 5px;
+  margin: 0;
+  padding: 7px;
+  border-radius: ${borderRadius + "px"};
+  max-width: ${cardWidth * 0.8 + "px"};
+  ${StyledATag}:hover & {
+    color: white;
+    background: linear-gradient(
+      30deg,
+      ${({ theme }) => theme.colors.gitCommit3},
+      ${({ theme }) => theme.colors.gitCommit2}
+    );
+  }
+  ${StyledATag}:focus & {
+    color: white;
+    background: linear-gradient(
+      30deg,
+      ${({ theme }) => theme.colors.gitCommit3},
+      ${({ theme }) => theme.colors.gitCommit2}
+    );
+  }
 `
 
-const StyledSummaryContainer = styled.p`
+const StyledDescription = styled.p`
   background-color: white;
-  white-space: pre;
-  border-radius: 5px;
-  padding: 5px;
   margin: 0;
+  padding: 7px;
+  font-size: 15px;
+  border-radius: ${borderRadius + "px"};
+  max-width: ${cardWidth * 0.9 + "px"};
 `
 
 export const PostCard: React.FC<PostOutline> = ({
   slug,
-  frontMatter: { bannerDescription, bannerPath, title, description },
+  frontMatter: {
+    bannerDescription,
+    bannerPath,
+    title,
+    description,
+    categories,
+  },
 }) => {
   return (
-    <Link href={`Post/${slug}`}>
-      <StyledATag href={`Post/${slug}`}>
-        <StyledImage src={bannerPath} alt={bannerDescription} />
-        <StyledImageOverlay>
-          <StyledTextContainer>
-            <StyledLine randomInterruption />
-            <StyledTitle>{title}</StyledTitle>
-            <StyledLine randomInterruption />
-          </StyledTextContainer>
-          <StyledTextContainer>
-            <StyledLine positioning="top" />
-            <StyledSummaryContainer>{description}</StyledSummaryContainer>
-            <StyledLine positioning="bottom" />
-          </StyledTextContainer>
-        </StyledImageOverlay>
-      </StyledATag>
-    </Link>
+    <StyledContainer>
+      <Link href={`${paths.blog.path}/${slug}`}>
+        <StyledATag href={`${paths.blog.path}/${slug}`}>
+          <StyledCardContainer>
+            <StyledCardContent>
+              <StyledRowPadding size="20px" />
+              <StyledTextContainer>
+                <Line />
+                <StyledTitle>{title}</StyledTitle>
+                <Line />
+              </StyledTextContainer>
+              <StyledRowPadding size="20px" />
+              <StyledTextContainer>
+                <Line bottom />
+                <StyledDescription>{description}</StyledDescription>
+                <Line top />
+              </StyledTextContainer>
+            </StyledCardContent>
+            <StyledBackgroundImage
+              src={bannerPath}
+              alt={bannerDescription}
+              height={cardHeight}
+              width={cardWidth}
+            />
+          </StyledCardContainer>
+        </StyledATag>
+      </Link>
+      <CategoryCards cards={categories} width={cardWidth + "px"} />
+    </StyledContainer>
   )
 }
