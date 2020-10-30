@@ -57,7 +57,6 @@ export const PersonalBubbleSmall: React.FC = () => {
         alt="Picture of Phillip Maier standing with a background of green hills"
         height={160}
         width={160}
-        priority
       />
       <a href="https://github.com/pmaier983" tabIndex={-1}>
         <LinkBubble

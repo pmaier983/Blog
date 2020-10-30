@@ -35,5 +35,5 @@ export const ImageWithPlaceholder: React.FC<ImageWithPlaceholderProp> = ({
     }
   }, [src])
 
-  return <NextImage src={currentSrc} {...rest} />
+  return <NextImage src={currentSrc} priority {...rest} />
 }

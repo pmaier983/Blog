@@ -56,7 +56,6 @@ export const PersonalBubbleMobile: React.FC = () => {
         alt="Picture of Phillip Maier standing with a background of green hills"
         height={200}
         width={200}
-        priority
       />
       <StyledIconContainer>
         <StyledIcon

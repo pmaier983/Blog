@@ -1,5 +1,4 @@
 import React from "react"
-import Image from "next/image"
 import Link from "next/link"
 import styled from "styled-components"
 import { paths } from "../../../paths"
@@ -8,6 +7,7 @@ import { CategoryCards } from "../../CategoryCards"
 import { PostOutline } from "./post-typings"
 import { Line } from "../../Line"
 import { StyledRowPadding } from "../../sharedStyles"
+import { ImageWithPlaceholder } from "../../ImageWithPlaceholder"
 
 const borderRadius = 4
 const cardHeight = 250
@@ -25,6 +25,8 @@ const StyledCardContainer = styled.div`
   box-shadow: 0 0 0 1px white;
   border-radius: ${borderRadius + "px"};
   z-index: 2;
+  box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.gitCommit0};
+  background-color: white;
 `
 
 const StyledATag = styled.a`
@@ -41,7 +43,7 @@ const StyledATag = styled.a`
   }
 `
 
-const StyledBackgroundImage = styled(Image)`
+const StyledBackgroundImage = styled(ImageWithPlaceholder)`
   border-radius: ${borderRadius + "px"};
   position: absolute;
 `
@@ -97,6 +99,7 @@ export const PostCard: React.FC<PostOutline> = ({
   frontMatter: {
     bannerDescription,
     bannerPath,
+    bannerPlaceholderPath,
     title,
     description,
     categories,
@@ -123,6 +126,7 @@ export const PostCard: React.FC<PostOutline> = ({
             </StyledCardContent>
             <StyledBackgroundImage
               src={bannerPath}
+              placeholder={bannerPlaceholderPath}
               alt={bannerDescription}
               height={cardHeight}
               width={cardWidth}

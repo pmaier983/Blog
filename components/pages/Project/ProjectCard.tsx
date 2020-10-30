@@ -1,5 +1,4 @@
 import React, { useContext } from "react"
-import Image from "next/image"
 import Link from "next/link"
 import { default as NextLink } from "next/link"
 import styled, { ThemeContext } from "styled-components"
@@ -10,6 +9,7 @@ import { ProjectOutline } from "./project-typings"
 import { Line } from "../../Line"
 import { StyledColumnPadding, StyledRowPadding } from "../../sharedStyles"
 import { MaterialIcon } from "../../MaterialIcon"
+import { ImageWithPlaceholder } from "../../ImageWithPlaceholder"
 
 const borderRadius = 4
 const cardHeight = 325
@@ -53,7 +53,7 @@ const StyledImageContainer = styled.div`
   justify-content: center;
 `
 
-const StyledImage = styled(Image)`
+const StyledImage = styled(ImageWithPlaceholder)`
   box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.gitCommit0};
   border-radius: ${borderRadius + "px"};
 `
@@ -145,6 +145,7 @@ export const ProjectCard: React.FC<ProjectOutline> = ({
   frontMatter: {
     bannerDescription,
     bannerPath,
+    bannerPlaceholderPath,
     bannerHeight,
     bannerWidth,
     title,
@@ -168,6 +169,7 @@ export const ProjectCard: React.FC<ProjectOutline> = ({
             <StyledImageContainer>
               <StyledImage
                 src={bannerPath}
+                placeholder={bannerPlaceholderPath}
                 alt={bannerDescription}
                 width={bannerWidth}
                 height={bannerHeight}
