@@ -4,7 +4,7 @@ export const paths = {
     label: "Home",
   },
   blog: {
-    path: "/blog",
+    path: "/Blog",
     label: "Blog",
   },
   about: {

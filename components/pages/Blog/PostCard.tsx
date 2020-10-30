@@ -104,8 +104,8 @@ export const PostCard: React.FC<PostOutline> = ({
 }) => {
   return (
     <StyledContainer>
-      <Link href={`${paths.blog.path}/${slug}`}>
-        <StyledATag href={`${paths.blog.path}/${slug}`}>
+      <Link href={`${paths.blog.path}/${slug}`} passHref>
+        <StyledATag>
           <StyledCardContainer>
             <StyledCardContent>
               <StyledRowPadding size="20px" />
