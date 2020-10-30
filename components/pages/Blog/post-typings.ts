@@ -6,6 +6,7 @@ export interface Post {
   categories: string[]
   keywords: string[]
   bannerPath: string
+  bannerPlaceholderPath: string
   bannerCredit: string
   bannerDescription: string
 }

@@ -6,6 +6,7 @@ export interface Project {
   categories: string[]
   keywords: string[]
   bannerPath: string
+  bannerPlaceholderPath: string
   bannerHeight: number
   bannerWidth: number
   bannerCredit: string

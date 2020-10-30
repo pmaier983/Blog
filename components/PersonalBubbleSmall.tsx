@@ -7,6 +7,7 @@ import { LinkBubble } from "./LinkBubble"
 import { LinkBubble2 } from "./LinkBubble2"
 
 import { copyToClipboard } from "./utils/utils"
+import { ImageWithPlaceholder } from "./ImageWithPlaceholder"
 
 const StyledContainer = styled.div`
   position: absolute;
@@ -16,7 +17,7 @@ const StyledContainer = styled.div`
   justify-content: center;
 `
 
-const StyledProfilePicture = styled(Image)`
+const StyledProfilePicture = styled(ImageWithPlaceholder)`
   border-radius: 50%;
   border: 5px solid ${({ theme }) => theme.colors.lightBrown};
 `
@@ -52,6 +53,7 @@ export const PersonalBubbleSmall: React.FC = () => {
     <StyledContainer>
       <StyledProfilePicture
         src="/PictureOfSelf.png"
+        placeholder="/PictureOfSelf-Placeholder.png"
         alt="Picture of Phillip Maier standing with a background of green hills"
         height={160}
         width={160}

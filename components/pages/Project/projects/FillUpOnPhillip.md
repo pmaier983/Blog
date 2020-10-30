@@ -18,6 +18,7 @@ keywords:
   - something
 projectURL: https://phillip-maier.com
 bannerPath: /PostPics/FillUpOnPhillip.png
+bannerPlaceholderPath: /PostPics/FillUpOnPhillip-Placeholder.png
 bannerHeight: 160
 bannerWidth: 180
 bannerCredit: myself

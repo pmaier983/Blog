@@ -12,7 +12,8 @@ keywords:
   - idk
   - something
 projectURL: https://phillipmaier.com
-bannerPath: /PostPics/PhillipMaier.png
+bannerPath: "/PostPics/PhillipMaier.png"
+bannerPlaceholderPath: "/PostPics/PhillipMaierPlaceholder.png"
 bannerHeight: 160
 bannerWidth: 150
 bannerCredit: myself

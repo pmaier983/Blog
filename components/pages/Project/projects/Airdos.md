@@ -17,6 +17,7 @@ keywords:
   - something
 projectURL: https://airdos.net
 bannerPath: /PostPics/Airdos.png
+bannerPlaceholderPath: /PostPics/Airdos-Placeholder.png
 bannerHeight: 150
 bannerWidth: 200
 bannerCredit: myself

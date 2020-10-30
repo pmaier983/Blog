@@ -15,6 +15,7 @@ keywords:
   - idk
   - something
 bannerPath: /PostPics/Cat.jpeg
+bannerPlaceholderPath: /PostPics/Cat-Placeholder.png
 bannerCredit: myself
 bannerDescription: asd
 ---

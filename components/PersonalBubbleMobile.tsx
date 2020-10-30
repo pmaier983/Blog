@@ -1,6 +1,7 @@
 import React from "react"
 import Image from "next/image"
 import styled from "styled-components"
+import { ImageWithPlaceholder } from "./ImageWithPlaceholder"
 
 const StyledContainer = styled.div`
   position: absolute;
@@ -8,7 +9,7 @@ const StyledContainer = styled.div`
   width: 200px;
 `
 
-const StyledProfilePicture = styled(Image)`
+const StyledProfilePicture = styled(ImageWithPlaceholder)`
   border-radius: 50%;
   border: 5px solid ${({ theme }) => theme.colors.lightBrown};
 `
@@ -51,6 +52,7 @@ export const PersonalBubbleMobile: React.FC = () => {
     <StyledContainer>
       <StyledProfilePicture
         src="/PictureOfSelf.png"
+        placeholder="/PictureOfSelf-Placeholder.png"
         alt="Picture of Phillip Maier standing with a background of green hills"
         height={200}
         width={200}

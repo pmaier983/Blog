@@ -11,7 +11,8 @@ categories:
 keywords:
   - idk
   - something
-bannerPath: /PostPics/Cazenovia_Hay_Bales.jpeg
+bannerPath: /PostPics/Cazenovia_Hay_Bales.png
+bannerPlaceholderPath: /PostPics/Cazenovia_Hay_Bales-Placeholder.png
 bannerCredit: myself
 bannerDescription: asd
 ---
