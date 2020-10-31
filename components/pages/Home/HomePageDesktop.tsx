@@ -39,7 +39,6 @@ const StyledRowPadding = styled.div<StyledPaddingProps>`
 // TODO: replace lodash/ make sure space is used effectively
 // TODO: go through advanced Next.js features
 // TODO: switch to emotion (11 is arriving out soon!)
-// TODO: is React.FC best practice?
 // TODO: hand craft HEAD for links
 // TODO: comment all
 // TODO: Error page
