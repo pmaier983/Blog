@@ -3,6 +3,7 @@ import { TypographyStyle, GoogleFont } from "react-typography"
 import typography from "../theme/typography"
 
 class MyDocument extends Document {
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   render() {
     return (
       <Html lang="en">
