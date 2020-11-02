@@ -22,7 +22,7 @@ bannerPlaceholderPath: /PostPics/FillUpOnPhillip-Placeholder.png
 bannerHeight: 160
 bannerWidth: 180
 bannerCredit: myself
-bannerDescription: asd
+bannerDescription: A picture of the homepage of phillip-maier.com
 ---
 
 ## Just a test for now

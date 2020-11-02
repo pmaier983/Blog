@@ -13,11 +13,11 @@ keywords:
   - something
 projectURL: https://phillipmaier.com
 bannerPath: "/PostPics/PhillipMaier.png"
-bannerPlaceholderPath: "/PostPics/PhillipMaierPlaceholder.png"
+bannerPlaceholderPath: "/PostPics/PhillipMaier-Placeholder.png"
 bannerHeight: 160
 bannerWidth: 150
 bannerCredit: myself
-bannerDescription: asd
+bannerDescription: A Picture of the home page of phillipmaier.com
 ---
 
 ## Just a test for now

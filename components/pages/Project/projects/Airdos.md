@@ -21,7 +21,7 @@ bannerPlaceholderPath: /PostPics/Airdos-Placeholder.png
 bannerHeight: 150
 bannerWidth: 200
 bannerCredit: myself
-bannerDescription: asd
+bannerDescription: A picture of the homepage of Airdos.net
 ---
 
 ## Just a test for now
