@@ -23,7 +23,7 @@ const StyledContainer = styled.span<StyledContainerProps>`
   transition: all ease-in 0.5s;
   position: fixed;
   display: flex;
-  bottom: 20px;
+  bottom: 40px;
   padding: 10px;
   border-radius: 5px;
 `
@@ -33,7 +33,7 @@ const StyledContainer = styled.span<StyledContainerProps>`
   currently (10/26/2020) used to alert of an email copied to clipboard
 */
 export const ConfirmationPopup: React.FC = () => {
-  const [{ text: confirmationText, visible }, dispatchAlert] = useAlertContext()
+  const [{ text: confirmation, visible }, dispatchAlert] = useAlertContext()
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -44,7 +44,7 @@ export const ConfirmationPopup: React.FC = () => {
 
   return (
     <AlertBoxContainer>
-      <StyledContainer visible={visible}>{confirmationText}</StyledContainer>
+      <StyledContainer visible={visible}>{confirmation}</StyledContainer>
     </AlertBoxContainer>
   )
 }

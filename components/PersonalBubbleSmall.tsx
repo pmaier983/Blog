@@ -3,6 +3,7 @@ import Image from "next/image"
 import styled, { ThemeContext } from "styled-components"
 
 import { useAlertContext, ALERT_ACTIONS } from "./contexts/AlertProvider"
+import { ClipboardConfirmationAlert } from "./contexts/Alerts"
 import { LinkBubble } from "./LinkBubble"
 import { LinkBubble2 } from "./LinkBubble2"
 
@@ -22,11 +23,6 @@ const StyledProfilePicture = styled(ImageWithPlaceholder)`
   border: 5px solid ${({ theme }) => theme.colors.lightBrown};
 `
 
-const StyledHighlightedText = styled.a`
-  text-decoration: underline;
-  color: ${({ theme }) => theme.colors.oceanBlue};
-`
-
 /* 
   Nearly identical to the PersonalBubbleLarge, but scaled down in size.
 */
@@ -38,17 +34,10 @@ export const PersonalBubbleSmall: React.FC = () => {
     copyToClipboard("pmaier983@gmail.com")
     dispatchAlert({
       type: ALERT_ACTIONS.SHOW_ALERT,
-      payload: (
-        <span>
-          You copied&nbsp;
-          <StyledHighlightedText href="mailto:pmaier983@gmail.com">
-            pmaier983@gmail.com
-          </StyledHighlightedText>
-          &nbsp;to clipboard
-        </span>
-      ),
+      payload: <ClipboardConfirmationAlert />,
     })
   }
+
   return (
     <StyledContainer>
       <StyledProfilePicture

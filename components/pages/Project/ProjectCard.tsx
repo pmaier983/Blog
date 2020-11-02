@@ -18,7 +18,7 @@ const cardWidth = 280
 const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 5px;
 `
 
 const StyledCardContainer = styled.div`

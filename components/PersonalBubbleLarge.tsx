@@ -8,6 +8,7 @@ import { LinkBubble2 } from "./LinkBubble2"
 
 import { copyToClipboard } from "./utils/utils"
 import { ImageWithPlaceholder } from "./ImageWithPlaceholder"
+import { ClipboardConfirmationAlert } from "./contexts/Alerts"
 
 const StyledContainer = styled.div`
   position: absolute;
@@ -18,11 +19,6 @@ const StyledContainer = styled.div`
 const StyledProfilePicture = styled(ImageWithPlaceholder)`
   border-radius: 50%;
   border: 5px solid ${({ theme }) => theme.colors.lightBrown};
-`
-
-const StyledHighlightedText = styled.a`
-  text-decoration: underline;
-  color: ${({ theme }) => theme.colors.oceanBlue};
 `
 
 /* 
@@ -37,15 +33,7 @@ export const PersonalBubbleLarge: React.FC = () => {
     copyToClipboard("pmaier983@gmail.com")
     dispatchAlert({
       type: ALERT_ACTIONS.SHOW_ALERT,
-      payload: (
-        <span>
-          You copied&nbsp;
-          <StyledHighlightedText href="mailto:pmaier983@gmail.com">
-            pmaier983@gmail.com
-          </StyledHighlightedText>
-          &nbsp;to clipboard
-        </span>
-      ),
+      payload: <ClipboardConfirmationAlert />,
     })
   }
 
