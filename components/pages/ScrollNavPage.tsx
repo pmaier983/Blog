@@ -21,6 +21,7 @@ const StyledFooter = styled.div`
   display: flex;
   justify-content: space-around;
   bottom: 0;
+  padding: 5px 0;
   width: 100%;
   background-color: white;
   border-top: 2px dashed ${({ theme }) => theme.colors.gitCommit0};
