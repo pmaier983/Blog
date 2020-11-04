@@ -1,4 +1,6 @@
 import { ThemeWrapper } from "../theme/ThemeWrapper"
+import "../theme/codeBlock.css"
+
 import AlertProvider from "../components/contexts/AlertProvider"
 
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */

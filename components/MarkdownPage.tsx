@@ -1,8 +1,7 @@
-import React from "react"
+import React, { useEffect } from "react"
+import Prism from "prismjs"
 import styled from "styled-components"
-import SyntaxHighlighter from "react-syntax-highlighter"
 import ReactMarkdown from "react-markdown/with-html"
-import style from "../theme/codeBlock"
 
 import { ScrollNavPage } from "./pages/ScrollNavPage"
 
@@ -18,26 +17,19 @@ const StyledArticleContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.gitCommit0};
 `
 
-const CodeBlock = ({ language, value }) => {
-  return (
-    <SyntaxHighlighter language={language} style={style}>
-      {value}
-    </SyntaxHighlighter>
-  )
-}
-
 export const MarkdownPage: React.FC<{ content: string }> = ({ content }) => {
+  // on page load, highlight everything
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      Prism.highlightAll()
+    }
+  }, [])
   return (
     <ScrollNavPage>
       <StyledContainer>
         <StyledArticleContainer>
           <article>
-            <ReactMarkdown
-              allowDangerousHtml={false}
-              renderers={{ code: CodeBlock }}
-            >
-              {content}
-            </ReactMarkdown>
+            <ReactMarkdown>{content}</ReactMarkdown>
           </article>
         </StyledArticleContainer>
       </StyledContainer>
