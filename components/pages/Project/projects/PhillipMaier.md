@@ -17,3 +17,9 @@ bannerWidth: 150
 bannerCredit: Phillip Maier
 bannerDescription: A Picture of the home page of phillipmaier.com
 ---
+
+## ❓ Why (Did I create Airdos)
+
+## 🏗️ How (Did I build Airdos)
+
+## 💡 What (Are my takeaways)

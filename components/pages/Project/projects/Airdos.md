@@ -1,6 +1,6 @@
 ---
 title: "Airdos.net"
-description: "A social networking site for academics I half-built"
+description: "A social networking site for academics I had been "
 date: "2019-04-09"
 author: Phillip Maier
 categories:
@@ -21,8 +21,8 @@ bannerCredit: Phillip Maier
 bannerDescription: A picture of the homepage of Airdos.net
 ---
 
-## Why (Did I create Airdos)
+## ❓ Why (Did I create Airdos)
 
-## How (Did I build Airdos)
+## 🏗️ How (Did I build Airdos)
 
-## What (Are my takeaways)
+## 💡 What (Are my takeaways)
