@@ -11,6 +11,6 @@ I am an active participant in the open source community, and am currently one of
 
 I currently work in Boston at 🏦&nbsp;&nbsp;[State Street](https://en.wikipedia.org/wiki/State_Street_Corporation) creating and maintaining a marketplace for [MMFs](https://www.investopedia.com/terms/m/money-marketfund.asp).
 
-I hope you find this site and my musing helpful !
+I hope you find this site and my musing helpful 😊&nbsp;&nbsp;!
 
 [pmaier983@gmail.com](mailto:pmaier983@gmail.com) | [Github](https://github.com/pmaier983) | [Twitter](https://twitter.com/pmaier983) | [Linkedin](https://www.linkedin.com/in/phillip-maier-3a4161102/)
