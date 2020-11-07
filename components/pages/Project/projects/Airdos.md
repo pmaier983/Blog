@@ -82,6 +82,18 @@ bannerDescription: A picture of the homepage of Airdos.net
 
 ## 💡 What (Are my takeaways)
 
+### General
+
 - **Plan, plan and plan again, then code**. You know that old adage ["measure twice and cut once"](https://en.wiktionary.org/wiki/measure_twice_and_cut_once), that surprisingly holds some truth when planning a software project. I repeatedly expanded my [MVP](https://en.wikipedia.org/wiki/Minimum_viable_product) as I built, leading to a product that was fully built out in some areas, and weirdly lacking in others, without having any obvious core functionality. Moral of the story, build the MVP first, duh 🤦 .
 
 - **When working with others make sure everyone understands their role and gives feedback freely to everyone they interact with**. I was approached with the idea for Airdos by two friends of mine with no coding experience. Early on we established they would act as product managers and I would be the engineer. For some of you reading this red flags will be flying in every direction, but I was naive... now I'm slightly more mature and also part of a great facebook group called ["I can handle the business side"](https://www.facebook.com/groups/1401833413216649). As it turned out they didn't know how to be product managers at all, and I was too kind/naive to give them the feedback they needed to become better! Always give feedback (in a kind and constructive manner) !
+
+### Tech
+
+- **Serverless is great, especially for [POC's](https://en.wikipedia.org/wiki/Proof_of_concept).** I saved a ton of money (for a personal project) by not running an EC2 instance's 24/7 to handle my graphql-dynamoDB api. I payed $0 for my servers. We were able to demo to possible clients, and rapidly make changes all for $0. Not that we needed it in the end, but it can scale! In summary, [aws lambda](https://aws.amazon.com/lambda/) is awesome, and I plan on using it more for my frugal escaped in the future.
+
+- **A11y, its benefits far outweigh its costs.** When I was young I decided to try my hand at finance. I was fascinated by the complexity of financial markets and was lucky enough to land an internship at [MITIMCo](https://mitimco.org/), MIT's [\$18 billion dollar](https://news.mit.edu/2020/financials-endowment-2020) Endowment.
+
+  From day one I discovered what MITIMCo actually does... worship excel. Often I would walk by cubicles with three screen all blindingly white with that characteristic green trim ([#008000](https://www.color-hex.com/color/008000) if you were wondering).
+
+  So I asked myself, why was excel so amazing? Today I can tell you for certain: [A11y](https://developer.mozilla.org/en-US/docs/Web/Accessibility). The ability to quickly and easily tab through excel, combined with amazing fluid usability, this is what made everyone addicted. Making your site easy to flow through without a keyboard, and even without looking at your site will help millions, and its just possible (as was the case with excel) it will make your site addictive and indispensable.
