@@ -92,7 +92,7 @@ bannerDescription: A picture of the homepage of Airdos.net
 
 - **Serverless is great, especially for [POC's](https://en.wikipedia.org/wiki/Proof_of_concept).** I saved a ton of money (for a personal project) by not running an EC2 instance's 24/7 to handle my graphql-dynamoDB api. I payed $0 for my servers. We were able to demo to possible clients, and rapidly make changes all for $0. Not that we needed it in the end, but it can scale! In summary, [aws lambda](https://aws.amazon.com/lambda/) is awesome, and I plan on using it more for my frugal escaped in the future.
 
-- **A11y, its benefits far outweigh its costs.** When I was young I decided to try my hand at finance. I was fascinated by the complexity of financial markets and was lucky enough to land an internship at [MITIMCo](https://mitimco.org/), MIT's [\$18 billion dollar](https://news.mit.edu/2020/financials-endowment-2020) Endowment.
+- **A11y: its benefits far outweigh its costs.** When I was young I decided to try my hand at finance. I was fascinated by the complexity of financial markets and was lucky enough to land an internship at [MITIMCo](https://mitimco.org/), MIT's [\$18 billion dollar](https://news.mit.edu/2020/financials-endowment-2020) Endowment.
 
   From day one I discovered what MITIMCo actually does... worship excel. Often I would walk by cubicles with three screen all blindingly white with that characteristic green trim ([#008000](https://www.color-hex.com/color/008000) if you were wondering).
 

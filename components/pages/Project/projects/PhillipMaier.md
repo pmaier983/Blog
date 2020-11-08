@@ -18,8 +18,8 @@ bannerCredit: Phillip Maier
 bannerDescription: A Picture of the home page of phillipmaier.com
 ---
 
-## ❓ Why (Did I create Airdos)
+## ❓ Why (Did I create PhillipMaier.com)
 
-## 🏗️ How (Did I build Airdos)
+## 🏗️ How (Did I build PhillipMaier.com)
 
 ## 💡 What (Are my takeaways)
