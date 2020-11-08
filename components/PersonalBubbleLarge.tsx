@@ -18,7 +18,6 @@ const StyledContainer = styled.div`
 
 const StyledProfilePicture = styled(ImageWithPlaceholder)`
   border-radius: 50%;
-  border: 5px solid ${({ theme }) => theme.colors.lightBrown};
 `
 
 /* 

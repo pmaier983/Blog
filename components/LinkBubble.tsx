@@ -59,10 +59,6 @@ const StyledPopoutText = styled.span<StyledPopoutTextProps>`
   }
   ${StyledButtonContainer}:focus & {
     opacity: 1;
-    /* 
-    For some baffling reason I need two identical files to get this transform to stop being overridden
-    My bet is something is wrong with how styled components assigns id's to the dom nodes
-    */
     transform: ${({ popoutTransform }) => popoutTransform};
   }
 `
@@ -76,6 +72,9 @@ interface LinkBubbleSmallProps
 
 /*
   This is a circular link "bubble" that when hovered displays text! that pops out :D
+  ***
+  For some baffling reason I need two identical files to get this transform to stop being overridden
+  My bet is something is wrong with how styled components assigns id's to the dom nodes
 */
 export const LinkBubble: React.FC<LinkBubbleSmallProps> = ({
   children,

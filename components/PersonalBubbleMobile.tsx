@@ -25,12 +25,6 @@ const StyledIconBackground = styled.div`
   height: 55px;
 `
 
-const StyledIconContainer = styled.div`
-  position: absolute;
-  bottom: 0;
-  right: 0;
-`
-
 const StyledIcon = styled(Image)`
   z-index: 1;
 `
@@ -57,15 +51,14 @@ export const PersonalBubbleMobile: React.FC = () => {
         height={200}
         width={200}
       />
-      <StyledIconContainer>
+      <StyledIconBackground>
         <StyledIcon
           src="/Icons/RSWorld.png"
           alt="A small pixelated world Icon"
           height={55}
           width={55}
         />
-      </StyledIconContainer>
-      <StyledIconBackground />
+      </StyledIconBackground>
       <StyledText>
         Boston <br />
         (for now)
