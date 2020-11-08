@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react"
 import NextImage from "next/image"
 
 // taken directly from next.js repo
+const VALID_LOADING_VALUES = ["lazy", "eager", undefined] as const
+type LoadingValue = typeof VALID_LOADING_VALUES[number]
+
 type ImageProps = Omit<
   JSX.IntrinsicElements["img"],
   "src" | "srcSet" | "ref" | "width" | "height" | "loading"
@@ -9,12 +12,13 @@ type ImageProps = Omit<
   src: string
   quality?: string
   priority?: boolean
-  loading?: "lazy" | "eager"
+  loading?: LoadingValue
   unoptimized?: boolean
-} & (
-    | { width: number; height: number; unsized?: false }
-    | { width?: number; height?: number; unsized: true }
-  )
+} & {
+  width: number
+  height: number
+  unsized?: false
+}
 
 type ImageWithPlaceholderProp = ImageProps & { placeholder: string }
 
