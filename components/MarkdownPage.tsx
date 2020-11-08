@@ -6,7 +6,7 @@ import ReactMarkdown from "react-markdown/with-html"
 import { ScrollNavPage } from "./pages/ScrollNavPage"
 
 const StyledContainer = styled.div`
-  padding: 40px;
+  padding: 50px 40px;
   display: flex;
   justify-content: center;
 `

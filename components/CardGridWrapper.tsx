@@ -6,7 +6,7 @@ const StyledContainer = styled.div`
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  padding: 5%;
+  padding: 20px 5% 40px 5%;
   margin: 0;
 `
 
