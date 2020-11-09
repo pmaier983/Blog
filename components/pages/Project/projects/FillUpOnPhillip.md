@@ -22,13 +22,13 @@ bannerCredit: Phillip Maier
 bannerDescription: A picture of the homepage of phillip-maier.com
 ---
 
-## ❓ Why (Did I create FillUpOnPhillip)
+## ❓ Why (Did I create [FillUpOnPhillip](https://phillip-maier.com/))
 
-- **I needed to get a very solid grasp of a new library: [react-grid-layout](https://github.com/STRML/react-grid-layout).** When I created FillUpOnPhillip, which I will now be abbreviating to FUOP because the full name makes me cringe a bit, I was working on a dashboard that required moveable "widgets". After some research I decided react-grid-layout was the best choice, and to gain some experience I built my first personal website!
+- **I needed to get a very solid grasp of a new library: [react-grid-layout](https://github.com/STRML/react-grid-layout).** When I created [FillUpOnPhillip](https://phillip-maier.com/), which I will now be abbreviating to FUOP because the full name makes me cringe a bit, I was working on a dashboard that required moveable "widgets". After some research I decided react-grid-layout was the best choice, and to gain some experience I built my first personal website!
 
-## 🏗️ How (Did I build FillUpOnPhillip)
+## 🏗️ How (Did I build [FillUpOnPhillip](https://phillip-maier.com/))
 
-- To keep things short i'll simply show you a trimmed package.json
+- To keep things short i'll simply show you a trimmed [package.json](https://github.com/pmaier983/FillUpOnPhillip/blob/master/package.json)
 
   ```js
   {
