@@ -1,7 +1,7 @@
 ---
 title: "Phillip-Maier.com"
 description: "My first personal website"
-date: "2018-04-09"
+date: "11-1-2020"
 author: Phillip Maier
 categories:
   - TypeScript
