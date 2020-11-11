@@ -44,7 +44,9 @@ export const LinkBubbleBottom: React.FC<LinkBubbleRightProps> = ({
 }) => {
   return (
     <StyledContainer>
-      <StyledButtonContainer {...rest}>{children}</StyledButtonContainer>
+      <StyledButtonContainer tabIndex={-1} {...rest}>
+        {children}
+      </StyledButtonContainer>
       <span>{text}</span>
     </StyledContainer>
   )

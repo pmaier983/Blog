@@ -10,12 +10,14 @@ const StyledLink = styled.a`
   outline: none;
   :focus {
     outline: 0;
-    box-shadow: 0 0 0 2px black;
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.gitCommit2};
+    background-color: white;
     border-radius: 3px;
   }
   :hover {
     outline: 0;
-    box-shadow: 0 0 0 2px black;
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.gitCommit2};
+    background-color: white;
     border-radius: 3px;
   }
 `

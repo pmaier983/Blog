@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/tabindex-no-positive */
 import React, { useState } from "react"
 import styled, { css } from "styled-components"
 import { paths } from "../paths"
@@ -45,14 +46,23 @@ const StyledArtisticCircleTop = styled.div`
 
 const StyledButtonContainer = styled.button`
   position: fixed;
-  top: 0;
-  right: 0;
+  top: 5px;
+  right: 5px;
   border: none;
   background-color: transparent;
   padding: 0;
   z-index: 12;
   cursor: pointer;
   color: ${({ theme }) => theme.colors.gitCommit2};
+  border-radius: 5px;
+  :hover {
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.gitCommit2};
+    outline: none;
+  }
+  :focus {
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.gitCommit2};
+    outline: none;
+  }
 `
 
 const StyledNavList = styled.ul`
@@ -98,7 +108,10 @@ export const NavigationButton: React.FC = () => {
   }
   return (
     <>
-      <StyledButtonContainer onClick={toggleNavVisibility}>
+      <StyledButtonContainer
+        onClick={toggleNavVisibility}
+        tabIndex={isNavVisible && -1}
+      >
         <MaterialIcon
           name="arrow_drop_down_circle"
           size="80px"
@@ -107,7 +120,10 @@ export const NavigationButton: React.FC = () => {
       </StyledButtonContainer>
       {isNavVisible && (
         <StyledNavPopout>
-          <StyledButtonContainer onClick={toggleNavVisibility}>
+          <StyledButtonContainer
+            onClick={toggleNavVisibility}
+            tabIndex={!isNavVisible && -1}
+          >
             <MaterialIcon name="cancel" size="80px" />
           </StyledButtonContainer>
           <StyledArtisticCircleBottom />

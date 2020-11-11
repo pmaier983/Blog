@@ -55,10 +55,14 @@ const StyledLink = styled.a`
   font-size: 20px;
   cursor: pointer;
   text-decoration: none;
+  outline: none;
+  border-radius: 5px;
   :hover {
+    box-shadow: 0 0 0 3px ${({ theme }) => theme.colors.gitCommit1};
     text-decoration: underline;
   }
   :focus {
+    box-shadow: 0 0 0 3px ${({ theme }) => theme.colors.gitCommit1};
     text-decoration: underline;
   }
 `
@@ -66,6 +70,19 @@ const StyledLink = styled.a`
 const StyledATag = styled.a`
   color: black;
   text-decoration: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 3px;
+  :hover {
+    box-shadow: 0 0 0 3px ${({ theme }) => theme.colors.gitCommit1};
+    text-decoration: underline;
+    background-color: ${({ theme }) => theme.colors.gitCommit0};
+  }
+  :focus {
+    box-shadow: 0 0 0 3px ${({ theme }) => theme.colors.gitCommit1};
+    text-decoration: underline;
+    background-color: ${({ theme }) => theme.colors.gitCommit0};
+  }
 `
 
 export const HomePageMobile: React.FC = () => {
@@ -150,7 +167,7 @@ export const HomePageMobile: React.FC = () => {
           </LinkBubbleBottom>
         </StyledATag>
         <StyledColumnPadding size="20px" />
-        <StyledATag href="mailto:pmaier983@gmail.com">
+        <StyledATag href="mailto:pmaier983@gmail.com" tabIndex={0}>
           <LinkBubbleBottom diameter="50px" text="Email">
             <Image
               src="/Icons/email.png"
