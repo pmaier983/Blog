@@ -16,7 +16,7 @@ bannerDescription: A painting of Hay Bales with a blue sky in summer
 
 1. Chose an image you would like to progressively load
 2. Pixelate the image using [https://onlinepngtools.com/pixelate-png](https://onlinepngtools.com/pixelate-png)
-3. Resize your pixelated image using [https://onlinepngtools.com/resize-png](https://onlinepngtools.com/resize-png)
+3. Resize your pixelated image (to be much smaller, 10 by 10px) using [https://onlinepngtools.com/resize-png](https://onlinepngtools.com/resize-png)
 4. Place both images somewhere in your public folder and take note of their path
 5. Use the following code to create a `ImageWithPlaceholder` component
 
