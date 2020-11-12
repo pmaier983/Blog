@@ -1,5 +1,4 @@
 import { ThemeWrapper } from "../theme/ThemeWrapper"
-import "../theme/codeBlock.css"
 
 import AlertProvider from "../components/contexts/AlertProvider"
 
