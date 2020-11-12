@@ -29,7 +29,6 @@ const StyledButtonContainer = styled.button<StyledButtonContainerProps>`
   color: black;
   justify-content: center;
   border-radius: 50%;
-  cursor: pointer;
 `
 
 interface StyledPopoutTextProps {
