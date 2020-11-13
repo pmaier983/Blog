@@ -21,7 +21,7 @@ bannerCredit: Phillip Maier
 bannerDescription: A picture of the homepage of Airdos.net
 ---
 
-## ❓ Why (Did I create [Airdos](https://airdos.net/feed))
+## ❓ Why Did I create [Airdos](https://airdos.net/feed)
 
 - I created [Airdos](https://airdos.net/feed) to act as a social media platform for academics. You may be thinking:
 
@@ -29,7 +29,7 @@ bannerDescription: A picture of the homepage of Airdos.net
 
   You my nameless reader are correct ✔️ ! Building a social media site is nearly a cliché for a young dev, and it is rather difficult to do well. But as Theodore Roosevelt once said [“Nothing in the world is worth having or worth doing unless it means effort, pain,[and] difficulty"](https://www.goodreads.com/quotes/312751-nothing-in-the-world-is-worth-having-or-worth-doing). I was draw to the problem because of how difficult it seemed, and I hoped to learn a tremendous amount as I built (and more likely failed to build) my first social media site.
 
-## 🏗️ How (Did I build [Airdos](https://airdos.net/feed))
+## 🏗️ How Did I build [Airdos](https://airdos.net/feed)
 
 - In the interest of brevity, I will simply post a trimmed version of the [package.json](https://github.com/pmaier983/Airdos/blob/master/packages/frontend-airdos/package.json) from the project itself. Keep in my it was a lerna project, so mentally include `{"lerna": "^3.21.0"}`.
 
@@ -80,15 +80,15 @@ bannerDescription: A picture of the homepage of Airdos.net
 }
 ```
 
-## 💡 What (Are my takeaways)
+## 💡 What Are my takeaways from building [Airdos](https://airdos.net/feed)
 
-### General
+### General takeaways
 
 - **Plan, plan and plan again, then code**. You know that old adage ["measure twice and cut once"](https://en.wiktionary.org/wiki/measure_twice_and_cut_once), that surprisingly holds some truth when planning a software project. I repeatedly expanded my [MVP](https://en.wikipedia.org/wiki/Minimum_viable_product) as I built, leading to a product that was fully built out in some areas, and weirdly lacking in others, without having any obvious core functionality. Moral of the story, build the MVP first, duh 🤦 .
 
 - **When working with others make sure everyone understands their role and gives feedback freely to everyone they interact with**. I was approached with the idea for [Airdos](https://airdos.net/feed) by two friends of mine with no coding experience. Early on we established they would act as product managers and I would be the engineer. For some of you reading this red flags will be flying in every direction, but I was naive... now I'm slightly more mature and also part of a great facebook group called ["I can handle the business side"](https://www.facebook.com/groups/1401833413216649). As it turned out they didn't know how to be product managers at all, and I was too kind/naive to give them the feedback they needed to become better! Always give feedback (in a kind and constructive manner) !
 
-### Tech
+### Tech takeaways
 
 - **Serverless is great, especially for [POC's](https://en.wikipedia.org/wiki/Proof_of_concept).** I saved a ton of money (for a personal project) by not running an EC2 instance's 24/7 to handle my graphql-dynamoDB api. I payed $0 for my servers. We were able to demo to possible clients, and rapidly make changes all for $0. Not that we needed it in the end, but it can scale! In summary, [aws lambda](https://aws.amazon.com/lambda/) is awesome, and I plan on using it more for my frugal escaped in the future.
 

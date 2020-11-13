@@ -60,7 +60,7 @@ const App = () => (
 
 7. All done! 🎉 😊
 
-# TypeScript Component
+# How to Progressively load Images in Next.js with TypeScript
 
 If you're using typescript you should use the following component:
 

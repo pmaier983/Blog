@@ -22,11 +22,11 @@ bannerCredit: Phillip Maier
 bannerDescription: A picture of the homepage of phillip-maier.com
 ---
 
-## ❓ Why (Did I create [FillUpOnPhillip](https://phillip-maier.com/))
+## ❓ Why Did I create [FillUpOnPhillip](https://phillip-maier.com/)
 
 - **I needed to get a very solid grasp of a new library: [react-grid-layout](https://github.com/STRML/react-grid-layout).** When I created [FillUpOnPhillip](https://phillip-maier.com/), which I will now be abbreviating to FUOP because the full name makes me cringe a bit, I was working on a dashboard that required moveable "widgets". After some research I decided react-grid-layout was the best choice, and to gain some experience I built my first personal website!
 
-## 🏗️ How (Did I build [FillUpOnPhillip](https://phillip-maier.com/))
+## 🏗️ How Did I build [FillUpOnPhillip](https://phillip-maier.com/)
 
 - To keep things short i'll simply show you a trimmed [package.json](https://github.com/pmaier983/FillUpOnPhillip/blob/master/package.json)
 
@@ -49,7 +49,7 @@ bannerDescription: A picture of the homepage of phillip-maier.com
   }
   ```
 
-## 💡 What (Are my takeaways)
+## 💡 What Are my takeaways from building [FillUpOnPhillip](https://phillip-maier.com/)
 
 - **Testing is great, but it has diminishing returns.** I hesitate to say this, because I currently work at a place whose only tests are those i've written myself, but its true! In the case of my personal site, that means: "can users click on links to my resume/github/linkedin/etc". But once you've written tests for this core functionality don't prioritize testing for extraneous items.
 
