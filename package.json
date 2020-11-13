@@ -19,6 +19,7 @@
     "gray-matter": "^4.0.2",
     "lodash": "^4.17.20",
     "next": "^10.0.0",
+    "next-seo": "^4.17.0",
     "react": "^16.13.1",
     "react-dom": "16.13.1",
     "react-markdown": "^5.0.0",

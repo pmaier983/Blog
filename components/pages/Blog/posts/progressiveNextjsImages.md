@@ -4,8 +4,8 @@ description: "You can progressively load images in next.js 10+ with just a few s
 date: "11-9-2020"
 author: Phillip Maier
 categories:
-  - nextjs
-  - react
+  - Next.js
+  - React
   - Image
   - Speed
 bannerPath: /PostPics/Cazenovia_Hay_Bales.png

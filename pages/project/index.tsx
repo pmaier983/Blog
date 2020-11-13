@@ -1,21 +1,30 @@
 import React from "react"
 import fs from "fs"
+import _ from "lodash/fp"
 import matter from "gray-matter"
-import Head from "next/head"
+import { NextSeo } from "next-seo"
 
 import { ProjectsPage } from "../../components/pages/Project/ProjectsPage"
 import { ProjectOutline } from "../../components/pages/Project/project-typings"
 
 const ProjectRenderer: React.FC<{ projects: ProjectOutline[] }> = ({
   projects,
-}) => (
-  <>
-    <Head>
-      <title>Phillip Maier&apos;s Site</title>
-    </Head>
-    <ProjectsPage projects={projects} />
-  </>
-)
+}) => {
+  const allCategories = _.flow(
+    _.reduce((acc: string[], cur: ProjectOutline) => {
+      acc.push(...cur.frontMatter.categories)
+      return acc
+    }, []),
+    _.uniq,
+    _.join(" ")
+  )(projects)
+  return (
+    <>
+      <NextSeo title="Projects | Phillip Maier" description={allCategories} />
+      <ProjectsPage projects={projects} />
+    </>
+  )
+}
 
 export const getStaticProps = async (): Promise<{
   props: {

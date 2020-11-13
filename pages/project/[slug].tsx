@@ -1,8 +1,8 @@
 import React from "react"
-import Head from "next/head"
 import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
+import { NextSeo } from "next-seo"
 
 import { MarkdownPage } from "../../components/MarkdownPage"
 import { Project } from "../../components/pages/Project/project-typings"
@@ -12,14 +12,17 @@ interface ProjectRendererProps {
   frontMatter: Project
 }
 
-const ProjectRenderer: React.FC<ProjectRendererProps> = (props) => (
-  <>
-    <Head>
-      <title>Phillip Maier&apos;s Site</title>
-    </Head>
-    <MarkdownPage {...props} />
-  </>
-)
+const ProjectRenderer: React.FC<ProjectRendererProps> = (props) => {
+  const {
+    frontMatter: { title, description },
+  } = props
+  return (
+    <>
+      <NextSeo title={title} description={description} />
+      <MarkdownPage {...props} />
+    </>
+  )
+}
 
 export default ProjectRenderer
 

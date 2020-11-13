@@ -1,11 +1,11 @@
 import React from "react"
-import Head from "next/head"
 import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
 
 import { AboutPage } from "../../components/pages/About"
 import { AboutMe } from "../../components/pages/About/about-typings"
+import { NextSeo } from "next-seo"
 
 interface AboutPageRendererProps {
   content: string
@@ -17,9 +17,10 @@ interface AboutPageRendererProps {
 */
 const AboutPageRenderer: React.FC<AboutPageRendererProps> = (props) => (
   <>
-    <Head>
-      <title>Phillip Maier&apos;s Site</title>
-    </Head>
+    <NextSeo
+      title="About | Phillip Maier"
+      description="Phillip Maier is a Software engineer with a deep love for Open Source, and helping others!"
+    />
     <AboutPage {...props} />
   </>
 )

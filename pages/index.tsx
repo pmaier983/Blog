@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
-import Head from "next/head"
 import { ThemeContext } from "styled-components"
+import { NextSeo } from "next-seo"
 
 import { HomePageDesktop, HomePageMobile } from "../components/pages/Home"
 import { useMediaQuery } from "../components/hooks"
@@ -14,9 +14,10 @@ const HomePage: React.FC = () => {
   const shouldUseMobile = useMediaQuery(theme.breakpoints.mobile)
   return (
     <>
-      <Head>
-        <title>Phillip Maier&apos;s Site</title>
-      </Head>
+      <NextSeo
+        title="Phillip Maier"
+        description="Hi, I'm Phillip. I'm a fullstack engineer who loves Open Source and helping others!"
+      />
       {shouldUseMobile ? <HomePageMobile /> : <HomePageDesktop />}
     </>
   )
