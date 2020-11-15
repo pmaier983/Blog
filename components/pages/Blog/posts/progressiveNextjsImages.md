@@ -37,7 +37,8 @@ export const ImageWithPlaceholder = ({
     const imageToLoad = new Image({
       src,
       onload: () => {
-        // When the image is loaded, replace the blurred image with the now loaded full image
+        // When the image is loaded,
+        // replace the blurred image with the now loaded full image
         updateSrc(src)
       },
     })
@@ -102,7 +103,8 @@ export const ImageWithPlaceholder: React.FC<ImageWithPlaceholderProp> = ({
     const imageToLoad = new Image({
       src,
       onload: () => {
-        // When the image is loaded, replace the blurred image with the now loaded full image
+        // When the image is loaded,
+        // replace the blurred image with the now loaded full image
         updateSrc(src)
       },
     })
