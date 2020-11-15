@@ -1,9 +1,11 @@
 ---
 title: "Phillip-Maier.com"
 description: "My first personal website"
-date: "11-1-2020"
-author: Phillip Maier
-categories:
+publishTime: "11-1-2020"
+modifiedTime: "11-1-2020"
+authors:
+  - Phillip Maier
+tags:
   - TypeScript
   - React
   - Apollo

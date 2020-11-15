@@ -1,13 +1,14 @@
 ---
 title: "How to Progressively load Images in Next.js!"
 description: "You can progressively load images in next.js 10+ with just a few simple steps!"
-date: "11-9-2020"
-author: Phillip Maier
-categories:
+publishTime: "11-9-2020"
+modifiedTime: "11-9-2020"
+authors:
+  - Phillip Maier
+tags:
   - Next.js
   - React
   - Image
-  - Speed
 bannerPath: /PostPics/Cazenovia_Hay_Bales.png
 bannerPlaceholderPath: /PostPics/Cazenovia_Hay_Bales-Placeholder.png
 bannerCredit: Unknown

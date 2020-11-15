@@ -1,9 +1,11 @@
 ---
 title: "PhillipMaier.com"
 description: "My Second personal website"
-date: "11-4-2020"
-author: Phillip Maier
-categories:
+publishTime: "11-4-2020"
+modifiedTime: "11-4-2020"
+authors:
+  - Phillip Maier
+tags:
   - TypeScript
   - React
   - Next.js

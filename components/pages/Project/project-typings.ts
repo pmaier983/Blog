@@ -1,9 +1,10 @@
 export interface Project {
   title: string
   description: string
-  date: string
-  author: string
-  categories: string[]
+  publishedTime: string
+  modifiedTime: string
+  authors: string[]
+  tags: string[]
   keywords: string[]
   bannerPath: string
   bannerPlaceholderPath: string

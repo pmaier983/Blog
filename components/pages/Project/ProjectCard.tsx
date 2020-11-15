@@ -150,7 +150,7 @@ export const ProjectCard: React.FC<ProjectOutline> = ({
     bannerWidth,
     title,
     description,
-    categories,
+    tags,
   },
 }) => {
   const theme = useContext(ThemeContext)
@@ -193,7 +193,7 @@ export const ProjectCard: React.FC<ProjectOutline> = ({
           </StyledCardContainer>
         </StyledATag>
       </Link>
-      <CategoryCards cards={categories} width={cardWidth + "px"} />
+      <CategoryCards cards={tags} width={cardWidth + "px"} />
     </StyledContainer>
   )
 }

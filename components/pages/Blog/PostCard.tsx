@@ -102,7 +102,7 @@ export const PostCard: React.FC<PostOutline> = ({
     bannerPlaceholderPath,
     title,
     description,
-    categories,
+    tags,
   },
 }) => {
   return (
@@ -134,7 +134,7 @@ export const PostCard: React.FC<PostOutline> = ({
           </StyledCardContainer>
         </StyledATag>
       </Link>
-      <CategoryCards cards={categories} width={cardWidth + "px"} />
+      <CategoryCards cards={tags} width={cardWidth + "px"} />
     </StyledContainer>
   )
 }

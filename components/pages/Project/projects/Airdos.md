@@ -1,9 +1,11 @@
 ---
 title: "Airdos.net"
 description: "A social networking site for academics I had been "
-date: "11-3-2020"
-author: Phillip Maier
-categories:
+publishTime: "11-3-2020"
+modifiedTime: "11-3-2020"
+authors:
+  - Phillip Maier
+tags:
   - TypeScript
   - React
   - Apollo
