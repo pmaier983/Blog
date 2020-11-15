@@ -35,7 +35,7 @@ const StyledIntroduction = styled.main`
   justify-content: center;
   padding: 20px 0;
   font-size: 15px;
-  max-width: 370px;
+  max-width: 350px;
 `
 
 const StyledGitBoxContainer = styled.div`

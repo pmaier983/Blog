@@ -110,7 +110,7 @@ export const NavigationButton: React.FC = () => {
     <>
       <StyledButtonContainer
         onClick={toggleNavVisibility}
-        tabIndex={isNavVisible && -1}
+        tabIndex={isNavVisible ? -1 : undefined}
       >
         <MaterialIcon
           name="arrow_drop_down_circle"
@@ -122,7 +122,7 @@ export const NavigationButton: React.FC = () => {
         <StyledNavPopout>
           <StyledButtonContainer
             onClick={toggleNavVisibility}
-            tabIndex={!isNavVisible && -1}
+            tabIndex={!isNavVisible ? -1 : undefined}
           >
             <MaterialIcon name="cancel" size="80px" />
           </StyledButtonContainer>
