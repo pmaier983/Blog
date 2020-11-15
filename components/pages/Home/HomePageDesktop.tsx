@@ -23,8 +23,10 @@ const StyledProfileContainer = styled.div`
 const StyledIntroduction = styled.main`
   display: flex;
   align-items: center;
-  height: 10%;
+  text-align: center;
   font-size: 25px;
+  max-width: 600px;
+  padding: 20px 0;
 `
 
 interface StyledPaddingProps {
@@ -50,18 +52,8 @@ export const HomePageDesktop: React.FC = () => (
     </StyledProfileContainer>
     <StyledRowPadding size="20px" />
     <StyledIntroduction>
-      Hi
-      <span role="img" aria-label="hand waving">
-        &nbsp;👋&nbsp;
-      </span>
-      I&apos;m Phillip, I&apos;m a full-stack
-      <span
-        role="img"
-        aria-label="a stack of books referencing the word Fullstack"
-      >
-        &nbsp;📚&nbsp;
-      </span>
-      engineer.
+      Hi &nbsp;👋&nbsp;&nbsp; I&apos;m Phillip Maier. I&apos;m a software
+      engineer with passion for open-source and helping others.
     </StyledIntroduction>
     <GitLinkBoxes />
     <ConfirmationPopup />

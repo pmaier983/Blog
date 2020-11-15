@@ -30,10 +30,12 @@ const StyledProfileContainer = styled.div`
 
 const StyledIntroduction = styled.main`
   display: flex;
-  align-items: center;
+  align-self: center;
+  text-align: center;
   justify-content: center;
-  height: 10%;
+  padding: 20px 0;
   font-size: 15px;
+  max-width: 370px;
 `
 
 const StyledGitBoxContainer = styled.div`
@@ -72,7 +74,7 @@ const StyledATag = styled.a`
   text-decoration: none;
   outline: none;
   border-radius: 5px;
-  padding: 3px;
+  padding: 2px;
   :hover {
     box-shadow: 0 0 0 3px ${({ theme }) => theme.colors.gitCommit1};
     text-decoration: underline;
@@ -94,18 +96,8 @@ export const HomePageMobile: React.FC = () => {
         <PersonalBubbleMobile />
       </StyledProfileContainer>
       <StyledIntroduction>
-        Hi
-        <span role="img" aria-label="hand waving">
-          &nbsp;👋&nbsp;&nbsp;
-        </span>
-        I&apos;m Phillip, I&apos;m a full-stack
-        <span
-          role="img"
-          aria-label="a stack of books referencing the word Fullstack"
-        >
-          &nbsp;📚&nbsp;&nbsp;
-        </span>
-        engineer.
+        Hi &nbsp;👋&nbsp;&nbsp; I&apos;m Phillip Maier. I&apos;m a software
+        engineer with passion for open-source and helping others.
       </StyledIntroduction>
       <StyledGitBoxContainer>
         <Link href={paths.blog.path} passHref>
