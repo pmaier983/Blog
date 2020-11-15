@@ -18,14 +18,20 @@ interface AboutPageRendererProps {
 const AboutPageRenderer: React.FC<AboutPageRendererProps> = (props) => (
   <>
     <NextSeo
-      title="Phillip Maier"
-      description="Hi, I'm Phillip. I'm an engineer who's passionate about open source and helping others!"
+      title="About | Phillip Maier"
+      description="Who Phillip Maier is, and why he created this site and writes software"
       openGraph={{
-        type: "website",
+        type: "profile",
         locale: "en_IE",
         url: "https://phillipmaier.com/about",
         site_name: "Phillip Maier",
         title: "Phillip Maier",
+        profile: {
+          firstName: "Phillip",
+          lastName: "Maier",
+          username: "pmaier983",
+          gender: "male",
+        },
         description:
           "Hi, I'm Phillip. I'm an engineer who's passionate about open source and helping others!",
         images: [

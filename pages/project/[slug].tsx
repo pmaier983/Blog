@@ -1,28 +1,64 @@
 import React from "react"
 import fs from "fs"
+import _ from "lodash/fp"
 import path from "path"
 import matter from "gray-matter"
 import { NextSeo } from "next-seo"
 
 import { MarkdownPage } from "../../components/MarkdownPage"
-import { Project } from "../../components/pages/Project/project-typings"
+import { ProjectOutline } from "../../components/pages/Project/project-typings"
 
-interface ProjectRendererProps {
+interface ProjectRendererProps extends ProjectOutline {
   content: string
-  frontMatter: Project
 }
 
-const ProjectRenderer: React.FC<ProjectRendererProps> = (props) => {
-  const {
-    frontMatter: { title, description },
-  } = props
-  return (
-    <>
-      <NextSeo title={title} description={description} />
-      <MarkdownPage {...props} />
-    </>
-  )
-}
+const ProjectRenderer: React.FC<ProjectRendererProps> = ({
+  slug,
+  frontMatter: {
+    title,
+    description,
+    modifiedTime,
+    publishedTime,
+    authors,
+    tags,
+    bannerPath,
+    bannerDescription,
+  },
+  content,
+}) => (
+  <>
+    <NextSeo
+      title={title}
+      description={description}
+      openGraph={{
+        type: "article",
+        locale: "en_IE",
+        url: `https://phillipmaier.com/${slug}`,
+        site_name: "Phillip Maier",
+        title,
+        description,
+        article: {
+          modifiedTime,
+          publishedTime,
+          authors,
+          section: "Technology",
+          tags,
+        },
+        images: [
+          {
+            url: `https://s3.us-east-2.amazonaws.com/phillipmaier.com/${_.last(
+              bannerPath.split("/")
+            )}`,
+            height: 1200,
+            width: 630,
+            alt: bannerDescription,
+          },
+        ],
+      }}
+    />
+    <MarkdownPage content={content} />
+  </>
+)
 
 export default ProjectRenderer
 
@@ -60,6 +96,7 @@ export const getStaticProps = async ({
   return {
     props: {
       content: `# ${data.title}\n${content}`,
+      slug,
       frontMatter: {
         ...data,
       },
