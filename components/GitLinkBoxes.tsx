@@ -16,7 +16,6 @@ const StyledLinkBoxRow = styled.div`
   flex-direction: row;
 `
 
-// TODO: add cool hover animation
 const StyledLink = styled.a`
   text-align: center;
   color: white;

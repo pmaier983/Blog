@@ -1,4 +1,3 @@
-// TODO: hex or rgb? with commas without commas?
 export const colors = {
   lightBrown: "#7b705e",
   brown: "#4C4338",

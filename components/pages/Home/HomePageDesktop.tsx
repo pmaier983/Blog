@@ -37,14 +37,11 @@ const StyledRowPadding = styled.div<StyledPaddingProps>`
   height: ${({ size }) => size};
 `
 
-// TODO: Multiple Languages (and cycle through hello?)
 // TODO: replace lodash/ make sure space is used effectively
 // TODO: go through advanced Next.js features
 // TODO: switch to emotion (11 is arriving out soon!)
-// TODO: hand craft HEAD for links
 // TODO: comment all
 // TODO: Error page
-// TODO: Memoize and useCallback things
 export const HomePageDesktop: React.FC = () => (
   <StyledContainer>
     <StyledProfileContainer>
