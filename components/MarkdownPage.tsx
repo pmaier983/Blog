@@ -28,6 +28,10 @@ const CodeBlock = ({ language, value }) => {
   )
 }
 
+/*
+  The markdown page renders the content of any .md file with they proper
+  Typography and codeBlock coloration 
+*/
 export const MarkdownPage: React.FC<{ content: string }> = ({ content }) => {
   // on page load, highlight everything
   return (

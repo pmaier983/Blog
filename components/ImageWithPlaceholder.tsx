@@ -22,6 +22,10 @@ type ImageProps = Omit<
 
 type ImageWithPlaceholderProp = ImageProps & { placeholder: string }
 
+/* 
+  This image component quickly renders a much smaller placeholder image (1-10kb)
+  while the larger image (1MB+) loads.
+*/
 export const ImageWithPlaceholder: React.FC<ImageWithPlaceholderProp> = ({
   src,
   placeholder,

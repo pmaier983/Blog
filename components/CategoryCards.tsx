@@ -28,6 +28,10 @@ interface CategoryCardsProps extends StyledContainerProps {
   cards: string[]
 }
 
+/*
+  This component creates small cards with some padding and borders
+  containing a single word.
+*/
 export const CategoryCards: React.FC<CategoryCardsProps> = ({
   cards,
   ...rest

@@ -87,6 +87,9 @@ const StyledATag = styled.a`
   }
 `
 
+/*
+  This renders the mobile home page (only show if width pixels < mobile breakpoint)
+*/
 export const HomePageMobile: React.FC = () => {
   const theme = useContext(ThemeContext)
   return (
