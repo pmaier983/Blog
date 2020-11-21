@@ -8,6 +8,9 @@ interface AboutPageProps {
   frontMatter: AboutMe
 }
 
+/*
+  A simple page explaining who I am and what I do
+*/
 export const AboutPage: React.FC<AboutPageProps> = (props) => (
   <MarkdownPage {...props} />
 )
