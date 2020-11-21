@@ -94,6 +94,10 @@ const StyledDescription = styled.p`
   max-width: ${cardWidth * 0.9 + "px"};
 `
 
+/*
+  The Post card is a simple summary card for any post.
+  Key components are description and the background image that is progressively loaded in
+*/
 export const PostCard: React.FC<PostOutline> = ({
   slug,
   frontMatter: {
