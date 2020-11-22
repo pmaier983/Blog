@@ -2,6 +2,7 @@ import Head from "next/head"
 
 import { ThemeWrapper } from "../theme/ThemeWrapper"
 import AlertProvider from "../components/contexts/AlertProvider"
+import { GoogleAnalyticsWrapper } from "../components/utils/googleAnalytics"
 
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 const MyApp = ({ Component, pageProps }) => (
@@ -12,11 +13,13 @@ const MyApp = ({ Component, pageProps }) => (
         rel="stylesheet"
       ></link>
     </Head>
-    <AlertProvider>
-      <ThemeWrapper>
-        <Component {...pageProps} />
-      </ThemeWrapper>
-    </AlertProvider>
+    <GoogleAnalyticsWrapper>
+      <AlertProvider>
+        <ThemeWrapper>
+          <Component {...pageProps} />
+        </ThemeWrapper>
+      </AlertProvider>
+    </GoogleAnalyticsWrapper>
   </>
 )
 
