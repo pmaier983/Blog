@@ -15,6 +15,8 @@ bannerCredit: Unknown
 bannerDescription: A painting of Hay Bales with a blue sky in summer
 ---
 
+_This guide is for Next.js v10.0+_
+
 1. Chose an image you would like to progressively load
 2. Pixelate the image using [https://onlinepngtools.com/pixelate-png](https://onlinepngtools.com/pixelate-png)
 3. Resize your pixelated image (to be much smaller, 10 by 10px) using [https://onlinepngtools.com/resize-png](https://onlinepngtools.com/resize-png)
@@ -113,3 +115,5 @@ export const ImageWithPlaceholder: React.FC<ImageWithPlaceholderProp> = ({
   return <NextImage src={currentSrc} priority {...rest} />
 }
 ```
+
+If you would prefer the medium post, take a look [here](https://pmaier983.medium.com/how-to-progressively-load-images-in-next-js-js-ts-1e82e74d793b)
