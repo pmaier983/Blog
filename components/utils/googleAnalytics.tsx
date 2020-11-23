@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import ReactGA from "react-ga"
 
 export const initGA = (): void => {
-  ReactGA.initialize("G-Q64W5Q9RTB")
+  ReactGA.initialize("UA-164973605-3")
 }
 
 export const logPageView = (): void => {
