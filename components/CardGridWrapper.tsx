@@ -13,7 +13,6 @@ const StyledContainer = styled.div`
 interface CardGridWrapperProps {
   CardComponent: React.FC
   passPropsDirectly?: boolean
-  // TODO: fix this any
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   cards: any[]
 }
