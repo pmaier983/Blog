@@ -22,7 +22,7 @@ const StyledArticleContainer = styled.div`
 
 const CodeBlock = ({ language, value }) => {
   return (
-    <SyntaxHighlighter language={language} style={style}>
+    <SyntaxHighlighter language={language} style={style} wrapLongLines={true}>
       {value}
     </SyntaxHighlighter>
   )
