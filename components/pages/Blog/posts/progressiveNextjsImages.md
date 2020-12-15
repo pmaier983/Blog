@@ -9,8 +9,8 @@ tags:
   - Next.js
   - React
   - Image
-bannerPath: /PostPics/Cazenovia_Hay_Bales.png
-bannerPlaceholderPath: /PostPics/Cazenovia_Hay_Bales-Placeholder.png
+bannerPath: /PostBackgrounds/Cazenovia_Hay_Bales.png
+bannerPlaceholderPath: /PostBackgrounds/Cazenovia_Hay_Bales-Placeholder.png
 bannerCredit: Unknown
 bannerDescription: A painting of Hay Bales with a blue sky in summer
 ---

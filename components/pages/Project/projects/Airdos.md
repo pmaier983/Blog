@@ -15,8 +15,8 @@ tags:
   - serverless
   - AWS Cloudfront
 projectURL: https://airdos.net
-bannerPath: /PostPics/Airdos.png
-bannerPlaceholderPath: /PostPics/Airdos-Placeholder.png
+bannerPath: /PostBackgrounds/Airdos.png
+bannerPlaceholderPath: /PostBackgrounds/Airdos-Placeholder.png
 bannerHeight: 150
 bannerWidth: 200
 bannerCredit: Phillip Maier

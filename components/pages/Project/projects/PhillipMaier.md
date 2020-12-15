@@ -12,8 +12,8 @@ tags:
   - Vercel
   - SEO
 projectURL: https://phillipmaier.com
-bannerPath: "/PostPics/PhillipMaier.png"
-bannerPlaceholderPath: "/PostPics/PhillipMaier-Placeholder.png"
+bannerPath: "/PostBackgrounds/PhillipMaier.png"
+bannerPlaceholderPath: "/PostBackgrounds/PhillipMaier-Placeholder.png"
 bannerHeight: 160
 bannerWidth: 150
 bannerCredit: Phillip Maier
