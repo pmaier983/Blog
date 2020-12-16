@@ -88,7 +88,7 @@ if (process?.argv?.indexOf("isTesting") !== -1) {
     "pg": "^8.5.1"
   },
   "config": {
-    "env_path": "../../../../.env" // This should e wherever you .env is located
+    "env_path": "../../../../.env" // The path to your .env
   },
   "scripts": {
     "dev": "tsnd -r dotenv/config --respawn src/app.ts dotenv_config_path=${PWD}/$npm_package_config_env_path -- isTesting ",
