@@ -36,13 +36,12 @@ const StyledATag = styled.a`
   width: ${cardWidth + "px"};
   color: black;
   border-radius: ${borderRadius + "px"};
+  text-decoration: none;
   :hover {
-    text-decoration: none;
     box-shadow: 0 0 0 4px ${({ theme }) => theme.colors.gitCommit2};
     outline: none;
   }
   :focus {
-    text-decoration: none;
     box-shadow: 0 0 0 4px ${({ theme }) => theme.colors.gitCommit2};
     outline: none;
   }
