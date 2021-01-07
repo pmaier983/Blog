@@ -129,7 +129,7 @@ export const HomePageMobile: React.FC = () => {
       </StyledGitBoxContainer>
       <StyledRowPadding size="35px" />
       <StyledLinksContainer>
-        <StyledATag href="https://www.linkedin.com/in/phillip-maier-3a4161102/">
+        <StyledATag href="https://github.com/pmaier983">
           <LinkBubbleBottom diameter="50px" text="Github">
             <Image
               src="/Icons/GithubLogo.png"

@@ -62,9 +62,11 @@ export const ScrollNavPage: React.FC = ({ children }) => {
       <StyledScrollList>{children}</StyledScrollList>
       {isMobile ? <NavigationButton /> : <NavBar />}
       <StyledFooter>
-        <StyledATag>Github</StyledATag>
-        <StyledATag>Linkedin</StyledATag>
-        <StyledATag>Twitter</StyledATag>
+        <StyledATag href="https://github.com/pmaier983">Github</StyledATag>
+        <StyledATag href="https://www.linkedin.com/in/phillip-maier-3a4161102/">
+          Linkedin
+        </StyledATag>
+        <StyledATag href="https://twitter.com/pmaier983">Twitter</StyledATag>
         <StyledButton onClick={copyToClip} tabIndex={-1}>
           Email
         </StyledButton>
