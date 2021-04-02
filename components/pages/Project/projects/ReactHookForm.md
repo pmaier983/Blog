@@ -17,8 +17,8 @@ bannerCredit: Phillip Maier
 bannerDescription: A bright pink clipboard and paper that is the symbol of React Hook Form
 ---
 
-## ❓ Why Did I create [PhillipMaier.com](https://phillipmaier.com/)
+## ❓ Why Did I start working on [react-hook-form](https://react-hook-form.com/)
 
-## 🏗️ How Did I build [PhillipMaier.com](https://phillipmaier.com/)
+## 🏗️ How Did I help build [react-hook-form](https://react-hook-form.com/)
 
-## 💡 What Are my takeaways from building [PhillipMaier.com](https://phillipmaier.com/)
+## 💡 What Are my takeaways from working on [react-hook-form](https://react-hook-form.com/)
