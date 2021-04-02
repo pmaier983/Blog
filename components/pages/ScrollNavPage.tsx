@@ -27,14 +27,6 @@ const StyledFooter = styled.div`
   border-top: 2px dashed ${({ theme }) => theme.colors.gitCommit0};
 `
 
-const StyledButton = styled.button`
-  all: unset;
-  :hover {
-    cursor: pointer;
-    text-decoration: underline;
-  }
-`
-
 const StyledATag = styled.a`
   all: unset;
   :hover {
@@ -67,9 +59,7 @@ export const ScrollNavPage: React.FC = ({ children }) => {
           Linkedin
         </StyledATag>
         <StyledATag href="https://twitter.com/pmaier983">Twitter</StyledATag>
-        <StyledButton onClick={copyToClip} tabIndex={-1}>
-          Email
-        </StyledButton>
+        <StyledATag onClick={copyToClip}>Email</StyledATag>
       </StyledFooter>
     </StyledSimplePageContainer>
   )
