@@ -30,7 +30,7 @@ After chatting with Carshall (the founder), I saw joining the team as a great op
 
 ## 🏗️ How Did I build [SuperCTF.com](https://superctf.com/)
 
-Just to be entirely clear, this was a team effort. In total there are four of us: Carshall (fullStack), Me (fullStack no Godot), JamJar (Godot), Teho (Art).
+Just to be entirely clear, this was a team effort. In total there are four of us: Carshall (FullStack), Me (FullStack no Godot), JamJar (Godot), Teho (Art).
 
 A partial list of my efforts/accomplishments can be seen below:
 
@@ -53,6 +53,3 @@ Building is better with friends! This may seem obvious but hear me out. If you'r
 I think carefully about what projects I spend my time on, and whether what I'm doing at any given time is at least a "local optimum". When working on SuperCTF it feels like some of that analysis is striped away. I'm just a kid with blocks again.
 
 There are obviously technical takeaways to my work at SuperCTF, but I'll hold off on them until our block castle is more complete.
-
-Thanks for reading!
-I really hope you have people you call friends wherever you work, have a great day!
