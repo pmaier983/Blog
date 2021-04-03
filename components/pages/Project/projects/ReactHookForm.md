@@ -12,7 +12,7 @@ projectURL: https://react-hook-form.com/
 bannerPath: /PostBackgrounds/ReactHookForm.png
 bannerPlaceholderPath: /PostBackgrounds/ReactHookForm-Placeholder.png
 bannerHeight: 150
-bannerWidth: 200
+bannerWidth: 250
 bannerCredit: Phillip Maier
 bannerDescription: A bright pink clipboard and paper that is the symbol of React Hook Form
 ---
