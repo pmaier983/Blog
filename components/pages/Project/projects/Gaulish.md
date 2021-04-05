@@ -21,3 +21,9 @@ bannerWidth: 200
 bannerCredit: Phillip Maier
 bannerDescription: A picture of a pixelated Viking helmet with wings
 ---
+
+## ❓ Why did I create [gaulish](https://gaulish.io/)
+
+## 🏗️ How Did I build [gaulish](https://gaulish.io/)
+
+## 💡 What Are my takeaways from building [gaulish](https://gaulish.io/)
