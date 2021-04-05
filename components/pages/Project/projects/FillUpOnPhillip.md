@@ -24,7 +24,7 @@ bannerCredit: Phillip Maier
 bannerDescription: A picture of the homepage of phillip-maier.com
 ---
 
-## ❓ Why Did I create [FillUpOnPhillip](https://phillip-maier.com/)
+## ❓ Why did I create [FillUpOnPhillip](https://phillip-maier.com/)
 
 - **I needed to get a very solid grasp of a new library: [react-grid-layout](https://github.com/STRML/react-grid-layout).** When I created [FillUpOnPhillip](https://phillip-maier.com/), which I will now be abbreviating to FUOP because the full name makes me cringe a bit, I was working on a dashboard that required moveable "widgets". After some research I decided react-grid-layout was the best choice, and to gain some experience I built my first personal website!
 

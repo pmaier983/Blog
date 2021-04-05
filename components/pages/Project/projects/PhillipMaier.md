@@ -20,7 +20,7 @@ bannerCredit: Phillip Maier
 bannerDescription: A Picture of the home page of phillipmaier.com
 ---
 
-## ❓ Why Did I create [PhillipMaier.com](https://phillipmaier.com/)
+## ❓ Why did I create [PhillipMaier.com](https://phillipmaier.com/)
 
 - If you took the time to read [this](https://phillipmaier.com/project/FillUpOnPhillip) post you will know I already have a personal website! So its only logical that you would be asking: _"Phillip why do you need **another** personal website?"_. Good question friendly reader. Since I created my first personal website much has changed. I've become fascinated by new technologies, gained new skills, and also been trapped in one place because of COVID. So I thought: why not build a blog with some new tech and then blog about what I learn!
 

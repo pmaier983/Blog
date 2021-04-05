@@ -23,7 +23,7 @@ bannerCredit: Phillip Maier
 bannerDescription: A picture of the homepage of Airdos.net
 ---
 
-## ❓ Why Did I create [Airdos](https://airdos.net/feed)
+## ❓ Why did I create [Airdos](https://airdos.net/feed)
 
 - I created [Airdos](https://airdos.net/feed) to act as a social media platform for academics. You may be thinking:
 
