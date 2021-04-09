@@ -24,6 +24,8 @@ bannerDescription: A picture of a pixelated Viking helmet with wings
 
 ## ❓ Why did I create [gaulish](https://gaulish.io/)
 
+As you may know from my SuperCTF post (#TODO: Link 😉), I have a deep love for .io games. For the longest time I have been mulling over some version of gaulish. After putting a wrap on the React frontend of SuperCTF it felt like the perfect time to start a new project.
+
 ## 🏗️ How Did I build [gaulish](https://gaulish.io/)
 
 ## 💡 What Are my takeaways from building [gaulish](https://gaulish.io/)
