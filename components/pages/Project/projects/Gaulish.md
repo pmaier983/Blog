@@ -10,9 +10,11 @@ tags:
   - React
   - Graphql
   - Redis
+  - Websockets
   - Express
   - PostgresSQL
-  - TBD...
+  - passport
+  - pg-promise
 projectURL: https://gaulish.io/
 bannerPath: /PostBackgrounds/Gaulish.png
 bannerPlaceholderPath: /PostBackgrounds/Gaulish-Placeholder.png
