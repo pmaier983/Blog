@@ -1,17 +1,18 @@
 import Document, { Html, Head, Main, NextScript } from "next/document"
 import { ServerStyleSheet } from "styled-components"
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 class MyDocument extends Document {
   // https://medium.com/swlh/server-side-rendering-styled-components-with-nextjs-1db1353e915e
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  static async getInitialProps(ctx) {
+
+  static async getInitialProps(ctx: any) {
     const sheet = new ServerStyleSheet()
     const originalRenderPage = ctx.renderPage
 
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: (App) => (props) =>
+          enhanceApp: (App: any) => (props: any) =>
             sheet.collectStyles(<App {...props} />),
         })
 
