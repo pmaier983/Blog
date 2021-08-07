@@ -35,7 +35,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link rel="icon" href="/PMFavicon.png" />
+          <link rel="icon" href="/Favicon.png" />
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         </Head>
         <body>
