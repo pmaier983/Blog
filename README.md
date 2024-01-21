@@ -1,10 +1,11 @@
 # Phillip Maier's Blog V4
 
-Tech I'm interested in using for this one:
+Tech/Tools I'm interested in using for this one:
 
-- Bun (https://bun.sh/)
-- Astro (https://astro.build/)
-- Stylex (https://stylexjs.com/) possibly mixed with tailwind for the simpler styles (https://tailwindcss.com/)
+- Bun - Node.js ecosystem replacement (https://bun.sh/)
+- Astro - Static Site (https://astro.build/)
+- Stylex - styling solution (https://stylexjs.com/) possibly mixed with tailwind for the simpler styles (https://tailwindcss.com/)
+- PostHog - Site Analytics (https://posthog.com/)
 
 # Astro Starter Kit: Blog
 
