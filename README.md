@@ -15,5 +15,8 @@ Tech/Tools I'm interested in using for this one:
 
 ## TODO
 
-- Add an interactive counter button that increments an "I was here" button, and connects to my planetscale db
--
+- [ ] Add an interactive counter button that increments an "I was here" button, and connects to my planetscale db
+- [ ] Build a home page based on some Dalle Mocks
+- [ ] Create a page that just lists projects
+- [ ] Create a page that has a bunch of cool links & descriptions
+- [ ] Also create a single demo blog
