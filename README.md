@@ -20,3 +20,10 @@ Tech/Tools I'm interested in using for this one:
 - [ ] Create a page that just lists projects
 - [ ] Create a page that has a bunch of cool links & descriptions
 - [ ] Also create a single demo blog
+
+Consider Also building the blog using (as an experiment):
+
+- Remix
+- Vue
+- Svelte
+- SolidJS
