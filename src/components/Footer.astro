@@ -1,20 +1,24 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets"
 
-import vscodeImages from '~/images/vscode-arrows.webp';
+import vscodeImages from "~/images/vscode-arrows.webp"
 
-import {ToggleVSCodeButton} from '~/components/ToggleVSCodeButton.tsx';
+import { ToggleVSCodeButton } from "~/components/ToggleVSCodeButton.tsx"
 
-const today = new Date();
+const today = new Date()
 ---
 
 <footer class="flex flex-row text-base items-center gap-2">
-	<ToggleVSCodeButton client:load>
-		<Image src={vscodeImages} alt="Two carrets pointing in oposite directions, copied from the bottom left of VSCode" class="h-8 w-14 rounded-none"/>
-		</ToggleVSCodeButton>
-	&copy; {today.getFullYear()} Phillip Maier. All rights reserved.
-	<!-- TODO -->
-	<!-- <a>github</a>
+  <ToggleVSCodeButton client:load>
+    <Image
+      src={vscodeImages}
+      alt="Two carrets pointing in oposite directions, copied from the bottom left of VSCode"
+      class="h-8 w-14 rounded-none"
+    />
+  </ToggleVSCodeButton>
+  &copy; {today.getFullYear()} Phillip Maier. All rights reserved.
+  <!-- TODO -->
+  <!-- <a>github</a>
 	<a>linkedin</a>
 	<a>twitter</a> -->
 </footer>
