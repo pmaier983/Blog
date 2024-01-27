@@ -1,6 +1,14 @@
 {
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
-    "strictNullChecks": true
+    "jsx": "react-jsx",
+    "strictNullChecks": true,
+    "baseUrl": "/Users/phillipmaier/Desktop/Code.nosync/Blog",
+    "paths": {
+      "~/*": [
+        "src/*"
+      ]
+    },
+    "jsxImportSource": "react"
   }
 }
