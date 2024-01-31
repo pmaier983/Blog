@@ -1,0 +1,15 @@
+---
+import type { ComponentPropsWithRef } from "react"
+import { type Icon, ICONS } from "~/consts"
+
+export interface Props extends ComponentPropsWithRef<"svg"> {
+  icon: Icon
+  size?: ComponentPropsWithRef<"svg">["width"]
+}
+
+const { size, icon, strokeWidth } = Astro.props
+---
+
+<svg height={size ?? 24} width={size ?? 24} stroke-width={strokeWidth ?? "2"}>
+  <use href={`/icons.svg#${ICONS[icon]}`}></use>
+</svg>
