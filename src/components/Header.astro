@@ -1,15 +1,28 @@
 ---
 import { SITE_TITLE } from "../consts"
+import Icon from "~/components/Icon.astro"
 ---
 
-<header
-  class="flex items-center h-10 justify-center border-b-gray-900 border-[1px]"
->
-  <nav class="items-center w-full flex justify-center">
-    <h2
-      class="bg-gray-300 border-gray-500 border-[1px] rounded-md pl-8 pr-8 flex justify-center hover:border-gray-700 hover:bg-gray-400"
+<div>
+  <!-- The nav button present on mobile -->
+  <div class="sm:hidden">
+    <button
+      class="absolute bg-white top-2 right-2 rounded-md border-2 border-black p-2"
     >
-      <a href="/" class="flex flex-1 justify-center">{SITE_TITLE}</a>
-    </h2>
-  </nav>
-</header>
+      <Icon icon="menu" />
+      <span class="sr-only">menu</span>
+    </button>
+  </div>
+  <!-- The header present on desktop -->
+  <header
+    class="flex items-center h-10 justify-center border-b-gray-900 border-[1px] max-sm:hidden"
+  >
+    <nav class="items-center w-full flex justify-center">
+      <h2
+        class="bg-gray-300 border-gray-500 border-[1px] rounded-md pl-8 pr-8 flex justify-center hover:border-gray-700 hover:bg-gray-400"
+      >
+        <a href="/" class="flex flex-1 justify-center">{SITE_TITLE}</a>
+      </h2>
+    </nav>
+  </header>
+</div>
