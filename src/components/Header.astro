@@ -1,21 +1,13 @@
 ---
 import { SITE_TITLE } from "../consts"
-import Icon from "~/components/Icon.astro"
+import { MobileNavMenuButton } from "~/components/MobileNavMenuButton"
 ---
 
 <div>
   <!-- The nav button present on mobile -->
-  <div class="sm:hidden">
-    <button
-      class="absolute bg-white top-2 right-2 rounded-md border-2 border-black p-2"
-    >
-      <Icon icon="menu" />
-      <span class="sr-only">menu</span>
-    </button>
-  </div>
-  <!-- The header present on desktop -->
+  <MobileNavMenuButton />
   <header
-    class="flex items-center h-10 justify-center border-b-gray-900 border-[1px] max-sm:hidden"
+    class="flex items-center h-10 justify-center border-b-gray-900 border-[1px]"
   >
     <nav class="items-center w-full flex justify-center">
       <h2
