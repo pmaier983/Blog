@@ -10,6 +10,7 @@ export interface Props extends ComponentPropsWithRef<"svg"> {
 const { size, icon, strokeWidth } = Astro.props
 ---
 
+<!-- TODO: unify the Astro & React Icon components? -->
 <svg height={size ?? 24} width={size ?? 24} stroke-width={strokeWidth ?? "2"}>
   <use href={`/icons.svg#${ICONS[icon]}`}></use>
 </svg>
