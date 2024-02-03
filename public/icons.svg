@@ -1,9 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
     <!-- menu -->
-    <svg id="menu" fill="none">
-      <path d="M4 6H20M4 12H20M4 18H20" stroke="#000000" stroke-width="2" stroke-linecap="round"
-        stroke-linejoin="round" />
+    <svg id="menu" viewBox='0 0 100 100' fill='none' stroke='#0E1A27' stroke-width='8' stroke-linecap='round'
+      stroke-linejoin='round'>
+      <line x1="15" y1="20" x2="85" y2="20" />
+      <line x1="15" y1="50" x2="85" y2="50" />
+      <line x1="15" y1="80" x2="85" y2="80" />
     </svg>
     <!-- refresh-cw -->
     <symbol id="refresh-cw" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -12,5 +14,11 @@
       <polyline points="1 20 1 14 7 14"></polyline>
       <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
     </symbol>
+    <!-- close -->
+    <svg id="close" viewBox='0 0 100 100' fill='none' stroke='#0E1A27' stroke-width='8' stroke-linecap='round'
+      stroke-linejoin='round'>
+      <line x1="15" y1="15" x2="85" y2="85" />
+      <line x1="85" y1="15" x2="15" y2="85" />
+    </svg>
   </defs>
 </svg>
