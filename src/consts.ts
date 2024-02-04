@@ -10,6 +10,11 @@ export const ICONS = {
   menu: "menu",
   "refresh-cw": "refresh-cw",
   close: "close",
+  "right-carrot": "right-carrot",
+  "down-carrot": "down-carrot",
+  home: "home",
+  book: "book",
+  projects: "projects",
 }
 
 export type Icon = keyof typeof ICONS
@@ -18,13 +23,16 @@ export const NAVIGABLE_PAGES = [
   {
     title: "Home",
     href: "/",
+    icon: ICONS.home,
   },
   {
     title: "Cool Links",
     href: "/cool-links",
+    icon: ICONS.book,
   },
   {
     title: "Project Links",
     href: "/project-links",
+    icon: ICONS.projects,
   },
 ]
