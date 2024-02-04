@@ -13,3 +13,18 @@ export const ICONS = {
 }
 
 export type Icon = keyof typeof ICONS
+
+export const NAVIGABLE_PAGES = [
+  {
+    title: "Home",
+    href: "/",
+  },
+  {
+    title: "Cool Links",
+    href: "/cool-links",
+  },
+  {
+    title: "Project Links",
+    href: "/project-links",
+  },
+]

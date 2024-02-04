@@ -1,7 +1,15 @@
+---
+import { NAVIGABLE_PAGES } from "~/consts"
+---
+
 <nav class="max-sm:hidden">
   <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/cool-links">Cool Links</a></li>
-    <li><a href="/project-links">Project Links</a></li>
+    {
+      NAVIGABLE_PAGES.map((page) => (
+        <li>
+          <a href={`/${page.href}`}>{page.title}</a>
+        </li>
+      ))
+    }
   </ul>
 </nav>
