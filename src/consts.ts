@@ -15,7 +15,7 @@ export const ICONS = {
   home: "home",
   book: "book",
   projects: "projects",
-}
+} as const
 
 export type Icon = keyof typeof ICONS
 

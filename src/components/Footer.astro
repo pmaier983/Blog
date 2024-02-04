@@ -8,7 +8,9 @@ import { ToggleVSCodeButton } from "~/components/ToggleVSCodeButton.tsx"
 const today = new Date()
 ---
 
-<footer class="flex flex-row text-base items-center gap-2">
+<footer
+  class="flex flex-row text-base items-center gap-2 border-t-[1px] border-black"
+>
   <ToggleVSCodeButton client:load>
     <Image
       src={vscodeImages}

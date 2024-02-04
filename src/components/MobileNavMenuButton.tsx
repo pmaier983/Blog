@@ -13,7 +13,7 @@ export const MobileNavMenuButton = () => {
         }}
         className="absolute bg-white top-2 right-2 rounded-md border-2 border-black p-2"
       >
-        <Icon icon="menu" />
+        <Icon icon="menu" className="w-10 h-10" />
         <span className="sr-only">menu</span>
       </button>
       {isNavOverlayVisible && (
@@ -25,7 +25,7 @@ export const MobileNavMenuButton = () => {
               }}
               className="absolute bg-white top-2 right-2 rounded-md border-2 border-black p-2"
             >
-              <Icon icon="close" />
+              <Icon icon="close" className="w-10 h-10" />
               <span className="sr-only">close</span>
             </button>
             <nav>
@@ -34,7 +34,13 @@ export const MobileNavMenuButton = () => {
                   <>
                     {/* How to get text size to scale with screen size perfectly? */}
                     <li className="text-6xl">
-                      <a href={`/${page.href}`}>{page.title}</a>
+                      <a
+                        href={page.href}
+                        className="flex flex-row items-center gap-6"
+                      >
+                        <Icon icon={page.icon} className="w-20 h-20" />
+                        {page.title}
+                      </a>
                     </li>
                     <div className="h-[2px] bg-gray-300 last:hidden" />
                   </>
