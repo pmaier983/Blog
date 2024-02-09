@@ -16,12 +16,12 @@ Tech/Tools I'm interested in using for this one:
 ## TODO
 
 - [ ] Add an interactive counter button that increments an "I was here" button, and connects to my planetscale db
-  - [ ] Use Fly.io - hosting
-  - [ ] Dockerize the api
+  - [ ] Consider adding TurboRepo for easy deploys & stuff
   - [ ] Express vs. Fastify vs. Koa? (Node.js Framework/helper)
   - [ ] Drizzle - for its schema & readability
-  - [ ] Helpful Link https://github1s.com/drizzle-team/drizzle-bun-litefs/blob/HEAD/package.json
-  - [ ] Consider adding TurboRepo for easy deploys & stuff
+    - [ ] Helpful Link https://github1s.com/drizzle-team/drizzle-bun-litefs/blob/HEAD/package.json
+  - [ ] Dockerize the api
+  - [ ] Use Fly.io - hosting
 - [ ] Build a home page based on some Dalle Mocks
 - [ ] Create a page that just lists projects
 - [ ] Create a page that has a bunch of cool links & descriptions
