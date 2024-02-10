@@ -30,7 +30,7 @@ Tech/Tools I'm interested in using for this one:
 Consider Also building the blog using (as an experiment):
 
 - Remix
-- Vue
 - Svelte
+- Vue
 - SolidJS
 - HTMX
