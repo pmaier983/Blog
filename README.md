@@ -34,3 +34,4 @@ Consider Also building the blog using (as an experiment):
 - Vue
 - SolidJS
 - HTMX
+- Quick 2
