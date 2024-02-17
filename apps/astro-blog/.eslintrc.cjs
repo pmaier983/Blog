@@ -7,6 +7,7 @@ const config = {
   },
   plugins: ["@typescript-eslint"],
   extends: [
+    "@repo/eslint-config/base.js",
     "plugin:astro/recommended",
     "plugin:@typescript-eslint/recommended-type-checked",
     "plugin:@typescript-eslint/stylistic-type-checked",
