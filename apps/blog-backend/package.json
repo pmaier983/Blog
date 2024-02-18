@@ -1,0 +1,19 @@
+{
+  "name": "blog-backend",
+  "version": "1.0.0",
+  "description": "the backend for my blog",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts"
+  },
+  "keywords": [],
+  "author": "Phillip Maier",
+  "dependencies": {
+    "@repo/eslint-config": "*",
+    "@repo/typescript-config": "*",
+    "@types/node": "^20.11.19",
+    "fastify": "^4.26.1",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
+  }
+}
