@@ -16,9 +16,10 @@ Tech/Tools I'm interested in using for this one:
 ## TODO
 
 - [ ] Add an interactive counter button that increments an "I was here" button, and connects to my planetscale db
-  - [ ] Consider adding TurboRepo for easy deploys & stuff
-    - [ ] Get Linting and prettier working
+  - [x] Consider adding TurboRepo for easy deploys & stuff
+    - [x] Get Linting and prettier working
     - [ ] Setup one repo for each "route"
+    - [ ] Setup a way to auto build & deploy each route
   - [ ] Express vs. Fastify vs. Koa? (Node.js Framework/helper)
   - [ ] Drizzle - for its schema & readability
     - [ ] Helpful Link https://github1s.com/drizzle-team/drizzle-bun-litefs/blob/HEAD/package.json
