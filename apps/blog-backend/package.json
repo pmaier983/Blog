@@ -10,6 +10,7 @@
   "keywords": [],
   "author": "Phillip Maier",
   "dependencies": {
+    "@paralleldrive/cuid2": "^2.2.2",
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
     "@types/cors": "^2.8.17",
