@@ -1,15 +1,22 @@
-import fastify from "fastify"
+import cors from "cors"
+import express from "express"
 
-const server = fastify()
+import { PORT } from "~/const"
+import { buttonsRoute } from "~/api/buttons"
 
-server.get("/ping", async (request, reply) => {
-  return "pong\n"
-})
+import "dotenv/config"
 
-server.listen({ port: 8080 }, (err, address) => {
-  if (err) {
-    console.error(err)
-    process.exit(1)
-  }
-  console.log(`Server listening at ${address}`)
+const app = express()
+
+app.use(
+  cors({
+    origin: "*",
+  })
+)
+app.use(express.json())
+
+app.use("/api/:version/buttons", buttonsRoute)
+
+app.listen(PORT, () => {
+  console.log(`Example app listening at http://localhost:${PORT}`)
 })
