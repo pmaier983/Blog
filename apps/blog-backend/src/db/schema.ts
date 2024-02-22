@@ -1,6 +1,5 @@
 import { relations } from "drizzle-orm"
 import { int, varchar, mysqlTableCreator } from "drizzle-orm/mysql-core"
-import { createId } from "@paralleldrive/cuid2"
 
 const mysqlTable = mysqlTableCreator((name) => `personal_site_${name}`)
 
@@ -14,7 +13,7 @@ export const buttonsRelations = relations(buttons, ({ many }) => ({
 }))
 
 export const buttonClicks = mysqlTable("button_clicks", {
-  id: varchar("id", { length: 191 }).primaryKey().notNull().default(createId()),
+  id: varchar("id", { length: 191 }).primaryKey().notNull(),
   buttonId: varchar("button_id", { length: 191 }).notNull(),
   timestamp: varchar("timestamp", { length: 191 }).notNull(),
   userAgent: varchar("user_agent", { length: 512 }),

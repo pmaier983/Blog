@@ -4,6 +4,7 @@ import { z } from "zod"
 import { db } from "~/db"
 import { buttonClicks, buttons } from "~/db/schema"
 import { getRequestParams } from "~/utils"
+import { createId } from "@paralleldrive/cuid2"
 
 const incrementButtonSchema = z.object({
   params: z.object({
@@ -33,7 +34,7 @@ const V1 = async (req: Request, res: Response, next: NextFunction) => {
       }
 
       await trx.insert(buttonClicks).values({
-        id: "",
+        id: createId(),
         buttonId: button.id,
         timestamp: new Date().toISOString(),
         // TODO: is there a way to avoid writing these nulls?
