@@ -18,6 +18,5 @@ export const buttonClicks = mysqlTable("button_clicks", {
   timestamp: varchar("timestamp", { length: 191 }).notNull(),
   userAgent: varchar("user_agent", { length: 512 }),
   language: varchar("language", { length: 191 }),
-  platform: varchar("platform", { length: 191 }),
   screenResolution: varchar("screen_resolution", { length: 191 }),
 })
