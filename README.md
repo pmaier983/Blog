@@ -17,7 +17,7 @@ Tech/Tools I'm interested in using for this one:
 
 - [ ] Add an interactive counter button that increments an "I was here" button, and connects to my planetscale db
   - [ ] Blog API
-    - [ ] Add Logging (with [pino](https://getpino.io/#/docs/web?id=express))
+    - [x] Add Logging (with [pino](https://getpino.io/#/docs/web?id=express))
     - [ ] Add Rate Limiting (with [uptash](https://github.com/upstash/ratelimit))
     - [ ] Setup Docker
     - [ ] Setup Swagger

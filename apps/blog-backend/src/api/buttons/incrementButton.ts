@@ -56,7 +56,7 @@ const V1 = async (req: Request, res: Response, next: NextFunction) => {
 
     return res.send(200)
   } catch (error) {
-    console.log(error)
+    req.log.error("incrementButton.V1")
     throw next(new Error(JSON.stringify(error)))
   }
 }
