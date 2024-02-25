@@ -2,8 +2,9 @@
 
 Tech/Tools I'm interested in using for this one:
 
-- [Bun](https://bun.sh/)
+- [FAILED][Bun](https://bun.sh/)
   - Along with [Deno](https://deno.com/) this project attempts to bring speed and coherence to the javascript ecosystem. I chose it over Deno due to its faster speed, and the clarity of vision its [founders brings](https://github.com/Jarred-Sumner).
+  - It turns out [bun does not play well with turborepo](https://github.com/vercel/turbo/issues/5982). I transitioned over to [pnpm](https://pnpm.io/) instead.
 - [Astro](https://astro.build/)
   - Astro follows in the footsteps of Static site generators such as Gatsby in the same way school children sometimes step in a T-rex footprint at a museum. I also considered using bare bones [Vite](https://vitejs.dev/), but Astro has an [abundance of features](https://docs.astro.build/en/concepts/why-astro/) that I would have had to hook up myself if using Vite, and as I have gotten older I tend to reach for the more complete solutions first, only reaching for more minute control when truly needed.
 - [Tailwind](https://tailwindcss.com/)
@@ -20,6 +21,9 @@ Tech/Tools I'm interested in using for this one:
     - [x] Add Logging (with [pino](https://getpino.io/#/docs/web?id=express))
     - [x] Add Rate Limiting
     - [ ] Setup Docker
+      - [ ] Transition to pnpm.
+      - [ ] Write dockerfile
+      - [ ] Figure out .env
     - [ ] Setup Swagger
     - [ ] Use Fly.io - hosting
 - [ ] Setup a way to auto build & deploy each app/route
