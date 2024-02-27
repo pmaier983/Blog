@@ -9,6 +9,7 @@
   },
   "keywords": [],
   "author": "Phillip Maier",
+  "packageManager": "pnpm@8.15.4",
   "dependencies": {
     "@paralleldrive/cuid2": "^2.2.2",
     "@repo/eslint-config": "*",
