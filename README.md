@@ -21,7 +21,7 @@ Tech/Tools I'm interested in using for this one:
     - [x] Add Logging (with [pino](https://getpino.io/#/docs/web?id=express))
     - [x] Add Rate Limiting
     - [ ] Setup Docker
-      - [ ] Transition to pnpm.
+      - [x] Transition to pnpm.
       - [ ] Write dockerfile
       - [ ] Figure out .env
     - [ ] Setup Swagger
