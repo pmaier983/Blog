@@ -1,11 +1,18 @@
 # syntax=docker/dockerfile:1
 
+# This file was inspired by the following:
+# https://turbo.build/repo/docs/handbook/deploying-with-docker#example
+# https://pnpm.io/docker
+
 FROM node:20-slim AS base
+
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
+# https://nodejs.org/api/corepack.html
+# Help to id the version of the package manager (and install it!)
 RUN corepack enable
-COPY . /app
-WORKDIR /app
 
+WORKDIR /app
 RUN pnpm -g i turbo
+COPY . .
 RUN turbo prune blog-backend --docker
