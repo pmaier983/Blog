@@ -4,6 +4,11 @@
 # https://turbo.build/repo/docs/handbook/deploying-with-docker#example
 # https://pnpm.io/docker
 
+# Step to debug: 
+# 1. run `docker run --name blog-backend`
+# 2. Use the docker desktop app to run the container
+# 3. Use the docker desktop app to explore the container via the CLI
+
 FROM node:20-slim AS base
 
 ENV PNPM_HOME="/pnpm"
