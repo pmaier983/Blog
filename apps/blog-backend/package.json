@@ -1,7 +1,7 @@
 {
   "name": "blog-backend",
   "version": "1.0.0",
-  "description": "the backend for my blog",
+  "description": "The backend for my blog",
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch src/index.ts",
