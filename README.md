@@ -24,6 +24,7 @@ Tech/Tools I'm interested in using for this one:
       - [x] Transition to pnpm.
       - [ ] Write dockerfile
       - [ ] Figure out .env
+      - [ ] Consider Setting up Docker Compose?
     - [ ] Setup Swagger
     - [ ] Use Fly.io - hosting
 - [ ] Setup a way to auto build & deploy each app/route
