@@ -23,4 +23,5 @@ RUN corepack enable
 WORKDIR /app
 RUN pnpm -g i turbo
 COPY . .
+
 RUN turbo prune blog-backend --docker
