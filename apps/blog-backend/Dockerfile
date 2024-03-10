@@ -19,9 +19,39 @@ ENV PATH="$PNPM_HOME:$PATH"
 # https://nodejs.org/api/corepack.html
 # Help to id the version of the package manager (and install it!)
 RUN corepack enable
-
-WORKDIR /app
+# install & setup turbo
 RUN pnpm -g i turbo
+
+# install pre-reqs and prune blog-backend build
+FROM base AS builder
+
+# Set working directory
+WORKDIR /app
 COPY . .
 
+# build 
 RUN turbo prune blog-backend --docker
+
+# install & build the project
+FROM base AS installer
+# First install the dependencies (as they change less often)
+COPY --from=builder /app/out/json/ .
+COPY --from=builder /app/out/pnpm-lock.yaml ./pnpm-lock.yaml
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile
+
+# Build the project
+COPY --from=builder /app/out/full/ .
+RUN pnpm turbo run build --filter=blog-backend...
+
+FROM base as runner
+WORKDIR /app
+
+# Don't run production as root
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+USER nextjs
+
+ENV HOST=0.0.0.0
+ENV PORT=8080
+EXPOSE 8080
+
