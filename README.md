@@ -23,6 +23,8 @@ Tech/Tools I'm interested in using for this one:
     - [ ] Setup Docker
       - [x] Transition to pnpm.
       - [ ] Write dockerfile
+        - [ ] Astro
+        - [ ] Express API
       - [ ] Figure out .env
       - [ ] Consider Setting up Docker Compose?
     - [ ] Setup Swagger
