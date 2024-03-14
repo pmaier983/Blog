@@ -27,13 +27,11 @@ Tech/Tools I'm interested in using for this one:
         - [ ] Express API
       - [ ] Figure out .env
       - [ ] Consider Setting up Docker Compose?
-    - [ ] Setup Swagger
     - [ ] Use Fly.io - hosting
 - [ ] Setup a way to auto build & deploy each app/route
-- [ ] Build a home page based on some Dalle Mocks
+- [x] Build a home page based on some Dalle Mocks
 - [ ] Create a page that just lists projects
 - [ ] Create a page that has a bunch of cool links & descriptions
-- [ ] Also create a single demo blog
 - [ ] Is it important to separate out dev & non-dev deps... do this and 2x check
 
 Consider Also building the blog using (as an experiment):
