@@ -6,10 +6,10 @@ dotenv.config()
 // eslint-disable-next-line import/no-default-export
 export default {
   schema: "./src/db/schema.ts",
-  driver: "mysql2",
+  driver: "pg",
   out: "./src/db/migrations-folder",
   dbCredentials: {
-    uri: process.env.DATABASE_URL ?? "",
+    connectionString: process.env.DATABASE_URL!,
   },
-  tablesFilter: ["personal_site_*"],
+  tablesFilter: ["blog_*"],
 } satisfies Config

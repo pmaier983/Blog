@@ -16,10 +16,11 @@ Tech/Tools I'm interested in using for this one:
 
 ## TODO
 
-- [ ] Add an interactive counter button that increments an "I was here" button, and connects to my planetscale db
+- [ ] Add an interactive counter button that increments an "I was here" button, and connects to my db
   - [ ] Blog API
     - [x] Add Logging (with [pino](https://getpino.io/#/docs/web?id=express))
     - [x] Add Rate Limiting
+    - [x] Migrate away from planetscale -> supabase
     - [ ] Setup Docker
       - [x] Transition to pnpm.
       - [ ] Write dockerfile
