@@ -8,6 +8,11 @@
       "dotEnv": [".env.production", ".env"],
       "outputs": []
     },
+    "start": {
+      "dependsOn": ["^start"],
+      "dotEnv": [".env.production", ".env"],
+      "outputs": []
+    },
     "lint": {
       "dependsOn": ["^lint"]
     },

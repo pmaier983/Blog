@@ -21,6 +21,7 @@ Tech/Tools I'm interested in using for this one:
     - [x] Add Logging (with [pino](https://getpino.io/#/docs/web?id=express))
     - [x] Add Rate Limiting
     - [x] Migrate away from planetscale -> supabase
+    - [ ] Separate deps into required and devDeps
     - [ ] Setup Docker
       - [x] Transition to pnpm.
       - [ ] Write dockerfile
