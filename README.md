@@ -26,7 +26,7 @@ Tech/Tools I'm interested in using for this one:
       - [x] Transition to pnpm.
       - [ ] Write dockerfile
         - [ ] Astro
-        - [ ] Express API
+        - [x] Express API
       - [ ] Figure out .env
       - [ ] Consider Setting up Docker Compose?
     - [ ] Use Fly.io - hosting

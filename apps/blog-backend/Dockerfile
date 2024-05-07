@@ -9,7 +9,7 @@
 
 # Step to debug: 
 # 1. run `docker build -t blog-backend -f apps/blog-backend/Dockerfile .` from the turborepo root
-# 2. Use the docker desktop app to run the container
+# 2. run `docker run -p 3030:8080 --env-file .env -t blog-backend` # open locally via: http://localhost:3030/api/v1/buttons/test
 # 3. Use the docker desktop app to explore the container via the CLI
 
 ############### Install pnpm & turbo ###############
@@ -40,10 +40,10 @@ WORKDIR /app
 # First install the dependencies (as they change less often)
 COPY --from=builder /app/out/json/ .
 COPY --from=builder /app/out/pnpm-lock.yaml ./pnpm-lock.yaml
+COPY --from=builder /app/out/full/ .
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile
 
 # Build the project
-COPY --from=builder /app/out/full/ .
 RUN pnpm turbo run build --filter=blog-backend...
 
 ############### Run the project ###############
