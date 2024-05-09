@@ -3,24 +3,34 @@ import { Icon } from "~/components/Icon"
 import { NAVIGABLE_PAGES } from "~/consts"
 
 const currentPath = Astro.url.pathname
+
+// TODO: there has to be a better way to do this!
+const trimSlashes = (str: string) => str.replace(/^\/+|\/+$/g, "")
 ---
 
 <nav class="max-sm:hidden min-w-[10rem] border-r-[1px] border-black">
   <ul class="pt-6">
     {
-      NAVIGABLE_PAGES.map((page) => (
-        <li>
-          <a href={page.href} class="flex flex-row">
-            {currentPath === page.href ? (
-              <Icon icon="right-carrot" className="w-6" />
-            ) : (
-              <div class="w-6" />
-            )}
-            <Icon icon={page.icon} />
-            {page.title}
-          </a>
-        </li>
-      ))
+      NAVIGABLE_PAGES.map((page) => {
+        const isOnCurrentPath =
+          trimSlashes(currentPath) === trimSlashes(page.href)
+        return (
+          <li>
+            <a
+              href={page.href}
+              class={`flex flex-row hover:${!isOnCurrentPath ? "underline" : ""}`}
+            >
+              {isOnCurrentPath ? (
+                <Icon icon="right-carrot" className="w-6" />
+              ) : (
+                <div class="w-6" />
+              )}
+              <Icon icon={page.icon} />
+              {page.title}
+            </a>
+          </li>
+        )
+      })
     }
   </ul>
 </nav>
