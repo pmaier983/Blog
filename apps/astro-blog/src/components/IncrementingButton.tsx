@@ -1,3 +1,6 @@
+// We want this component to be rendered on the client side only, so we set prerender to false
+export const prerender = false
+
 const BUTTON_NAME = "test"
 
 export const IncrementingButton = () => {
