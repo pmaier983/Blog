@@ -4,7 +4,7 @@
 # https://turbo.build/repo/docs/handbook/deploying-with-docker#example
 # https://pnpm.io/docker
 
-# This file should not be run from within the blog-backend file!
+# This file should not be run from within the blog-backend folder!
 # We depend on the entire monorepo to be present in the container!
 
 # Step to debug: 
@@ -50,7 +50,7 @@ RUN pnpm turbo run build --filter=blog-backend...
 FROM base as runner
 WORKDIR /app
 
-# Don't run production as root
+# TODO: how to not run production as root
 # RUN addgroup --system --gid 1001 api
 # RUN adduser --system --uid 1001 api
 # USER api
