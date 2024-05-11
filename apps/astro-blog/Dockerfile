@@ -57,6 +57,9 @@ WORKDIR /app
 
 COPY --from=installer /app .
 
-CMD ["pnpm", "turbo", "run", "start", "--filter=astro-blog..."]
+ENV HOST=0.0.0.0
+ENV PORT=4321
 
 EXPOSE 4321
+
+CMD ["pnpm", "turbo", "run", "start", "--filter=astro-blog..."]

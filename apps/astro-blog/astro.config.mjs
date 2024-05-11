@@ -17,8 +17,4 @@ export default defineConfig({
   adapter: node({
     mode: "standalone",
   }),
-  server: {
-    // TODO: limit this if possible
-    host: true,
-  },
 })

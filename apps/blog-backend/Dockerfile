@@ -9,7 +9,7 @@
 
 # Step to debug: 
 # 1. run `docker build -t blog-backend -f apps/blog-backend/Dockerfile .` from the turborepo root
-# 2. run `docker run -p 3030:8080 --env-file .env -t blog-backend` # open locally via: http://localhost:3030/api/v1/buttons/test
+# 2. run `docker run -p 8080:8080 --env-file .env -t blog-backend` # open locally via: http://localhost:3030/api/v1/buttons/test
 # 3. Use the docker desktop app to explore the container via the CLI
 
 ############### Install pnpm & turbo ###############
@@ -57,6 +57,6 @@ WORKDIR /app
 
 COPY --from=installer /app .
 
-CMD ["pnpm", "turbo", "run", "start", "--filter=blog-backend..."]
-
 EXPOSE 8080
+
+CMD ["pnpm", "turbo", "run", "start", "--filter=blog-backend..."]
