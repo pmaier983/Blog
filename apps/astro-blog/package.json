@@ -3,9 +3,9 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "start": "node dist/server/entry.mjs",
-    "build": "astro check && astro build",
+    "dev": "dotenv -e ../../.env astro dev",
+    "start": "dotenv -e ../../.env node dist/server/entry.mjs",
+    "build": "dotenv -e ../../.env astro check && dotenv -e ../../.env astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -26,6 +26,7 @@
     "@typescript-eslint/parser": "^6.21.0",
     "astro": "^4.3.5",
     "dotenv": "^16.4.2",
+    "dotenv-cli": "^7.4.1",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "install": "^0.13.0",
     "react": "^18.2.0",

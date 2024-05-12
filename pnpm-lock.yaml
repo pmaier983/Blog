@@ -71,6 +71,9 @@ importers:
       dotenv:
         specifier: ^16.4.2
         version: 16.4.5
+      dotenv-cli:
+        specifier: ^7.4.1
+        version: 7.4.2
       eslint-plugin-jsx-a11y:
         specifier: ^6.8.0
         version: 6.8.0(eslint@8.57.0)

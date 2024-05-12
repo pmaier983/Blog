@@ -22,16 +22,16 @@ Tech/Tools I'm interested in using for this one:
     - [x] Add Rate Limiting
     - [x] Migrate away from planetscale -> supabase
     - [ ] Separate deps into required and devDeps
-    - [ ] Setup Docker
+    - [x] Setup Docker
       - [x] Transition to pnpm.
-      - [ ] Write dockerfile
-        - [ ] Astro
+      - [x] Write dockerfile
+        - [x] Astro
         - [x] Express API
-      - [ ] Figure out .env
-      - [ ] Consider Setting up Docker Compose?
+      - [x] Consider Setting up Docker Compose?
     - [ ] Use Fly.io - hosting
 - [ ] Setup a way to auto build & deploy each app/route
 - [x] Build a home page based on some Dalle Mocks
+- [ ] Properly Configure docker .env
 - [ ] Create a page that just lists projects
 - [ ] Create a page that has a bunch of cool links & descriptions
 - [ ] Is it important to separate out dev & non-dev deps... do this and 2x check

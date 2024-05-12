@@ -41,6 +41,8 @@ WORKDIR /app
 COPY --from=builder /app/out/json/ .
 COPY --from=builder /app/out/pnpm-lock.yaml ./pnpm-lock.yaml
 COPY --from=builder /app/out/full/ .
+# TODO: properly handle env files? (They should not be copied within the dockerfile!)
+COPY --from=builder /app/.env .
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile
 
 # Build the project
