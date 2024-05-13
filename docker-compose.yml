@@ -1,6 +1,6 @@
 version: "3"
 
-# Consider adding networks?
+x-aws-vpc: "vpc-6214d91f"
 
 services:
   blog-backend:
