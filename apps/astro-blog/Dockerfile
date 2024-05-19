@@ -7,14 +7,18 @@
 # This file should not be run from within the astro-blog folder!
 # We depend on the entire monorepo to be present in the container!
 
-# Step to debug: 
-# 1. run 
-
-#    docker build -t astro-blog -f apps/astro-blog/Dockerfile $(cat .env | grep -v '^#' | xargs -I {} echo --build-arg {}) .
-
-#    from the turborepo root
-# 2. run `docker run -p 4321:4321 --env-file .env -t astro-blog` # open locally via: http://localhost:3030/api/v1/buttons/test
+# Step to debug (you may need to `docker login` first):
+# 1. To Build the docker image run:
+#    docker build -t pmaier983/private-docker-images:astro-blog -f apps/astro-blog/Dockerfile $(cat .env | grep -v '^#' | xargs -I {} echo --build-arg {}) .
+#    * do this FROM THE TURBOREPO ROOT
+# 2. To test the image locally run:
+#    docker run -p 4321:4321 --env-file .env -t pmaier983/private-docker-images:astro-blog
+#    * open locally via: http://localhost:3030/api/v1/buttons/test
 # 3. Use the docker desktop app to explore the container via the CLI
+
+# to push to my private repo run:
+
+# 4. docker push pmaier983/private-docker-images:astro-blog
 
 ############### Install pnpm & turbo ###############
 FROM node:20-slim AS base
