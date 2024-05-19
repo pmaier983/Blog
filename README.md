@@ -28,7 +28,8 @@ Tech/Tools I'm interested in using for this one:
         - [x] Astro
         - [x] Express API
       - [x] Consider Setting up Docker Compose?
-    - [ ] Use Fly.io - hosting
+- [ ] Setup an Easy hosting pattern
+  - [ ] Consider configuring ECS?
 - [ ] Setup a way to auto build & deploy each app/route
 - [x] Build a home page based on some Dalle Mocks
 - [ ] Properly Configure docker .env

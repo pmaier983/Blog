@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "dotenv -e ../../.env astro dev",
     "start": "dotenv -e ../../.env node dist/server/entry.mjs",
-    "build": "dotenv -e ../../.env astro check && dotenv -e ../../.env astro build",
+    "build": "astro check && dotenv -e ../../.env astro build",
     "preview": "astro preview",
     "astro": "astro"
   },

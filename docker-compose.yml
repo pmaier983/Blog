@@ -9,6 +9,9 @@ services:
     build:
       context: .
       dockerfile: ./apps/blog-backend/Dockerfile
+      args:
+        DATABASE_URL: ${DATABASE_URL}
+        PUBLIC_API_URL: ${PUBLIC_API_URL}
     restart: always
     ports:
       - 8080:8080
@@ -19,6 +22,9 @@ services:
     build:
       context: .
       dockerfile: ./apps/astro-blog/Dockerfile
+      args:
+        DATABASE_URL: ${DATABASE_URL}
+        PUBLIC_API_URL: ${PUBLIC_API_URL}
     restart: always
     ports:
       - 4321:4321

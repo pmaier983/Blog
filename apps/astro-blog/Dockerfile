@@ -8,12 +8,26 @@
 # We depend on the entire monorepo to be present in the container!
 
 # Step to debug: 
-# 1. run `docker build -t astro-blog -f apps/astro-blog/Dockerfile .` from the turborepo root
+# 1. run 
+
+#    docker build -t astro-blog -f apps/astro-blog/Dockerfile $(cat .env | grep -v '^#' | xargs -I {} echo --build-arg {}) .
+
+#    from the turborepo root
 # 2. run `docker run -p 4321:4321 --env-file .env -t astro-blog` # open locally via: http://localhost:3030/api/v1/buttons/test
 # 3. Use the docker desktop app to explore the container via the CLI
 
 ############### Install pnpm & turbo ###############
 FROM node:20-slim AS base
+
+ARG DATABASE_URL
+ARG PUBLIC_API_URL
+
+# Set environment variables
+ENV DATABASE_URL=${DATABASE_URL}
+ENV PUBLIC_API_URL=${PUBLIC_API_URL}
+
+# ensure we properly set the ARGS
+RUN if [ -z "$DATABASE_URL" ]; then echo "DATABASE_URL is not set"; exit 1; fi
 
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
@@ -41,9 +55,10 @@ WORKDIR /app
 COPY --from=builder /app/out/json/ .
 COPY --from=builder /app/out/pnpm-lock.yaml ./pnpm-lock.yaml
 COPY --from=builder /app/out/full/ .
-# TODO: properly handle env files? (They should not be copied within the dockerfile!)
-COPY --from=builder /app/.env .
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile
+
+# our build step expects a .env file to be present
+RUN printenv > .env
 
 # Build the project
 RUN pnpm turbo run build --filter=astro-blog...
