@@ -12,7 +12,7 @@ export default defineConfig({
   image: {
     service: passthroughImageService(),
   },
-  site: "https://example.com",
+  site: "https://phillipmaier.com",
   integrations: [mdx(), sitemap(), tailwind(), react()],
   adapter: node({
     mode: "standalone",
