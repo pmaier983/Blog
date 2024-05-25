@@ -4,6 +4,7 @@ x-aws-vpc: "vpc-6214d91f"
 
 services:
   blog-backend:
+    image: ${DOCKER_REGISTRY}/blog-backend
     container_name: blog-backend
     env_file: .env
     build:
@@ -16,6 +17,7 @@ services:
       - 8080:8080
 
   astro-blog:
+    image: ${DOCKER_REGISTRY}/astro-blog
     container_name: astro-blog
     env_file: .env
     build:

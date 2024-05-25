@@ -14,6 +14,21 @@ Tech/Tools I'm interested in using for this one:
 - [Font - Open Sans](https://fonts.google.com/specimen/Open+Sans)
   - I love [variable fonts](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_fonts/Variable_fonts_guide) that are also very accessible!
 
+## Push a single Docker image to ECR (This assumes I'm use us-east-1)
+
+1. Login aws ECR (Elastic Container Registry)
+
+- https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html
+- `aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin __INPUT_AWS_ACCOUNT_ID__.dkr.ecr.us-east-1.amazonaws.com`
+
+2. Tag the specific image to be uploaded to ECR
+
+- `docker tag __IMAGE_ID__ __INPUT_AWS_ACCOUNT_ID__.dkr.ecr.us-east-1.amazonaws.com/private-docker-images:__TAG__`
+
+3. Push the image to the private ECR repo
+
+- `docker push __INPUT_AWS_ACCOUNT_ID__.dkr.ecr.us-east-1.amazonaws.com/private-docker-images:__TAG__`
+
 ## TODO
 
 - [ ] Add an interactive counter button that increments an "I was here" button, and connects to my db
