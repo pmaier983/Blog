@@ -3,13 +3,26 @@ export const prerender = false
 
 const BUTTON_NAME = "test"
 
-export const IncrementingButton = () => {
+// TODO: Unify this between the turbo apps
+const API_PORT = 8080
+
+export interface IncrementingButtonProps {
+  // Currently this should always be === Astro.url.hostname
+  // this should in essence be the same as window.location.hostname?
+  currentHostname: string
+}
+
+export const IncrementingButton = ({
+  currentHostname,
+}: IncrementingButtonProps) => {
   return (
     <button
       className="bg-green-600 h-10 p-2 rounded-md"
       onClick={async () => {
+        console.log({ currentHostname })
+        // TODO: how to use https instead of http here?
         await fetch(
-          `${import.meta.env.PUBLIC_API_URL}/api/v1/buttons/${BUTTON_NAME}`,
+          `http://${currentHostname}:${API_PORT}/api/v1/buttons/${BUTTON_NAME}`,
           {
             method: "POST",
             headers: {

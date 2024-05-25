@@ -24,11 +24,9 @@
 FROM node:20-slim AS base
 
 ARG DATABASE_URL
-ARG PUBLIC_API_URL
 
 # Set environment variables
 ENV DATABASE_URL=${DATABASE_URL}
-ENV PUBLIC_API_URL=${PUBLIC_API_URL}
 
 # ensure we properly set the ARGS
 RUN if [ -z "$DATABASE_URL" ]; then echo "DATABASE_URL is not set"; exit 1; fi
