@@ -6,8 +6,9 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "aws:login": "dotenv -e .env -- sh -c 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com'",
-    "docker:build:push": "docker compose build && docker compose push"
+    "aws-login": "dotenv -e .env -- sh -c 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com'",
+    "*TODO": "How to automatically update the task and the service as well!",
+    "docker:build:push": "pnpm run aws-login && docker compose build && docker compose push"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
