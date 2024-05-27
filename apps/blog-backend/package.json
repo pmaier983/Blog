@@ -4,10 +4,11 @@
   "description": "The backend for my blog",
   "main": "index.js",
   "scripts": {
-    "start": "dotenv -e ../../.env node dist/src/index.js",
-    "build": "tsc && swc src --out-dir dist",
-    "dev": "dotenv -e ../../.env tsx watch src/index.ts",
-    "db:push": "dotenv -e ../../.env drizzle-kit push:pg"
+    "db:push": "dotenv -e ../../.env drizzle-kit push:pg",
+    "THIS PROJECT HAS BEEN DEPRECATED": "Please use the supabase api",
+    "*start": "dotenv -e ../../.env node dist/src/index.js",
+    "*build": "tsc && swc src --out-dir dist",
+    "*dev": "dotenv -e ../../.env tsx watch src/index.ts"
   },
   "keywords": [],
   "author": "Phillip Maier",

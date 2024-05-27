@@ -29,28 +29,26 @@ Tech/Tools I'm interested in using for this one:
 
 - `docker push __INPUT_AWS_ACCOUNT_ID__.dkr.ecr.us-east-1.amazonaws.com/private-docker-images:__TAG__`
 
+## Learnings
+
+Setting up a nice flow from Docker -> ECS -> https Route53 endpoint is annoyingly hard, specifically when it comes to setting up a proper https ssl backend.
+
 ## TODO
 
 - [ ] Add an interactive counter button that increments an "I was here" button, and connects to my db
-  - [ ] Blog API
-    - [x] Add Logging (with [pino](https://getpino.io/#/docs/web?id=express))
-    - [x] Add Rate Limiting
-    - [x] Migrate away from planetscale -> supabase
-    - [ ] Separate deps into required and devDeps
-    - [x] Setup Docker
-      - [x] Transition to pnpm.
-      - [x] Write dockerfile
-        - [x] Astro
-        - [x] Express API
-      - [x] Consider Setting up Docker Compose?
-- [ ] Setup an Easy hosting pattern
-  - [ ] Consider configuring ECS?
+  - [ ] Convert from my custom blog api -> supabase default api
+- [x] Setup an Easy hosting pattern
+  - [x] Consider configuring ECS?
 - [ ] Setup a way to auto build & deploy each app/route
+- [ ] Separate deps into required and devDeps
 - [x] Build a home page based on some Dalle Mocks
-- [ ] Properly Configure docker .env
+- [x] Properly Configure docker .env
 - [ ] Create a page that just lists projects
 - [ ] Create a page that has a bunch of cool links & descriptions
 - [ ] Is it important to separate out dev & non-dev deps... do this and 2x check
+
+### Transition from gaulish.io -> phillipmaier.com
+
 - [ ] Point astro-blog towards phillipmaier.com not gaulish.io
 
 Consider Also building the blog using (as an experiment):
