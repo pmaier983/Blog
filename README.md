@@ -51,6 +51,7 @@ Tech/Tools I'm interested in using for this one:
 - [ ] Create a page that just lists projects
 - [ ] Create a page that has a bunch of cool links & descriptions
 - [ ] Is it important to separate out dev & non-dev deps... do this and 2x check
+- [ ] Point astro-blog towards phillipmaier.com not gaulish.io
 
 Consider Also building the blog using (as an experiment):
 

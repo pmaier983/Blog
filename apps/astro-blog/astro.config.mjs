@@ -12,7 +12,8 @@ export default defineConfig({
   image: {
     service: passthroughImageService(),
   },
-  site: "https://phillipmaier.com",
+  // TODO: change this to be phillipmaier.com once complete!
+  site: "https://gaulish.io",
   integrations: [mdx(), sitemap(), tailwind(), react()],
   adapter: node({
     mode: "standalone",
