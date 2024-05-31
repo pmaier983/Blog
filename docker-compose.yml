@@ -1,18 +1,19 @@
 x-aws-vpc: "vpc-6214d91f"
 
 services:
-  blog-backend:
-    image: ${DOCKER_REGISTRY}/blog-backend
-    container_name: blog-backend
-    env_file: .env
-    build:
-      context: .
-      dockerfile: ./apps/blog-backend/Dockerfile
-      args:
-        DATABASE_URL: ${DATABASE_URL}
-    restart: always
-    ports:
-      - 8080:8080
+  # blog-backend has been deprecated as I don't wan't to setup proper https
+  # blog-backend:
+  #   image: ${DOCKER_REGISTRY}/blog-backend
+  #   container_name: blog-backend
+  #   env_file: .env
+  #   build:
+  #     context: .
+  #     dockerfile: ./apps/blog-backend/Dockerfile
+  #     args:
+  #       DATABASE_URL: ${DATABASE_URL}
+  #   restart: always
+  #   ports:
+  #     - 8080:8080
 
   astro-blog:
     image: ${DOCKER_REGISTRY}/astro-blog
