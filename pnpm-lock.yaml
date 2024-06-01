@@ -50,6 +50,9 @@ importers:
       '@fontsource-variable/open-sans':
         specifier: ^5.0.23
         version: 5.0.29
+      '@paralleldrive/cuid2':
+        specifier: ^2.2.2
+        version: 2.2.2
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
@@ -98,6 +101,9 @@ importers:
       typescript:
         specifier: ^5.3.3
         version: 5.4.5
+      zod:
+        specifier: ^3.23.6
+        version: 3.23.8
 
   apps/blog-backend:
     dependencies:

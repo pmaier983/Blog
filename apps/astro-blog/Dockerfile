@@ -24,12 +24,18 @@
 FROM node:20-slim AS base
 
 ARG DATABASE_URL
+ARG SUPABASE_URL
+ARG SUPABASE_ANON_KEY
 
 # Set environment variables
 ENV DATABASE_URL=${DATABASE_URL}
+ENV SUPABASE_URL=${SUPABASE_URL}
+ENV SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
 
 # ensure we properly set the ARGS
 RUN if [ -z "$DATABASE_URL" ]; then echo "DATABASE_URL is not set"; exit 1; fi
+RUN if [ -z "$SUPABASE_URL" ]; then echo "SUPABASE_URL is not set"; exit 1; fi
+RUN if [ -z "$SUPABASE_ANON_KEY" ]; then echo "SUPABASE_ANON_KEY is not set"; exit 1; fi
 
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
