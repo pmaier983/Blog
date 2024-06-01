@@ -1,9 +1,7 @@
 ---
 import { IncrementingButton } from "~/components/IncrementingButton"
-
-const currentHostname = Astro.url.hostname
 ---
 
 <div>
-  <IncrementingButton client:load currentHostname={currentHostname} />
+  <IncrementingButton client:load />
 </div>
