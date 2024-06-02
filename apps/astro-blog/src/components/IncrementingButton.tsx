@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { trpcReact } from "~/client"
 
 interface IncrementingButtonProps {
   name: string
@@ -18,17 +19,11 @@ export const IncrementingButton = ({
         onClick={async () => {
           // "Optimistically" Update the client as well!
           setTimesClicked(timesClicked + 1)
-          await fetch("/api/increment-button", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              name: name,
-              userAgent: navigator.userAgent,
-              language: navigator.language,
-              screenResolution: `${window.screen.width}x${window.screen.height}`,
-            }),
+          trpcReact.incrementButton.mutate({
+            name,
+            userAgent: navigator.userAgent,
+            language: navigator.language,
+            screenResolution: `${window.screen.width}x${window.screen.height}`,
           })
         }}
       >
