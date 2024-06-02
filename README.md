@@ -14,6 +14,16 @@ Tech/Tools I'm interested in using for this one:
 - [Font - Open Sans](https://fonts.google.com/specimen/Open+Sans)
   - I love [variable fonts](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_fonts/Variable_fonts_guide) that are also very accessible!
 
+## How to Update the site
+
+1. Make local changes to the codebase
+
+2. run `docker:build:push` (\*this pushes the changes to the ECR images on aws)
+
+3. Go to [this link](https://us-east-1.console.aws.amazon.com/ecs/v2/task-definitions/blog-services/9/containers?region=us-east-1) and click `Create new revision` (\*no changes are needed)
+
+4. Then click `Deploy` and `update service` on the same page.
+
 ## Push a single Docker image to ECR (This assumes I'm use us-east-1)
 
 1. Login aws ECR (Elastic Container Registry)
