@@ -1,0 +1,26 @@
+---
+import { IncrementingButton as IncrementingButtonReactComponent } from "~/components/IncrementingButton"
+
+const { name } = Astro.props
+
+const buttonResponse = await fetch(
+  new URL(`/api/get-button-${name}`, Astro.url),
+  {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }
+)
+
+// TODO: Convert to trpc to avoid this any
+const clickCount = ((await buttonResponse.json()) as any)?.button?.click_count
+---
+
+<div>
+  <IncrementingButtonReactComponent
+    client:load
+    name={name}
+    clickCount={clickCount}
+  />
+</div>

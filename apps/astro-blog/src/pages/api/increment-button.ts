@@ -78,12 +78,12 @@ export const POST: APIRoute = async ({ request }) => {
 
   const props = await request.json()
 
-  const { success, error } = incrementButtonPropsSchema.safeParse(props)
+  const { success, error, data } = incrementButtonPropsSchema.safeParse(props)
 
   if (!success) {
     console.error("Invalid props:", error)
     return new Response(JSON.stringify(error), { status: 400 })
   }
 
-  return await incrementButton(props as IncrementButtonProps)
+  return await incrementButton(data)
 }
