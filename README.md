@@ -57,6 +57,7 @@ Setting up a nice flow from Docker -> ECS -> https Route53 endpoint is annoyingl
 - [ ] Create a page that has a bunch of cool links & descriptions
 - [ ] Is it important to separate out dev & non-dev deps... do this and 2x check
 - [ ] Properly configure RLS for supabase (https://supabase.com/docs/guides/database/postgres/row-level-security#row-level-security-in-supabase)
+- [ ] Transition to use @total-typescript/tsconfig (https://github.com/total-typescript/tsconfig)
 
 ### Transition from gaulish.io -> phillipmaier.com
 

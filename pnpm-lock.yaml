@@ -53,21 +53,12 @@ importers:
       '@paralleldrive/cuid2':
         specifier: ^2.2.2
         version: 2.2.2
-      '@repo/eslint-config':
-        specifier: workspace:*
-        version: link:../../packages/eslint-config
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/typescript-config
       '@supabase/supabase-js':
         specifier: ^2.43.4
         version: 2.43.4
       '@tanstack/react-query':
         specifier: ^5.40.0
         version: 5.40.0(react@18.3.1)
-      '@total-typescript/ts-reset':
-        specifier: ^0.5.1
-        version: 0.5.1
       '@trpc/client':
         specifier: ^10.45.2
         version: 10.45.2(@trpc/server@10.45.2)
@@ -80,21 +71,9 @@ importers:
       '@types/react-dom':
         specifier: ^18.2.19
         version: 18.3.0
-      '@typescript-eslint/parser':
-        specifier: ^6.21.0
-        version: 6.21.0(eslint@8.57.0)(typescript@5.4.5)
       astro:
         specifier: ^4.9.2
         version: 4.9.2(@types/node@20.12.11)(typescript@5.4.5)
-      dotenv:
-        specifier: ^16.4.2
-        version: 16.4.5
-      dotenv-cli:
-        specifier: ^7.4.1
-        version: 7.4.2
-      eslint-plugin-jsx-a11y:
-        specifier: ^6.8.0
-        version: 6.8.0(eslint@8.57.0)
       install:
         specifier: ^0.13.0
         version: 0.13.0
@@ -107,12 +86,34 @@ importers:
       tailwindcss:
         specifier: ^3.4.1
         version: 3.4.3(ts-node@10.9.2(@types/node@20.12.11)(typescript@5.4.5))
-      typescript:
-        specifier: ^5.3.3
-        version: 5.4.5
       zod:
         specifier: ^3.23.8
         version: 3.23.8
+    devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
+      '@total-typescript/ts-reset':
+        specifier: ^0.5.1
+        version: 0.5.1
+      '@typescript-eslint/parser':
+        specifier: ^6.21.0
+        version: 6.21.0(eslint@8.57.0)(typescript@5.4.5)
+      dotenv:
+        specifier: ^16.4.2
+        version: 16.4.5
+      dotenv-cli:
+        specifier: ^7.4.1
+        version: 7.4.2
+      eslint-plugin-jsx-a11y:
+        specifier: ^6.8.0
+        version: 6.8.0(eslint@8.57.0)
+      typescript:
+        specifier: ^5.3.3
+        version: 5.4.5
 
   apps/blog-backend:
     dependencies:

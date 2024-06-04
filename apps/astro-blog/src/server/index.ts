@@ -17,8 +17,6 @@ export const appRouter = t.router({
       .eq("name", "test")
       .single()
 
-    console.log(button)
-
     if (buttonError) {
       throw new Error(buttonError.message)
     }
@@ -27,7 +25,6 @@ export const appRouter = t.router({
       throw new Error(`Button not found with name: ${"test"}`)
     }
 
-    console.log("Button details retrieved successfully")
     return button
   }),
   incrementButton: publicProcedure
@@ -83,7 +80,6 @@ export const appRouter = t.router({
         )
       }
 
-      console.log("Button click incremented successfully")
       return { message: "Button click incremented successfully" }
     }),
 })
