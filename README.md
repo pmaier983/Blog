@@ -16,39 +16,22 @@ Tech/Tools I'm interested in using for this one:
 
 ## How to Update the site
 
-1. Make local changes to the codebase
-
-2. run `docker:build:push` (\*this pushes the changes to the ECR images on aws)
-
-3. Go to [this link](https://us-east-1.console.aws.amazon.com/ecs/v2/task-definitions/blog-services/9/containers?region=us-east-1) and click `Create new revision` (\*no changes are needed)
-
-4. Then click `Deploy` and `update service` on the same page.
-
-## Push a single Docker image to ECR (This assumes I'm use us-east-1)
-
-1. Login aws ECR (Elastic Container Registry)
-
-- https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html
-- `aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin __INPUT_AWS_ACCOUNT_ID__.dkr.ecr.us-east-1.amazonaws.com`
-
-2. Tag the specific image to be uploaded to ECR
-
-- `docker tag __IMAGE_ID__ __INPUT_AWS_ACCOUNT_ID__.dkr.ecr.us-east-1.amazonaws.com/private-docker-images:__TAG__`
-
-3. Push the image to the private ECR repo
-
-- `docker push __INPUT_AWS_ACCOUNT_ID__.dkr.ecr.us-east-1.amazonaws.com/private-docker-images:__TAG__`
+TODO
 
 ## Learnings
 
 Setting up a nice flow from Docker -> ECS -> https Route53 endpoint is annoyingly hard, specifically when it comes to setting up a proper https ssl backend.
 
+ECS is expensive. A simple Docker Cluster ends up costing ~40$/month. 9$ Cloudwatch, 11$ VPC, 17$ ELB.
+
 ## TODO
 
 - [ ] Add an interactive counter button that increments an "I was here" button, and connects to my db
-  - [ ] Convert from my custom blog api -> supabase default api
-- [x] Setup an Easy hosting pattern
-  - [x] Consider configuring ECS?
+  - [x] Convert from my custom blog api -> supabase default api
+  - [ ] Consider switching back to custom blog api if possible
+- [ ] Setup an Easy hosting pattern
+  - [x] Consider configuring ECS? - No, did this... too expensive.
+  - [ ]
 - [ ] Setup a way to auto build & deploy each app/route
 - [ ] Separate deps into required and devDeps
 - [x] Build a home page based on some Dalle Mocks
@@ -71,3 +54,30 @@ Consider Also building the blog using (as an experiment):
 - SolidJS
 - HTMX
 - Quick 2
+
+# OLD info from when this site was hosted on ECS
+
+## How to Update the site
+
+1. Make local changes to the codebase
+
+2. run `docker:build:push` (\*this pushes the changes to the ECR images on aws)
+
+3. Go to [this link](https://us-east-1.console.aws.amazon.com/ecs/v2/task-definitions/blog-services/9/containers?region=us-east-1) and click `Create new revision` (\*no changes are needed)
+
+4. Then click `Deploy` and `update service` on the same page.
+
+## Push a single Docker image to ECR (This assumes I'm use us-east-1)
+
+1. Login aws ECR (Elastic Container Registry)
+
+- https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html
+- `aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin __INPUT_AWS_ACCOUNT_ID__.dkr.ecr.us-east-1.amazonaws.com`
+
+2. Tag the specific image to be uploaded to ECR
+
+- `docker tag __IMAGE_ID__ __INPUT_AWS_ACCOUNT_ID__.dkr.ecr.us-east-1.amazonaws.com/private-docker-images:__TAG__`
+
+3. Push the image to the private ECR repo
+
+- `docker push __INPUT_AWS_ACCOUNT_ID__.dkr.ecr.us-east-1.amazonaws.com/private-docker-images:__TAG__`
