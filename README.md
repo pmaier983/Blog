@@ -29,9 +29,7 @@ ECS is expensive. A simple Docker Cluster ends up costing ~40$/month. 9$ Cloudwa
 - [ ] Add an interactive counter button that increments an "I was here" button, and connects to my db
   - [x] Convert from my custom blog api -> supabase default api
   - [ ] Consider switching back to custom blog api if possible
-- [ ] Setup an Easy hosting pattern
-  - [x] Consider configuring ECS? - No, did this... too expensive.
-  - [ ]
+- [ ] How to host? (section below)
 - [ ] Setup a way to auto build & deploy each app/route
 - [ ] Separate deps into required and devDeps
 - [x] Build a home page based on some Dalle Mocks
@@ -41,6 +39,30 @@ ECS is expensive. A simple Docker Cluster ends up costing ~40$/month. 9$ Cloudwa
 - [ ] Is it important to separate out dev & non-dev deps... do this and 2x check
 - [ ] Properly configure RLS for supabase (https://supabase.com/docs/guides/database/postgres/row-level-security#row-level-security-in-supabase)
 - [ ] Transition to use @total-typescript/tsconfig (https://github.com/total-typescript/tsconfig)
+
+### How to host
+
+The goal: host a bunch of docker containers to run each of my blogs web apps.
+
+#### Options:
+
+##### Option 1 (AWS & ECS):
+
+This worked but ended up costing me 40$ per month. Just not worth it for a blog, I mean really
+
+##### Option 2 (VM):
+
+Host a docker compose cluster on a VM (Heroku, EC2, Droplet, Linode). There is probably a bunch of configuration needed to make all the security and porting work, but this would probably be the cheapest option.
+
+Also I could use something like ansible as Infrastructure as code?
+
+##### Option 3 (K8's):
+
+I can't do it. A personal blog is not a good reason to learn k8's...
+
+##### Option 4 (A bunch of Separate Docker Containers):
+
+Just deploy a bunch of these contains separately? This can be done on any of the big cloud providers: (Digital Ocean App Platform, Google Cloud Run etc?)
 
 ### Transition from gaulish.io -> phillipmaier.com
 
