@@ -8,6 +8,7 @@ export const buttons = pgTable("buttons", {
   name: text("name").notNull(),
   clickCount: integer("click_count").notNull().default(0),
 })
+
 export const buttonsRelations = relations(buttons, ({ many }) => ({
   buttons: many(buttonClicks),
 }))
@@ -20,3 +21,5 @@ export const buttonClicks = pgTable("button_clicks", {
   language: text("language"),
   screenResolution: text("screen_resolution"),
 })
+
+// export const

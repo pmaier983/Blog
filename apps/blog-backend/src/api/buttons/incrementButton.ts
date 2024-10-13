@@ -54,7 +54,7 @@ const V1 = async (req: Request, res: Response, next: NextFunction) => {
         .where(eq(buttons.name, body.name))
     })
 
-    return res.send(200)
+    res.send(200)
   } catch (error) {
     req.log.error("incrementButton.V1")
     throw next(new Error(JSON.stringify(error)))
