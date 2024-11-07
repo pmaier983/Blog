@@ -1,6 +1,9 @@
 import { relations } from "drizzle-orm"
 import { pgTableCreator, text, integer } from "drizzle-orm/pg-core"
 
+// TODO: migrate this database schema to a package in turbo
+// TODO: make these into zod schemas as well!
+
 const pgTable = pgTableCreator((name) => `blog_${name}`)
 
 export const buttons = pgTable("buttons", {

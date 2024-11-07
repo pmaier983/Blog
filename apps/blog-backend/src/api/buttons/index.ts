@@ -10,7 +10,7 @@ buttonsRoute.get(
   middleware({
     version: 1,
   }),
-  getButton.V1
+  getButton.V1,
 )
 
 buttonsRoute.post(
@@ -18,7 +18,7 @@ buttonsRoute.post(
   middleware({
     version: 1,
   }),
-  incrementButton.V1
+  incrementButton.V1,
 )
 
 export { buttonsRoute }

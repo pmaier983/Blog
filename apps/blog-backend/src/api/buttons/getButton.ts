@@ -21,7 +21,7 @@ const V1 = async (req: Request, res: Response, next: NextFunction) => {
       where: eq(buttons.name, name),
     })
 
-    res.json({ button })
+    res.json({ ...button })
   } catch (error) {
     req.log.error("getButton.V1")
     throw next(new Error(JSON.stringify(error)))

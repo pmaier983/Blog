@@ -14,6 +14,7 @@ export const appRouter = t.router({
     const { data: button, error: buttonError } = await ctx.supabase
       .from("blog_buttons")
       .select("*")
+      // TODO: This should be a parameter
       .eq("name", "test")
       .single()
 
@@ -34,7 +35,7 @@ export const appRouter = t.router({
         userAgent: z.string().optional(),
         language: z.string().optional(),
         screenResolution: z.string().optional(),
-      })
+      }),
     )
     .mutation(async ({ input, ctx }) => {
       // Find the button by name
@@ -76,7 +77,7 @@ export const appRouter = t.router({
 
       if (updateError) {
         throw new Error(
-          `Failed to update button click count: ${updateError.message}`
+          `Failed to update button click count: ${updateError.message}`,
         )
       }
 
