@@ -6,8 +6,8 @@ dotenv.config()
 // eslint-disable-next-line import/no-default-export
 export default {
   dialect: "postgresql",
-  schema: "./src/db/schema.ts",
-  out: "./src/db/migrations-folder",
+  schema: "./schema.ts",
+  out: "./migrations-folder",
   dbCredentials: {
     url: process.env.DATABASE_URL!,
   },

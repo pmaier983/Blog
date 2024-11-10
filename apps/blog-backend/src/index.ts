@@ -5,7 +5,7 @@ import { createId } from "@paralleldrive/cuid2"
 
 import { createContext, type Context } from "./context"
 import { eq } from "drizzle-orm"
-import { buttonClicks, buttons } from "~/db/schema"
+import { buttonClicks, buttons } from "@repo/db-schema"
 
 export const t = initTRPC.context<Context>().create()
 

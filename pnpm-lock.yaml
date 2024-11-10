@@ -120,6 +120,9 @@ importers:
       '@paralleldrive/cuid2':
         specifier: ^2.2.2
         version: 2.2.2
+      '@repo/db-schema':
+        specifier: workspace:*
+        version: link:../../packages/db-schema
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
@@ -135,18 +138,6 @@ importers:
       '@trpc/server':
         specifier: ^10.45.2
         version: 10.45.2
-      dotenv:
-        specifier: ^16.4.5
-        version: 16.4.5
-      dotenv-cli:
-        specifier: ^7.4.2
-        version: 7.4.2
-      drizzle-kit:
-        specifier: ^0.25.0
-        version: 0.25.0
-      drizzle-orm:
-        specifier: ^0.34.1
-        version: 0.34.1(@types/react@18.3.11)(postgres@3.4.4)(react@18.3.1)
       postgres:
         specifier: ^3.4.4
         version: 3.4.4
@@ -159,6 +150,34 @@ importers:
       zod:
         specifier: ^3.23.8
         version: 3.23.8
+
+  packages/db-schema:
+    dependencies:
+      dotenv:
+        specifier: ^16.4.5
+        version: 16.4.5
+      dotenv-cli:
+        specifier: ^7.4.2
+        version: 7.4.2
+      drizzle-kit:
+        specifier: ^0.25.0
+        version: 0.25.0
+      drizzle-orm:
+        specifier: ^0.34.1
+        version: 0.34.1(@types/react@18.3.11)(postgres@3.4.4)(react@18.3.1)
+      typescript:
+        specifier: ^5.6.3
+        version: 5.6.3
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
+    devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
 
   packages/eslint-config:
     devDependencies:
