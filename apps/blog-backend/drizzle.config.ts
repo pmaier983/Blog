@@ -5,11 +5,11 @@ dotenv.config()
 
 // eslint-disable-next-line import/no-default-export
 export default {
+  dialect: "postgresql",
   schema: "./src/db/schema.ts",
-  driver: "pg",
   out: "./src/db/migrations-folder",
   dbCredentials: {
-    connectionString: process.env.DATABASE_URL!,
+    url: process.env.DATABASE_URL!,
   },
   tablesFilter: ["blog_*"],
 } satisfies Config

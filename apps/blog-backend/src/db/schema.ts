@@ -24,5 +24,3 @@ export const buttonClicks = pgTable("button_clicks", {
   language: text("language"),
   screenResolution: text("screen_resolution"),
 })
-
-// export const
