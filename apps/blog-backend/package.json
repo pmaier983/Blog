@@ -12,16 +12,10 @@
   "keywords": [],
   "author": "Phillip Maier",
   "dependencies": {
-    "@paralleldrive/cuid2": "^2.2.2",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "@repo/db-schema": "workspace:*",
+    "@repo/backend-core": "workspace:*",
     "@swc/cli": "^0.4.0",
-    "@swc/core": "^1.7.35",
-    "@trpc/server": "^10.45.2",
-    "postgres": "^3.4.4",
-    "tsx": "^4.19.1",
-    "typescript": "^5.6.3",
-    "zod": "^3.23.8"
+    "@swc/core": "^1.7.35"
   }
 }

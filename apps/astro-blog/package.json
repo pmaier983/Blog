@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
+    "@repo/backend-core": "workspace:*",
     "@astrojs/mdx": "^3.1.8",
     "@astrojs/node": "^8.3.4",
     "@astrojs/react": "^3.6.2",
