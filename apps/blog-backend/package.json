@@ -12,10 +12,11 @@
   "keywords": [],
   "author": "Phillip Maier",
   "dependencies": {
+    "@repo/backend-core": "workspace:*",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "@repo/backend-core": "workspace:*",
     "@swc/cli": "^0.4.0",
-    "@swc/core": "^1.7.35"
+    "@swc/core": "^1.7.35",
+    "@trpc/server": "11.0.0-rc.630"
   }
 }

@@ -2,8 +2,7 @@ import { createTRPCProxyClient, httpBatchLink } from "@trpc/client"
 
 import { type AppRouter } from "@repo/backend-core"
 
-// TODO: move 8080 to env
-const TRPC_URL = `http://localhost:${8080}/trpc`
+const TRPC_URL = `http://localhost:${process.env.BACKEND_API_PORT}/trpc`
 
 export const getTrpcAstro = () =>
   createTRPCProxyClient<AppRouter>({
