@@ -7,7 +7,9 @@ import { buttonClicks, buttons } from "./db/schema"
 
 import { db } from "./db/db"
 
-export const t = initTRPC.context().create()
+export const createContext = () => ({})
+
+export const t = initTRPC.context<typeof createContext>().create()
 
 export const router = t.router
 export const publicProcedure = t.procedure

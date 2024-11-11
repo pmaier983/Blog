@@ -1,7 +1,8 @@
 import { createHTTPServer } from "@trpc/server/adapters/standalone"
 
-import { appRouter } from "@repo/backend-core"
+import { appRouter, type AppRouter, createContext } from "@repo/backend-core"
 
-createHTTPServer({
+createHTTPServer<AppRouter>({
   router: appRouter,
-}).listen(process.env.BACKEND_API_PORT)
+  createContext,
+}).listen(Number(process.env.BACKEND_API_PORT))
