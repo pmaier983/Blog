@@ -30,6 +30,7 @@ ENV DATABASE_URL=${DATABASE_URL}
 
 # ensure we properly set the ARGS
 RUN if [ -z "$DATABASE_URL" ]; then echo "DATABASE_URL is not set"; exit 1; fi
+RUN if [ -z "$BACKEND_API_PORT" ]; then echo "BACKEND_API_PORT is not set"; exit 1; fi
 
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
