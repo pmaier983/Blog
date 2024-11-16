@@ -2,7 +2,6 @@
   "name": "blog-backend",
   "version": "1.0.0",
   "description": "The backend for my blog",
-  "main": "index.js",
   "scripts": {
     "tsc": "tsc",
     "start": "dotenv -e ../../.env node dist/src/index.js",
@@ -13,10 +12,13 @@
   "author": "Phillip Maier",
   "dependencies": {
     "@repo/backend-core": "workspace:*",
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
     "@swc/cli": "^0.4.0",
     "@swc/core": "^1.7.35",
     "@trpc/server": "^10.45.2"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*"
   }
 }
