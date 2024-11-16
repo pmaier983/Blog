@@ -2,7 +2,7 @@ import { createTRPCProxyClient, httpBatchLink } from "@trpc/client"
 
 import { type AppRouter } from "@repo/backend-core"
 
-const TRPC_URL = `http://localhost:${process.env.BACKEND_API_PORT}/trpc`
+const TRPC_URL = `http://localhost:${import.meta.env.BACKEND_API_PORT}`
 
 export const getTrpcAstro = () =>
   createTRPCProxyClient<AppRouter>({
