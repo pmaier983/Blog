@@ -36,7 +36,6 @@ ENV SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
 RUN if [ -z "$DATABASE_URL" ]; then echo "DATABASE_URL is not set"; exit 1; fi
 RUN if [ -z "$SUPABASE_URL" ]; then echo "SUPABASE_URL is not set"; exit 1; fi
 RUN if [ -z "$SUPABASE_ANON_KEY" ]; then echo "SUPABASE_ANON_KEY is not set"; exit 1; fi
-RUN if [ -z "$BACKEND_API_PORT" ]; then echo "BACKEND_API_PORT is not set"; exit 1; fi
 
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"

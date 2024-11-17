@@ -4,17 +4,17 @@ import { getTrpcAstro } from "~/client"
 
 const { name } = Astro.props
 
-const trpcAstro = getTrpcAstro(Astro.url)
+const trpcAstro = getTrpcAstro()
 
 const buttonResponse = await trpcAstro.getButton.query()
 
-const clickCount = buttonResponse.click_count
+const clickCount = buttonResponse?.clickCount
 ---
 
 <div>
   <IncrementingButtonReactComponent
     client:load
     name={name}
-    clickCount={clickCount}
+    clickCount={clickCount ?? 0}
   />
 </div>
