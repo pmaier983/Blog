@@ -1,6 +1,9 @@
 ---
 import MainPageLayout from "~/layouts/MainPageLayout.astro"
 import IncrementingButton from "~/components/IncrementingButton.astro"
+
+// TODO: any way to pre-render only the button component itself?
+export const prerender = false
 ---
 
 <MainPageLayout class="flex flex-1 justify-center items-center">
