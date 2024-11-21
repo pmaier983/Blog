@@ -3,14 +3,17 @@
   "globalDependencies": ["**/.env.*local", ".env"],
   "tasks": {
     "build": {
-      "dependsOn": ["^build"],
-      "outputs": [],
+      "dependsOn": ["clean", "lint", "^build"],
+      "outputs": ["dist/**", "tsconfig.tsbuildinfo"],
       "inputs": ["$TURBO_DEFAULT$", ".env.production", ".env"]
     },
     "start": {
-      "dependsOn": ["^start"],
+      "dependsOn": ["^start", "build"],
       "outputs": [],
       "inputs": ["$TURBO_DEFAULT$", ".env.production", ".env"]
+    },
+    "clean": {
+      "dependsOn": ["^clean"]
     },
     "lint": {
       "dependsOn": ["^lint"]

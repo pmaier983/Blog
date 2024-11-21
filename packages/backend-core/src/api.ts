@@ -3,9 +3,9 @@ import { z } from "zod"
 import { createId } from "@paralleldrive/cuid2"
 import { eq } from "drizzle-orm"
 
-import { buttonClicks, buttons } from "./db/schema"
+import { buttonClicks, buttons } from "./db/schema.js"
 
-import { db } from "./db/db"
+import { db } from "./db/db.js"
 
 export const createContext = () => ({})
 

@@ -40,6 +40,8 @@ ECS is expensive. A simple Docker Cluster ends up costing ~40$/month. 9$ Cloudwa
 - [ ] Properly configure RLS for supabase (https://supabase.com/docs/guides/database/postgres/row-level-security#row-level-security-in-supabase)
 - [ ] Transition to use @total-typescript/tsconfig (https://github.com/total-typescript/tsconfig)
 - [ ] Look into keeping deps on the same version (https://turbo.build/repo/docs/crafting-your-repository/managing-dependencies#keeping-dependencies-on-the-same-version)
+- [ ] How to avoid adding the ugly `.js` to my file imports in backend-core? (how deep down the build rabbit hole do i want to go)
+- [ ] look into using tsup (https://github.com/egoist/tsup) along with tsc.
 
 ### How to host
 

@@ -2,21 +2,25 @@
   "name": "blog-backend",
   "version": "1.0.0",
   "description": "The backend for my blog",
+  "type": "module",
   "scripts": {
     "tsc": "tsc",
-    "start": "dotenv -e ../../.env node dist/src/index.js",
-    "build": "swc src --out-dir dist",
-    "dev": "dotenv -e ../../.env tsx watch src/index.ts"
+    "start": "dotenv -e ../../.env node --experimental-specifier-resolution=node dist/index.js",
+    "build": "tsc",
+    "clean": "rm -rf dist && rm -rf tsconfig.tsbuildinfo",
+    "dev": "dotenv -e ../../.env tsx watch src/index.ts",
+    "lint": "tsc --noEmit"
   },
   "keywords": [],
   "author": "Phillip Maier",
   "dependencies": {
     "@repo/backend-core": "workspace:*",
-    "@swc/cli": "^0.4.0",
-    "@swc/core": "^1.7.35",
     "@trpc/server": "^10.45.2",
     "cors": "^2.8.5",
-    "express": "^4.21.1"
+    "dotenv": "^16.4.5",
+    "dotenv-cli": "^7.4.2",
+    "express": "^4.21.1",
+    "typescript": "^5.6.3"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
