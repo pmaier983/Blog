@@ -120,6 +120,9 @@ importers:
 
   apps/blog-backend:
     dependencies:
+      '@repo/backend-core':
+        specifier: workspace:*
+        version: link:../../packages/backend-core
       '@trpc/server':
         specifier: ^10.45.2
         version: 10.45.2
@@ -135,13 +138,7 @@ importers:
       express:
         specifier: ^4.21.1
         version: 4.21.1
-      typescript:
-        specifier: ^5.6.3
-        version: 5.6.3
     devDependencies:
-      '@repo/backend-core':
-        specifier: workspace:*
-        version: link:../../packages/backend-core
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
@@ -157,6 +154,9 @@ importers:
       tsx:
         specifier: ^4.19.2
         version: 4.19.2
+      typescript:
+        specifier: ^5.6.3
+        version: 5.6.3
 
   packages/backend-core:
     dependencies:
@@ -166,15 +166,6 @@ importers:
       '@trpc/server':
         specifier: ^10.45.2
         version: 10.45.2
-      dotenv:
-        specifier: ^16.4.5
-        version: 16.4.5
-      dotenv-cli:
-        specifier: ^7.4.2
-        version: 7.4.2
-      drizzle-kit:
-        specifier: ^0.25.0
-        version: 0.25.0
       drizzle-orm:
         specifier: ^0.34.1
         version: 0.34.1(@types/react@18.3.11)(postgres@3.4.4)(react@18.3.1)
@@ -188,6 +179,15 @@ importers:
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
+      dotenv:
+        specifier: ^16.4.5
+        version: 16.4.5
+      dotenv-cli:
+        specifier: ^7.4.2
+        version: 7.4.2
+      drizzle-kit:
+        specifier: ^0.25.0
+        version: 0.25.0
       typescript:
         specifier: ^5.6.3
         version: 5.6.3

@@ -13,7 +13,7 @@
 #    * do this FROM THE TURBOREPO ROOT
 # 2. To test the image locally run:
 #    docker run -p 4321:4321 --env-file .env -t pmaier983/private-docker-images:astro-blog
-#    * open locally via: http://localhost:3030/api/v1/buttons/test
+#    * open locally via: http://localhost:4321
 # 3. Use the docker desktop app to explore the container via the CLI
 
 # to push to my private repo run:
@@ -63,7 +63,9 @@ WORKDIR /app
 COPY --from=builder /app/out/json/ .
 COPY --from=builder /app/out/pnpm-lock.yaml ./pnpm-lock.yaml
 COPY --from=builder /app/out/full/ .
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile
+# If we add --prod it does not install what is required to build the package ... (typescript - tsc)
+# Docs: https://pnpm.io/cli/install#--prod--p
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
 # our build step expects a .env file to be present
 RUN printenv > .env
@@ -72,7 +74,7 @@ RUN printenv > .env
 RUN pnpm turbo run build --filter=astro-blog...
 
 ############### Run the project ###############
-FROM base as runner
+FROM base AS runner
 WORKDIR /app
 
 # TODO: how to not run production as root
