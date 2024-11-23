@@ -6,6 +6,12 @@ import { appRouter, type AppRouter, createContext } from "@repo/backend-core"
 
 const app = express()
 
+if (!process.env.DATABASE_URL) {
+  throw new Error(
+    "DATABASE_URL is not set. Are you calling this from the turbo root? With the turbo dev command?",
+  )
+}
+
 // TODO: configure cors for prod
 app.use(
   cors({

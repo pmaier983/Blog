@@ -4,8 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "dotenv -e ../../.env astro dev --verbose",
-    "start": "dotenv -e ../../.env node dist/server/entry.mjs",
-    "build": "astro check && dotenv -e ../../.env astro build",
+    "start": "dotenv -e ../../.env.prod node dist/server/entry.mjs",
+    "build": "astro check && dotenv -e ../../.env.prod astro build",
     "preview": "astro preview",
     "astro": "astro",
     "tsc": "tsc",
