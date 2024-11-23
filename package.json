@@ -8,7 +8,7 @@
     "dev-backend": "pnpm run dev --filter blog-backend",
     "dev-astro": "pnpm run dev --filter astro-blog",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "aws-login": "dotenv -e .env -- sh -c 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com'",
+    "aws-login": "dotenv -e .env.prod -- sh -c 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com'",
     "*TODO": "How to automatically update the task and the service as well!",
     "docker:build:push": "pnpm run aws-login && docker compose build && docker compose push"
   },
@@ -17,7 +17,7 @@
     "@repo/typescript-config": "workspace:*",
     "dotenv-cli": "^7.4.2",
     "prettier": "^3.3.3",
-    "turbo": "^2.3.0"
+    "turbo": "^2.3.1"
   },
   "engines": {
     "node": ">=18"

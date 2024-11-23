@@ -4,7 +4,7 @@ services:
   blog-backend:
     image: ${DOCKER_REGISTRY}/blog-backend
     container_name: blog-backend
-    env_file: .env
+    env_file: .env.prod
     build:
       context: .
       dockerfile: ./apps/blog-backend/Dockerfile
@@ -17,7 +17,7 @@ services:
   astro-blog:
     image: ${DOCKER_REGISTRY}/astro-blog
     container_name: astro-blog
-    env_file: .env
+    env_file: .env.prod
     build:
       context: .
       dockerfile: ./apps/astro-blog/Dockerfile

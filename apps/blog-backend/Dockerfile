@@ -61,8 +61,8 @@ COPY --from=builder /app/out/full/ .
 # Docs: https://pnpm.io/cli/install#--prod--p
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
-# our build step expects a .env file to be present
-RUN printenv > .env
+# our build step expects a .env.prod file to be present
+RUN printenv > .env.prod
 
 # Build the project
 RUN pnpm turbo run build --filter=blog-backend...
