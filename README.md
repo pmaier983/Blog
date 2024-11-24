@@ -49,23 +49,43 @@ The goal: host a bunch of docker containers to run each of my blogs web apps.
 
 #### Options:
 
-##### Option 1 (AWS & ECS):
-
-This worked but ended up costing me 40$ per month. Just not worth it for a blog, I mean really
-
-##### Option 2 (VM):
+##### Option 1 - VM:
 
 Host a docker compose cluster on a VM (Heroku, EC2, Droplet, Linode). There is probably a bunch of configuration needed to make all the security and porting work, but this would probably be the cheapest option.
 
 Also I could use something like ansible as Infrastructure as code?
 
-##### Option 3 (K8's):
+Negatives
+
+- Expensive at the lowest end (~5-11$/month for really small weak VM's)
+
+Positives
+
+- No cold start problem
+- Consistent known price
+
+##### Option 2 - Serverless (A bunch of Separate Docker Containers):
+
+Just deploy a bunch of these containers separately? This can be done on any of the big cloud providers: (Digital Ocean App Platform, Google Cloud Run etc?)
+
+Negatives
+
+- Very cheap (On-Demand mode GCP)
+- Slightly annoying config possibly
+- Slow cold start problem (lead to bad-ish UX)
+
+Positives
+
+- More Expensive if there is actually a ton of traffic (~50$/month/container max)
+- Slightly more "modern" then a simple VM
+
+##### (Rejected) Option 3 (K8's):
 
 I can't do it. A personal blog is not a good reason to learn k8's...
 
-##### Option 4 (A bunch of Separate Docker Containers):
+##### (Rejected) Option 4 (AWS & ECS):
 
-Just deploy a bunch of these contains separately? This can be done on any of the big cloud providers: (Digital Ocean App Platform, Google Cloud Run etc?)
+This worked but ended up costing me 40$ per month. Just not worth it for a blog, I mean really
 
 ### Transition from gaulish.io -> phillipmaier.com
 
