@@ -1,0 +1,13 @@
+{
+  "name": "@repo/pulumi-blog",
+  "main": "index.ts",
+  "devDependencies": {
+    "@types/node": "^18",
+    "@repo/typescript-config": "workspace:*",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@pulumi/gcp": "^8.0.0",
+    "@pulumi/pulumi": "^3.113.0"
+  }
+}
