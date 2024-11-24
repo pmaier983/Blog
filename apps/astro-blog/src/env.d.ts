@@ -7,6 +7,7 @@ interface ImportMetaEnv {
 
   readonly DATABASE_URL: string
   readonly PUBLIC_BACKEND_API_URL: string
+  readonly PUBLIC_IN_NETWORK_BACKEND_API_URL: string
 
   readonly DOCKER_REGISTRY: string
   readonly AWS_ACCOUNT_ID: string

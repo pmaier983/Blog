@@ -2,13 +2,28 @@ import { createTRPCProxyClient, httpBatchLink } from "@trpc/client"
 
 import type { AppRouter } from "@repo/backend-core"
 
-if (!import.meta.env.PUBLIC_BACKEND_API_URL) {
+if (
+  !import.meta.env.PUBLIC_BACKEND_API_URL ||
+  !import.meta.env.PUBLIC_IN_NETWORK_BACKEND_API_URL
+) {
   throw new Error(
-    "Missing PUBLIC_BACKEND_API_URL. Are you calling this from the turbo root with the turbo dev command?",
+    "Missing PUBLIC_BACKEND_API_URL or PUBLIC_IN_NETWORK_BACKEND_API_URL",
   )
 }
 
-const TRPC_URL = `http://${import.meta.env.PUBLIC_BACKEND_API_URL}/trpc`
+/* 
+  On the server we need to point to the docker container endpoint
+  but on the client we need to point to the "publicly" available API
+*/
+const TRPC_URL = (() => {
+  const isClient = typeof window !== "undefined"
+
+  if (isClient) {
+    return import.meta.env.PUBLIC_BACKEND_API_URL
+  } else {
+    return import.meta.env.PUBLIC_IN_NETWORK_BACKEND_API_URL
+  }
+})()
 
 export const getTrpcAstro = () =>
   createTRPCProxyClient<AppRouter>({

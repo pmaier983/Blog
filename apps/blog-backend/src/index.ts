@@ -12,10 +12,10 @@ if (!process.env.DATABASE_URL) {
   )
 }
 
-// TODO: configure cors for prod
+// TODO: configure CORS for prod
 app.use(
   cors({
-    origin: "http://localhost:4321", // Replace with the allowed origin(s)
+    origin: ["http://localhost:4321", "http://astro-blog:4321"], // Replace with the allowed origin(s)
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allowed methods
     credentials: true, // Allow credentials (e.g., cookies, auth headers)
   }),
