@@ -1,2 +1,3 @@
 config:
   gcp:project: blog-442719
+  gcp:zone: us-west2-a
