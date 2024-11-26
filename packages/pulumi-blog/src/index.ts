@@ -8,6 +8,7 @@ import * as gcp from "@pulumi/gcp"
 import * as pulumi from "@pulumi/pulumi"
 
 import { envSchema } from "./envSchema"
+import { execSync } from "child_process"
 
 const env = envSchema.parse(process.env)
 
@@ -45,20 +46,42 @@ const firewall = new gcp.compute.Firewall("firewall", {
   targetTags: [instanceTag],
 })
 
+const envContent = Object.entries(env)
+  .map(([key, value]) => `${key}=${value}`)
+  .join("\n")
+
+// Function to get the current Git branch
+const currentGitBranch = (() => {
+  try {
+    return execSync("git rev-parse --abbrev-ref HEAD").toString().trim()
+  } catch (error) {
+    throw new Error(
+      "Failed to detect Git branch. Make sure you are in a valid Git repository.",
+    )
+  }
+})()
+
+// TODO: ensure this clone works after merging in to main!
 // Define a script to be run when the VM starts up.
 const metadataStartupScript = `#!/bin/bash
-    echo '<!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Hello, world!</title>
-    </head>
-    <body>
-        <h1>Hello, world! 👋</h1>
-        <p>Deployed with 💜 by <a href="https://pulumi.com/">Pulumi</a>.</p>
-    </body>
-    </html>' > index.html
-    sudo python3 -m http.server ${SERVICE_PORT} &`
+set -e
+
+WORK_DIR="/home/phillipmaier"
+mkdir -p $WORK_DIR
+cd $WORK_DIR
+
+# Clone the repository
+git clone --branch ${currentGitBranch} https://github.com/pmaier983/Blog.git
+cd Blog
+
+# Write the .env file
+cat <<EOF > .env
+${envContent}
+EOF
+
+# run docker compose up
+# docker run --rm -v "$PWD:$PWD" -w "$PWD" docker/compose:latest up
+`
 
 // Create the virtual machine.
 const instance = new gcp.compute.Instance(
@@ -69,7 +92,7 @@ const instance = new gcp.compute.Instance(
     machineType: "e2-micro",
     bootDisk: {
       initializeParams: {
-        image: "debian-11",
+        image: "cos-cloud/cos-117-18613-75-37",
       },
     },
     networkInterfaces: [
