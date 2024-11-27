@@ -2,6 +2,7 @@
  * Tutorials & Docs followed for the setup of this file:
  * - https://www.pulumi.com/registry/packages/gcp/how-to-guides/gce-webserver/
  * - https://github.com/pulumi/templates/blob/master/vm-gcp-typescript/index.ts
+ * - https://gist.github.com/kurokobo/25e41503eb060fee8d8bec1dd859eff3
  */
 
 import * as gcp from "@pulumi/gcp"
@@ -75,12 +76,13 @@ git clone --branch ${currentGitBranch} https://github.com/pmaier983/Blog.git
 cd Blog
 
 # Write the .env file
-cat <<EOF > .env
+cat <<EOF > .env.prod
 ${envContent}
 EOF
 
-# run docker compose up
-# docker run --rm -v "$PWD:$PWD" -w "$PWD" docker/compose:latest up
+# Download Docker Compose
+curl -s https://gist.githubusercontent.com/kurokobo/25e41503eb060fee8d8bec1dd859eff3/raw/0d7cd29472f0eaa26ce424071456ad84b24fb318/installer.sh | bash
+source ~/.bashrc
 `
 
 // Create the virtual machine.
