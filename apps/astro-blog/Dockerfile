@@ -71,7 +71,7 @@ COPY --from=builder /app/out/pnpm-lock.yaml ./pnpm-lock.yaml
 COPY --from=builder /app/out/full/ .
 # If we add --prod it does not install what is required to build the package ... (typescript - tsc)
 # Docs: https://pnpm.io/cli/install#--prod--p
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+RUN id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
 # our build step expects a .env.prod file to be present
 RUN printenv > .env.prod

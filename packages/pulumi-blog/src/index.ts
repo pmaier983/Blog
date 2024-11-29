@@ -75,8 +75,12 @@ cd $WORK_DIR
 git clone --branch ${currentGitBranch} https://github.com/pmaier983/Blog.git
 cd Blog
 
-# Write the .env file
+# Write the .env & .env.prod file
 cat <<EOF > .env.prod
+${envContent}
+EOF
+
+cat <<EOF > .env
 ${envContent}
 EOF
 
