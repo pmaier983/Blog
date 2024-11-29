@@ -49,22 +49,7 @@ The goal: host a bunch of docker containers to run each of my blogs web apps.
 
 #### Options:
 
-##### Option 1 - VM:
-
-Host a docker compose cluster on a VM (Heroku, EC2, Droplet, Linode). There is probably a bunch of configuration needed to make all the security and porting work, but this would probably be the cheapest option.
-
-Also I could use something like ansible as Infrastructure as code?
-
-Negatives
-
-- Expensive at the lowest end (~5-11$/month for really small weak VM's)
-
-Positives
-
-- No cold start problem
-- Consistent known price
-
-##### Option 2 - Serverless (A bunch of Separate Docker Containers):
+##### Option 1 - Serverless (A bunch of Separate Docker Containers):
 
 Just deploy a bunch of these containers separately? This can be done on any of the big cloud providers: (Digital Ocean App Platform, Google Cloud Run etc?)
 
@@ -78,6 +63,23 @@ Positives
 
 - More Expensive if there is actually a ton of traffic (~50$/month/container max)
 - Slightly more "modern" then a simple VM
+
+##### (Rejected) Option 2 - VM:
+
+I ended up running into annoyances getting `docker-compose up` working on the vm. I get the feeling most VM's, even container optimized ones expect to only have to run a single docker image.
+
+Host a docker compose cluster on a VM (Heroku, EC2, Droplet, Linode). There is probably a bunch of configuration needed to make all the security and porting work, but this would probably be the cheapest option.
+
+Also I could use something like pulumi as Infrastructure as code?
+
+Negatives
+
+- Expensive at the lowest end (~5-11$/month for really small weak VM's)
+
+Positives
+
+- No cold start problem
+- Consistent known price
 
 ##### (Rejected) Option 3 (K8's):
 
