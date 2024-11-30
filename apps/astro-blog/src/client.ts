@@ -2,13 +2,8 @@ import { createTRPCProxyClient, httpBatchLink } from "@trpc/client"
 
 import type { AppRouter } from "@repo/backend-core"
 
-if (
-  !import.meta.env.PUBLIC_BACKEND_API_URL ||
-  !import.meta.env.PUBLIC_IN_NETWORK_BACKEND_API_URL
-) {
-  throw new Error(
-    "Missing PUBLIC_BACKEND_API_URL or PUBLIC_IN_NETWORK_BACKEND_API_URL",
-  )
+if (!import.meta.env.PUBLIC_BACKEND_API_URL) {
+  throw new Error("Missing PUBLIC_BACKEND_API_URL")
 }
 
 /* 
@@ -17,6 +12,13 @@ if (
 */
 const TRPC_URL = (() => {
   const isClient = typeof window !== "undefined"
+
+  const isUsingDockerComposeUp = !!import.meta.env
+    .PUBLIC_IN_NETWORK_BACKEND_API_URL
+
+  if (!isUsingDockerComposeUp) {
+    return import.meta.env.PUBLIC_BACKEND_API_URL
+  }
 
   if (isClient) {
     return import.meta.env.PUBLIC_BACKEND_API_URL

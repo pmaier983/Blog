@@ -24,12 +24,15 @@
 FROM node:20-slim AS base
 
 ARG DATABASE_URL
+ARG PUBLIC_FRONTEND_URL
 
 # Set environment variables
 ENV DATABASE_URL=${DATABASE_URL}
+ENV PUBLIC_FRONTEND_URL=${PUBLIC_FRONTEND_URL}
 
 # ensure we properly set the ARGS
 RUN if [ -z "$DATABASE_URL" ]; then echo "DATABASE_URL is not set"; exit 1; fi
+RUN if [ -z "$PUBLIC_FRONTEND_URL" ]; then echo "PUBLIC_FRONTEND_URL is not set"; exit 1; fi
 
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
