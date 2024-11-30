@@ -21,12 +21,15 @@ import { envSchema } from "./envSchema"
 
 const env = envSchema.parse(process.env)
 
-const imageName = "astro-blog"
+const location = env.LOCATION
+
+const astroImageName = "astro-blog"
+const backendImageName = "blog-backend"
 
 /* ########## Upload the docker images to Google Cloud Registry. ########## */
 
-const astroBlogImage = new docker.Image(imageName, {
-  imageName: pulumi.interpolate`gcr.io/${gcp.config.project}/${imageName}:latest`,
+const astroImage = new docker.Image(astroImageName, {
+  imageName: pulumi.interpolate`gcr.io/${gcp.config.project}/${astroImageName}:latest`,
   build: {
     context: "../../",
     dockerfile: "../../apps/astro-blog/Dockerfile",
@@ -35,21 +38,30 @@ const astroBlogImage = new docker.Image(imageName, {
   },
 })
 
+const backendImage = new docker.Image(backendImageName, {
+  imageName: pulumi.interpolate`gcr.io/${gcp.config.project}/${backendImageName}:latest`,
+  build: {
+    context: "../../",
+    dockerfile: "../../apps/blog-backend/Dockerfile",
+    platform: "linux/amd64",
+    args: env,
+  },
+})
+
 // add a unique ID to ensure the service updates
-const serviceName = `${imageName}-service`
-const location = "us-west2"
+const astroServiceName = `${astroImageName}-service`
+const backendServiceName = `${backendImageName}-service`
 
 /* ########## Deploy the Docker image to Google Cloud Run. ########## */
 
-// Deploy to Cloud Run if there is a difference in the sha, denoted above.
-const astroService = new gcp.cloudrun.Service(serviceName, {
+const astroService = new gcp.cloudrun.Service(astroServiceName, {
   location,
-  name: serviceName,
+  name: astroServiceName,
   template: {
     spec: {
       containers: [
         {
-          image: astroBlogImage.imageName,
+          image: astroImage.imageName,
           ports: [{ containerPort: 4321 }],
           resources: {
             limits: {
@@ -70,12 +82,53 @@ const astroService = new gcp.cloudrun.Service(serviceName, {
   },
 })
 
-// Open the service to public unrestricted access
-const openAstroService = new gcp.cloudrun.IamMember(`${imageName}-everyone`, {
-  service: astroService.name,
+const backendService = new gcp.cloudrun.Service(backendServiceName, {
   location,
-  role: "roles/run.invoker",
-  member: "allUsers",
+  name: backendServiceName,
+  template: {
+    spec: {
+      containers: [
+        {
+          image: backendImage.imageName,
+          ports: [{ containerPort: 8080 }],
+          resources: {
+            limits: {
+              memory: "1Gi",
+            },
+          },
+          livenessProbe: {
+            httpGet: {
+              path: "/",
+              port: 8080,
+            },
+            initialDelaySeconds: 60, // Increase initial delay for health check
+            periodSeconds: 30, // Increase period for health check
+          },
+        },
+      ],
+    },
+  },
 })
+
+// Open the service to public unrestricted access
+const openAstroService = new gcp.cloudrun.IamMember(
+  `${astroServiceName}-everyone`,
+  {
+    service: astroService.name,
+    location,
+    role: "roles/run.invoker",
+    member: "allUsers",
+  },
+)
+
+const openBackendService = new gcp.cloudrun.IamMember(
+  `${backendServiceName}-everyone`,
+  {
+    service: backendService.name,
+    location,
+    role: "roles/run.invoker",
+    member: "allUsers",
+  },
+)
 
 export const astroUrl = astroService?.statuses[0]?.url
