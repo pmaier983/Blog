@@ -121,13 +121,13 @@ PUBLIC_FRONTEND_URL=$(curl -H "Metadata-Flavor: Google" \
 cat <<EOF > .env.prod
 ${envContent}
 PUBLIC_FRONTEND_URL=\${PUBLIC_FRONTEND_URL}
-PUBLIC_BACKEND_API_URL=http://\${PUBLIC_FRONTEND_URL}:8080
+PUBLIC_BACKEND_API_URL=http://\${PUBLIC_FRONTEND_URL}:8080/trpc
 EOF
 
 cat <<EOF > .env
 ${envContent}
 PUBLIC_FRONTEND_URL=\${PUBLIC_FRONTEND_URL}
-PUBLIC_BACKEND_API_URL=http://\${PUBLIC_FRONTEND_URL}:8080
+PUBLIC_BACKEND_API_URL=http://\${PUBLIC_FRONTEND_URL}:8080/trpc
 EOF
 
 # run docker-compose up in detached mode
