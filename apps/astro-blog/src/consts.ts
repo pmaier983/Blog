@@ -3,7 +3,7 @@
 
 export const SITE_TITLE = "Phillip Maier's Personal Website"
 export const SITE_DESCRIPTION =
-  "A place to learn about Phillip, and a place for Phillip to experiment."
+  "The personal website of Phillip Maier. A place to share my thoughts, projects, and cool links."
 
 // ITTT: Add a new icon to the ICONS object & icons.svg together!
 export const ICONS = {

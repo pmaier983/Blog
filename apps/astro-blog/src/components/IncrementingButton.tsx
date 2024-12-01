@@ -19,12 +19,17 @@ export const IncrementingButton = ({
         onClick={async () => {
           // "Optimistically" Update the client as well!
           setTimesClicked(timesClicked + 1)
-          trpcReact.incrementButton.mutate({
-            name,
-            userAgent: navigator.userAgent,
-            language: navigator.language,
-            screenResolution: `${window.screen.width}x${window.screen.height}`,
-          })
+          trpcReact.incrementButton
+            .mutate({
+              name,
+              userAgent: navigator.userAgent,
+              language: navigator.language,
+              screenResolution: `${window.screen.width}x${window.screen.height}`,
+            })
+            .catch(() => {
+              // If the request fails, revert the client-side update
+              setTimesClicked(timesClicked)
+            })
         }}
       >
         Click me to increment a counter!
