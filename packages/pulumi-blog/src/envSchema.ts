@@ -13,7 +13,8 @@ export const envSchema = z.object({
 
   DATABASE_URL: z.string().min(1),
   PUBLIC_BACKEND_API_URL: z.string().min(1),
-  PUBLIC_IN_NETWORK_BACKEND_API_URL: z.string().min(1),
+  // RE-ENABLE if using Docker Compose
+  // PUBLIC_IN_NETWORK_BACKEND_API_URL: z.optional(z.string()),
 
   DOCKER_REGISTRY: z.string().min(1),
   AWS_ACCOUNT_ID: z.string().min(1),
