@@ -114,20 +114,20 @@ cd $WORK_DIR
 git clone --branch ${currentGitBranch} https://github.com/pmaier983/Blog.git
 cd Blog
 
-PUBLIC_FRONTEND_URL=$(curl -H "Metadata-Flavor: Google" \
+PUBLIC_IP=$(curl -H "Metadata-Flavor: Google" \
     "http://metadata.google.internal/computeMetadata/v1/instance/network-interfaces/0/access-configs/0/external-ip")
 
 # Write the .env & .env.prod file
 cat <<EOF > .env.prod
 ${envContent}
-PUBLIC_FRONTEND_URL=\${PUBLIC_FRONTEND_URL}
-PUBLIC_BACKEND_API_URL=http://\${PUBLIC_FRONTEND_URL}:8080/trpc
+PUBLIC_FRONTEND_URL=http://\${PUBLIC_IP}:4321
+PUBLIC_BACKEND_API_URL=http://\${PUBLIC_IP}:8080/trpc
 EOF
 
 cat <<EOF > .env
 ${envContent}
-PUBLIC_FRONTEND_URL=\${PUBLIC_FRONTEND_URL}
-PUBLIC_BACKEND_API_URL=http://\${PUBLIC_FRONTEND_URL}:8080/trpc
+PUBLIC_FRONTEND_URL=http://\${PUBLIC_IP}:4321
+PUBLIC_BACKEND_API_URL=http://\${PUBLIC_IP}:8080/trpc
 EOF
 
 # run docker-compose up in detached mode
