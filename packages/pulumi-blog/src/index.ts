@@ -121,25 +121,17 @@ PUBLIC_FRONTEND_URL=$(curl -H "Metadata-Flavor: Google" \
 cat <<EOF > .env.prod
 ${envContent}
 PUBLIC_FRONTEND_URL=\${PUBLIC_FRONTEND_URL}
+PUBLIC_BACKEND_API_URL=http://\${PUBLIC_FRONTEND_URL}:8080
 EOF
 
 cat <<EOF > .env
 ${envContent}
 PUBLIC_FRONTEND_URL=\${PUBLIC_FRONTEND_URL}
+PUBLIC_BACKEND_API_URL=http://\${PUBLIC_FRONTEND_URL}:8080
 EOF
 
-# Add an alias for Docker Compose
-echo alias docker-compose="'"'docker run --rm \\
-    -v /var/run/docker.sock:/var/run/docker.sock \\
-    -v "$PWD:$PWD" \\
-    -w="$PWD" \\
-    docker/compose:latest'"'" >> ~/.bashrc
-
-# Pull Docker Compose container image
-docker pull docker/compose:latest
-
-# Source the updated bashrc to enable the alias
-source ~/.bashrc
+# run docker-compose up in detached mode
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v "$PWD:$PWD" -w="$PWD" docker/compose:1.27.4 up -d
 `
 
 // Create the virtual machine.
