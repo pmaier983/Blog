@@ -20,7 +20,11 @@ if (!process.env.PUBLIC_FRONTEND_URL) {
 app.use(
   cors({
     // The astro-blog is to enable docker compose up to work!
-    origin: [process.env.PUBLIC_FRONTEND_URL, "http://astro-blog:4321"], // Replace with the allowed origin(s)
+    origin: [
+      process.env.PUBLIC_FRONTEND_URL,
+      "http://localhost:4321",
+      "http://astro-blog:4321",
+    ], // Replace with the allowed origin(s)
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allowed methods
     credentials: true, // Allow credentials (e.g., cookies, auth headers)
   }),

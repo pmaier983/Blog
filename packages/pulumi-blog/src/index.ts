@@ -114,17 +114,31 @@ cd $WORK_DIR
 git clone --branch ${currentGitBranch} https://github.com/pmaier983/Blog.git
 cd Blog
 
+PUBLIC_FRONTEND_URL=$(curl -H "Metadata-Flavor: Google" \
+    "http://metadata.google.internal/computeMetadata/v1/instance/network-interfaces/0/access-configs/0/external-ip")
+
 # Write the .env & .env.prod file
 cat <<EOF > .env.prod
 ${envContent}
+PUBLIC_FRONTEND_URL=\${PUBLIC_FRONTEND_URL}
 EOF
 
 cat <<EOF > .env
 ${envContent}
+PUBLIC_FRONTEND_URL=\${PUBLIC_FRONTEND_URL}
 EOF
 
-# Download Docker Compose
-curl -s https://gist.githubusercontent.com/kurokobo/25e41503eb060fee8d8bec1dd859eff3/raw/0d7cd29472f0eaa26ce424071456ad84b24fb318/installer.sh | bash
+# Add an alias for Docker Compose
+echo alias docker-compose="'"'docker run --rm \\
+    -v /var/run/docker.sock:/var/run/docker.sock \\
+    -v "$PWD:$PWD" \\
+    -w="$PWD" \\
+    docker/compose:latest'"'" >> ~/.bashrc
+
+# Pull Docker Compose container image
+docker pull docker/compose:latest
+
+# Source the updated bashrc to enable the alias
 source ~/.bashrc
 `
 
