@@ -8,6 +8,7 @@ services:
       dockerfile: ./apps/blog-backend/Dockerfile
       args:
         DATABASE_URL: ${DATABASE_URL}
+        PUBLIC_FRONTEND_URL: ${PUBLIC_FRONTEND_URL}
     restart: always
     ports:
       - 8080:8080
@@ -23,7 +24,7 @@ services:
       dockerfile: ./apps/astro-blog/Dockerfile
       args:
         PUBLIC_BACKEND_API_URL: ${PUBLIC_BACKEND_API_URL}
-        # PUBLIC_IN_NETWORK_BACKEND_API_URL: ${PUBLIC_IN_NETWORK_BACKEND_API_URL}
+        PUBLIC_IN_NETWORK_BACKEND_API_URL: ${PUBLIC_IN_NETWORK_BACKEND_API_URL}
         DATABASE_URL: ${DATABASE_URL}
         SUPABASE_URL: ${SUPABASE_URL}
         SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY}
