@@ -27,6 +27,13 @@ const instanceTag = "blog"
 const astroImageName = `astro-blog`
 const backendImageName = `blog-backend`
 
+const region = env.LOCATION
+
+const staticIP = new gcp.compute.Address("static-ip", {
+  name: "blog-static-ip",
+  region,
+})
+
 /* ############### Deploy both docker images ###############*/
 
 const backendImage = new docker.Image(backendImageName, {
@@ -40,8 +47,6 @@ const backendImage = new docker.Image(backendImageName, {
   },
 })
 
-export const backendImageUrn = backendImage.urn
-
 const astroImage = new docker.Image(astroImageName, {
   // Use the current date as the tag to ensure the image is updated
   imageName: pulumi.interpolate`gcr.io/${gcp.config.project}/${astroImageName}:latest`,
@@ -52,8 +57,6 @@ const astroImage = new docker.Image(astroImageName, {
     args: env,
   },
 })
-
-export const astroImageUrn = astroImage.urn
 
 // Create a new network for the virtual machine.
 const network = new gcp.compute.Network("network", {
@@ -75,10 +78,11 @@ const firewall = new gcp.compute.Firewall("firewall", {
       /**
        * 22 - ssh port
        * 80 - http port (service port?)
+       * 443 - HTTPS port
        * 8080 - backend API port
        * 4321 - astro frontend port
        */
-      ports: ["22", "80", "8080", "4321"],
+      ports: ["22", "80", "443", "8080", "4321"],
     },
   ],
   direction: "INGRESS",
@@ -114,6 +118,7 @@ cd $WORK_DIR
 git clone --branch ${currentGitBranch} https://github.com/pmaier983/Blog.git
 cd Blog
 
+# Fetch the public IP address of the instance
 PUBLIC_IP=$(curl -H "Metadata-Flavor: Google" \
     "http://metadata.google.internal/computeMetadata/v1/instance/network-interfaces/0/access-configs/0/external-ip")
 
@@ -130,7 +135,7 @@ PUBLIC_FRONTEND_URL=http://\${PUBLIC_IP}:4321
 PUBLIC_BACKEND_API_URL=http://\${PUBLIC_IP}:8080/trpc
 EOF
 
-# run docker-compose up in detached mode
+# run docker-compose up in detached mode (in the background)
 docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v "$PWD:$PWD" -w="$PWD" docker/compose:1.27.4 up -d
 `
 
@@ -140,7 +145,8 @@ const instance = new gcp.compute.Instance(
   {
     name: env.INSTANCE_NAME,
     zone: env.ZONE,
-    // TODO: change to an e2 machine after dev
+    // TODO: change to an e2 machine after dev (e2-micro does not work, e2-small does)
+    // Use n2-standard-2 for standard dev work (its a bit faster and worth the cost)
     // https://cloud.google.com/compute/all-pricing
     machineType: "n2-standard-2",
     bootDisk: {
@@ -152,7 +158,11 @@ const instance = new gcp.compute.Instance(
       {
         network: network.id,
         subnetwork: subnet.id,
-        accessConfigs: [{}],
+        accessConfigs: [
+          {
+            natIp: staticIP.address, // Use the reserved static IP
+          },
+        ],
       },
     ],
     serviceAccount: {
@@ -172,3 +182,20 @@ const instanceIP = instance.networkInterfaces.apply((interfaces) => {
 // Export the instance's name, public IP address, and HTTP URL.
 export const name = instance.name
 export const ip = instanceIP
+export const httpUrl = pulumi.interpolate`http://${instanceIP}:4321`
+
+const aRecord = new gcp.dns.RecordSet("gaulish-root-record", {
+  name: "gaulish.io.",
+  type: "A",
+  ttl: 300,
+  managedZone: env.ZONE_NAME,
+  rrdatas: [staticIP.address],
+})
+
+const wwwCnameRecord = new gcp.dns.RecordSet("gaulish-www-record", {
+  name: "www.gaulish.io.",
+  type: "CNAME",
+  ttl: 300,
+  managedZone: env.ZONE_NAME,
+  rrdatas: ["gaulish.io."],
+})

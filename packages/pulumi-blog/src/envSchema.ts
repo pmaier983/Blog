@@ -6,6 +6,7 @@ export const envSchema = z.object({
   ZONE: z.string().min(1),
   INSTANCE_NAME: z.string().min(1),
   LOCATION: z.string().min(1),
+  ZONE_NAME: z.string().min(1),
 
   // The global .env file
   SUPABASE_URL: z.string().min(1),
