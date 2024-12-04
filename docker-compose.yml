@@ -14,6 +14,10 @@ services:
       - 8080:8080
     networks:
       - blog-network
+    labels:
+      VIRTUAL_HOST: ${DOMAIN}
+      LETSENCRYPT_HOST: ${DOMAIN}
+      LETSENCRYPT_EMAIL: ${EMAIL}
 
   astro-blog:
     image: ${DOCKER_REGISTRY}/astro-blog
@@ -29,12 +33,58 @@ services:
         SUPABASE_URL: ${SUPABASE_URL}
         SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY}
     restart: always
+    labels:
+      VIRTUAL_HOST: ${DOMAIN}
+      LETSENCRYPT_HOST: ${DOMAIN}
+      LETSENCRYPT_EMAIL: ${EMAIL}
     ports:
-      - 80:4321 # Configure standard Http port
-      - 443:4321 # Configure standard Https port
+      # - 80:4321 # Configure standard Http port
+      # - 443:4321 # Configure standard Https port
       - 4321:4321
     networks:
       - blog-network
+
+  # See docs: https://github.com/nginx-proxy/acme-companion/blob/main/docs/Docker-Compose.md
+  nginx-proxy:
+    image: nginxproxy/nginx-proxy
+    container_name: nginx-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      # The vhost and conf volumes are only required
+      # if you plan to obtain standalone certificates
+      # - vhost:/etc/nginx/vhost.d
+      # - conf:/etc/nginx/conf.d
+      - html:/usr/share/nginx/html
+      - certs:/etc/nginx/certs:ro
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - blog-network
+
+  acme-companion:
+    image: nginxproxy/acme-companion
+    container_name: nginx-proxy-acme
+    environment:
+      DEFAULT_EMAIL: ${EMAIL}
+    volumes_from:
+      - nginx-proxy
+    volumes:
+      - certs:/etc/nginx/certs:rw
+      - acme:/etc/acme.sh
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - blog-network
+
+volumes:
+  html:
+  certs:
+  acme:
 
 networks:
   blog-network:
