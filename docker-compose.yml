@@ -16,6 +16,7 @@ services:
       - blog-network
     labels:
       VIRTUAL_HOST: ${DOMAIN}
+      VIRTUAL_PORT: 8080
       LETSENCRYPT_HOST: ${DOMAIN}
       LETSENCRYPT_EMAIL: ${EMAIL}
 
@@ -35,6 +36,7 @@ services:
     restart: always
     labels:
       VIRTUAL_HOST: ${DOMAIN}
+      VIRTUAL_PORT: 4321
       LETSENCRYPT_HOST: ${DOMAIN}
       LETSENCRYPT_EMAIL: ${EMAIL}
     ports:

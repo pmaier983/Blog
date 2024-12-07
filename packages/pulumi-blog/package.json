@@ -3,8 +3,8 @@
   "main": "src/index.ts",
   "scripts": {
     "build": "tsc",
-    "deploy": "dotenv -e .env -e ../../.env.prod -- pulumi up",
-    "destroy": "dotenv -e .env -e ../../.env.prod -- pulumi destroy",
+    "deploy": "dotenv -e .env -e ../../.env.prod -- pulumi up --yes",
+    "destroy": "dotenv -e .env -e ../../.env.prod -- pulumi destroy --yes",
     "preview": "dotenv -e .env -e ../../.env.prod -- pulumi preview",
     "ssh": "gcloud compute ssh pulumi-deployed-blog"
   },
