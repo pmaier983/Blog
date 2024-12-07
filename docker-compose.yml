@@ -12,8 +12,6 @@ services:
     restart: always
     ports:
       - 8080:8080
-    networks:
-      - blog-network
     labels:
       VIRTUAL_HOST: ${DOMAIN}
       VIRTUAL_PORT: 8080
@@ -43,8 +41,6 @@ services:
       # - 80:4321 # Configure standard Http port
       # - 443:4321 # Configure standard Https port
       - 4321:4321
-    networks:
-      - blog-network
 
   # See docs: https://github.com/nginx-proxy/acme-companion/blob/main/docs/Docker-Compose.md
   nginx-proxy:
@@ -66,8 +62,6 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
-    networks:
-      - blog-network
 
   acme-companion:
     image: nginxproxy/acme-companion
@@ -80,14 +74,8 @@ services:
       - certs:/etc/nginx/certs:rw
       - acme:/etc/acme.sh
       - /var/run/docker.sock:/var/run/docker.sock:ro
-    networks:
-      - blog-network
 
 volumes:
   html:
   certs:
   acme:
-
-networks:
-  blog-network:
-    driver: bridge
