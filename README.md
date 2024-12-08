@@ -49,24 +49,7 @@ The goal: host a bunch of docker containers to run each of my blogs web apps.
 
 #### Options:
 
-##### Option 1 - Serverless (A bunch of Separate Docker Containers):
-
-Just deploy a bunch of these containers separately? This can be done on any of the big cloud providers: (Digital Ocean App Platform, Google Cloud Run etc?)
-
-Negatives
-
-- Very cheap (On-Demand mode GCP)
-- Slightly annoying config possibly
-- Slow cold start problem (lead to bad-ish UX)
-
-Positives
-
-- More Expensive if there is actually a ton of traffic (~50$/month/container max)
-- Slightly more "modern" then a simple VM
-
-##### (Rejected) Option 2 - VM:
-
-I ended up running into annoyances getting `docker-compose up` working on the vm. I get the feeling most VM's, even container optimized ones expect to only have to run a single docker image.
+##### Option 1 - VM:
 
 Host a docker compose cluster on a VM (Heroku, EC2, Droplet, Linode). There is probably a bunch of configuration needed to make all the security and porting work, but this would probably be the cheapest option.
 
@@ -81,6 +64,23 @@ Positives
 - No cold start problem
 - Consistent known price
 
+##### (Rejected) Option 2 - Serverless (A bunch of Separate Docker Containers):
+
+The cold start problem was crazy. Way too slow for any user facing functionality.
+
+Just deploy a bunch of these containers separately? This can be done on any of the big cloud providers: (Digital Ocean App Platform, Google Cloud Run etc?)
+
+Negatives
+
+- Very cheap (On-Demand mode GCP)
+- Slightly annoying config possibly
+- Slow cold start problem (lead to bad-ish UX)
+
+Positives
+
+- More Expensive if there is actually a ton of traffic (~50$/month/container max)
+- Slightly more "modern" then a simple VM
+
 ##### (Rejected) Option 3 (K8's):
 
 I can't do it. A personal blog is not a good reason to learn k8's...
@@ -88,6 +88,22 @@ I can't do it. A personal blog is not a good reason to learn k8's...
 ##### (Rejected) Option 4 (AWS & ECS):
 
 This worked but ended up costing me 40$ per month. Just not worth it for a blog, I mean really
+
+### How to handle SSL/TLS traffic
+
+So to actually get an https domain I need to have a certificate or something that provides me the certificate through one or another route
+
+#### Option 1 (Nginx):
+
+Most custom option, probably also requiring the most setup. Nginx is the go to reverse proxy, and probably lives under the hood of the other two options in some form.
+
+#### Option 2 (GCP LB):
+
+A LB for a single VM is overkill, but it seems like GCP charges based on use. Probably the most expensive of the options.
+
+#### Option 3 (Cloudflare):
+
+Also a bit overkill, but I get things like DDoS protection and its free! Also works as a CDN, which could speedup interactions with users.
 
 ### Transition from gaulish.io -> phillipmaier.com
 
