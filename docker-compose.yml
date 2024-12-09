@@ -12,7 +12,7 @@ services:
     restart: always
     ports:
       - 8080:8080
-    labels:
+    environment:
       VIRTUAL_HOST: ${DOMAIN}
       VIRTUAL_PORT: 8080
       LETSENCRYPT_HOST: ${DOMAIN}
@@ -32,7 +32,7 @@ services:
         SUPABASE_URL: ${SUPABASE_URL}
         SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY}
     restart: always
-    labels:
+    environment:
       VIRTUAL_HOST: ${DOMAIN}
       VIRTUAL_PORT: 4321
       LETSENCRYPT_HOST: ${DOMAIN}
