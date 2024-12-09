@@ -14,7 +14,6 @@
  */
 import * as gcp from "@pulumi/gcp"
 import * as pulumi from "@pulumi/pulumi"
-import path from "path"
 
 import { execSync } from "child_process"
 
@@ -36,47 +35,6 @@ const subnetId = stackReference.getOutput("subnetId")
 const staticIpAddress = stackReference.getOutput("staticIpAddress")
 
 // TODO: get the docker deploy working!
-
-// The combined required env variables for both the docker images
-// const dockerEnvObject = z
-//   .object({
-//     DATABASE_URL: z.string(),
-//     SUPABASE_URL: z.string(),
-//     SUPABASE_ANON_KEY: z.string(),
-//     PUBLIC_BACKEND_API_URL: z.string(),
-//     PUBLIC_FRONTEND_URL: z.string(),
-//     PUBLIC_IN_NETWORK_BACKEND_API_URL: z.string(),
-//   })
-//   .parse(process.env)
-
-/* ############### Deploy both docker images ###############*/
-
-// const astroImageName = `astro-blog`
-// const backendImageName = `blog-backend`
-
-// const backendImage = new docker.Image(backendImageName, {
-//   imageName: pulumi.interpolate`gcr.io/${PROJECT}/${backendImageName}:latest`,
-//   build: {
-//     context: "../../",
-//     dockerfile: "../../apps/blog-backend/Dockerfile",
-//     platform: "linux/amd64",
-//     args: dockerEnvObject,
-//   },
-// })
-
-// export const backendImageUrn = backendImage.urn
-
-// const astroImage = new docker.Image(astroImageName, {
-//   imageName: pulumi.interpolate`gcr.io/${PROJECT}/${astroImageName}:latest`,
-//   build: {
-//     context: "../../",
-//     dockerfile: "../../apps/astro-blog/Dockerfile",
-//     platform: "linux/amd64",
-//     args: dockerEnvObject,
-//   },
-// })
-
-// export const astroImageUrn = astroImage.urn
 
 const envContent = Object.entries(process.env)
   .map(([key, value]) => `${key}=${value}`)
