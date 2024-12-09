@@ -46,7 +46,7 @@ services:
     environment:
       VIRTUAL_HOST: backend.${DOMAIN}
       VIRTUAL_PORT: 8080
-      LETSENCRYPT_HOST: ${DOMAIN}
+      LETSENCRYPT_HOST: backend.${DOMAIN}
       LETSENCRYPT_EMAIL: ${EMAIL}
 
   astro-blog:
@@ -64,8 +64,7 @@ services:
         SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY}
     restart: always
     environment:
-      # `_` acts as a catch-all for unmatched requests.
-      VIRTUAL_HOST: blog.${DOMAIN},_
+      VIRTUAL_HOST: ${DOMAIN}
       VIRTUAL_PORT: 4321
       LETSENCRYPT_HOST: ${DOMAIN}
       LETSENCRYPT_EMAIL: ${EMAIL}

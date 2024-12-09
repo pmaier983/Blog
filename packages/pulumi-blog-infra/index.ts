@@ -61,6 +61,14 @@ const aRecord = new gcp.dns.RecordSet("gaulish-root-record", {
   rrdatas: [staticIpAddress],
 })
 
+const backendARecord = new gcp.dns.RecordSet("gaulish-backend-record", {
+  name: "backend.gaulish.io.",
+  type: "A",
+  ttl: 300,
+  managedZone: ZONE_NAME,
+  rrdatas: [staticIpAddress],
+})
+
 const wwwCnameRecord = new gcp.dns.RecordSet("gaulish-www-record", {
   name: "www.gaulish.io.",
   type: "CNAME",
