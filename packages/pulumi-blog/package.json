@@ -2,12 +2,14 @@
   "name": "@repo/pulumi-blog",
   "scripts": {
     "build": "tsc",
-    "deploy": "dotenv -e .env -e ../../.env.prod -- pulumi up --stack dev --yes",
+    "up": "dotenv -e .env -e ../../.env.prod -- pulumi up --stack dev --yes",
+    "deploy": "npm run docker:build:push --prefix ../../ && dotenv -e .env -e ../../.env.prod -- pulumi up --stack dev --yes",
     "destroy": "dotenv -e .env -e ../../.env.prod -- pulumi destroy --stack dev --yes",
     "preview": "dotenv -e .env -e ../../.env.prod -- pulumi preview",
     "ssh": "gcloud compute ssh pulumi-deployed-blog"
   },
   "dependencies": {
+    "@pulumi/docker": "^4.5.7",
     "@pulumi/gcp": "^8.0.0",
     "@pulumi/pulumi": "^3.142.0",
     "zod": "^3.23.8"

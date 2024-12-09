@@ -218,6 +218,9 @@ importers:
 
   packages/pulumi-blog:
     dependencies:
+      '@pulumi/docker':
+        specifier: ^4.5.7
+        version: 4.5.7(ts-node@10.9.2(@swc/core@1.7.35(@swc/helpers@0.5.13))(@types/node@18.19.65)(typescript@5.6.3))(typescript@5.6.3)
       '@pulumi/gcp':
         specifier: ^8.0.0
         version: 8.10.0(ts-node@10.9.2(@swc/core@1.7.35(@swc/helpers@0.5.13))(@types/node@18.19.65)(typescript@5.6.3))(typescript@5.6.3)
@@ -1506,6 +1509,9 @@ packages:
 
   '@protobufjs/utf8@1.1.0':
     resolution: {integrity: sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==}
+
+  '@pulumi/docker@4.5.7':
+    resolution: {integrity: sha512-z0rr1PoJXemafrNl0oPjQJlGRNbMKN0z50cKhmcuMVsiNTt36cDLXw7kpclgddgdwkM6ZU5zMRyaA1rcNuXTlg==}
 
   '@pulumi/gcp@8.10.0':
     resolution: {integrity: sha512-jQbyTk8HFiGu4VGS3LBbZWqFW/+ggMbEqbrMuZVAPl8ooThbQJSDZWW5/IWBYQc7UQVv00a+FQW5QHvYpajrmg==}
@@ -6554,6 +6560,16 @@ snapshots:
   '@protobufjs/pool@1.1.0': {}
 
   '@protobufjs/utf8@1.1.0': {}
+
+  '@pulumi/docker@4.5.7(ts-node@10.9.2(@swc/core@1.7.35(@swc/helpers@0.5.13))(@types/node@18.19.65)(typescript@5.6.3))(typescript@5.6.3)':
+    dependencies:
+      '@pulumi/pulumi': 3.142.0(ts-node@10.9.2(@swc/core@1.7.35(@swc/helpers@0.5.13))(@types/node@18.19.65)(typescript@5.6.3))(typescript@5.6.3)
+      semver: 5.7.2
+    transitivePeerDependencies:
+      - bluebird
+      - supports-color
+      - ts-node
+      - typescript
 
   '@pulumi/gcp@8.10.0(ts-node@10.9.2(@swc/core@1.7.35(@swc/helpers@0.5.13))(@types/node@18.19.65)(typescript@5.6.3))(typescript@5.6.3)':
     dependencies:
