@@ -4,3 +4,4 @@ config:
   instanceName: pulumi-deployed-blog
   zoneName: gaulish-zone
   instanceTag: blog
+  domain: gaulish.io

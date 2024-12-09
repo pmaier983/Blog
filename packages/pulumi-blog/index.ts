@@ -23,6 +23,7 @@ const ZONE = gcpConfig.require("zone")
 const config = new pulumi.Config()
 const INSTANCE_NAME = config.require("instanceName")
 const INSTANCE_TAG = config.require("instanceTag")
+const DOMAIN = config.require("domain")
 
 const stackReference = new pulumi.StackReference(
   // <organization>/<project>/<stack>
@@ -71,14 +72,14 @@ PUBLIC_IP=$(curl -H "Metadata-Flavor: Google" \
 # Write the .env & .env.prod file
 cat <<EOF > .env.prod
 ${envContent}
-PUBLIC_FRONTEND_URL=http://\${PUBLIC_IP}:4321
-PUBLIC_BACKEND_API_URL=http://\${PUBLIC_IP}:8080/trpc
+PUBLIC_FRONTEND_URL=http://${DOMAIN}
+PUBLIC_BACKEND_API_URL=http://${DOMAIN}/trpc
 EOF
 
 cat <<EOF > .env
 ${envContent}
-PUBLIC_FRONTEND_URL=http://\${PUBLIC_IP}:4321
-PUBLIC_BACKEND_API_URL=http://\${PUBLIC_IP}:8080/trpc
+PUBLIC_FRONTEND_URL=http://${DOMAIN}
+PUBLIC_BACKEND_API_URL=http://${DOMAIN}/trpc
 EOF
 
 # run docker-compose up in detached mode (in the background)

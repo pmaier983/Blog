@@ -5,6 +5,7 @@ const config = new pulumi.Config()
 
 const REGION = config.require("region")
 const ZONE_NAME = config.require("zoneName")
+const DOMAIN = config.require("domain")
 
 const INSTANCE_TAG = "blog"
 
@@ -53,26 +54,26 @@ export const subnetId = subnet.id
 
 export const firewallId = firewall.id
 
-const aRecord = new gcp.dns.RecordSet("gaulish-root-record", {
-  name: "gaulish.io.",
+const aRecord = new gcp.dns.RecordSet("blog-root-record", {
+  name: `${DOMAIN}.`,
   type: "A",
   ttl: 300,
   managedZone: ZONE_NAME,
   rrdatas: [staticIpAddress],
 })
 
-const backendARecord = new gcp.dns.RecordSet("gaulish-backend-record", {
-  name: "backend.gaulish.io.",
+const backendARecord = new gcp.dns.RecordSet("blog-backend-record", {
+  name: `backend.${DOMAIN}.`,
   type: "A",
   ttl: 300,
   managedZone: ZONE_NAME,
   rrdatas: [staticIpAddress],
 })
 
-const wwwCnameRecord = new gcp.dns.RecordSet("gaulish-www-record", {
-  name: "www.gaulish.io.",
+const wwwCnameRecord = new gcp.dns.RecordSet("blog-www-record", {
+  name: `www.${DOMAIN}.`,
   type: "CNAME",
   ttl: 300,
   managedZone: ZONE_NAME,
-  rrdatas: ["gaulish.io."],
+  rrdatas: [`${DOMAIN}.`],
 })
