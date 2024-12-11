@@ -72,14 +72,14 @@ PUBLIC_IP=$(curl -H "Metadata-Flavor: Google" \
 # Write the .env & .env.prod file
 cat <<EOF > .env.prod
 ${envContent}
-PUBLIC_FRONTEND_URL=http://${DOMAIN}
-PUBLIC_BACKEND_API_URL=http://${DOMAIN}/trpc
+PUBLIC_FRONTEND_URL=https://${DOMAIN}
+PUBLIC_BACKEND_API_URL=https://${DOMAIN}/trpc
 EOF
 
 cat <<EOF > .env
 ${envContent}
-PUBLIC_FRONTEND_URL=http://${DOMAIN}
-PUBLIC_BACKEND_API_URL=http://${DOMAIN}/trpc
+PUBLIC_FRONTEND_URL=https://${DOMAIN}
+PUBLIC_BACKEND_API_URL=https://${DOMAIN}/trpc
 EOF
 
 # run docker-compose up in detached mode (in the background)
