@@ -26,11 +26,12 @@ ECS is expensive. A simple Docker Cluster ends up costing ~40$/month. 9$ Cloudwa
 
 ## TODO
 
-- [ ] Add an interactive counter button that increments an "I was here" button, and connects to my db
+- [x] Add an interactive counter button that increments an "I was here" button, and connects to my db
   - [x] Convert from my custom blog api -> supabase default api
-  - [ ] Consider switching back to custom blog api if possible
-- [ ] Setup all infrastructure in Pulumi https://www.pulumi.com/
-- [ ] How to host? (section below)
+  - [x] Consider switching back to custom blog api if possible
+- [x] Setup all infrastructure in Pulumi https://www.pulumi.com/
+  - [ ] Cleanup the whole DOMAIN and backend env + Pulumi
+- [x] How to host? (section below)
 - [ ] Setup a way to auto build & deploy each app/route
 - [ ] Separate deps into required and devDeps
 - [x] Build a home page based on some Dalle Mocks
