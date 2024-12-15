@@ -1,5 +1,6 @@
+import { CircleX, Menu } from "lucide-react"
 import { useState } from "react"
-import { Icon } from "~/components/Icon"
+
 import { NAVIGABLE_PAGES } from "~/consts"
 
 export const MobileNavMenuButton = () => {
@@ -13,7 +14,7 @@ export const MobileNavMenuButton = () => {
         }}
         className="absolute bg-white top-2 right-2 rounded-md border-2 border-black p-2"
       >
-        <Icon icon="menu" className="w-10 h-10" />
+        <Menu />
         <span className="sr-only">menu</span>
       </button>
       {isNavOverlayVisible && (
@@ -25,7 +26,7 @@ export const MobileNavMenuButton = () => {
               }}
               className="absolute bg-white top-2 right-2 rounded-md border-2 border-black p-2"
             >
-              <Icon icon="close" className="w-10 h-10" />
+              <CircleX />
               <span className="sr-only">close</span>
             </button>
             <nav>
@@ -38,8 +39,8 @@ export const MobileNavMenuButton = () => {
                         href={page.href}
                         className="flex flex-row items-center gap-6"
                       >
-                        <Icon icon={page.icon} className="w-20 h-20" />
-                        {page.title}
+                        <page.Icon />
+                        <span>{page.title}</span>
                       </a>
                     </li>
                     <div className="h-[2px] bg-gray-300 last:hidden" />

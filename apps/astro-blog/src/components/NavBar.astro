@@ -1,6 +1,6 @@
 ---
-import { Icon } from "~/components/Icon"
 import { NAVIGABLE_PAGES } from "~/consts"
+import { ChevronRight } from "lucide-astro"
 
 const currentPath = Astro.url.pathname
 
@@ -20,13 +20,11 @@ const trimSlashes = (str: string) => str.replace(/^\/+|\/+$/g, "")
               href={page.href}
               class={`flex flex-row hover:${!isOnCurrentPath ? "underline" : ""}`}
             >
-              {isOnCurrentPath ? (
-                <Icon icon="right-carrot" className="w-6" />
-              ) : (
-                <div class="w-6" />
-              )}
-              <Icon icon={page.icon} />
-              {page.title}
+              {isOnCurrentPath ? <ChevronRight /> : <div class="w-6" />}
+              <span class="flex flex-row gap-2">
+                <page.Icon />
+                {page.title}
+              </span>
             </a>
           </li>
         )

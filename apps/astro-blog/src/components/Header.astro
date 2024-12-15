@@ -1,6 +1,25 @@
 ---
-import { SITE_TITLE } from "../consts"
+import { ArrowLeft, ArrowRight } from "lucide-astro"
+
+import { NAVIGABLE_PAGES, SITE_TITLE } from "~/consts"
 import { MobileNavMenuButton } from "~/components/MobileNavMenuButton"
+
+const currentPathname = Astro.url.pathname
+
+const possiblePathnameIndex = NAVIGABLE_PAGES.findIndex(
+  (page) => page.href === currentPathname
+)
+
+const currentPathnameIndex =
+  possiblePathnameIndex === -1 ? 0 : possiblePathnameIndex
+
+const prevPathname =
+  NAVIGABLE_PAGES[
+    (currentPathnameIndex - 1 + NAVIGABLE_PAGES.length) % NAVIGABLE_PAGES.length
+  ]?.href!
+
+const futurePathname =
+  NAVIGABLE_PAGES[(currentPathnameIndex + 1) % NAVIGABLE_PAGES.length]?.href!
 ---
 
 <div>
@@ -10,6 +29,14 @@ import { MobileNavMenuButton } from "~/components/MobileNavMenuButton"
     class="flex items-center h-10 justify-center border-b-gray-900 border-[1px]"
   >
     <nav class="items-center w-full flex justify-center">
+      <div class="flex flex-row gap-2 pr-3">
+        <a href={prevPathname}>
+          <ArrowLeft class="text-gray-500 hover:text-gray-800" />
+        </a>
+        <a href={futurePathname}>
+          <ArrowRight class="text-gray-500 hover:text-gray-800" />
+        </a>
+      </div>
       <h1
         class="bg-gray-300 border-gray-500 border-[1px] rounded-md flex justify-center hover:border-gray-700 hover:bg-gray-400"
       >
