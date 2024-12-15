@@ -1,8 +1,9 @@
+import type { ButtonName } from "@repo/backend-core"
 import { useState } from "react"
 import { trpcReact } from "~/client"
 
 interface IncrementingButtonProps {
-  name: string
+  name: ButtonName
   clickCount: number
 }
 

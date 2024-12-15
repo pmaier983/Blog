@@ -6,6 +6,7 @@ import { eq } from "drizzle-orm"
 import { buttonClicks, buttons } from "./db/schema.js"
 
 import { db } from "./db/db.js"
+import { BUTTON_NAME } from "./constants.js"
 
 export const createContext = () => ({})
 
@@ -15,14 +16,19 @@ export const router = t.router
 export const publicProcedure = t.procedure
 
 export const appRouter = t.router({
-  getButton: publicProcedure.query(async () => {
-    const button = await db.query.buttons.findFirst({
-      // TODO: use the real input!
-      where: eq(buttons.name, "test"),
-    })
+  getButton: publicProcedure
+    .input(z.object({ name: z.nativeEnum(BUTTON_NAME) }))
+    .query(async ({ input: { name } }) => {
+      const button = await db.query.buttons.findFirst({
+        where: eq(buttons.name, name),
+      })
 
-    return button
-  }),
+      if (!button) {
+        throw new Error(`No button was found with the name: ${name}`)
+      }
+
+      return button
+    }),
   incrementButton: publicProcedure
     .input(
       z.object({

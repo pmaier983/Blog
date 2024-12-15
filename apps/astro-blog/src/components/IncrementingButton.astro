@@ -1,12 +1,17 @@
 ---
 import { IncrementingButton as IncrementingButtonReactComponent } from "~/components/IncrementingButton"
 import { getTrpcAstro } from "~/client"
+import type { ButtonName } from "@repo/backend-core"
+
+interface Props {
+  name: ButtonName
+}
 
 const { name } = Astro.props
 
 const trpcAstro = getTrpcAstro()
 
-const buttonResponse = await trpcAstro.getButton.query()
+const buttonResponse = await trpcAstro.getButton.query({ name })
 
 const clickCount = buttonResponse?.clickCount
 ---
