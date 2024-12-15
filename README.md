@@ -43,6 +43,8 @@ ECS is expensive. A simple Docker Cluster ends up costing ~40$/month. 9$ Cloudwa
 - [ ] Look into keeping deps on the same version (https://turbo.build/repo/docs/crafting-your-repository/managing-dependencies#keeping-dependencies-on-the-same-version)
 - [ ] How to avoid adding the ugly `.js` to my file imports in backend-core? (how deep down the build rabbit hole do i want to go)
 - [ ] look into using tsup (https://github.com/egoist/tsup) along with tsc.
+- [ ] Fill out the Schema's in the astro blog a bit better
+- [ ] Update the images used in MainPageLayout (the ones that will also appear in OpenGraph & twitter)
 
 ### How to host
 

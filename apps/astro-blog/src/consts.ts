@@ -31,8 +31,8 @@ export const NAVIGABLE_PAGES = [
     icon: ICONS.book,
   },
   {
-    title: "Project Links",
-    href: "/project-links",
+    title: "Posts",
+    href: "/posts",
     icon: ICONS.projects,
   },
 ]

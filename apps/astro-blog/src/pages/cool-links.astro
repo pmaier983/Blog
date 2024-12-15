@@ -1,7 +1,37 @@
 ---
 import MainPageLayout from "~/layouts/MainPageLayout.astro"
+import type Schema from "schema-dts"
+
+const title = "Cool Links"
+const description = "A List of Links Phillip finds useful"
+const imagePath = "pfp.webp"
+const imageAlt = "A cute frog - Phillip's profile picture"
 ---
 
-<MainPageLayout>
+<MainPageLayout
+  pageTitle={title}
+  pageDescription={description}
+  imagePath={imagePath}
+  imageAlt={imageAlt}
+  openGraph={{
+    basic: {
+      title,
+      type: "website",
+      image: new URL(imagePath, Astro.url).toString(),
+      url: Astro.url.toString(),
+    },
+    image: {
+      url: new URL(imagePath, Astro.url),
+      alt: imageAlt,
+    },
+  }}
+  schema={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: title,
+    description: description,
+    url: Astro.url.toString(),
+  } satisfies Schema.WithContext<Schema.WebPage>}
+>
   <div>Cool Links</div>
 </MainPageLayout>

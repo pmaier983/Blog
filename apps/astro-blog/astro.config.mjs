@@ -6,6 +6,10 @@ import react from "@astrojs/react"
 
 import node from "@astrojs/node"
 
+if (!process.env.DOMAIN) {
+  throw new Error("Please set the DOMAIN environment variable.")
+}
+
 // https://astro.build/config
 export default defineConfig({
   output: "hybrid",
@@ -13,7 +17,7 @@ export default defineConfig({
     service: passthroughImageService(),
   },
   // TODO: change this to be phillipmaier.com once complete!
-  site: "https://gaulish.io",
+  site: `https://${process.env.DOMAIN}/`,
   integrations: [mdx(), sitemap(), tailwind(), react()],
   adapter: node({
     mode: "standalone",

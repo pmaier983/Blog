@@ -2,12 +2,8 @@
 import type Schema from "schema-dts"
 
 import MainPageLayout from "~/layouts/MainPageLayout.astro"
-import IncrementingButton from "~/components/IncrementingButton.astro"
 
-// TODO: any way to pre-render only the button component itself?
-export const prerender = false
-
-const title = "Phillip's Blog Home Page"
+const title = "Phillip's Blog Posts"
 const description =
   "Take a look at some of the cool things Phillip has made and written about!"
 const imagePath = "pfp.webp"
@@ -15,7 +11,6 @@ const imageAlt = "A cute frog - Phillip's profile picture"
 ---
 
 <MainPageLayout
-  class="flex flex-1 justify-center items-center"
   pageTitle={title}
   pageDescription={description}
   imagePath={imagePath}
@@ -34,11 +29,11 @@ const imageAlt = "A cute frog - Phillip's profile picture"
   }}
   schema={{
     "@context": "https://schema.org",
-    "@type": "Blog",
+    "@type": "WebPage",
     name: title,
     description: description,
     url: Astro.url.toString(),
-  } satisfies Schema.WithContext<Schema.Blog>}
+  } satisfies Schema.WithContext<Schema.WebPage>}
 >
-  <IncrementingButton name="ASTRO" />
+  <div>Posts</div>
 </MainPageLayout>
