@@ -18,6 +18,9 @@
     "lint": {
       "dependsOn": ["^lint"]
     },
+    "tsc": {
+      "dependsOn": ["^tsc"]
+    },
     "dev": {
       "cache": false,
       "persistent": true,
