@@ -1,7 +1,7 @@
 import { initTRPC } from "@trpc/server"
 import { z } from "zod"
 import { createId } from "@paralleldrive/cuid2"
-import { eq } from "drizzle-orm"
+import { eq, inArray } from "drizzle-orm"
 
 import { buttonClicks, buttons } from "./db/schema.js"
 
@@ -23,6 +23,20 @@ const buttonClickSchema = z.object({
 })
 
 export const appRouter = t.router({
+  getButtons: publicProcedure
+    .input(
+      z.object({
+        names: z.array(z.nativeEnum(BUTTON_NAME)),
+      }),
+    )
+    .query(async ({ input: { names } }) => {
+      const listOfButtons = await db
+        .select()
+        .from(buttons)
+        .where(inArray(buttons.name, names))
+
+      return listOfButtons
+    }),
   getButton: publicProcedure
     .input(z.object({ name: z.nativeEnum(BUTTON_NAME) }))
     .query(async ({ input: { name } }) => {

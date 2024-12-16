@@ -1,5 +1,5 @@
 ---
-import { Github, Linkedin, Twitter } from "lucide-astro"
+import { Github, Linkedin, Twitter } from "lucide-react"
 import { Image } from "astro:assets"
 
 import vscodeImages from "~/images/vscode-arrows.webp"
@@ -22,14 +22,14 @@ const today = new Date()
   &copy; {today.getFullYear()} Phillip Maier. All rights reserved
   <!-- TODO -->
   <a href="https://github.com/pmaier983">
-    <Github class="text-gray-600 hover:text-gray-900 w-4" />
+    <Github className="text-gray-600 hover:text-gray-900 w-4" />
   </a>
   ·
   <a href="https://www.linkedin.com/in/phillip-maier-3a4161102/">
-    <Linkedin class="text-gray-600 hover:text-gray-900 w-4" />
+    <Linkedin className="text-gray-600 hover:text-gray-900 w-4" />
   </a>
   ·
   <a href="https://x.com/pmaier983">
-    <Twitter class="text-gray-600 hover:text-gray-900 w-4" />
+    <Twitter className="text-gray-600 hover:text-gray-900 w-4" />
   </a>
 </footer>

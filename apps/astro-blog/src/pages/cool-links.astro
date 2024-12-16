@@ -1,6 +1,8 @@
 ---
-import MainPageLayout from "~/layouts/MainPageLayout.astro"
 import type Schema from "schema-dts"
+
+import MainPageLayout from "~/layouts/MainPageLayout.astro"
+import { CoolLinks } from "~/components/CoolLinks"
 
 const title = "Cool Links"
 const description = "A List of Links Phillip finds useful"
@@ -32,6 +34,7 @@ const imageAlt = "A cute frog - Phillip's profile picture"
     description: description,
     url: Astro.url.toString(),
   } satisfies Schema.WithContext<Schema.WebPage>}
+  class="grid gap-4 p-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
 >
-  <div>Cool Links</div>
+  <CoolLinks client:load />
 </MainPageLayout>

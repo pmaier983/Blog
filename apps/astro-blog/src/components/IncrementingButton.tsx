@@ -1,6 +1,6 @@
 import type { ButtonName } from "@repo/backend-core"
 import { useState } from "react"
-import { trpcReact } from "~/client"
+import { trpcClient } from "~/client"
 
 interface IncrementingButtonProps {
   name: ButtonName
@@ -20,7 +20,7 @@ export const IncrementingButton = ({
         onClick={async () => {
           // "Optimistically" Update the client as well!
           setTimesClicked(timesClicked + 1)
-          trpcReact.incrementButton
+          trpcClient.incrementButton
             .mutate({
               name,
               userAgent: navigator.userAgent,

@@ -1,5 +1,5 @@
 ---
-import { ArrowLeft, ArrowRight } from "lucide-astro"
+import { ArrowLeft, ArrowRight } from "lucide-react"
 
 import { NAVIGABLE_PAGES, SITE_TITLE } from "~/consts"
 import { MobileNavMenuButton } from "~/components/MobileNavMenuButton"
@@ -31,10 +31,10 @@ const futurePathname =
     <nav class="items-center w-full flex justify-center">
       <div class="flex flex-row gap-2 pr-3">
         <a href={prevPathname}>
-          <ArrowLeft class="text-gray-500 hover:text-gray-800" />
+          <ArrowLeft className="text-gray-500 hover:text-gray-800" />
         </a>
         <a href={futurePathname}>
-          <ArrowRight class="text-gray-500 hover:text-gray-800" />
+          <ArrowRight className="text-gray-500 hover:text-gray-800" />
         </a>
       </div>
       <h1

@@ -10,7 +10,7 @@ if (!import.meta.env.PUBLIC_BACKEND_API_URL) {
   On the server we need to point to the docker container endpoint
   but on the client we need to point to the "publicly" available API
 */
-const TRPC_URL = (() => {
+export const TRPC_URL = (() => {
   const isClient = typeof window !== "undefined"
 
   const isUsingDockerComposeUp = !!import.meta.env
@@ -39,7 +39,7 @@ export const getTrpcAstro = () =>
 /**
  * Only use this in react components! use the above alterative in .astro components
  */
-export const trpcReact = createTRPCProxyClient<AppRouter>({
+export const trpcClient = createTRPCProxyClient<AppRouter>({
   links: [
     httpBatchLink({
       url: TRPC_URL,
