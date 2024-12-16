@@ -6,10 +6,11 @@ dotenv.config()
 // eslint-disable-next-line import/no-default-export
 export default {
   dialect: "postgresql",
-  schema: "./schema.ts",
+  schema: "./src/db/schema.ts",
   out: "./migrations-folder",
   dbCredentials: {
-    url: process.env.DATABASE_URL!,
+    // https://github.com/drizzle-team/drizzle-orm/issues/2590
+    url: process.env.DATABASE_URL?.replace("6543", "5432")!,
   },
   tablesFilter: ["blog_*"],
 } satisfies Config

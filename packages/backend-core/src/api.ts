@@ -64,6 +64,7 @@ export const appRouter = t.router({
           userAgent: input.userAgent ?? null,
           language: input.language ?? null,
           screenResolution: input.screenResolution ?? null,
+          type: "INCREMENT",
         })
 
         await trx
@@ -93,6 +94,7 @@ export const appRouter = t.router({
           userAgent: input.userAgent ?? null,
           language: input.language ?? null,
           screenResolution: input.screenResolution ?? null,
+          type: "DECREMENT",
         })
 
         await trx
