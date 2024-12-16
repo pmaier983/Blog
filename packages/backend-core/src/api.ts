@@ -15,6 +15,13 @@ export const t = initTRPC.context<typeof createContext>().create()
 export const router = t.router
 export const publicProcedure = t.procedure
 
+const buttonClickSchema = z.object({
+  name: z.string(),
+  userAgent: z.string().optional(),
+  language: z.string().optional(),
+  screenResolution: z.string().optional(),
+})
+
 export const appRouter = t.router({
   getButton: publicProcedure
     .input(z.object({ name: z.nativeEnum(BUTTON_NAME) }))
@@ -23,50 +30,79 @@ export const appRouter = t.router({
         where: eq(buttons.name, name),
       })
 
+      // if the button doesn't exist, create it
       if (!button) {
-        throw new Error(`No button was found with the name: ${name}`)
+        const newButton = {
+          id: createId(),
+          name,
+          clickCount: 0,
+        }
+
+        await db.insert(buttons).values(newButton)
+
+        return newButton
       }
 
       return button
     }),
-  incrementButton: publicProcedure
-    .input(
-      z.object({
-        name: z.string(),
-        userAgent: z.string().optional(),
-        language: z.string().optional(),
-        screenResolution: z.string().optional(),
+  incrementButton: publicProcedure.input(buttonClickSchema).mutation(
+    async ({ input }) =>
+      await db.transaction(async (trx) => {
+        const button = await trx.query.buttons.findFirst({
+          where: eq(buttons.name, input.name),
+        })
+
+        if (!button) {
+          throw new Error(`No button was found with the name: ${input.name}`)
+        }
+
+        await trx.insert(buttonClicks).values({
+          id: createId(),
+          buttonId: button.id,
+          timestamp: new Date().toISOString(),
+          // TODO: is there a way to avoid writing these nulls?
+          userAgent: input.userAgent ?? null,
+          language: input.language ?? null,
+          screenResolution: input.screenResolution ?? null,
+        })
+
+        await trx
+          .update(buttons)
+          .set({
+            clickCount: button.clickCount + 1,
+          })
+          .where(eq(buttons.name, input.name))
       }),
-    )
-    .mutation(
-      async ({ input }) =>
-        await db.transaction(async (trx) => {
-          const button = await trx.query.buttons.findFirst({
-            where: eq(buttons.name, input.name),
+  ),
+  decrementButton: publicProcedure.input(buttonClickSchema).mutation(
+    async ({ input }) =>
+      await db.transaction(async (trx) => {
+        const button = await trx.query.buttons.findFirst({
+          where: eq(buttons.name, input.name),
+        })
+
+        if (!button) {
+          throw new Error(`No button was found with the name: ${input.name}`)
+        }
+
+        await trx.insert(buttonClicks).values({
+          id: createId(),
+          buttonId: button.id,
+          timestamp: new Date().toISOString(),
+          // TODO: is there a way to avoid writing these nulls?
+          userAgent: input.userAgent ?? null,
+          language: input.language ?? null,
+          screenResolution: input.screenResolution ?? null,
+        })
+
+        await trx
+          .update(buttons)
+          .set({
+            clickCount: button.clickCount - 1,
           })
-
-          if (!button) {
-            throw new Error(`No button was found with the name: ${input.name}`)
-          }
-
-          await trx.insert(buttonClicks).values({
-            id: createId(),
-            buttonId: button.id,
-            timestamp: new Date().toISOString(),
-            // TODO: is there a way to avoid writing these nulls?
-            userAgent: input.userAgent ?? null,
-            language: input.language ?? null,
-            screenResolution: input.screenResolution ?? null,
-          })
-
-          await trx
-            .update(buttons)
-            .set({
-              clickCount: button.clickCount + 1,
-            })
-            .where(eq(buttons.name, input.name))
-        }),
-    ),
+          .where(eq(buttons.name, input.name))
+      }),
+  ),
 })
 
 export type AppRouter = typeof appRouter
