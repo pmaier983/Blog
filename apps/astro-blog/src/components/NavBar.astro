@@ -9,7 +9,7 @@ const trimSlashes = (str: string) => str.replace(/^\/+|\/+$/g, "")
 ---
 
 <nav class="max-sm:hidden min-w-[10rem] border-r-[1px] border-black">
-  <ul class="pt-6">
+  <ul class="pt-6 fixed">
     {
       NAVIGABLE_PAGES.map((page) => {
         const isOnCurrentPath =

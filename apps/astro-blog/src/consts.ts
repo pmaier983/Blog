@@ -16,7 +16,7 @@ export const NAVIGABLE_PAGES: {
 }[] = [
   {
     title: "Home",
-    href: "",
+    href: "/",
     Icon: Home,
   },
   {
