@@ -6,7 +6,7 @@ interface IncrementingButtonProps {
   name: ButtonName
   children: React.ReactNode
   clickCount: number
-  className: string
+  className?: string
 }
 
 export const IncrementingButton = ({

@@ -2,7 +2,7 @@
 import { Github, Linkedin, Twitter } from "lucide-react"
 import { Image } from "astro:assets"
 
-import vscodeImages from "~/images/vscode-arrows.webp"
+import vscodeImages from "~/assets/vscode-arrows.webp"
 
 import { ToggleVSCodeButton } from "~/components/ToggleVSCodeButton.tsx"
 
@@ -20,7 +20,6 @@ const today = new Date()
     />
   </ToggleVSCodeButton>
   &copy; {today.getFullYear()} Phillip Maier. All rights reserved
-  <!-- TODO -->
   <a href="https://github.com/pmaier983">
     <Github className="text-gray-600 hover:text-gray-900 w-4" />
   </a>
