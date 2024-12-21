@@ -1,7 +1,7 @@
-import { trpcReactQuery } from "~/client"
+import { trpcReactQuery } from "~/utils/client"
 import { CoolLink } from "~/components/CoolLink"
-import { COOL_LINKS } from "~/consts"
-import { withQueryProvider } from "~/withQueryProvider"
+import { COOL_LINKS } from "~/utils/consts"
+import { withQueryProvider } from "~/utils/withQueryProvider"
 
 const BUTTON_NAMES = COOL_LINKS.map((link) => link.name)
 
@@ -44,7 +44,9 @@ const CoolLinksCore = () => {
       console.error(error)
 
       // Roll back to the previous data
-      utils.getButtons.setData({ names: BUTTON_NAMES }, context?.previousData)
+      if (context?.previousData) {
+        utils.getButtons.setData({ names: BUTTON_NAMES }, context.previousData)
+      }
     },
   })
 

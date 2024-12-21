@@ -1,6 +1,6 @@
 import type { ButtonName } from "@repo/backend-core"
 import { useState } from "react"
-import { trpcClient } from "~/client"
+import { trpcClient } from "~/utils/client"
 
 interface IncrementingButtonProps {
   name: ButtonName

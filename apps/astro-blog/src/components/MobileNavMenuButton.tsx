@@ -1,7 +1,7 @@
 import { CircleX, Menu } from "lucide-react"
 import { useState } from "react"
 
-import { NAVIGABLE_PAGES } from "~/consts"
+import { NAVIGABLE_PAGES } from "~/utils/consts"
 
 export const MobileNavMenuButton = () => {
   const [isNavOverlayVisible, setNavOverlayVisibility] = useState(false)

@@ -5,7 +5,7 @@ import type React from "react"
 
 import type { ButtonName } from "@repo/backend-core"
 import { httpBatchLink } from "@trpc/client"
-import { TRPC_URL, trpcReactQuery } from "~/client"
+import { TRPC_URL, trpcReactQuery } from "~/utils/client"
 
 export const SITE_TITLE = "Phillip Maier's Personal Website"
 export const SITE_DESCRIPTION =

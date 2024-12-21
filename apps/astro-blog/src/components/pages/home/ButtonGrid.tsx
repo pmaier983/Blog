@@ -1,6 +1,6 @@
-import { trpcReactQuery } from "~/client"
+import { trpcReactQuery } from "~/utils/client"
 import { IncrementingButton } from "~/components/IncrementingButton"
-import { withQueryProvider } from "~/withQueryProvider"
+import { withQueryProvider } from "~/utils/withQueryProvider"
 
 const ButtonGridCore = () => {
   const data = trpcReactQuery.getButton.useQuery({
