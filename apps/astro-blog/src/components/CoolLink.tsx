@@ -1,19 +1,13 @@
-import type { ButtonName } from "@repo/backend-core"
-
-import { trpcClient } from "~/client"
-
 export const CoolLink = ({
   title,
   links,
-  name,
   clickCount,
-  setClickCount,
+  onClick,
 }: {
-  name: ButtonName
   title: string
   links: string[]
   clickCount: number
-  setClickCount: (value: number) => void
+  onClick: () => void
 }) => (
   <div className="flex flex-col border p-4 rounded shadow bg-white w-full overflow-hidden">
     <span className="inline">
@@ -27,22 +21,7 @@ export const CoolLink = ({
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600 hover:underline break-words"
-            onClick={() => {
-              trpcClient.incrementButton
-                .mutate({
-                  name,
-                  userAgent: navigator.userAgent,
-                  language: navigator.language,
-                  screenResolution: `${window.screen.width}x${window.screen.height}`,
-                })
-                .then(() => {
-                  setClickCount(clickCount + 1)
-                })
-                .catch(() => {
-                  // If the request fails, revert the client-side update
-                  setClickCount(clickCount - 1)
-                })
-            }}
+            onClick={onClick}
           >
             {link}
           </a>

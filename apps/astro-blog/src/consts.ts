@@ -1,13 +1,27 @@
-import type { ButtonName } from "@repo/backend-core"
+import { atom } from "jotai"
 import { Home, Book, Folder } from "lucide-react"
+import { QueryClient } from "@tanstack/react-query"
 import type React from "react"
 
-// Place any global data in this file.
-// You can import this data from anywhere in your site by using the `import` keyword.
+import type { ButtonName } from "@repo/backend-core"
+import { httpBatchLink } from "@trpc/client"
+import { TRPC_URL, trpcReactQuery } from "~/client"
 
 export const SITE_TITLE = "Phillip Maier's Personal Website"
 export const SITE_DESCRIPTION =
   "The personal website of Phillip Maier. A place to share my thoughts, projects, and cool links."
+
+export const queryClientAtom = atom(new QueryClient())
+
+export const trpcQueryClientAtom = atom(
+  trpcReactQuery.createClient({
+    links: [
+      httpBatchLink({
+        url: TRPC_URL,
+      }),
+    ],
+  }),
+)
 
 export const NAVIGABLE_PAGES: {
   title: string

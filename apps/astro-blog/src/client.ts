@@ -1,4 +1,5 @@
 import { createTRPCProxyClient, httpBatchLink } from "@trpc/client"
+import { createTRPCReact } from "@trpc/react-query"
 
 import type { AppRouter } from "@repo/backend-core"
 
@@ -46,3 +47,5 @@ export const trpcClient = createTRPCProxyClient<AppRouter>({
     }),
   ],
 })
+
+export const trpcReactQuery = createTRPCReact<AppRouter>()
