@@ -1,8 +1,11 @@
 ---
 import type Schema from "schema-dts"
+import { Image } from "astro:assets"
 
 import MainPageLayout from "~/layouts/MainPageLayout.astro"
+import pfp from "~/assets/pfp.webp"
 import IncrementingButton from "~/components/IncrementingButton.astro"
+import { Github, Linkedin, Twitter } from "lucide-react"
 
 // TODO: any way to pre-render only the button component itself?
 export const prerender = false
@@ -40,5 +43,26 @@ const imageAlt = "A cute frog - Phillip's profile picture"
     url: Astro.url.toString(),
   } satisfies Schema.WithContext<Schema.Blog>}
 >
-  <IncrementingButton name="astro" />
+  <div class="flex flex-col gap-3">
+    <div class="flex flex-col items-center gap-4">
+      <Image
+        src={pfp}
+        class="rounded-full border border-black"
+        alt="A cute frog - Phillip's profile picture"
+      />
+      <h2 class="w-1/2 text-center">
+        I'm a software engineer with a passion for helping others, on a mission
+        to learn and build as much as possible.
+      </h2>
+    </div>
+    <div class="flex justify-center">
+      <IncrementingButton name="twitter"
+        ><Twitter /> Twitter
+      </IncrementingButton>
+      <IncrementingButton name="github"><Github /> Github </IncrementingButton>
+      <IncrementingButton name="linkedin"
+        ><Linkedin /> Linkedin
+      </IncrementingButton>
+    </div>
+  </div>
 </MainPageLayout>

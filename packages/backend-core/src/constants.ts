@@ -1,7 +1,9 @@
 export const BUTTON_NAME = {
-  react: "react",
-  angular: "angular",
   astro: "astro",
+
+  linkedin: "linkedin",
+  twitter: "twitter",
+  github: "github",
 
   // COOL LINK button names
   falsehoods_programmers: "falsehoods_programmers",
@@ -68,6 +70,8 @@ export const BUTTON_NAME = {
   generate_favicons: "generate_favicons",
   pass_components_as_props: "pass_components_as_props",
   frontend_guidelines: "frontend_guidelines",
+  css_beginner_summary: "css_beginner_summary",
+  is_it_worth_optimizing_workflow: "is_it_worth_optimizing_workflow",
 } as const
 
 export type ButtonName = keyof typeof BUTTON_NAME

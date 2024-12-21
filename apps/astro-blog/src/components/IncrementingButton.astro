@@ -5,9 +5,10 @@ import type { ButtonName } from "@repo/backend-core"
 
 interface Props {
   name: ButtonName
+  class?: string
 }
 
-const { name } = Astro.props
+const { name, class: className } = Astro.props
 
 const trpcAstro = getTrpcAstro()
 
@@ -20,6 +21,9 @@ const clickCount = buttonResponse?.clickCount
   <IncrementingButtonReactComponent
     client:load
     name={name}
+    className={className ?? ""}
     clickCount={clickCount ?? 0}
-  />
+  >
+    <slot>This button lacks text!</slot>
+  </IncrementingButtonReactComponent>
 </div>

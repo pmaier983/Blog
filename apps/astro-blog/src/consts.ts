@@ -37,6 +37,16 @@ export const COOL_LINKS: {
   name: ButtonName
 }[] = [
   {
+    title: "Is it worth optimizing a workflow?",
+    links: ["https://xkcd.com/1205/"],
+    name: "is_it_worth_optimizing_workflow",
+  },
+  {
+    title: "Very solid beginners summary of how to think about CSS",
+    links: ["https://youtu.be/i1FeOOhNnwU?si=xqRBrM7WSL0ku-Za"],
+    name: "css_beginner_summary",
+  },
+  {
     title: "Falsehoods believed by programmers",
     links: ["https://spaceninja.com/blog/2015/falsehoods-programmers-believe"],
     name: "falsehoods_programmers",

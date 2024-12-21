@@ -4,19 +4,23 @@ import { trpcClient } from "~/client"
 
 interface IncrementingButtonProps {
   name: ButtonName
+  children: React.ReactNode
   clickCount: number
+  className: string
 }
 
 export const IncrementingButton = ({
   name,
+  children,
   clickCount,
+  className,
 }: IncrementingButtonProps) => {
   const [timesClicked, setTimesClicked] = useState(clickCount)
 
   return (
-    <div className="flex flex-col items-center">
+    <div className={`flex flex-col items-center ${className}`}>
       <button
-        className="bg-transparent hover:text-gray-800 text-gray-500 font-semibold py-2 px-4 border-2 border-grey-500 hover:border-grey-700 rounded"
+        className="flex flex-row gap-1 bg-transparent hover:text-gray-800 text-gray-500 font-semibold py-2 px-4 border-2 border-grey-500 hover:border-grey-700 rounded"
         onClick={async () => {
           // "Optimistically" Update the client as well!
           setTimesClicked(timesClicked + 1)
@@ -33,7 +37,7 @@ export const IncrementingButton = ({
             })
         }}
       >
-        Click me to increment a counter!
+        {children}
       </button>
       Clicked {timesClicked} times
     </div>
