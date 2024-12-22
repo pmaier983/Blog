@@ -3,7 +3,8 @@ import type Schema from "schema-dts"
 import { Image } from "astro:assets"
 
 import MainPageLayout from "~/layouts/MainPageLayout.astro"
-import pfp from "~/assets/pfp.webp"
+import pfpFrog from "~/assets/pfp-frog.webp"
+import pfpHuman from "~/assets/pfp-human.webp"
 import { ButtonGrid } from "~/components/pages/home/ButtonGrid"
 
 // TODO: any way to pre-render only the button component itself?
@@ -12,7 +13,7 @@ export const prerender = false
 const title = "Phillip's Blog Home Page"
 const description =
   "Take a look at some of the cool things Phillip has made and written about!"
-const imagePath = "pfp.webp"
+const imagePath = "pfp-frog.webp"
 const imageAlt = "A cute frog - Phillip's profile picture"
 ---
 
@@ -44,11 +45,26 @@ const imageAlt = "A cute frog - Phillip's profile picture"
 >
   <div class="flex flex-col gap-3">
     <div class="flex flex-col items-center gap-4">
-      <Image
-        src={pfp}
-        class="rounded-full border border-black"
-        alt="A cute frog - Phillip's profile picture"
-      />
+      <div class="relative">
+        <Image
+          src={pfpHuman}
+          class="rounded-full border border-black"
+          alt="A photo of Phillip in-front of trees"
+          width={200}
+          height={200}
+        />
+        <div
+          class="absolute w-full h-full top-0 left-0 flex justify-end items-end"
+        >
+          <Image
+            src={pfpFrog}
+            class="rounded-full border border-black"
+            alt="A cute frog - Phillip's profile picture"
+            width={75}
+            height={75}
+          />
+        </div>
+      </div>
       <h2 class="w-1/2 text-center">
         I'm a software engineer with a passion for helping others, on a mission
         to learn and build as much as possible.
