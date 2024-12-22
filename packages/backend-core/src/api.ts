@@ -16,7 +16,7 @@ export const router = t.router
 export const publicProcedure = t.procedure
 
 const buttonClickSchema = z.object({
-  name: z.string(),
+  name: z.nativeEnum(BUTTON_NAME),
   userAgent: z.string().optional(),
   language: z.string().optional(),
   screenResolution: z.string().optional(),

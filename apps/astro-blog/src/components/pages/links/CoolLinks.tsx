@@ -20,12 +20,10 @@ const CoolLinksCore = () => {
     }
   })
 
+  // If duplicated one more time, consider extracting to a custom hook
   const incrementButtonMutation = trpcReactQuery.incrementButton.useMutation({
     onMutate: async (variables) => {
       const { name } = variables
-
-      // Cancel any outgoing mutations (so they don't overwrite our optimistic update)
-      await utils.getButtons.cancel()
 
       const previousData = utils.getButtons.getData({ names: BUTTON_NAMES })
 

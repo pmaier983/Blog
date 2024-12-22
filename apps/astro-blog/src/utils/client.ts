@@ -37,15 +37,4 @@ export const getTrpcAstro = () =>
     ],
   })
 
-/**
- * Only use this in react components! use the above alterative in .astro components
- */
-export const trpcClient = createTRPCProxyClient<AppRouter>({
-  links: [
-    httpBatchLink({
-      url: TRPC_URL,
-    }),
-  ],
-})
-
 export const trpcReactQuery = createTRPCReact<AppRouter>()
