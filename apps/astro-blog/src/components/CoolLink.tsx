@@ -1,3 +1,5 @@
+import { motion } from "motion/react"
+
 export const CoolLink = ({
   title,
   links,
@@ -30,9 +32,15 @@ export const CoolLink = ({
     </ul>
     <div className="self-end flex-1 place-content-end">
       {typeof clickCount === "number" && clickCount > 0 && (
-        <span className="hover:cursor-help" title="Link clicks">
+        <motion.span
+          className="hover:cursor-help"
+          title="Link clicks"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+        >
           ({clickCount})
-        </span>
+        </motion.span>
       )}
       &nbsp;
     </div>

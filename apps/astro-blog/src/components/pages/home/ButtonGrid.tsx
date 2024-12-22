@@ -1,7 +1,10 @@
 import type { ButtonName } from "@repo/backend-core"
 
 import { trpcReactQuery } from "~/utils/client"
-import { IncrementingButton } from "~/components/IncrementingButton"
+import {
+  getHighlightColor,
+  IncrementingButton,
+} from "~/components/IncrementingButton"
 import { withQueryProvider } from "~/utils/withQueryProvider"
 
 const BUTTONS: { name: ButtonName; label: string }[] = [
@@ -47,18 +50,41 @@ const ButtonGridCore = () => {
     },
   })
 
-  const buttonsWithCounts = BUTTONS.map(({ name, ...rest }) => ({
-    name,
-    clickCount:
-      getButtonQuery.data?.find(
-        (possibleButton) => possibleButton.name === name,
-      )?.clickCount ?? null,
-    ...rest,
-  }))
+  const maxClickCount =
+    getButtonQuery.data?.reduce(
+      (max, button) => Math.max(max, button.clickCount),
+      0,
+    ) ?? 0
+
+  const minClickCount =
+    getButtonQuery.data?.reduce(
+      (min, button) => Math.min(min, button.clickCount),
+      Infinity,
+    ) ?? 0
+
+  const buttonsWithCounts = BUTTONS.map(({ name, ...rest }) => {
+    const possibleClickCount = getButtonQuery.data?.find(
+      (possibleButton) => possibleButton.name === name,
+    )?.clickCount
+
+    const highlightColor =
+      typeof possibleClickCount === "number"
+        ? getHighlightColor({
+            clickCount: possibleClickCount,
+            minCount: minClickCount,
+            maxCount: maxClickCount,
+          })
+        : "rgb(255, 255, 255)"
+
+    return {
+      name,
+      clickCount: possibleClickCount,
+      highlightColor: highlightColor,
+      ...rest,
+    }
+  })
 
   // TODO:
-  // - [ ] Add a color animation for when we get the buttons from the server
-  // - [ ] Scale the color of each button based on the # of clicks
   // - [ ] Add create button to the getButtons rpc
 
   const onButtonClick = (buttonName: ButtonName) => {
@@ -75,6 +101,7 @@ const ButtonGridCore = () => {
       {buttonsWithCounts.map((button) => (
         <IncrementingButton
           key={button.name}
+          highlightColor={button.highlightColor}
           clickCount={button?.clickCount}
           onClick={() => onButtonClick(button.name)}
         >
