@@ -1,3 +1,5 @@
+import type React from "react"
+
 import type { ButtonName } from "@repo/backend-core"
 
 import { trpcReactQuery } from "~/utils/client"
@@ -6,20 +8,49 @@ import {
   IncrementingButton,
 } from "~/components/IncrementingButton"
 import { withQueryProvider } from "~/utils/withQueryProvider"
+import { GITHUB_URL, LINKEDIN_URL, TWITTER_URL } from "~/utils/consts"
+import { ExternalLink, Github, Linkedin, Twitter } from "lucide-react"
 
-const BUTTONS: { name: ButtonName; label: string }[] = [
-  { name: "linkedin", label: "LinkedIn" },
-  { name: "github", label: "GitHub" },
-  { name: "twitter", label: "Twitter" },
+const LINKS: { name: ButtonName; label: React.ReactNode; href: string }[] = [
+  {
+    name: "linkedin",
+    label: (
+      <div className="flex items-center gap-1">
+        LinkedIn
+        <ExternalLink size="0.85rem" />
+      </div>
+    ),
+    href: LINKEDIN_URL,
+  },
+  {
+    name: "github",
+    label: (
+      <div className="flex items-center gap-1">
+        Github
+        <ExternalLink size="0.85rem" />
+      </div>
+    ),
+    href: GITHUB_URL,
+  },
+  {
+    name: "twitter",
+    label: (
+      <div className="flex items-center gap-1">
+        Twitter
+        <ExternalLink size="0.85rem" />
+      </div>
+    ),
+    href: TWITTER_URL,
+  },
 ]
 
-const BUTTON_NAMES = BUTTONS.map(({ name }) => name)
+const BUTTON_NAMES = LINKS.map(({ name }) => name)
 
 const ButtonGridCore = () => {
   const utils = trpcReactQuery.useUtils()
 
   const getButtonQuery = trpcReactQuery.getButtons.useQuery({
-    names: BUTTONS.map(({ name }) => name),
+    names: LINKS.map(({ name }) => name),
   })
 
   // If duplicated one more time, consider extracting to a custom hook
@@ -62,7 +93,7 @@ const ButtonGridCore = () => {
       Infinity,
     ) ?? 0
 
-  const buttonsWithCounts = BUTTONS.map(({ name, ...rest }) => {
+  const linksWithCounts = LINKS.map(({ name, ...rest }) => {
     const possibleClickCount = getButtonQuery.data?.find(
       (possibleButton) => possibleButton.name === name,
     )?.clickCount
@@ -84,12 +115,9 @@ const ButtonGridCore = () => {
     }
   })
 
-  // TODO:
-  // - [ ] Add create button to the getButtons rpc
-
-  const onButtonClick = (buttonName: ButtonName) => {
+  const onLinkClick = (linkName: ButtonName) => {
     incrementButtonMutation.mutate({
-      name: buttonName,
+      name: linkName,
       userAgent: navigator.userAgent,
       language: navigator.language,
       screenResolution: `${window.screen.width}x${window.screen.height}`,
@@ -98,14 +126,15 @@ const ButtonGridCore = () => {
 
   return (
     <div className="grid grid-cols-3 gap-4">
-      {buttonsWithCounts.map((button) => (
+      {linksWithCounts.map((link) => (
         <IncrementingButton
-          key={button.name}
-          highlightColor={button.highlightColor}
-          clickCount={button?.clickCount}
-          onClick={() => onButtonClick(button.name)}
+          key={link.name}
+          href={link.href}
+          highlightColor={link.highlightColor}
+          clickCount={link?.clickCount}
+          onClick={() => onLinkClick(link.name)}
         >
-          {button.label}
+          {link.label}
         </IncrementingButton>
       ))}
     </div>

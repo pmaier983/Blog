@@ -7,6 +7,7 @@ interface IncrementingButtonProps {
   children: React.ReactNode
   clickCount: number | undefined
   highlightColor?: RgbColor
+  href: string
   onClick: () => void
   className?: string
 }
@@ -15,54 +16,54 @@ export const IncrementingButton = ({
   children,
   clickCount,
   highlightColor,
+  href,
   onClick,
   className,
-}: IncrementingButtonProps) => {
-  return (
-    <div className={`flex flex-col items-center ${className}`}>
-      <motion.button
-        className="flex flex-row gap-1 bg-transparent hover:text-gray-800 text-gray-500 font-semibold py-2 px-4 border-2 border-grey-500 hover:border-grey-700 rounded"
-        onClick={onClick}
-        // Apply animation when clickCount changes from null to a number
-        animate={{
-          backgroundColor:
-            clickCount !== null ? highlightColor : "rgba(255, 255, 255, 0)",
-          color: calculateIdealTextColor(highlightColor),
-        }}
-        transition={{
-          duration: 0.3,
-          ease: "easeInOut",
-        }}
-        initial={false}
-      >
-        {children}
-      </motion.button>
-      <div className="flex items-center">
-        <AnimatePresence>
-          {typeof clickCount === "number" ? (
-            <>
-              <div className="relative inline-block pl-1 pr-1">
-                <motion.span
-                  key={clickCount} // Triggers re-render on count change
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.3 }}
-                  className="inline-block text-center"
-                >
-                  {clickCount}
-                </motion.span>
-              </div>
-              <span> clicks</span>
-            </>
-          ) : (
-            <span className="invisible"> clicks</span>
-          )}
-        </AnimatePresence>
-      </div>
+}: IncrementingButtonProps) => (
+  <div className={`flex flex-col items-center ${className}`}>
+    <motion.a
+      href={href}
+      target="_blank"
+      className="flex flex-row gap-1 bg-transparent font-semibold m-[2px] p-1 border-2 border-gray-200 hover:underline hover:cursor-pointer rounded-[3px]"
+      onClick={onClick}
+      animate={{
+        backgroundColor:
+          clickCount !== null ? highlightColor : "rgba(255, 255, 255, 0)",
+        color: calculateIdealTextColor(highlightColor),
+      }}
+      transition={{
+        duration: 0.3,
+        ease: "easeInOut",
+      }}
+      initial={false}
+    >
+      {children}
+    </motion.a>
+    <div className="flex items-center">
+      <AnimatePresence>
+        {typeof clickCount === "number" ? (
+          <>
+            <div className="relative inline-block pl-1 pr-1">
+              <motion.span
+                key={clickCount}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.3 }}
+                className="inline-block text-center"
+              >
+                {clickCount}
+              </motion.span>
+            </div>
+            <span> clicks</span>
+          </>
+        ) : (
+          <span className="invisible"> clicks</span>
+        )}
+      </AnimatePresence>
     </div>
-  )
-}
+  </div>
+)
 
 interface GetHighlightColorProps {
   clickCount: number

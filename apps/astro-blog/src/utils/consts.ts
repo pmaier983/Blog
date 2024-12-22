@@ -11,6 +11,11 @@ export const SITE_TITLE = "Phillip Maier's Personal Website"
 export const SITE_DESCRIPTION =
   "The personal website of Phillip Maier. A place to share my thoughts, projects, and cool links."
 
+export const LINKEDIN_URL =
+  "https://www.linkedin.com/in/phillip-maier-3a4161102/"
+export const GITHUB_URL = "https://github.com/pmaier983"
+export const TWITTER_URL = "https://x.com/pmaier983"
+
 export const queryClientAtom = atom(new QueryClient())
 
 export const trpcQueryClientAtom = atom(
