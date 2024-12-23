@@ -7,7 +7,7 @@ export const MobileNavMenuButton = () => {
   const [isNavOverlayVisible, setNavOverlayVisibility] = useState(false)
 
   return (
-    <div className="sm:hidden">
+    <div className="sm:hidden sticky z-[1]">
       <button
         onClick={() => {
           setNavOverlayVisibility(!isNavOverlayVisible)
@@ -39,7 +39,7 @@ export const MobileNavMenuButton = () => {
                         href={page.href}
                         className="flex flex-row items-center gap-6"
                       >
-                        <page.Icon />
+                        <page.Icon size="3rem" />
                         <span>{page.title}</span>
                       </a>
                     </li>

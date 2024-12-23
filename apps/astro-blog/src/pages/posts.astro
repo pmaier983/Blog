@@ -1,7 +1,9 @@
 ---
 import type Schema from "schema-dts"
+import { PostCard } from "~/components/pages/posts/PostCard"
 
 import MainPageLayout from "~/layouts/MainPageLayout.astro"
+import { POSTS } from "~/utils/consts"
 
 const title = "Phillip's Blog Posts"
 const description =
@@ -35,5 +37,7 @@ const imageAlt = "A cute frog - Phillip's profile picture"
     url: Astro.url.toString(),
   } satisfies Schema.WithContext<Schema.WebPage>}
 >
-  <div>Posts</div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+    {POSTS.map((post) => <PostCard {...post} />)}
+  </div>
 </MainPageLayout>

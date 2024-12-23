@@ -1,7 +1,6 @@
 import { atom } from "jotai"
 import { Home, Book, Folder } from "lucide-react"
 import { QueryClient } from "@tanstack/react-query"
-import type React from "react"
 
 import type { ButtonName } from "@repo/backend-core"
 import { httpBatchLink } from "@trpc/client"
@@ -31,7 +30,7 @@ export const trpcQueryClientAtom = atom(
 export const NAVIGABLE_PAGES: {
   title: string
   href: string
-  Icon: React.FC
+  Icon: typeof Home
 }[] = [
   {
     title: "Home",
@@ -47,6 +46,32 @@ export const NAVIGABLE_PAGES: {
     title: "Posts",
     href: "/posts",
     Icon: Folder,
+  },
+]
+
+export interface Post {
+  title: string
+  description: string
+  link: string
+}
+
+export const POSTS: Post[] = [
+  {
+    title: "React Hook Form",
+    description:
+      "I was a core contributor to the project. Helping create the most popular form library for react with over 40k github stars and over 6 million npm downloads per day",
+    link: "https://react-hook-form.com/",
+  },
+  {
+    title: "Detective ML",
+    description: "A experiment in creating an AI based detective game.",
+    link: "https://detectiveml.com/",
+  },
+  {
+    title: "SuperCTF",
+    description:
+      "An IO game with over 100k players. Several 1000 concurrently at its peak. I was the backend muscle for the project.",
+    link: "https://critkitchen.com/superctf",
   },
 ]
 

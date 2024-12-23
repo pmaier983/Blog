@@ -1,3 +1,4 @@
+import { ExternalLink } from "lucide-react"
 import { motion } from "motion/react"
 
 export const CoolLink = ({
@@ -26,6 +27,7 @@ export const CoolLink = ({
             onClick={onClick}
           >
             {link}
+            <ExternalLink size="1rem" />
           </a>
         </li>
       ))}
