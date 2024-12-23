@@ -17,20 +17,23 @@ const today = new Date()
     <Image
       src={vscodeImages}
       alt="Two carrets pointing in oposite directions, copied from the bottom left of VSCode"
-      class="h-8 w-14 rounded-none"
+      class="h-full w-14 rounded-none"
     />
   </ToggleVSCodeButton>
-  &copy; {today.getFullYear()} Phillip Maier. All rights reserved
-
-  <a href={LINKEDIN_URL}>
-    <Linkedin className="text-gray-600 hover:text-gray-900 w-4" />
-  </a>
-  ·
-  <a href={GITHUB_URL}>
-    <Github className="text-gray-600 hover:text-gray-900 w-4" />
-  </a>
-  ·
-  <a href={TWITTER_URL}>
-    <Twitter className="text-gray-600 hover:text-gray-900 w-4" />
-  </a>
+  <span class="hidden md:flex flex-row">
+    &copy; {today.getFullYear()} Phillip Maier. All rights reserved
+  </span>
+  <div class="flex flex-row gap-2">
+    <a href={LINKEDIN_URL}>
+      <Linkedin className="text-gray-600 hover:text-gray-900 w-4" />
+    </a>
+    ·
+    <a href={GITHUB_URL}>
+      <Github className="text-gray-600 hover:text-gray-900 w-4" />
+    </a>
+    ·
+    <a href={TWITTER_URL}>
+      <Twitter className="text-gray-600 hover:text-gray-900 w-4" />
+    </a>
+  </div>
 </footer>

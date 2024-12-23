@@ -36,3 +36,10 @@ export const buttonClicks = pgTable("button_clicks", {
     enum: [BUTTON_CLICK_TYPES.INCREMENT, BUTTON_CLICK_TYPES.DECREMENT],
   }),
 })
+
+export const emailSignups = pgTable("email_signups", {
+  id: text("id").primaryKey().notNull(),
+  email: text("email").notNull(),
+  name: text("name"),
+  timestamp: text("timestamp").notNull(),
+})

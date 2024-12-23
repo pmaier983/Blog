@@ -3,7 +3,7 @@ import { z } from "zod"
 import { createId } from "@paralleldrive/cuid2"
 import { eq, inArray } from "drizzle-orm"
 
-import { buttonClicks, buttons } from "./db/schema.js"
+import { buttonClicks, buttons, emailSignups } from "./db/schema.js"
 
 import { db } from "./db/db.js"
 import { BUTTON_NAME } from "./constants.js"
@@ -119,6 +119,25 @@ export const appRouter = t.router({
           .where(eq(buttons.name, input.name))
       }),
   ),
+  addEmailSignup: publicProcedure
+    .input(z.object({ email: z.string(), name: z.string().optional() }))
+    .mutation(async ({ input }) => {
+      // Only submit if the email is not already in the database
+      const existingSignup = await db.query.emailSignups.findFirst({
+        where: eq(emailSignups.email, input.email),
+      })
+
+      if (existingSignup) {
+        return existingSignup
+      }
+
+      return await db.insert(emailSignups).values({
+        id: createId(),
+        email: input.email,
+        name: input.name ?? null,
+        timestamp: new Date().toISOString(),
+      })
+    }),
 })
 
 export type AppRouter = typeof appRouter
