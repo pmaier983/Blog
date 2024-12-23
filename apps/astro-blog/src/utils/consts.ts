@@ -43,19 +43,19 @@ export const NAVIGABLE_PAGES: {
     Icon: Book,
   },
   {
-    title: "Posts",
-    href: "/posts",
+    title: "Projects",
+    href: "/projects",
     Icon: Folder,
   },
 ]
 
-export interface Post {
+export interface Project {
   title: string
   description: string
   link: string
 }
 
-export const POSTS: Post[] = [
+export const PROJECTS: Project[] = [
   {
     title: "React Hook Form",
     description:

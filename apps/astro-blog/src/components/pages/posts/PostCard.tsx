@@ -1,7 +1,7 @@
 import { ExternalLink } from "lucide-react"
-import type { Post } from "~/utils/consts"
+import type { Project } from "~/utils/consts"
 
-export const PostCard = ({ title, description, link }: Post) => (
+export const PostCard = ({ title, description, link }: Project) => (
   <div className="flex flex-col border p-4 rounded shadow bg-white overflow-hidden">
     <h2 className="text-lg font-semibold mb-2">{title}</h2>
     <p className="text-gray-600 mb-4">{description}</p>
