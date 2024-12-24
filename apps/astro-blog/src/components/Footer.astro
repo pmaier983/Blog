@@ -1,0 +1,39 @@
+---
+import { Github, Linkedin, Twitter } from "lucide-react"
+import { Image } from "astro:assets"
+
+import vscodeImages from "~/assets/vscode-arrows.webp"
+import { GITHUB_URL, LINKEDIN_URL, TWITTER_URL } from "~/utils/consts"
+
+import { ToggleVSCodeButton } from "~/components/ToggleVSCodeButton.tsx"
+
+const today = new Date()
+---
+
+<footer
+  class="flex flex-row text-base items-center gap-2 border-t-[1px] border-black"
+>
+  <ToggleVSCodeButton client:load>
+    <Image
+      src={vscodeImages}
+      alt="Two carrets pointing in oposite directions, copied from the bottom left of VSCode"
+      class="h-full w-14 rounded-none"
+    />
+  </ToggleVSCodeButton>
+  <span class="hidden md:flex flex-row whitespace-nowrap">
+    &copy; {today.getFullYear()} Phillip Maier. All rights reserved
+  </span>
+  <div class="flex flex-row gap-2 w-full justify-end pr-4">
+    <a href={LINKEDIN_URL}>
+      <Linkedin className="text-gray-600 hover:text-gray-900 w-4" />
+    </a>
+    ·
+    <a href={GITHUB_URL}>
+      <Github className="text-gray-600 hover:text-gray-900 w-4" />
+    </a>
+    ·
+    <a href={TWITTER_URL}>
+      <Twitter className="text-gray-600 hover:text-gray-900 w-4" />
+    </a>
+  </div>
+</footer>

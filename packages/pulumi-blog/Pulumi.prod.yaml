@@ -1,0 +1,7 @@
+config:
+  gcp:project: blog-442719
+  gcp:zone: us-west2-a
+  instanceName: pulumi-deployed-blog
+  zoneName: phillipmaier-zone
+  instanceTag: blog
+  domain: phillipmaier.com

@@ -1,0 +1,64 @@
+---
+import { SEO, type Props as SeoProps } from "astro-seo"
+import type Schema from "schema-dts"
+import type { HTMLAttributes } from "astro/types"
+
+import BaseHead from "~/components/BaseHead.astro"
+import Header from "~/components/Header.astro"
+import Footer from "~/components/Footer.astro"
+import NavBar from "~/components/NavBar.astro"
+
+export interface Props extends HTMLAttributes<"main"> {
+  pageTitle: string
+  pageDescription: string
+  openGraph: SeoProps["openGraph"]
+  imagePath: string
+  imageAlt: string
+  schema: Schema.WithContext<Schema.Thing | Schema.Blog | Schema.WebSite>
+}
+
+const props = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <script 
+      type="application/ld+json" 
+      set:html={JSON.stringify(props.schema)}>
+    </script>
+    <BaseHead />
+    <SEO
+      title={props.pageTitle}
+      description={props.pageDescription}
+      openGraph={{
+        basic: {
+          title: props.pageTitle,
+          type: "website",
+          image: new URL(props.imagePath, Astro.url).toString(),
+          url: Astro.url,
+        },
+        image: {
+          url: new URL(props.imagePath, Astro.url),
+          alt: props.imageAlt,
+        },
+      }}
+      twitter={{
+        card: "summary_large_image",
+        title: props.pageTitle,
+        description: props.pageDescription,
+        image: new URL(props.imagePath, Astro.url),
+      }}
+    />
+  </head>
+  <body>
+    <Header title={props.pageTitle} />
+    <div class="flex flex-row flex-1">
+      <NavBar />
+      <main {...props}>
+        <slot />
+      </main>
+    </div>
+    <Footer />
+  </body>
+</html>

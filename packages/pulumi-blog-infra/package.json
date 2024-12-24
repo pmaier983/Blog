@@ -1,0 +1,20 @@
+{
+  "name": "@repo/pulumi-blog-infra",
+  "scripts": {
+    "build": "tsc",
+    "deploy": "pulumi up --stack dev --yes",
+    "deploy-prod": "pulumi up --stack prod",
+    "destroy": "pulumi destroy --stack dev --yes",
+    "destroy-prod": "pulumi destroy --stack prod",
+    "preview": "pulumi preview"
+  },
+  "dependencies": {
+    "@pulumi/gcp": "^8.0.0",
+    "@pulumi/pulumi": "^3.142.0"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^18",
+    "typescript": "^5.0.0"
+  }
+}

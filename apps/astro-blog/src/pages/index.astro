@@ -1,0 +1,139 @@
+---
+import type Schema from "schema-dts"
+import { Image } from "astro:assets"
+
+import MainPageLayout from "~/layouts/MainPageLayout.astro"
+import pfpFrog from "~/assets/pfp-frog.webp"
+import pfpHuman from "~/assets/pfp-human.webp"
+import { ButtonGrid } from "~/components/pages/home/ButtonGrid"
+import { getTrpcAstro } from "~/utils/client"
+
+// TODO: any way to pre-render only the button component itself?
+export const prerender = false
+
+const title = "Phillip's Blog Home Page"
+const description =
+  "Take a look at some of the cool things Phillip has made and written about!"
+const imagePath = "pfp-frog.webp"
+const imageAlt = "A cute frog - Phillip's profile picture"
+
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData()
+    const name = data.get("name")?.toString()
+    const email = data.get("email")?.toString()
+
+    if (!email) {
+      throw new Error("Email is required")
+    }
+
+    const trpcAstro = getTrpcAstro()
+
+    await trpcAstro.addEmailSignup.mutate({ name, email })
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message)
+    }
+  }
+}
+---
+
+<MainPageLayout
+  class="flex flex-1 justify-center items-center"
+  pageTitle={title}
+  pageDescription={description}
+  imagePath={imagePath}
+  imageAlt={imageAlt}
+  openGraph={{
+    basic: {
+      title,
+      type: "website",
+      image: new URL(imagePath, Astro.url).toString(),
+      url: Astro.url.toString(),
+    },
+    image: {
+      url: new URL(imagePath, Astro.url),
+      alt: imageAlt,
+    },
+  }}
+  schema={{
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: title,
+    description: description,
+    url: Astro.url.toString(),
+  } satisfies Schema.WithContext<Schema.Blog>}
+>
+  <div class="flex flex-col gap-3">
+    <div class="flex flex-col items-center gap-4">
+      <div class="relative">
+        <Image
+          src={pfpHuman}
+          class="rounded-full border border-black"
+          alt="A photo of Phillip in-front of trees"
+          width={200}
+          height={200}
+        />
+        <div
+          class="absolute w-full h-full top-0 left-0 flex justify-end items-end"
+        >
+          <Image
+            src={pfpFrog}
+            class="rounded-full border border-black"
+            alt="A cute frog - Phillip's profile picture"
+            width={75}
+            height={75}
+          />
+        </div>
+      </div>
+      <h2 class="w-2/3 text-center text-lg font-medium">
+        I'm a software engineer with a passion for helping others, on a mission
+        to learn and build as much as possible.
+      </h2>
+    </div>
+    <div class="flex justify-center">
+      <ButtonGrid client:load />
+    </div>
+    <div class="flex flex-col items-center gap-4 pt-4">
+      <form method="post" class="flex flex-col gap-3 items-center w-2/3">
+        <label> Add yourself to a list I might use someday. </label>
+        <div class="flex flex-col md:flex-row gap-3">
+          <!-- Name Field -->
+          <div class="flex-col w-full hidden md:flex">
+            <label for="name" class="text-sm font-medium text-gray-700 mb-1">
+              Your Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Name you go by"
+              class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <!-- Email Field -->
+          <div class="flex flex-col w-full">
+            <label for="email" class="text-sm font-medium text-gray-700 mb-1">
+              Your Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email you use"
+              required
+              class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            class="h-min self-end px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+          >
+            Subscribe
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</MainPageLayout>

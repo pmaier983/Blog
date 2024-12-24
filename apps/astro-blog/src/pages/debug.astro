@@ -1,0 +1,20 @@
+---
+const isDev = import.meta.env.MODE === "development"
+const envVars = Object.entries(import.meta.env)
+---
+
+{
+  isDev && (
+    <>
+      {Astro.url.origin}
+      <h1>Environment Variables</h1>
+      <ul>
+        {envVars.map(([key, value]) => (
+          <li>
+            <strong>{key}:</strong> {value}
+          </li>
+        ))}
+      </ul>
+    </>
+  )
+}

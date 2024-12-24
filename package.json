@@ -1,68 +1,26 @@
 {
   "name": "blog",
-  "description": "Phillip Maier's personal blog/website",
-  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build:doc": "docker build -t blog .",
-    "dev:doc": "docker run --rm --name personal-blog -p 3000:3000 -v $INIT_CWD:/usr/src blog",
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "export": "next export",
-    "deploy:aws": "next build && next export && aws s3 cp --recursive ./out s3://phillipmaier.com",
-    "analyze": "cross-env ANALYZE=true next build",
-    "clean": "rm -rf node_modules/ & rm -rf .next/ & rm -rf out/ & rm package-lock.json",
-    "lint": "eslint . --fix"
-  },
-  "dependencies": {
-    "gray-matter": "^4.0.2",
-    "lodash": "^4.17.20",
-    "next": "^10.0.5",
-    "next-seo": "^4.17.0",
-    "react": "^17.0.1",
-    "react-dom": "16.13.1",
-    "react-ga": "^3.3.0",
-    "react-markdown": "^5.0.0",
-    "react-syntax-highlighter": "^15.3.0",
-    "react-typography": "^0.16.19",
-    "typography": "^0.16.19",
-    "typography-theme-github": "^0.16.19"
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "dev-backend": "pnpm run dev --filter blog-backend",
+    "dev-astro": "pnpm run dev --filter astro-blog",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "aws-login": "dotenv -e .env.prod -- sh -c 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com'",
+    "*TODO": "How to automatically update the task and the service as well!",
+    "docker:build:push": "dotenv -e .env.prod docker compose build && dotenv -e .env.prod docker compose push"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.11.5",
-    "@babel/preset-typescript": "^7.10.4",
-    "@next/bundle-analyzer": "^10.0.1",
-    "@types/lodash": "^4.14.163",
-    "@types/node": "^14.11.8",
-    "@types/prismjs": "^1.16.2",
-    "@types/react": "^16.9.52",
-    "@types/react-dom": "^16.9.8",
-    "@types/styled-components": "^5.1.4",
-    "@typescript-eslint/eslint-plugin": "^4.4.0",
-    "@typescript-eslint/parser": "^4.4.0",
-    "babel-plugin-styled-components": "^1.11.1",
-    "cross-env": "^7.0.2",
-    "eslint": "^7.11.0",
-    "eslint-config-prettier": "^6.12.0",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.21.4",
-    "eslint-plugin-react-hooks": "^4.1.2",
-    "husky": "^4.3.0",
-    "lint-staged": "^10.4.0",
-    "prettier": "^2.1.2",
-    "styled-components": "^5.2.0",
-    "typescript": "^4.0.3"
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "dotenv-cli": "^7.4.2",
+    "prettier": "^3.3.3",
+    "turbo": "^2.3.3"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+  "engines": {
+    "node": ">=18"
   },
-  "lint-staged": {
-    "*.{tsx,ts,js,jsx}": [
-      "npm run lint"
-    ]
-  }
+  "packageManager": "pnpm@9.15.0"
 }

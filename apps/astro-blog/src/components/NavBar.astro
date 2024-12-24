@@ -1,0 +1,34 @@
+---
+import { ChevronRight } from "lucide-react"
+import { NAVIGABLE_PAGES } from "~/utils/consts"
+
+const currentPath = Astro.url.pathname
+
+// TODO: there has to be a better way to do this!
+const trimSlashes = (str: string) => str.replace(/^\/+|\/+$/g, "")
+---
+
+<nav class="max-sm:hidden min-w-[10rem] border-r-[1px] border-black">
+  <ul class="pt-6 fixed">
+    {
+      NAVIGABLE_PAGES.map((page) => {
+        const isOnCurrentPath =
+          trimSlashes(currentPath) === trimSlashes(page.href)
+        return (
+          <li>
+            <a
+              href={page.href}
+              class={`flex flex-row hover:${!isOnCurrentPath ? "underline" : ""}`}
+            >
+              {isOnCurrentPath ? <ChevronRight /> : <div class="w-6" />}
+              <span class="flex flex-row gap-2">
+                <page.Icon />
+                {page.title}
+              </span>
+            </a>
+          </li>
+        )
+      })
+    }
+  </ul>
+</nav>

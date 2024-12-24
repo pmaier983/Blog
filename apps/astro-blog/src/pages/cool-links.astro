@@ -1,0 +1,40 @@
+---
+import type Schema from "schema-dts"
+
+import MainPageLayout from "~/layouts/MainPageLayout.astro"
+import { CoolLinks as CoolLinksComponent } from "~/components/pages/links/CoolLinks"
+
+const title = "Cool Links"
+const description = "A List of Links Phillip finds useful"
+const imagePath = "pfp-frog.webp"
+const imageAlt = "A cute frog - Phillip's profile picture"
+---
+
+<MainPageLayout
+  pageTitle={title}
+  pageDescription={description}
+  imagePath={imagePath}
+  imageAlt={imageAlt}
+  openGraph={{
+    basic: {
+      title,
+      type: "website",
+      image: new URL(imagePath, Astro.url).toString(),
+      url: Astro.url.toString(),
+    },
+    image: {
+      url: new URL(imagePath, Astro.url),
+      alt: imageAlt,
+    },
+  }}
+  schema={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: title,
+    description: description,
+    url: Astro.url.toString(),
+  } satisfies Schema.WithContext<Schema.WebPage>}
+  class="grid gap-4 p-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+>
+  <CoolLinksComponent client:load />
+</MainPageLayout>

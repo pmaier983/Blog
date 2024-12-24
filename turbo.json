@@ -1,0 +1,30 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["**/.env.*local", ".env", ".env.prod"],
+  "tasks": {
+    "build": {
+      "dependsOn": ["clean", "lint", "^build"],
+      "outputs": ["dist/**", "tsconfig.tsbuildinfo"],
+      "inputs": ["$TURBO_DEFAULT$", ".env.production", ".env"]
+    },
+    "start": {
+      "dependsOn": ["^start", "build"],
+      "outputs": [],
+      "inputs": ["$TURBO_DEFAULT$", ".env.production", ".env"]
+    },
+    "clean": {
+      "dependsOn": ["^clean"]
+    },
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
+    "tsc": {
+      "dependsOn": ["^tsc"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "inputs": ["$TURBO_DEFAULT$", ".env"]
+    }
+  }
+}

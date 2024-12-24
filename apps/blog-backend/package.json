@@ -1,0 +1,32 @@
+{
+  "name": "blog-backend",
+  "version": "1.0.0",
+  "description": "The backend for my blog",
+  "type": "module",
+  "scripts": {
+    "tsc": "tsc",
+    "start": "dotenv -e ../../.env.prod node --experimental-specifier-resolution=node dist/index.js",
+    "build": "tsc",
+    "clean": "rm -rf dist && rm -rf tsconfig.tsbuildinfo",
+    "dev": "dotenv -e ../../.env tsx watch src/index.ts",
+    "lint": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "Phillip Maier",
+  "dependencies": {
+    "@repo/backend-core": "workspace:*",
+    "@trpc/server": "^10.45.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "dotenv-cli": "^7.4.2",
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "typescript": "^5.6.3",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "tsx": "^4.19.2"
+  }
+}

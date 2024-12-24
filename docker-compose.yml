@@ -1,0 +1,80 @@
+services:
+  nginx-proxy:
+    image: nginxproxy/nginx-proxy
+    container_name: nginx-proxy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - certs:/etc/nginx/certs
+      - html:/usr/share/nginx/html
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  nginx-proxy-acme:
+    image: nginxproxy/acme-companion
+    container_name: nginx-proxy-acme
+    restart: always
+    depends_on:
+      - nginx-proxy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - acme:/etc/acme.sh
+    volumes_from:
+      - nginx-proxy
+    environment:
+      DEFAULT_EMAIL: ${EMAIL}
+
+  blog-backend:
+    image: ${DOCKER_REGISTRY}/blog-backend
+    container_name: blog-backend
+    env_file: .env.prod
+    build:
+      context: .
+      dockerfile: ./apps/blog-backend/Dockerfile
+      args:
+        DATABASE_URL: ${DATABASE_URL}
+        PUBLIC_FRONTEND_URL: ${PUBLIC_FRONTEND_URL}
+    restart: always
+    ports:
+      - 8080:8080
+    environment:
+      VIRTUAL_HOST: backend.${DOMAIN}
+      VIRTUAL_PORT: 8080
+      LETSENCRYPT_HOST: backend.${DOMAIN}
+      LETSENCRYPT_EMAIL: ${EMAIL}
+
+  astro-blog:
+    image: ${DOCKER_REGISTRY}/astro-blog
+    container_name: astro-blog
+    env_file: .env.prod
+    build:
+      context: .
+      dockerfile: ./apps/astro-blog/Dockerfile
+      args:
+        PUBLIC_BACKEND_API_URL: ${PUBLIC_BACKEND_API_URL}
+        PUBLIC_IN_NETWORK_BACKEND_API_URL: ${PUBLIC_IN_NETWORK_BACKEND_API_URL}
+        DATABASE_URL: ${DATABASE_URL}
+        SUPABASE_URL: ${SUPABASE_URL}
+        SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY}
+        DOMAIN: ${DOMAIN}
+    restart: always
+    environment:
+      VIRTUAL_HOST: ${DOMAIN}
+      VIRTUAL_PORT: 4321
+      LETSENCRYPT_HOST: ${DOMAIN}
+      LETSENCRYPT_EMAIL: ${EMAIL}
+    ports:
+      # - 80:4321 # Configure standard Http port
+      # - 443:4321 # Configure standard Https port
+      - 4321:4321
+
+volumes:
+  html:
+  certs:
+  acme:

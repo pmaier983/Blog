@@ -1,0 +1,43 @@
+---
+import type Schema from "schema-dts"
+import { PostCard } from "~/components/pages/posts/PostCard"
+
+import MainPageLayout from "~/layouts/MainPageLayout.astro"
+import { PROJECTS } from "~/utils/consts"
+
+const title = "Phillip's Blog Posts"
+const description =
+  "Take a look at some of the cool things Phillip has made and written about!"
+const imagePath = "pfp-frog.webp"
+const imageAlt = "A cute frog - Phillip's profile picture"
+---
+
+<MainPageLayout
+  pageTitle={title}
+  pageDescription={description}
+  imagePath={imagePath}
+  imageAlt={imageAlt}
+  openGraph={{
+    basic: {
+      title,
+      type: "website",
+      image: new URL(imagePath, Astro.url).toString(),
+      url: Astro.url.toString(),
+    },
+    image: {
+      url: new URL(imagePath, Astro.url),
+      alt: imageAlt,
+    },
+  }}
+  schema={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: title,
+    description: description,
+    url: Astro.url.toString(),
+  } satisfies Schema.WithContext<Schema.WebPage>}
+>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+    {PROJECTS.map((post) => <PostCard {...post} />)}
+  </div>
+</MainPageLayout>

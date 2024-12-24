@@ -1,0 +1,6 @@
+config:
+  gcp:project: blog-442719
+  gcp:zone: us-west2-a
+  region: us-west2
+  zoneName: gaulish-zone
+  domain: gaulish.io
