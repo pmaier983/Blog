@@ -68,4 +68,6 @@ const CoolLinksCore = () => {
   )
 }
 
-export const CoolLinks = withQueryProvider(CoolLinksCore)
+const CoolLinks = withQueryProvider(CoolLinksCore)
+
+export { CoolLinks }

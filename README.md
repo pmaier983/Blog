@@ -30,14 +30,15 @@ ECS is expensive. A simple Docker Cluster ends up costing ~40$/month. 9$ Cloudwa
   - [x] Convert from my custom blog api -> supabase default api
   - [x] Consider switching back to custom blog api if possible
 - [x] Setup all infrastructure in Pulumi https://www.pulumi.com/
-  - [ ] Cleanup the whole DOMAIN and backend env + Pulumi
+  - [x] Cleanup the whole DOMAIN and backend env + Pulumi
+  - [ ] Properly configure gaulish.dev as the dev domain (and make deploying it easy)
 - [x] How to host? (section below)
-- [ ] Setup a way to auto build & deploy each app/route
+- [x] Setup a way to auto build & deploy each app/route
 - [ ] Separate deps into required and devDeps
 - [x] Build a home page based on some Dalle Mocks
 - [x] Properly Configure docker .env
-- [ ] Create a page that just lists projects
-- [ ] Create a page that has a bunch of cool links & descriptions
+- [x] Create a page that just lists projects
+- [x] Create a page that has a bunch of cool links & descriptions
 - [ ] Properly configure RLS for supabase (https://supabase.com/docs/guides/database/postgres/row-level-security#row-level-security-in-supabase)
 - [ ] Transition to use @total-typescript/tsconfig (https://github.com/total-typescript/tsconfig)
 - [ ] Look into keeping deps on the same version (https://turbo.build/repo/docs/crafting-your-repository/managing-dependencies#keeping-dependencies-on-the-same-version)

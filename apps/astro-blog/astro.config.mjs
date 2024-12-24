@@ -3,8 +3,10 @@ import mdx from "@astrojs/mdx"
 import tailwind from "@astrojs/tailwind"
 import sitemap from "@astrojs/sitemap"
 import react from "@astrojs/react"
-
 import node from "@astrojs/node"
+
+import { config } from "dotenv"
+config()
 
 if (!process.env.DOMAIN) {
   throw new Error("Please set the DOMAIN environment variable.")

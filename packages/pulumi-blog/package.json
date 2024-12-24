@@ -4,9 +4,9 @@
     "build": "tsc",
     "up": "dotenv -e .env -e ../../.env.prod -- pulumi up --stack dev --yes",
     "deploy": "npm run docker:build:push --prefix ../../ && dotenv -e .env -- pulumi up --stack dev --yes",
-    "deploy-prod": "npm run docker:build:push --prefix ../../ && dotenv -e .env -e .env.prod -- pulumi up --stack prod",
+    "deploy-prod": "npm run docker:build:push --prefix ../../ && dotenv -e ../../.env.prod -- pulumi up --stack prod",
     "destroy": "dotenv -e .env -- pulumi destroy --stack dev --yes",
-    "destroy-prod": "dotenv -e .env -e ../../.env.prod -- pulumi destroy --stack prod",
+    "destroy-prod": "dotenv -e ../../.env.prod -- pulumi destroy --stack prod",
     "preview": "dotenv -e .env -e ../../.env.prod -- pulumi preview",
     "ssh": "gcloud compute ssh pulumi-deployed-blog"
   },

@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "dotenv -e ../../.env astro dev --verbose",
     "start": "dotenv -e ../../.env.prod node dist/server/entry.mjs",
-    "build": "astro check && dotenv -e ../../.env.prod astro build",
+    "build": "dotenv -e ../../.env.prod astro check && dotenv -e ../../.env.prod astro build",
     "preview": "astro preview",
     "astro": "astro",
     "tsc": "tsc",
