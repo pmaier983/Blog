@@ -3,7 +3,9 @@
   "scripts": {
     "build": "tsc",
     "deploy": "pulumi up --stack dev --yes",
+    "deploy-prod": "pulumi up --stack prod",
     "destroy": "pulumi destroy --stack dev --yes",
+    "destroy-prod": "pulumi destroy --stack prod",
     "preview": "pulumi preview"
   },
   "dependencies": {

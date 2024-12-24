@@ -17,6 +17,8 @@ import * as pulumi from "@pulumi/pulumi"
 
 import { execSync } from "child_process"
 
+const stackName = pulumi.getStack()
+
 const gcpConfig = new pulumi.Config("gcp")
 const ZONE = gcpConfig.require("zone")
 
@@ -90,10 +92,10 @@ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v "$PWD:$PWD" -w="
 const instance = new gcp.compute.Instance("instance", {
   name: INSTANCE_NAME,
   zone: ZONE,
-  // TODO: change to an e2 machine after dev (e2-micro does not work, e2-small does)
   // Use n2-standard-2 for standard dev work (its a bit faster and worth the cost)
+  // use e2-small for prod to save on costs
   // https://cloud.google.com/compute/all-pricing
-  machineType: "n2-standard-2",
+  machineType: stackName === "prod" ? "e2-small" : "n2-standard-2",
   bootDisk: {
     initializeParams: {
       image: "cos-cloud/cos-117-18613-75-37",

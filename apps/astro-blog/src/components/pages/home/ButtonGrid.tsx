@@ -9,7 +9,7 @@ import {
 } from "~/components/IncrementingButton"
 import { withQueryProvider } from "~/utils/withQueryProvider"
 import { GITHUB_URL, LINKEDIN_URL, TWITTER_URL } from "~/utils/consts"
-import { ExternalLink, Github, Linkedin, Twitter } from "lucide-react"
+import { ExternalLink } from "lucide-react"
 
 const LINKS: { name: ButtonName; label: React.ReactNode; href: string }[] = [
   {

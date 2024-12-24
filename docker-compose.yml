@@ -62,6 +62,7 @@ services:
         DATABASE_URL: ${DATABASE_URL}
         SUPABASE_URL: ${SUPABASE_URL}
         SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY}
+        DOMAIN: ${DOMAIN}
     restart: always
     environment:
       VIRTUAL_HOST: ${DOMAIN}
