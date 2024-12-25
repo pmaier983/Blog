@@ -66,13 +66,32 @@ export const appRouter = t.router({
           where: eq(buttons.name, input.name),
         })
 
+        // if the button does not exist create a new button
         if (!button) {
-          throw new Error(`No button was found with the name: ${input.name}`)
+          const newButton = {
+            id: createId(),
+            name: input.name,
+            clickCount: 0,
+          }
+
+          await trx.insert(buttons).values(newButton)
+        }
+
+        const buttonToIncrement =
+          button ??
+          (await trx.query.buttons.findFirst({
+            where: eq(buttons.name, input.name),
+          }))
+
+        if (!buttonToIncrement) {
+          throw new Error(
+            `Something broke, No button was found with the name: ${input.name}`,
+          )
         }
 
         await trx.insert(buttonClicks).values({
           id: createId(),
-          buttonId: button.id,
+          buttonId: buttonToIncrement.id,
           timestamp: new Date().toISOString(),
           // TODO: is there a way to avoid writing these nulls?
           userAgent: input.userAgent ?? null,
@@ -84,7 +103,7 @@ export const appRouter = t.router({
         await trx
           .update(buttons)
           .set({
-            clickCount: button.clickCount + 1,
+            clickCount: buttonToIncrement.clickCount + 1,
           })
           .where(eq(buttons.name, input.name))
       }),
