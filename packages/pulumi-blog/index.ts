@@ -29,7 +29,7 @@ const DOMAIN = config.require("domain")
 
 const stackReference = new pulumi.StackReference(
   // <organization>/<project>/<stack>
-  `pmaier983/pulumi-blog-infra/dev`,
+  `pmaier983/pulumi-blog-infra/${stackName}`,
 )
 
 // TODO: is there a way to properly type these outputs?
@@ -89,7 +89,7 @@ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v "$PWD:$PWD" -w="
 `
 
 // Create the virtual machine.
-const instance = new gcp.compute.Instance("instance", {
+const instance = new gcp.compute.Instance(`blog-instance-${stackName}`, {
   name: INSTANCE_NAME,
   zone: ZONE,
   // Use n2-standard-2 for standard dev work (its a bit faster and worth the cost)

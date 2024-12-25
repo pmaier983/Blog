@@ -1,7 +1,9 @@
 config:
   gcp:project: blog-442719
   gcp:zone: us-west2-a
-  instanceName: pulumi-deployed-blog
-  zoneName: phillipmaier-zone
-  instanceTag: blog
-  domain: phillipmaier.com
+  hcloud:token:
+    secure: AAABAEarQkIcW6/+u3AxxHc15clvZ+tPmDoaxQ9qWlyoR8TuZwtOH0VF6y+2fybJ0rnyNFtR4gt+GTr+kmLrxHpgOGO9wYsx4dXcI+/BWuXOoWjrTwkYCrLlYbvs3ABd
+  pulumi-blog:domain: phillipmaier.com
+  pulumi-blog:instanceName: pulumi-deployed-blog
+  pulumi-blog:instanceTag: blog
+  pulumi-blog:zoneName: phillipmaier-zone

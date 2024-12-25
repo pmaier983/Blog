@@ -16,7 +16,7 @@ Tech/Tools I'm interested in using for this one:
 
 ## How to Update the site
 
-TODO
+Change the code and then run `pnpm run destroy-prod` and `pnpm run deploy-prod` in the pulumi-blog package!
 
 ## Learnings
 
@@ -31,7 +31,9 @@ ECS is expensive. A simple Docker Cluster ends up costing ~40$/month. 9$ Cloudwa
   - [x] Consider switching back to custom blog api if possible
 - [x] Setup all infrastructure in Pulumi https://www.pulumi.com/
   - [x] Cleanup the whole DOMAIN and backend env + Pulumi
-  - [ ] Properly configure gaulish.dev as the dev domain (and make deploying it easy)
+  - [ ] Properly configure gaulish.io as the dev domain (and make deploying it easy)
+  - [ ] Switch to Hetzner when this is fixed: (https://github.com/pulumi/pulumi-hcloud/issues/671)
+  - [ ] Switch to use only Ipv6
 - [x] How to host? (section below)
 - [x] Setup a way to auto build & deploy each app/route
 - [ ] Separate deps into required and devDeps
@@ -46,6 +48,7 @@ ECS is expensive. A simple Docker Cluster ends up costing ~40$/month. 9$ Cloudwa
 - [ ] look into using tsup (https://github.com/egoist/tsup) along with tsc.
 - [ ] Fill out the Schema's in the astro blog a bit better
 - [ ] Update the images used in MainPageLayout (the ones that will also appear in OpenGraph & twitter)
+- [ ] Setup posthog
 
 ### How to host
 
@@ -101,17 +104,17 @@ So to actually get an https domain I need to have a certificate or something tha
 
 Most custom option, probably also requiring the most setup. Nginx is the go to reverse proxy, and probably lives under the hood of the other two options in some form.
 
-#### Option 2 (GCP LB):
+#### (Rejected) Option 2 (GCP LB):
 
 A LB for a single VM is overkill, but it seems like GCP charges based on use. Probably the most expensive of the options.
 
-#### Option 3 (Cloudflare):
+#### (Rejected) Option 3 (Cloudflare):
 
 Also a bit overkill, but I get things like DDoS protection and its free! Also works as a CDN, which could speedup interactions with users.
 
 ### Transition from gaulish.io -> phillipmaier.com
 
-- [ ] Point astro-blog towards phillipmaier.com not gaulish.io
+- [x] Point astro-blog towards phillipmaier.com not gaulish.io
 
 Consider Also building the blog using (as an experiment):
 

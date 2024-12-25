@@ -1,6 +1,8 @@
 import * as gcp from "@pulumi/gcp"
 import * as pulumi from "@pulumi/pulumi"
 
+const stackName = pulumi.getStack()
+
 const config = new pulumi.Config()
 
 const REGION = config.require("region")
@@ -9,24 +11,24 @@ const DOMAIN = config.require("domain")
 
 const INSTANCE_TAG = "blog"
 
-const staticIP = new gcp.compute.Address("static-ip", {
+const staticIP = new gcp.compute.Address(`blog-static-ip-${stackName}`, {
   name: "blog-static-ip",
   region: REGION,
 })
 
 // Create a new network for the virtual machine.
-const network = new gcp.compute.Network("network", {
+const network = new gcp.compute.Network(`blog-network-${stackName}`, {
   autoCreateSubnetworks: false,
 })
 
 // Create a subnet on the network.
-const subnet = new gcp.compute.Subnetwork("subnet", {
+const subnet = new gcp.compute.Subnetwork(`blog-subnet-${stackName}`, {
   ipCidrRange: "10.0.1.0/24",
   network: network.id,
 })
 
 // Create a firewall allowing inbound access over ports 80 (for HTTP) and 22 (for SSH).
-const firewall = new gcp.compute.Firewall("firewall", {
+const firewall = new gcp.compute.Firewall(`blog-firewall-${stackName}`, {
   network: network.selfLink,
   allows: [
     {
@@ -54,7 +56,7 @@ export const subnetId = subnet.id
 
 export const firewallId = firewall.id
 
-const aRecord = new gcp.dns.RecordSet("blog-root-record", {
+const aRecord = new gcp.dns.RecordSet(`blog-root-record-${stackName}`, {
   name: `${DOMAIN}.`,
   type: "A",
   ttl: 300,
@@ -62,15 +64,18 @@ const aRecord = new gcp.dns.RecordSet("blog-root-record", {
   rrdatas: [staticIpAddress],
 })
 
-const backendARecord = new gcp.dns.RecordSet("blog-backend-record", {
-  name: `backend.${DOMAIN}.`,
-  type: "A",
-  ttl: 300,
-  managedZone: ZONE_NAME,
-  rrdatas: [staticIpAddress],
-})
+const backendARecord = new gcp.dns.RecordSet(
+  `blog-backend-record-${stackName}`,
+  {
+    name: `backend.${DOMAIN}.`,
+    type: "A",
+    ttl: 300,
+    managedZone: ZONE_NAME,
+    rrdatas: [staticIpAddress],
+  },
+)
 
-const wwwCnameRecord = new gcp.dns.RecordSet("blog-www-record", {
+const wwwCnameRecord = new gcp.dns.RecordSet(`blog-www-record-${stackName}`, {
   name: `www.${DOMAIN}.`,
   type: "CNAME",
   ttl: 300,

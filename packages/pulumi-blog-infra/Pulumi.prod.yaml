@@ -1,6 +1,8 @@
 config:
   gcp:project: blog-442719
   gcp:zone: us-west2-a
-  region: us-west2
-  zoneName: phillipmaier-zone
-  domain: phillipmaier.com
+  hcloud:token:
+    secure: AAABACmhDGNECEG9O+jF5qI+Q4FuaNYBYmfUSYpXGL7ztvYbAs0LV6rvYoDfvITJ+EiUAVjD4UbVSNlMxqFPSci4UCwHGrrIPFonXNiRxRzb9iRr41CLJ1trO8DV8ngP
+  pulumi-blog-infra:domain: phillipmaier.com
+  pulumi-blog-infra:region: us-west2
+  pulumi-blog-infra:zoneName: phillipmaier-zone
