@@ -3,12 +3,16 @@
 ---
 
 <script is:inline>
+  // @ts-ignore
   !(function (t, e) {
     var o, n, p, r
     e.__SV ||
+      // @ts-ignore
       ((window.posthog = e),
       (e._i = []),
+      // @ts-ignore
       (e.init = function (i, s, a) {
+        // @ts-ignore
         function g(t, e) {
           var o = e.split(".")
           2 == o.length && ((t = t[o[0]]), (e = o[1])),
@@ -22,14 +26,17 @@
           (p.src =
             s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") +
             "/static/array.js"),
+          // @ts-ignore
           (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(
             p,
+            // @ts-ignore
             r
           )
         var u = e
         for (
           void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
             u.people = u.people || [],
+            // @ts-ignore
             u.toString = function (t) {
               var e = "posthog"
               return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e
@@ -49,7 +56,9 @@
         e._i.push([i, s, a])
       }),
       (e.__SV = 1))
+    // @ts-ignore
   })(document, window.posthog || [])
+  // @ts-ignore
   posthog.init("phc_FqaVVXP82fWctda9PyvRYuHYkFt6Mytxg9MVCJtrQED", {
     api_host: "https://us.i.posthog.com",
     person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
