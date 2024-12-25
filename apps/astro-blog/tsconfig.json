@@ -10,5 +10,5 @@
       "~/*": ["./src/*"]
     }
   },
-  "exclude": ["node_modules", "build", "dist", ".turbo"]
+  "exclude": ["node_modules", "build", "dist", ".turbo", "posthog.astro"]
 }
