@@ -3,6 +3,9 @@ import { SEO, type Props as SeoProps } from "astro-seo"
 import type Schema from "schema-dts"
 import type { HTMLAttributes } from "astro/types"
 
+// TODO: consider creating a general purpose layout
+// separate from this styled main page layout
+import PostHog from "~/components/posthog.astro"
 import BaseHead from "~/components/BaseHead.astro"
 import Header from "~/components/Header.astro"
 import Footer from "~/components/Footer.astro"
@@ -28,6 +31,7 @@ const props = Astro.props
       set:html={JSON.stringify(props.schema)}>
     </script>
     <BaseHead />
+    <PostHog />
     <SEO
       title={props.pageTitle}
       description={props.pageDescription}
