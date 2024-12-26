@@ -14,7 +14,7 @@ if (!process.env.DOMAIN) {
 
 // https://astro.build/config
 export default defineConfig({
-  output: "hybrid",
+  output: "static",
   image: {
     service: passthroughImageService(),
   },
