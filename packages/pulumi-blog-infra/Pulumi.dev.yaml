@@ -1,6 +1,7 @@
 config:
   gcp:project: blog-442719
   gcp:zone: us-west2-a
+  region: us-west2
   hcloud:token:
     secure: AAABAJvtO1lxYZr2eF/6nGsTXQel7nfvZaEBS6r0SNevxmi6rNG25RPTgS1KqBKhlk1DoEAp6QCc36AMlB2EX6J1l9M6qbjcebGiLURhKd6PejJFuYdh7fmPo8dVB8Ey
   pulumi-blog-infra:domain: gaulish.io

@@ -49,6 +49,7 @@ ECS is expensive. A simple Docker Cluster ends up costing ~40$/month. 9$ Cloudwa
 - [ ] Fill out the Schema's in the astro blog a bit better
 - [ ] Update the images used in MainPageLayout (the ones that will also appear in OpenGraph & twitter)
 - [ ] Setup posthog
+- [ ] Fix the font flicker
 
 ### How to host
 

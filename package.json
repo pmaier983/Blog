@@ -10,7 +10,8 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "*TODO": "How to automatically update the task and the service as well!",
     "docker:build:push:prod": "dotenv -e .env.prod docker compose build && dotenv -e .env.prod docker compose push",
-    "docker:build:push:dev": "dotenv -e .env docker compose build && dotenv -e .env docker compose push"
+    "docker:build:push:dev": "dotenv -e .env docker compose build && dotenv -e .env docker compose push",
+    "docker:up": "dotenv -e .env.docker docker compose up -d --build"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",

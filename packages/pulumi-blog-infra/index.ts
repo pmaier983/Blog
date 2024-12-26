@@ -12,7 +12,7 @@ const DOMAIN = config.require("domain")
 const INSTANCE_TAG = "blog"
 
 const staticIP = new gcp.compute.Address(`blog-static-ip-${stackName}`, {
-  name: "blog-static-ip",
+  name: `blog-static-ip-${stackName}`,
   region: REGION,
 })
 

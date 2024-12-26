@@ -1,7 +1,15 @@
 ---
+// TODO: how to fix all the ts-ignore's in this file?
 
+if (!import.meta.env.DOMAIN) {
+  throw new Error("Missing DOMAIN environment variable")
+}
+
+const DOMAIN = import.meta.env.DOMAIN
 ---
 
+<!-- There has to be a better way to do this... --><!-- define:vars was not working -->
+<div id="domain" style="display:none">{DOMAIN}</div>
 <script is:inline>
   // @ts-ignore
   !(function (t, e) {
@@ -58,9 +66,12 @@
       (e.__SV = 1))
     // @ts-ignore
   })(document, window.posthog || [])
+
+  const DOMAIN = document?.getElementById("domain")?.innerText
+
   // @ts-ignore
   posthog.init("phc_FqaVVXP82fWctda9PyvRYuHYkFt6Mytxg9MVCJtrQED", {
-    api_host: "https://us.i.posthog.com",
+    api_host: `https://posthog.${DOMAIN}`,
     person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
   })
 </script>
