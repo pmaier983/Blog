@@ -30,24 +30,6 @@ services:
     environment:
       DEFAULT_EMAIL: ${EMAIL}
 
-  posthog-nginx:
-    build:
-      context: ./packages/posthog
-      dockerfile: Dockerfile
-    container_name: posthog-nginx
-    restart: always
-    depends_on:
-      - nginx-proxy
-    ports:
-      - 8081:8081
-    environment:
-      VIRTUAL_HOST: posthog.${DOMAIN}
-      VIRTUAL_PORT: 8081
-      LETSENCRYPT_HOST: posthog.${DOMAIN}
-      LETSENCRYPT_EMAIL: ${EMAIL}
-    volumes:
-      - ./packages/posthog/nginx.conf:/etc/nginx/nginx.conf:ro
-
   blog-backend:
     image: ${DOCKER_REGISTRY}/blog-backend
     container_name: blog-backend
