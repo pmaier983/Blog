@@ -75,6 +75,14 @@ const backendARecord = new gcp.dns.RecordSet(
   },
 )
 
+const posthogARecord = new gcp.dns.RecordSet(`posthog-record-${stackName}`, {
+  name: `posthog.${DOMAIN}.`,
+  type: "A",
+  ttl: 300,
+  managedZone: ZONE_NAME,
+  rrdatas: [staticIpAddress],
+})
+
 const wwwCnameRecord = new gcp.dns.RecordSet(`blog-www-record-${stackName}`, {
   name: `www.${DOMAIN}.`,
   type: "CNAME",
