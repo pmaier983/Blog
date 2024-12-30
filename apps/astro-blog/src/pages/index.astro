@@ -36,7 +36,7 @@ if (Astro.request.method === "POST") {
 ---
 
 <MainPageLayout
-  class="flex flex-1 justify-center items-center"
+  class="flex flex-1 justify-center items-center p-2"
   pageTitle={title}
   pageDescription={description}
   imagePath={imagePath}
@@ -83,7 +83,7 @@ if (Astro.request.method === "POST") {
           />
         </div>
       </div>
-      <h2 class="w-2/3 text-center text-lg font-medium">
+      <h2 class="w-2/3 text-center text-sm sm:text-lg font-medium">
         I'm a software engineer with a passion for helping others, on a mission
         to learn and build as much as possible.
       </h2>
@@ -91,10 +91,13 @@ if (Astro.request.method === "POST") {
     <div class="flex justify-center">
       <ButtonGrid client:load />
     </div>
-    <div class="flex flex-col items-center gap-4 pt-4">
-      <form method="post" class="flex flex-col gap-3 items-center w-2/3">
+    <div class="flex flex-col items-center gap-4 sm:pt-4">
+      <form
+        method="post"
+        class="flex flex-col gap-3 items-center w-2/3 text-sm sm:text-md"
+      >
         <label> Add yourself to a list I might use someday. </label>
-        <div class="flex flex-col md:flex-row gap-3">
+        <div class="flex flex-row gap-3">
           <!-- Name Field -->
           <div class="flex-col w-full hidden md:flex">
             <label for="name" class="text-sm font-medium text-gray-700 mb-1">
