@@ -43,14 +43,14 @@ ECS is expensive. A simple Docker Cluster ends up costing ~40$/month. 9$ Cloudwa
 - [x] Create a page that just lists projects
 - [x] Create a page that has a bunch of cool links & descriptions
 - [ ] Properly configure RLS for supabase (https://supabase.com/docs/guides/database/postgres/row-level-security#row-level-security-in-supabase)
-- [ ] Transition to use @total-typescript/tsconfig (https://github.com/total-typescript/tsconfig)
 - [ ] Look into keeping deps on the same version (https://turbo.build/repo/docs/crafting-your-repository/managing-dependencies#keeping-dependencies-on-the-same-version)
 - [ ] How to avoid adding the ugly `.js` to my file imports in backend-core? (how deep down the build rabbit hole do i want to go)
 - [ ] look into using tsup (https://github.com/egoist/tsup) along with tsc.
-- [ ] Fill out the Schema's in the astro blog a bit better
-- [ ] Update the images used in MainPageLayout (the ones that will also appear in OpenGraph & twitter)
-- [ ] Setup posthog
-- [ ] Fix the font flicker
+- [x] Fill out the Schema's in the astro blog a bit better
+- [x] Update the images used in MainPageLayout (the ones that will also appear in OpenGraph & twitter)
+- [x] Fix the font flicker
+- [ ] Figure out how to avoid the ERR_SSL_UNRECOGNIZED_NAME_ALERT that results from deploying too much
+- [ ] Setup an easier way to modify the COOL_LINKS list compared to updating the entire site
 
 ### How to host
 
