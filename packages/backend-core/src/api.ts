@@ -15,8 +15,10 @@ export const t = initTRPC.context<typeof createContext>().create()
 export const router = t.router
 export const publicProcedure = t.procedure
 
+const buttonNameSchema = z.union([z.nativeEnum(BUTTON_NAME), z.string()])
+
 const buttonClickSchema = z.object({
-  name: z.nativeEnum(BUTTON_NAME),
+  name: buttonNameSchema,
   userAgent: z.string().optional(),
   language: z.string().optional(),
   screenResolution: z.string().optional(),
@@ -26,7 +28,7 @@ export const appRouter = t.router({
   getButtons: publicProcedure
     .input(
       z.object({
-        names: z.array(z.nativeEnum(BUTTON_NAME)),
+        names: z.array(buttonNameSchema),
       }),
     )
     .query(async ({ input: { names } }) => {
@@ -38,7 +40,7 @@ export const appRouter = t.router({
       return listOfButtons
     }),
   getButton: publicProcedure
-    .input(z.object({ name: z.nativeEnum(BUTTON_NAME) }))
+    .input(z.object({ name: buttonNameSchema }))
     .query(async ({ input: { name } }) => {
       const button = await db.query.buttons.findFirst({
         where: eq(buttons.name, name),

@@ -56,6 +56,40 @@ export const subnetId = subnet.id
 
 export const firewallId = firewall.id
 
+/**
+ * Create a bucket to host some static content for the blog
+ */
+const bucket = new gcp.storage.Bucket(
+  `pmaier-blog-static-bucket-${stackName}`,
+  {
+    name: `pmaier-blog-static-bucket-${stackName}`,
+    location: REGION,
+    uniformBucketLevelAccess: true,
+    cors: [
+      {
+        origins: ["*"],
+        methods: ["GET"],
+        responseHeaders: ["Content-Type"],
+        maxAgeSeconds: 3600,
+      },
+    ],
+  },
+)
+
+// Set IAM policy to allow public read access for objects
+const bucketIamBinding = new gcp.storage.BucketIAMBinding(
+  `pmaier-blog-static-bucket-iam-binding-${stackName}`,
+  {
+    bucket: bucket.name,
+    role: "roles/storage.objectViewer",
+    members: ["allUsers"],
+  },
+)
+
+// Export the bucket name and public URL
+export const bucketName = bucket.name
+export const bucketPublicUrl = pulumi.interpolate`https://storage.googleapis.com/${bucket.name}/`
+
 const aRecord = new gcp.dns.RecordSet(`blog-root-record-${stackName}`, {
   name: `${DOMAIN}.`,
   type: "A",

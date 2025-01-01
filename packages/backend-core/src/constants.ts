@@ -72,6 +72,8 @@ export const BUTTON_NAME = {
   frontend_guidelines: "frontend_guidelines",
   css_beginner_summary: "css_beginner_summary",
   is_it_worth_optimizing_workflow: "is_it_worth_optimizing_workflow",
+  solid_angular_blog: "solid_angular_blog",
+  angular_change_detection: "angular_change_detection",
 } as const
 
 export type ButtonName = keyof typeof BUTTON_NAME
