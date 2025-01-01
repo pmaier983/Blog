@@ -1,18 +1,22 @@
 import { trpcReactQuery } from "~/utils/client"
 import { CoolLink } from "~/components/CoolLink"
-import { COOL_LINKS } from "~/utils/consts"
 import { withQueryProvider } from "~/utils/withQueryProvider"
+import type { CoolLink as CoolLinkType } from "~/utils/consts"
 
-const BUTTON_NAMES = COOL_LINKS.map((link) => link.name)
+interface CoolLinksProps {
+  links: CoolLinkType[]
+}
 
-const CoolLinksCore = () => {
+const CoolLinksCore = ({ links }: CoolLinksProps) => {
   const utils = trpcReactQuery.useUtils()
 
+  const buttonNames = links.map((link) => link.name)
+
   const buttonsQuery = trpcReactQuery.getButtons.useQuery({
-    names: BUTTON_NAMES,
+    names: buttonNames,
   })
 
-  const linksWithClicks = COOL_LINKS.map((link) => {
+  const linksWithClicks = links.map((link) => {
     const button = buttonsQuery.data?.find((b) => b.name === link.name)
     return {
       ...link,
@@ -25,9 +29,9 @@ const CoolLinksCore = () => {
     onMutate: async (variables) => {
       const { name } = variables
 
-      const previousData = utils.getButtons.getData({ names: BUTTON_NAMES })
+      const previousData = utils.getButtons.getData({ names: buttonNames })
 
-      utils.getButtons.setData({ names: BUTTON_NAMES }, (oldData) => {
+      utils.getButtons.setData({ names: buttonNames }, (oldData) => {
         if (!oldData) return []
         return oldData.map((button) =>
           button.name === name
@@ -43,7 +47,7 @@ const CoolLinksCore = () => {
 
       // Roll back to the previous data
       if (context?.previousData) {
-        utils.getButtons.setData({ names: BUTTON_NAMES }, context.previousData)
+        utils.getButtons.setData({ names: buttonNames }, context.previousData)
       }
     },
   })

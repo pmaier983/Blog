@@ -1,6 +1,8 @@
 ---
 import type Schema from "schema-dts"
+import { z } from "zod"
 
+import { CoolLinkSchema } from "~/utils/consts"
 import MainPageLayout from "~/layouts/MainPageLayout.astro"
 import { CoolLinks as CoolLinksComponent } from "~/components/pages/links/CoolLinks"
 
@@ -8,6 +10,16 @@ const title = "Cool Links"
 const description = "A List of Links Phillip finds useful"
 const imagePath = "pfp-human.webp"
 const imageAlt = "A photo of Phillip in-front of trees"
+
+// Replace with your actual bucket URL for the JSON file
+const bucketUrl =
+  "https://storage.googleapis.com/pmaier-blog-static-bucket-prod/cool_links.json"
+
+// Fetch the links at build time
+const possibleCoolLinks = await fetch(bucketUrl).then((res) => res.json())
+
+// verify with zod
+const coolLinks = z.array(CoolLinkSchema).parse(possibleCoolLinks) ?? []
 ---
 
 <MainPageLayout
@@ -36,5 +48,5 @@ const imageAlt = "A photo of Phillip in-front of trees"
   } satisfies Schema.WithContext<Schema.WebPage>}
   class="grid gap-4 p-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
 >
-  <CoolLinksComponent client:load />
+  <CoolLinksComponent links={coolLinks} client:load />
 </MainPageLayout>
