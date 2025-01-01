@@ -50,7 +50,8 @@ ECS is expensive. A simple Docker Cluster ends up costing ~40$/month. 9$ Cloudwa
 - [x] Update the images used in MainPageLayout (the ones that will also appear in OpenGraph & twitter)
 - [x] Fix the font flicker
 - [ ] Figure out how to avoid the ERR_SSL_UNRECOGNIZED_NAME_ALERT that results from deploying too much
-- [ ] Setup an easier way to modify the COOL_LINKS list compared to updating the entire site
+- [x] Setup an easier way to modify the COOL_LINKS list compared to updating the entire site
+  - [ ] setup github actions to auto update the bucket on change
 
 ### How to host
 
