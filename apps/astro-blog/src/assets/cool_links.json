@@ -1,5 +1,10 @@
 [
   {
+    "title": "An amazing UI/UX toast component for React",
+    "links": ["https://sonner.emilkowal.ski"],
+    "name": "nice_toast_component"
+  },
+  {
     "title": "Video about Angular Change detection and some of its new nuances",
     "links": ["https://www.youtube.com/watch?v=54o9eSGjfW4"],
     "name": "angular_change_detection"
