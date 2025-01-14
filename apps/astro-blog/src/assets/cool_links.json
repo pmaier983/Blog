@@ -1,5 +1,17 @@
 [
   {
+    "title": "A great animations course (framer-motion & spring)",
+    "links": ["https://animations.dev/"],
+    "name": "animations_course"
+  },
+  {
+    "title": "An interesting blog post that does a surface level overview of Flutter vs. React Native ",
+    "links": [
+      "https://newsletter.pragmaticengineer.com/p/cross-platform-mobile-development"
+    ],
+    "name": "react_native_vs_flutter_overview"
+  },
+  {
     "title": "An amazing UI/UX toast component for React",
     "links": ["https://sonner.emilkowal.ski"],
     "name": "nice_toast_component"
