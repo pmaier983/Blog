@@ -27,6 +27,7 @@ const props = Astro.props
 <html lang="en">
   <head>
     <script 
+      is:inline
       type="application/ld+json" 
       set:html={JSON.stringify(props.schema)}>
     </script>

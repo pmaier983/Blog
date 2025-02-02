@@ -36,11 +36,8 @@ RUN if [ -z "$PUBLIC_FRONTEND_URL" ]; then echo "PUBLIC_FRONTEND_URL is not set"
 
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
-# https://nodejs.org/api/corepack.html
-# Help to id the version of the package manager (and install it!)
-RUN corepack enable
-# install & setup turbo
-RUN pnpm -g i turbo
+# install & setup turbo & pnpm
+RUN npm install pnpm turbo --global
 
 ############### Setup the files for the project ###############
 FROM base AS builder

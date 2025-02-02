@@ -48,11 +48,8 @@ RUN if [ -z "$DOMAIN" ]; then echo "DOMAIN is not set"; exit 1; fi
 
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
-# https://nodejs.org/api/corepack.html
-# Help to id the version of the package manager (and install it!)
-RUN corepack enable
-# install & setup turbo
-RUN pnpm -g i turbo
+# install & setup turbo & pnpm
+RUN npm install pnpm turbo --global
 
 ############### Setup the files for the project ###############
 FROM base AS builder
