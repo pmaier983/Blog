@@ -25,6 +25,12 @@
       "cache": false,
       "persistent": true,
       "inputs": ["$TURBO_DEFAULT$", ".env"]
+    },
+    "@repo/pulumi-blog#build": {
+      "outputs": []
+    },
+    "@repo/pulumi-blog-infra#build": {
+      "outputs": []
     }
   }
 }
