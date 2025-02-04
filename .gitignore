@@ -19,12 +19,24 @@ coverage
 # Vercel
 .vercel
 
+# IDEs and editors
+.idea
+.project
+.classpath
+.c9
+*.launch
+.settings
+*.sublime-workspace
+
 # Build Outputs
-.next/
-out/
+.angular
+.next
+out
 build
 dist
-
+tmp
+out-tsc
+bazel-out
 
 # Debug
 npm-debug.log*
@@ -35,3 +47,14 @@ yarn-error.log*
 .DS_Store
 *.pem
 tsconfig.tsbuildinfo
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# System files
+.DS_Store
+Thumbs.db
