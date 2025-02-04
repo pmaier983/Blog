@@ -94,6 +94,7 @@ const instance = new gcp.compute.Instance(`blog-instance-${stackName}`, {
   zone: ZONE,
   // Use n2-standard-2 for standard dev work (its a bit faster and worth the cost)
   // use e2-small for prod to save on costs
+  // e2-micro does not work sadly (believe me I tried)
   // https://cloud.google.com/compute/all-pricing
   machineType: stackName === "prod" ? "e2-small" : "n2-standard-2",
   bootDisk: {
