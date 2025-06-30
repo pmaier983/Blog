@@ -25,33 +25,29 @@ Setting up a nice flow from Docker -> ECS -> https Route53 endpoint is annoyingl
 
 ECS is expensive. A simple Docker Cluster ends up costing ~40$/month. 9$ Cloudwatch, 11$ VPC, 17$ ELB.
 
+A single VM serving multiple sites is pain. No easy way to revert if you deploy a broken version. If some config is wrong in the VM everything breaks. Very much "single point of failure" type design... and there are lots of points of failure you control as you control the entire path from user -> site -> backend. Its likely a much better idea to partition out the sections (microservices) and attempt to ensure you need to manage as few of the services as possible. No VM based SSR, just use cloudflare pages, no VM based backend, just use GCP cloud run etc. etc.
+
 ## TODO
 
-- [x] Add an interactive counter button that increments an "I was here" button, and connects to my db
-  - [x] Convert from my custom blog api -> supabase default api
-  - [x] Consider switching back to custom blog api if possible
+- [ ] The Big Re-work V3
+  - [ ] Setup Cloudflare Pages in Pulumi
+    - [ ] Deploy Astro Blog
+  - [ ] Decide how to host the BE API (Cloudrun, AWS Lambda, Azure, My brothers VM?)
+  - [ ] Mess with all the stupid domain hosting point stuff again and get phillipmaier.com working
 - [x] Setup all infrastructure in Pulumi https://www.pulumi.com/
-  - [x] Cleanup the whole DOMAIN and backend env + Pulumi
   - [ ] Properly configure gaulish.io as the dev domain (and make deploying it easy)
-  - [ ] Switch to Hetzner when this is fixed: (https://github.com/pulumi/pulumi-hcloud/issues/671)
-  - [ ] Switch to use only Ipv6
-- [x] How to host? (section below)
-- [x] Setup a way to auto build & deploy each app/route
 - [ ] Separate deps into required and devDeps
-- [x] Build a home page based on some Dalle Mocks
-- [x] Properly Configure docker .env
-- [x] Create a page that just lists projects
-- [x] Create a page that has a bunch of cool links & descriptions
 - [ ] Properly configure RLS for supabase (https://supabase.com/docs/guides/database/postgres/row-level-security#row-level-security-in-supabase)
 - [ ] Look into keeping deps on the same version (https://turbo.build/repo/docs/crafting-your-repository/managing-dependencies#keeping-dependencies-on-the-same-version)
 - [ ] How to avoid adding the ugly `.js` to my file imports in backend-core? (how deep down the build rabbit hole do i want to go)
 - [ ] look into using tsup (https://github.com/egoist/tsup) along with tsc.
-- [x] Fill out the Schema's in the astro blog a bit better
-- [x] Update the images used in MainPageLayout (the ones that will also appear in OpenGraph & twitter)
-- [x] Fix the font flicker
 - [ ] Figure out how to avoid the ERR_SSL_UNRECOGNIZED_NAME_ALERT that results from deploying too much
-- [x] Setup an easier way to modify the COOL_LINKS list compared to updating the entire site
-  - [ ] setup github actions to auto update the bucket on change
+- [ ] setup github actions to auto update the cool-links bucket on change
+
+### Old But interesting TODO's
+
+- [ ] Switch to Hetzner when this is fixed: (https://github.com/pulumi/pulumi-hcloud/issues/671)
+- [ ] Switch to use only Ipv6
 
 ### How to host
 
@@ -59,7 +55,11 @@ The goal: host a bunch of docker containers to run each of my blogs web apps.
 
 #### Options:
 
-##### Option 1 - VM:
+##### Option 0 - Separate "microservices":
+
+The overall plan is to have an API, and then several Server and client based FE's. I can host all these FE's individually on cloudflare pages for free while hosting the API on cloud run or some alternative. This gives me the benefits of easy rollbacks, isolated services and its cheap! Its not really microservices, as its not a bunch of self hosted stuff in docker containers, its better! Other people manage the services and I just use them (obviously is not as flexible as my own K8's cluster, or as cheap at scale, but this is a blog, not a company).
+
+##### (Rejected) Option 1 - VM:
 
 Host a docker compose cluster on a VM (Heroku, EC2, Droplet, Linode). There is probably a bunch of configuration needed to make all the security and porting work, but this would probably be the cheapest option.
 
