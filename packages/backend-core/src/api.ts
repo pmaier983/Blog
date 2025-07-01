@@ -1,4 +1,5 @@
 import { initTRPC } from "@trpc/server"
+import type * as trpcExpressType from "@trpc/server/adapters/express"
 import { z } from "zod"
 import { createId } from "@paralleldrive/cuid2"
 import { eq, inArray } from "drizzle-orm"
@@ -8,9 +9,13 @@ import { buttonClicks, buttons, emailSignups } from "./db/schema.js"
 import { db } from "./db/db.js"
 import { BUTTON_NAME } from "./constants.js"
 
-export const createContext = () => ({})
+// created for each request
+export const createContext =
+  ({}: trpcExpressType.CreateExpressContextOptions) => ({}) // no context
 
-export const t = initTRPC.context<typeof createContext>().create()
+type Context = Awaited<ReturnType<typeof createContext>>
+
+export const t = initTRPC.context<Context>().create()
 
 export const router = t.router
 export const publicProcedure = t.procedure

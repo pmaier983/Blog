@@ -6,7 +6,7 @@ type RgbColor = `rgb(${number}, ${number}, ${number})`
 interface IncrementingButtonProps {
   children: React.ReactNode
   clickCount: number | undefined
-  highlightColor?: RgbColor
+  highlightColor: RgbColor
   href: string
   onClick: () => void
   className?: string
