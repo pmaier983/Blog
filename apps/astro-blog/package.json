@@ -39,7 +39,7 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "schema-dts": "^1.1.5",
-    "tailwindcss": "^4.1.11",
+    "tailwindcss": "3.4.17",
     "zod": "^3.25.67"
   },
   "devDependencies": {

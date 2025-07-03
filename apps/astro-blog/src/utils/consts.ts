@@ -2,9 +2,6 @@ import { atom } from "jotai"
 import { Home, Book, Folder } from "lucide-react"
 import { QueryClient } from "@tanstack/react-query"
 import { z } from "zod"
-import { httpBatchLink } from "@trpc/client"
-
-import { TRPC_URL, trpcReactQuery } from "~/utils/client"
 
 export const SITE_TITLE = "Phillip Maier's Personal Website"
 export const SITE_DESCRIPTION =
@@ -16,16 +13,6 @@ export const GITHUB_URL = "https://github.com/pmaier983"
 export const TWITTER_URL = "https://x.com/pmaier983"
 
 export const queryClientAtom = atom(new QueryClient())
-
-export const trpcQueryClientAtom = atom(
-  trpcReactQuery.createClient({
-    links: [
-      httpBatchLink({
-        url: TRPC_URL,
-      }),
-    ],
-  }),
-)
 
 export const NAVIGABLE_PAGES: {
   title: string

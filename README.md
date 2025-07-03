@@ -32,6 +32,7 @@ A single VM serving multiple sites is pain. No easy way to revert if you deploy 
 - [ ] The Big Re-work V3
   - [ ] Setup Cloudflare Pages in Pulumi
     - [ ] Deploy Astro Blog
+      - [ ] Bump Tailwind when you get a chance
   - [ ] Decide how to host the BE API (Cloudrun, AWS Lambda, Azure, My brothers VM?)
   - [ ] Mess with all the stupid domain hosting point stuff again and get phillipmaier.com working
 - [x] Setup all infrastructure in Pulumi https://www.pulumi.com/
