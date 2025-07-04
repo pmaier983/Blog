@@ -1,5 +1,40 @@
 [
   {
+    "title": "Ugh, min-width: 0. Blessing and Curse",
+    "links": ["https://www.youtube.com/watch?v=FD3aC_Ke8uk&t=1s"],
+    "name": "min_width_0"
+  },
+  {
+    "title": "A slightly deep dive into CSS height",
+    "links": ["https://www.joshwcomeau.com/css/height-enigma/"],
+    "name": "css_height_enigma"
+  },
+  {
+    "title": "How to measure dev productivity",
+    "links": [
+      "https://newsletter.getdx.com/p/setting-targets-for-developer-productivity-metrics"
+    ],
+    "name": "measure_dev_productivity"
+  },
+  {
+    "title": "Right To Left Languages",
+    "links": [
+      "https://rtlstyling.com/posts/rtl-styling",
+      "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values"
+    ],
+    "name": "right_to_left_languages"
+  },
+  {
+    "title": "Grainy CSS Gradients!",
+    "links": ["https://frontendmasters.com/blog/grainy-gradients/"],
+    "name": "grainy_css_gradients"
+  },
+  {
+    "title": "In detail video about browser rendering",
+    "links": ["https://www.youtube.com/watch?v=PwYxv-43iM4"],
+    "name": "browser_rendering"
+  },
+  {
     "title": "A great animations course (framer-motion & spring)",
     "links": ["https://animations.dev/"],
     "name": "animations_course"
