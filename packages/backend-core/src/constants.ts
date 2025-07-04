@@ -74,6 +74,15 @@ export const BUTTON_NAME = {
   is_it_worth_optimizing_workflow: "is_it_worth_optimizing_workflow",
   solid_angular_blog: "solid_angular_blog",
   angular_change_detection: "angular_change_detection",
+  min_width_0: "min_width_0",
+  css_height_enigma: "css_height_enigma",
+  measure_dev_productivity: "measure_dev_productivity",
+  right_to_left_languages: "right_to_left_languages",
+  grainy_css_gradients: "grainy_css_gradients",
+  browser_rendering: "browser_rendering",
+  animations_course: "animations_course",
+  react_native_vs_flutter_overview: "react_native_vs_flutter_overview",
+  nice_toast_component: "nice_toast_component",
 } as const
 
 export type ButtonName = keyof typeof BUTTON_NAME
