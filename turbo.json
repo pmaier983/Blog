@@ -26,10 +26,7 @@
       "persistent": true,
       "inputs": ["$TURBO_DEFAULT$", ".env"]
     },
-    "@repo/pulumi-blog#build": {
-      "outputs": []
-    },
-    "@repo/pulumi-blog-infra#build": {
+    "@repo/pulumi-build-deploy-backend-api#build": {
       "outputs": []
     }
   }

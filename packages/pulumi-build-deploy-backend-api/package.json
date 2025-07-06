@@ -1,0 +1,16 @@
+{
+  "name": "pulumi-build-deploy-backend-api",
+  "scripts": {
+    "build": "tsc",
+    "pulumi-up": "dotenv -e .env -e ../../.env.prod -- pulumi up --stack prod --yes"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "22.13.14"
+  },
+  "dependencies": {
+    "@pulumi/docker": "4.8.0",
+    "@pulumi/gcp": "8.36.0",
+    "@pulumi/pulumi": "3.181.0"
+  }
+}

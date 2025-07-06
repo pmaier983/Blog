@@ -1,0 +1,5 @@
+config:
+  gcp:project: blog-442719
+  gcp:region: us-west2
+  pulumi-build-deploy-backend-api:docker-image-name: blog-backend-api
+  pulumi-build-deploy-backend-api:artifact-registry-repo-id: blog-docker-repo

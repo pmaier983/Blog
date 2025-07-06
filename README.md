@@ -30,10 +30,12 @@ A single VM serving multiple sites is pain. No easy way to revert if you deploy 
 ## TODO
 
 - [ ] The Big Re-work V3
+  - [x] Deploy Backend API on Cloud run
+    - [ ] Ensure access only from phillipmaier.com (from the backend api)
   - [ ] Setup Cloudflare Pages in Pulumi
     - [ ] Deploy Astro Blog
       - [ ] Bump Tailwind when you get a chance
-  - [ ] Decide how to host the BE API (Cloudrun, AWS Lambda, Azure, My brothers VM?)
+  - [x] Decide how to host the BE API (Cloudrun, AWS Lambda, Azure, My brothers VM?)
   - [ ] Mess with all the stupid domain hosting point stuff again and get phillipmaier.com working
 - [x] Setup all infrastructure in Pulumi https://www.pulumi.com/
   - [ ] Properly configure gaulish.io as the dev domain (and make deploying it easy)

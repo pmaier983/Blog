@@ -15,7 +15,8 @@
     "forceConsistentCasingInFileNames": true,
     "verbatimModuleSyntax": false,
     "noUnusedLocals": false,
-    "noUnusedParameters": false
+    "noUnusedParameters": false,
+    "allowImportingTsExtensions": false
   },
   "include": ["index.ts"],
   "exclude": ["node_modules"]

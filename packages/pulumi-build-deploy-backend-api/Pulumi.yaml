@@ -1,0 +1,6 @@
+name: pulumi-build-deploy-backend-api
+description: Builds and deploys the backend API to a cloud run service
+runtime:
+  name: nodejs
+  options:
+    packagemanager: pnpm
