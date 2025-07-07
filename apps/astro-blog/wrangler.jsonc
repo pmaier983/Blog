@@ -1,7 +1,6 @@
 {
-  "name": "my-astro-app",
-  // Update to today's date
-  "compatibility_date": "2025-03-25",
+  "name": "astro-blog",
+  "compatibility_date": "2025-07-07",
   "assets": {
     "directory": "./dist",
   },
