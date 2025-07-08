@@ -24,6 +24,7 @@ app.use(
       process.env.PUBLIC_FRONTEND_URL,
       "http://localhost:4321",
       "http://astro-blog:4321",
+      "https://phillipmaier.com",
     ], // Replace with the allowed origin(s)
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allowed methods
     credentials: true, // Allow credentials (e.g., cookies, auth headers)
