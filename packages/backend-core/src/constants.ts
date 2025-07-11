@@ -6,6 +6,7 @@ export const BUTTON_NAME = {
   github: "github",
 
   // COOL LINK button names
+  // TODO: make these links automatically generated from the cool_links.json file
   falsehoods_programmers: "falsehoods_programmers",
   best_gcp_region: "best_gcp_region",
   how_to_write_blog: "how_to_write_blog",
@@ -83,6 +84,8 @@ export const BUTTON_NAME = {
   animations_course: "animations_course",
   react_native_vs_flutter_overview: "react_native_vs_flutter_overview",
   nice_toast_component: "nice_toast_component",
+  leading_with_intent: "leading_with_intent",
+  informed_experimentation: "informed_experimentation",
 } as const
 
 export type ButtonName = keyof typeof BUTTON_NAME
